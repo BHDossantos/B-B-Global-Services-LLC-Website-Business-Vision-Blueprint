@@ -1,0 +1,82 @@
+import type { Metadata } from "next";
+import { PageHeader } from "@/components/PageHeader";
+import { Section } from "@/components/ui";
+import { ContactForm } from "@/components/ContactForm";
+import { Icon } from "@/components/Icon";
+import { siteConfig } from "@/lib/siteConfig";
+import { engagementOffers } from "@/lib/content/site-content";
+
+export const metadata: Metadata = {
+  title: "Contact — Schedule a Discovery Call",
+  description:
+    "Tell us about your goals and systems. Book a consultation, request an assessment, or ask about managed services.",
+};
+
+export default function ContactPage() {
+  return (
+    <>
+      <PageHeader
+        eyebrow="Contact"
+        title="Schedule a Discovery Call"
+        description="Whether you're building an app, modernizing cloud, improving security, supporting your workforce, or preparing for disaster recovery — let's talk."
+      />
+
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
+          <div>
+            <ContactForm />
+          </div>
+
+          <aside className="space-y-8">
+            <div>
+              <h2 className="text-lg font-semibold text-navy-900">
+                Prefer to book directly?
+              </h2>
+              <p className="mt-2 text-sm text-navy-600">
+                Grab a time that works for you and we&apos;ll come prepared.
+              </p>
+              <a
+                href={siteConfig.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-accent-600"
+              >
+                <Icon name="calendar" className="h-4 w-4" />
+                Book on Calendly
+              </a>
+            </div>
+
+            <div className="space-y-3 border-t border-navy-100 pt-6 text-sm">
+              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-navy-700 hover:text-accent-600">
+                <Icon name="mail" className="h-5 w-5 text-accent-500" />
+                {siteConfig.email}
+              </a>
+              <a href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`} className="flex items-center gap-3 text-navy-700 hover:text-accent-600">
+                <Icon name="phone" className="h-5 w-5 text-accent-500" />
+                {siteConfig.phone}
+              </a>
+              <p className="flex items-center gap-3 text-navy-600">
+                <Icon name="building" className="h-5 w-5 text-accent-500" />
+                {siteConfig.locations.join(" · ")}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-navy-100 bg-navy-50 p-6">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-600">
+                Easy Ways to Start
+              </h3>
+              <ul className="mt-4 space-y-4">
+                {engagementOffers.map((offer) => (
+                  <li key={offer.name}>
+                    <p className="font-semibold text-navy-900">{offer.name}</p>
+                    <p className="text-sm text-navy-600">{offer.price}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </Section>
+    </>
+  );
+}

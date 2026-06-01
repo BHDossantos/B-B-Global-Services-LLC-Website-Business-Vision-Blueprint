@@ -10,6 +10,7 @@ const company = [
   { label: "Industries", href: "/industries" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
+  { label: "Capability Statement", href: "/capability-statement" },
   { label: "Contact", href: "/contact" },
 ];
 

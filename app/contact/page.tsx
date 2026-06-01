@@ -61,6 +61,23 @@ export default function ContactPage() {
               </p>
             </div>
 
+            <div>
+              <h2 className="text-lg font-semibold text-navy-900">
+                Capability statement
+              </h2>
+              <p className="mt-2 text-sm text-navy-600">
+                A one-page overview of our competencies, differentiators, and
+                engagement models — ready to share with your team.
+              </p>
+              <a
+                href="/capability-statement"
+                className="mt-4 inline-flex items-center gap-2 rounded-lg border border-navy-200 px-5 py-3 text-sm font-semibold text-navy-800 transition hover:border-navy-400 hover:bg-navy-50"
+              >
+                <Icon name="arrow" className="h-4 w-4" />
+                View &amp; Download
+              </a>
+            </div>
+
             <div className="rounded-2xl border border-navy-100 bg-navy-50 p-6">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-600">
                 Easy Ways to Start

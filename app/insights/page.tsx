@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/ui";
 import { BlogCard } from "@/components/cards";
@@ -23,14 +24,11 @@ export default function InsightsPage() {
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {insights.map((post) => (
-            <BlogCard key={post.slug} post={post} />
+            <Link key={post.slug} href={`/insights/${post.slug}`}>
+              <BlogCard post={post} />
+            </Link>
           ))}
         </div>
-        <p className="mt-10 rounded-xl border border-dashed border-navy-200 bg-navy-50 px-5 py-4 text-sm text-navy-600">
-          This section is wired for a blog/insights CMS. Articles are sample
-          content today and can be connected to a headless CMS or MDX without
-          changing the page layout.
-        </p>
       </Section>
 
       <CTABanner

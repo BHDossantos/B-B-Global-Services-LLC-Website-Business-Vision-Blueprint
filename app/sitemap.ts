@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/content/services";
 import { solutions } from "@/lib/content/solutions";
+import { caseStudies, insights } from "@/lib/content/site-content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -38,5 +39,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...solutionRoutes];
+  const caseStudyRoutes = caseStudies.map((c) => ({
+    url: `${base}/case-studies/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const insightRoutes = insights.map((p) => ({
+    url: `${base}/insights/${p.slug}`,
+    lastModified: new Date(p.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...solutionRoutes,
+    ...caseStudyRoutes,
+    ...insightRoutes,
+  ];
 }

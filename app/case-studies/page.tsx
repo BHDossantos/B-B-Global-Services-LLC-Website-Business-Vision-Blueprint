@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, Card } from "@/components/ui";
 import { CTABanner } from "@/components/CTABanner";
+import { Icon } from "@/components/Icon";
 import { caseStudies } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
@@ -48,6 +50,12 @@ export default function CaseStudiesPage() {
                   </div>
                 ))}
               </dl>
+              <Link
+                href={`/case-studies/${study.slug}`}
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 transition hover:gap-2.5"
+              >
+                Read the full story <Icon name="arrow" className="h-4 w-4" />
+              </Link>
             </Card>
           ))}
         </div>

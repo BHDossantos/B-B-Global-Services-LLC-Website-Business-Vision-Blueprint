@@ -69,15 +69,34 @@ Update brand and integration details in **`lib/siteConfig.ts`**:
 ### Contact form / lead capture
 
 `app/api/contact/route.ts` validates submissions (with a honeypot for spam)
-and is ready to forward leads. Set an environment variable to wire it up:
+and fans each lead out to every configured destination. All integrations are
+**optional and independent** — with none set, leads are logged server-side.
+Copy `.env.example` to `.env.local` and fill in what you use:
 
-```bash
-# .env.local
-CONTACT_WEBHOOK_URL=https://...   # generic webhook, Zapier, HubSpot, etc.
+| Integration | Variables | Purpose |
+|---|---|---|
+| **Resend** | `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | Email notification to the team (reply-to is the prospect) |
+| **HubSpot** | `HUBSPOT_PORTAL_ID`, `HUBSPOT_FORM_GUID` | CRM lead capture via Forms API |
+| **Webhook** | `CONTACT_WEBHOOK_URL` | Generic JSON POST (Zapier, Make, n8n, internal) |
+
+A downstream outage never blocks the user's success response or loses a lead.
+
+## Business collateral
+
+Sales, legal, and marketing templates live in `business/`:
+
 ```
-
-Without it, leads are logged server-side. Swap in HubSpot Forms API or
-Resend/SendGrid for production email + CRM as noted in the route file.
+business/
+  proposal-template.md          # Client proposal (Idea to Operations framework)
+  sow-template.md               # Statement of Work
+  msa-template.md               # Master Services Agreement (have a lawyer review)
+  discovery-call-script.md      # Sales discovery call guide
+  marketing/
+    linkedin-company-page.md    # LinkedIn page setup copy
+    linkedin-launch-posts.md    # 6 ready-to-post launch + thought-leadership posts
+    content-calendar.md         # 30-day starter content calendar
+    outreach-email-sequence.md  # Warm outreach email sequence
+```
 
 ## SEO
 

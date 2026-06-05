@@ -308,6 +308,26 @@ export const faqs = [
   },
 ];
 
+export type Testimonial = {
+  quote: string;
+  name: string;
+  title: string;
+  company: string;
+};
+
+// Real client testimonials only. Left empty intentionally so no fabricated
+// social proof ships. Add entries as approved quotes come in, e.g.:
+//   {
+//     quote: "B&B took us from a fragile, manual deployment process to a
+//             reliable CI/CD pipeline in weeks.",
+//     name: "Jane Smith",
+//     title: "VP of Engineering",
+//     company: "Acme SaaS",
+//   }
+// The homepage testimonials section renders automatically once this is
+// non-empty, and stays hidden while it's empty.
+export const testimonials: Testimonial[] = [];
+
 export const engagementOffers = [
   {
     name: "Technology Health Check",

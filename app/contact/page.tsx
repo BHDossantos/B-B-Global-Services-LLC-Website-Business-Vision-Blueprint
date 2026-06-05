@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
-import { Section } from "@/components/ui";
+import { Section, SectionHeading } from "@/components/ui";
 import { ContactForm } from "@/components/ContactForm";
+import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { Icon } from "@/components/Icon";
 import { siteConfig } from "@/lib/siteConfig";
 import { engagementOffers } from "@/lib/content/site-content";
@@ -92,6 +93,18 @@ export default function ContactPage() {
               </ul>
             </div>
           </aside>
+        </div>
+      </Section>
+
+      <Section muted>
+        <SectionHeading
+          align="center"
+          eyebrow="Book Instantly"
+          title="Pick a Time That Works for You"
+          description="Grab a slot for a 30-minute discovery call and we'll come prepared to talk through your goals."
+        />
+        <div className="mx-auto mt-10 max-w-3xl">
+          <CalendlyEmbed url={siteConfig.bookingUrl} />
         </div>
       </Section>
     </>

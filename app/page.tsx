@@ -8,6 +8,7 @@ import {
   PillItem,
 } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
+import { Testimonials } from "@/components/Testimonials";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { Icon } from "@/components/Icon";
 import { services } from "@/lib/content/services";
@@ -154,6 +155,9 @@ export default function HomePage() {
           </Button>
         </div>
       </Section>
+
+      {/* Testimonials — renders only when real quotes are added */}
+      <Testimonials />
 
       {/* FAQ */}
       <Section>

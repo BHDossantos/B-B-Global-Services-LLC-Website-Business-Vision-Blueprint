@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@/components/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/lib/siteConfig";
 
 const inter = Inter({
@@ -101,6 +102,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   );

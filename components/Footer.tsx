@@ -7,7 +7,8 @@ import { solutions } from "@/lib/content/solutions";
 
 const company = [
   { label: "About", href: "/about" },
-  { label: "Industries", href: "/industries" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Free Health Check", href: "/assessment" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
   { label: "Careers", href: "/careers" },
@@ -15,6 +16,11 @@ const company = [
   { label: "Capability Statement", href: "/capability-statement" },
   { label: "Client Portal", href: "/client-portal" },
   { label: "Contact", href: "/contact" },
+];
+
+const serviceAreas = [
+  { label: "New Hampshire", href: "/locations/new-hampshire" },
+  { label: "Boston", href: "/locations/boston" },
 ];
 
 export function Footer() {
@@ -94,6 +100,20 @@ export function Footer() {
               </li>
             </ul>
           </nav>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 border-t border-navy-800 py-5 text-xs text-navy-400">
+          <span className="font-semibold uppercase tracking-wide text-navy-300">
+            Service areas:
+          </span>
+          {serviceAreas.map((area, i) => (
+            <span key={area.href} className="flex items-center gap-2">
+              <Link href={area.href} className="hover:text-accent-400">
+                {area.label}
+              </Link>
+              {i < serviceAreas.length - 1 && <span aria-hidden>·</span>}
+            </span>
+          ))}
         </div>
 
         <div className="flex flex-col items-start justify-between gap-3 border-t border-navy-800 py-6 text-xs text-navy-400 sm:flex-row sm:items-center">

@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/content/services";
 import { solutions } from "@/lib/content/solutions";
 import { caseStudies, insights } from "@/lib/content/site-content";
+import { locations } from "@/lib/content/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -13,10 +14,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/solutions",
     "/industries",
+    "/pricing",
+    "/assessment",
     "/about",
     "/case-studies",
     "/insights",
     "/capability-statement",
+    "/careers",
+    "/partners",
     "/contact",
   ].map((path) => ({
     url: `${base}${path}`,
@@ -53,11 +58,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const locationRoutes = locations.map((l) => ({
+    url: `${base}/locations/${l.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticRoutes,
     ...serviceRoutes,
     ...solutionRoutes,
     ...caseStudyRoutes,
     ...insightRoutes,
+    ...locationRoutes,
   ];
 }

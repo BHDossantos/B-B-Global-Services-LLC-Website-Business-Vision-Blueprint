@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionHeading, Button, Card } from "@/components/ui";
 import { PillItem } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
+import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
 import { services, getService } from "@/lib/content/services";
 import { siteConfig } from "@/lib/siteConfig";
@@ -38,6 +39,18 @@ export default function ServicePillarPage({
 
   return (
     <>
+      <ServiceJsonLd
+        name={service.title}
+        description={service.summary}
+        path={`/services/${service.slug}`}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.title, path: `/services/${service.slug}` },
+        ]}
+      />
       <PageHeader
         eyebrow="Services"
         title={service.headline}

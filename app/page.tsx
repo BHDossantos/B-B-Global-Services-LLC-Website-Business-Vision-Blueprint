@@ -1,5 +1,5 @@
 import { Hero } from "@/components/Hero";
-import { Section, SectionHeading, Button } from "@/components/ui";
+import { Section, SectionHeading, Button, Eyebrow } from "@/components/ui";
 import { LifecycleFramework } from "@/components/LifecycleFramework";
 import {
   ServiceCard,
@@ -10,6 +10,7 @@ import {
 import { CTABanner } from "@/components/CTABanner";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { FaqJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
 import { services } from "@/lib/content/services";
 import {
@@ -24,6 +25,7 @@ import {
 export default function HomePage() {
   return (
     <>
+      <FaqJsonLd items={faqs} />
       <Hero />
 
       {/* Section 2: Problem Statement */}
@@ -56,6 +58,31 @@ export default function HomePage() {
           <Button href="/services" variant="ghost">
             View all services <Icon name="arrow" className="h-4 w-4" />
           </Button>
+        </div>
+      </Section>
+
+      {/* Free assessment promo band */}
+      <Section>
+        <div className="relative overflow-hidden rounded-3xl border border-accent-100 bg-gradient-to-br from-accent-50 to-white p-8 sm:p-12">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_0.6fr]">
+            <div>
+              <Eyebrow>Free, 2-Minute Tool</Eyebrow>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900">
+                How healthy is your technology?
+              </h2>
+              <p className="mt-3 max-w-xl text-lg text-navy-600">
+                Take the free Technology Health Check to score your maturity
+                across strategy, delivery, cloud, security, reliability,
+                recovery, and support — and get a recommended next step
+                instantly.
+              </p>
+            </div>
+            <div className="flex lg:justify-end">
+              <Button href="/assessment">
+                Start the Free Check <Icon name="arrow" className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
         </div>
       </Section>
 

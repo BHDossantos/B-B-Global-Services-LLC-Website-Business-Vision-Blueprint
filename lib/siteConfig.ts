@@ -20,12 +20,12 @@ export const siteConfig = {
 
 export const mainNav = [
   { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
   { label: "Solutions", href: "/solutions" },
-  { label: "About", href: "/about" },
+  { label: "Industries", href: "/industries" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about" },
 ] as const;
 
 export const lifecyclePhases = [

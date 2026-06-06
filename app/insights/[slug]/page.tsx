@@ -6,6 +6,7 @@ import { Section, Button } from "@/components/ui";
 import { BlogCard } from "@/components/cards";
 import { Markdown } from "@/components/Markdown";
 import { CTABanner } from "@/components/CTABanner";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
 import { insights } from "@/lib/content/site-content";
 import { getArticle } from "@/lib/content/insights-articles";
@@ -47,6 +48,19 @@ export default function InsightPage({
 
   return (
     <>
+      <ArticleJsonLd
+        title={post.title}
+        description={post.excerpt}
+        path={`/insights/${post.slug}`}
+        datePublished={post.date}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Insights", path: "/insights" },
+          { name: post.title, path: `/insights/${post.slug}` },
+        ]}
+      />
       <PageHeader eyebrow={post.category} title={post.title}>
         <span className="flex items-center gap-3 text-sm text-navy-300">
           {date}

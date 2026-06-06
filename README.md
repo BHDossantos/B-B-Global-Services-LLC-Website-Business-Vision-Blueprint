@@ -33,29 +33,47 @@ npm run typecheck  # tsc --noEmit
 
 ```
 app/
-  layout.tsx              # Root layout, fonts, SEO metadata, JSON-LD schema
-  page.tsx                # Homepage (all 9 blueprint sections)
-  services/
-    page.tsx              # Services overview
-    [slug]/page.tsx       # 6 service pillar pages (data-driven)
-  solutions/
-    page.tsx              # Solutions overview
-    [slug]/page.tsx       # 6 outcome-based solution pages
-  industries/page.tsx
-  about/page.tsx
-  case-studies/page.tsx
-  insights/page.tsx       # CMS-ready blog/insights index
-  contact/page.tsx        # Contact form + booking + engagement offers
-  api/contact/route.ts    # Form handler (validation, honeypot, webhook/CRM hook)
+  layout.tsx              # Root layout, fonts, SEO metadata, JSON-LD, analytics
+  page.tsx                # Homepage (all 9 blueprint sections + assessment band)
+  assessment/page.tsx     # Interactive Technology Health Check (lead-gen tool)
+  pricing/page.tsx        # Productized packages + per-pillar rate card
+  services/[slug]/        # 6 service pillar pages + per-page OG images
+  solutions/[slug]/       # 6 outcome-based solution pages + OG images
+  locations/[slug]/       # Local SEO pages (New Hampshire, Boston)
+  industries/, about/     # Industries, About (vision/mission/founder)
+  case-studies/[slug]/    # Case study index + detail pages
+  insights/[slug]/        # Blog index + Markdown-rendered articles
+  capability-statement/   # Printable capability statement (save as PDF)
+  careers/, partners/     # Future-nav pages
+  client-portal/          # Client portal (placeholder, noindex)
+  contact/page.tsx        # Contact form + inline Calendly + offers
+  api/contact/route.ts    # Form handler (validation, honeypot, Resend/HubSpot/webhook)
+  opengraph-image.tsx     # Generated social images (site + per route)
   sitemap.ts / robots.ts  # SEO
-components/                # Hero, cards, framework, navbar, footer, form, FAQ, ...
+components/                # Hero, cards, framework, nav, footer, forms, assessment,
+                          # JSON-LD, analytics, markdown, testimonials, ...
 lib/
   siteConfig.ts           # Brand, nav, contact details, booking URL
-  content/                # Services, solutions, and marketing copy (single source of truth)
+  og.tsx                  # Shared Open Graph image template
+  content/                # Services, solutions, locations, assessment, articles,
+                          # and marketing copy (single source of truth)
+business/                 # Sales, legal, marketing & finance collateral (see below)
 ```
 
 Content lives in `lib/content/*` so pages stay DRY and copy can later move to
 a CMS without touching layout.
+
+### Conversion & lead generation
+
+- **`/assessment`** — an interactive 8-question Technology Health Check that
+  scores maturity, captures the lead via the contact API, and recommends the
+  right engagement. The site's primary top-of-funnel tool.
+- **`/pricing`** — productized packages (featured tier) plus a transparent
+  per-pillar rate card, so services are easy to buy.
+- **Local SEO** — `/locations/new-hampshire` and `/locations/boston` target
+  metro keywords with `LocalBusiness` + breadcrumb schema.
+- **Structured data** — `FAQPage`, `Service`, `Article`, `BreadcrumbList`,
+  and `ProfessionalService`/`LocalBusiness` JSON-LD for rich results.
 
 ## Configuration
 
@@ -91,11 +109,18 @@ business/
   sow-template.md               # Statement of Work
   msa-template.md               # Master Services Agreement (have a lawyer review)
   discovery-call-script.md      # Sales discovery call guide
+  go-to-market-brief.md         # Positioning, ICP, assessment-led funnel, KPIs
+  sales-playbook.md             # Pipeline, qualification, objections, funnel math
+  pricing-and-packages.md       # Rate card + productized tiers
   marketing/
     linkedin-company-page.md    # LinkedIn page setup copy
     linkedin-launch-posts.md    # 6 ready-to-post launch + thought-leadership posts
     content-calendar.md         # 30-day starter content calendar
     outreach-email-sequence.md  # Warm outreach email sequence
+  finance/
+    financial-model.md          # Illustrative 3-year model
+    unit-economics-and-kpis.md  # The metrics that drive services-firm value
+    sellability-and-valuation.md# M&A readiness guide
 ```
 
 ## SEO

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const runtime = "nodejs";
 
@@ -68,12 +69,15 @@ export async function POST(request: Request) {
     submittedAt: new Date().toISOString(),
   };
 
+  const score = scoreLead(lead);
+
   // Fan out to every configured destination. None block the user's success
   // response — a downstream outage should never lose a lead or show an error.
   const results = await Promise.allSettled([
-    sendEmailNotification(lead),
+    sendEmailNotification(lead, score),
+    sendAutoReply(lead),
     submitToHubSpot(lead),
-    postToWebhook(lead),
+    postToWebhook({ ...lead, leadScore: score.score, leadRating: score.rating }),
   ]);
 
   const delivered = results.some((r) => r.status === "fulfilled" && r.value);
@@ -93,12 +97,60 @@ export async function POST(request: Request) {
   return NextResponse.json({ ok: true });
 }
 
+type LeadScore = { score: number; rating: "Hot" | "Warm" | "Cool" };
+
+/**
+ * Simple, transparent lead scoring to help prioritize follow-up. Higher
+ * budgets, larger companies, near-term timelines, and a named service all
+ * raise the score. Tune the weights to match what converts for you.
+ */
+function scoreLead(lead: Lead): LeadScore {
+  let score = 0;
+
+  const budgetPoints: Record<string, number> = {
+    "Under $10,000": 5,
+    "$10,000–$25,000": 15,
+    "$25,000–$100,000": 30,
+    "$100,000–$250,000": 40,
+    "$250,000+": 50,
+    "Monthly managed services": 35,
+  };
+  score += budgetPoints[lead.budget] ?? 0;
+
+  const sizePoints: Record<string, number> = {
+    "1–25": 5,
+    "25–100": 15,
+    "100–500": 25,
+    "500–1,000": 25,
+    "1,000–5,000": 20,
+    "5,000+": 15,
+  };
+  score += sizePoints[lead.companySize] ?? 0;
+
+  const timelinePoints: Record<string, number> = {
+    Immediately: 25,
+    "1–3 months": 20,
+    "3–6 months": 10,
+    "6+ months": 5,
+    "Just exploring": 2,
+  };
+  score += timelinePoints[lead.timeline] ?? 0;
+
+  if (lead.service && lead.service !== "Not sure yet") score += 10;
+  if (lead.phone) score += 5;
+  if (lead.company) score += 5;
+
+  const rating: LeadScore["rating"] =
+    score >= 70 ? "Hot" : score >= 40 ? "Warm" : "Cool";
+  return { score, rating };
+}
+
 /**
  * Email notification via Resend (https://resend.com). Sends to the team and
  * sets reply-to so a reply goes straight back to the prospect.
  * Requires: RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL.
  */
-async function sendEmailNotification(lead: Lead): Promise<boolean> {
+async function sendEmailNotification(lead: Lead, score: LeadScore): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
   const from = process.env.CONTACT_FROM_EMAIL;
@@ -123,10 +175,16 @@ async function sendEmailNotification(lead: Lead): Promise<boolean> {
     )
     .join("");
 
+  const ratingColor =
+    score.rating === "Hot" ? "#13a3a3" : score.rating === "Warm" ? "#2f6bff" : "#64748b";
+
   const html = `
     <div style="font-family:Arial,Helvetica,sans-serif;max-width:560px">
       <h2 style="color:#0a1429">New consultation request</h2>
-      <table style="border-collapse:collapse;font-size:14px">${rows}</table>
+      <p style="display:inline-block;background:${ratingColor};color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px">
+        ${score.rating} lead · score ${score.score}
+      </p>
+      <table style="border-collapse:collapse;font-size:14px;margin-top:8px">${rows}</table>
       <h3 style="color:#0a1429;margin-top:20px">Message</h3>
       <p style="white-space:pre-wrap;font-size:14px;color:#0f172a">${escapeHtml(
         lead.message
@@ -144,7 +202,7 @@ async function sendEmailNotification(lead: Lead): Promise<boolean> {
       from,
       to: to.split(",").map((e) => e.trim()),
       reply_to: lead.email,
-      subject: `New consultation request — ${lead.name}${
+      subject: `[${score.rating}] New consultation request — ${lead.name}${
         lead.company ? ` (${lead.company})` : ""
       }`,
       html,
@@ -153,6 +211,52 @@ async function sendEmailNotification(lead: Lead): Promise<boolean> {
 
   if (!res.ok) {
     throw new Error(`Resend failed: ${res.status} ${await res.text()}`);
+  }
+  return true;
+}
+
+/**
+ * Auto-reply confirmation to the prospect via Resend, so they get an instant,
+ * professional acknowledgement. Requires the same Resend env vars.
+ */
+async function sendAutoReply(lead: Lead): Promise<boolean> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.CONTACT_FROM_EMAIL;
+  const replyTo = process.env.CONTACT_TO_EMAIL;
+  if (!apiKey || !from) return false;
+
+  const firstName = lead.name.split(" ")[0] || "there";
+  const html = `
+    <div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;color:#0f172a">
+      <p>Hi ${escapeHtml(firstName)},</p>
+      <p>Thanks for reaching out to B&amp;B Global Services. We've received your
+      message and a member of our team will follow up within one business day
+      to schedule your discovery call.</p>
+      <p>In the meantime, if it's helpful, you can grab a time directly here:
+      <a href="${siteConfig.bookingUrl}">book a consultation</a>.</p>
+      <p>Talk soon,<br/>The B&amp;B Global Services Team</p>
+      <p style="color:#94a3b8;font-size:12px;margin-top:20px">
+        Technology delivery from idea to operations · bnbglobal.net
+      </p>
+    </div>`;
+
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from,
+      to: [lead.email],
+      reply_to: replyTo ? replyTo.split(",").map((e) => e.trim()) : undefined,
+      subject: "We received your message — B&B Global Services",
+      html,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Resend auto-reply failed: ${res.status} ${await res.text()}`);
   }
   return true;
 }
@@ -201,7 +305,9 @@ async function submitToHubSpot(lead: Lead): Promise<boolean> {
 }
 
 /** Generic webhook (Zapier, Make, n8n, internal endpoint, etc.). */
-async function postToWebhook(lead: Lead): Promise<boolean> {
+async function postToWebhook(
+  lead: Lead & { leadScore?: number; leadRating?: string }
+): Promise<boolean> {
   const webhook = process.env.CONTACT_WEBHOOK_URL;
   if (!webhook) return false;
 

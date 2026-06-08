@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries",
     "/pricing",
     "/assessment",
+    "/roi-calculator",
     "/about",
     "/case-studies",
     "/insights",

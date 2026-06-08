@@ -273,6 +273,51 @@ export const insights = [
     date: "2026-03-22",
     readMinutes: 6,
   },
+  {
+    slug: "fractional-cto-guide",
+    title: "When (and Why) to Hire a Fractional CTO",
+    excerpt:
+      "A full-time CTO is a big bet for a growing company. Here's how to tell when fractional leadership is the smarter move.",
+    category: "Strategy",
+    date: "2026-05-02",
+    readMinutes: 7,
+  },
+  {
+    slug: "cloud-cost-optimization",
+    title: "Cloud Cost Optimization: Stop Overpaying Without Slowing Down",
+    excerpt:
+      "Cloud bills creep up quietly. A practical approach to cutting waste without sacrificing reliability or velocity.",
+    category: "Cloud",
+    date: "2026-02-18",
+    readMinutes: 7,
+  },
+  {
+    slug: "managed-it-vs-in-house",
+    title: "Managed IT vs. In-House: How Mid-Market Companies Should Decide",
+    excerpt:
+      "The right answer is rarely all-or-nothing. A framework for deciding what to keep in-house and what to hand off.",
+    category: "Managed IT",
+    date: "2025-12-09",
+    readMinutes: 6,
+  },
+  {
+    slug: "legacy-system-modernization",
+    title: "Modernizing Legacy Systems Without Betting the Business",
+    excerpt:
+      "Big-bang rewrites fail more often than they succeed. How to modernize the systems you depend on without the gamble.",
+    category: "Operations",
+    date: "2025-11-04",
+    readMinutes: 8,
+  },
+  {
+    slug: "ai-automation-roi",
+    title: "Where AI Automation Actually Pays Off for Mid-Market Operations",
+    excerpt:
+      "The ROI on AI automation is real, but only in specific places. How to find the workflows worth automating first.",
+    category: "AI",
+    date: "2025-09-23",
+    readMinutes: 7,
+  },
 ];
 
 export const faqs = [

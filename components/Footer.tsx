@@ -9,6 +9,7 @@ const company = [
   { label: "About", href: "/about" },
   { label: "Pricing", href: "/pricing" },
   { label: "Free Health Check", href: "/assessment" },
+  { label: "Downtime Calculator", href: "/roi-calculator" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
   { label: "Careers", href: "/careers" },

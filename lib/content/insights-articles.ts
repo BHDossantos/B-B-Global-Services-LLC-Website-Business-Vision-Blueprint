@@ -212,6 +212,274 @@ The mid-market does not need to match the AI ambitions of a Fortune 100 research
 ---
 
 If AI feels like pressure without a plan, the answer is not a bigger project -- it is a clearer starting point. An AI Readiness Assessment can map your highest-value, lowest-risk opportunities, check whether your data can support them, and define a focused first step worth taking.`,
+  "fractional-cto-guide": `There is an awkward stage in a company's growth where technology decisions start to outrun the people making them. The business is past the point where the founder or a capable engineering lead can carry strategy on the side, but it is nowhere near the scale that justifies a full-time chief technology officer with the compensation package that comes attached. A senior technology executive is a meaningful annual commitment before you count equity and recruiting cost, and it is a heavy bet to place on a single hire.
+
+A **fractional CTO** exists for exactly this gap: experienced technology leadership, engaged part-time, matched to what the business actually needs right now.
+
+## The signals that you have outgrown ad hoc leadership
+
+You rarely wake up one morning needing a CTO. The need accumulates as a set of recurring symptoms:
+
+- **Technology decisions keep stalling** because no one with the authority and experience to make them has the time.
+- **Vendors and tools are chosen reactively**, one problem at a time, with no architecture or roadmap connecting them.
+- **The board or investors are asking harder questions** about security, scalability, and technical risk than anyone internal can confidently answer.
+- **Engineering is busy but not aligned** to clear business priorities, so effort does not translate into outcomes.
+- **A major initiative is looming** -- a platform rebuild, a migration, a funding round, an acquisition -- and the stakes are too high for guesswork.
+
+Any one of these is survivable. Several at once usually means strategy has quietly become the bottleneck.
+
+## What fractional leadership actually does
+
+A good fractional CTO is not a part-time pair of hands. The value is in judgment, not throughput. In practice the role focuses on a few high-leverage areas:
+
+**Strategy and roadmap.** Translating business goals into a sequenced technology plan -- what to build, what to buy, what to fix, and in what order. This is the heart of our **Strategy and Advisory** work: a current-state assessment, a future-state architecture, and an executive roadmap with a real budget attached.
+
+**Operating model and team.** Deciding what to build in-house versus outsource, designing how engineering works, and helping hire the right permanent leaders when the time comes.
+
+**Risk and diligence.** Giving executives and investors a credible read on security, reliability, and technical debt -- and a plan to address it -- before it becomes a crisis or a failed deal.
+
+**A bridge across delivery.** Because the same partner can carry an idea through design, build, security, and operations, a fractional CTO is not just advising from the sidelines. The roadmap connects to people who can actually execute it.
+
+## When fractional is the wrong answer
+
+Honesty matters here. Fractional leadership is not always the right call.
+
+1. **If technology is your core product and scaling fast**, you likely need full-time, in-house ownership sooner rather than later.
+2. **If you need day-to-day engineering management** more than strategy, a strong engineering manager may serve you better.
+3. **If the work is a single bounded project**, an assessment or a focused engagement may be all you need, not an ongoing leadership relationship.
+
+The point of a fractional model is to match the level of leadership to the stage of the business -- and to scale it up or hand it off as you grow.
+
+## How the engagement usually works
+
+A fractional CTO relationship typically starts narrow and expands with trust. A common path:
+
+- Begin with an assessment to establish current state, risks, and priorities.
+- Move into a recurring advisory cadence -- strategy, roadmap ownership, and key decisions.
+- Lean in during major initiatives, then step back to a lighter touch once they stabilize.
+- Help recruit and onboard a permanent CTO when the company is ready, then transition out.
+
+Done well, the relationship is designed to make itself smaller over time. That is a feature, not a bug.
+
+## The real question
+
+The decision is rarely "fractional or full-time." It is "how much senior technology judgment does this business need this year, and what is the cheapest credible way to get it?" For a lot of mid-market and growing companies, the answer is experienced leadership a few days a month -- enough to set direction, de-risk the big bets, and keep technology aligned to where the business is going.
+
+---
+
+If technology decisions are piling up faster than anyone has time to make them well, a short discovery call or a Technology Health Check can clarify whether fractional leadership fits your stage -- and what the first ninety days would focus on.`,
+  "cloud-cost-optimization": `Cloud spend has a way of becoming the line item nobody can fully explain. It grows quietly, a little each month, until finance asks a pointed question and engineering realizes no one has a complete answer. The reflex at that point is to slash -- shut things off, downsize aggressively, freeze new resources. That usually trades a cost problem for a reliability problem, and the savings evaporate the next time something breaks.
+
+There is a better way to think about it. The goal is not the smallest possible bill. It is the **least waste for the reliability and velocity you need.** Those are different targets, and confusing them is how cost programs backfire.
+
+## Why cloud bills drift upward
+
+Cloud waste is rarely one big mistake. It is an accumulation of small, reasonable decisions that were never revisited:
+
+- **Over-provisioned resources** sized for a worst-case load that never arrives, or copied from an old default.
+- **Idle and forgotten environments** -- staging, demos, and experiments that were spun up and never torn down.
+- **No tagging or ownership**, so spend cannot be traced to a team, a product, or a decision.
+- **Premium services used by reflex** where a simpler, cheaper option would do.
+- **On-demand pricing everywhere**, with no commitment-based discounts applied to predictable, steady workloads.
+
+None of these are incompetence. They are the natural result of moving fast without a cost feedback loop.
+
+## Make spend visible before you cut anything
+
+You cannot optimize what you cannot see. The first move is always visibility, not reduction:
+
+1. **Tag and attribute.** Get every significant resource mapped to an owner and a purpose. Untagged spend is unmanaged spend.
+2. **Find the idle and the oversized.** Identify resources running at a fraction of their capacity and environments with no recent activity.
+3. **Separate steady from spiky.** Distinguish predictable baseline workloads from variable ones -- they call for completely different strategies.
+
+This is exactly the kind of analysis our **Cloud, DevOps and Platform Engineering** work produces as a cost optimization report: not a vague directive to spend less, but a ranked list of specific waste with the owner and the fix beside each item.
+
+## Cut waste, not capability
+
+Once you can see the spend, the savings tend to fall into a few reliable categories:
+
+**Rightsizing.** Match resource size to real usage with headroom for spikes. This is the single largest source of easy savings in most environments.
+
+**Scheduling and autoscaling.** Non-production environments do not need to run nights and weekends. Production should scale with demand rather than being provisioned for a peak that occurs rarely.
+
+**Commitments for the predictable.** For steady baseline workloads, reserved capacity and savings plans cut the rate substantially. The discipline is committing only to what you genuinely run all the time.
+
+**Architecture choices.** Sometimes the biggest savings come from the design -- a managed service that removes idle overhead, storage tiers matched to access patterns, or removing a component nobody uses anymore.
+
+Notice what is absent from that list: degrading reliability. Done right, optimization removes waste the business was getting nothing for in the first place.
+
+## Build the feedback loop so it stays fixed
+
+A one-time cleanup feels great and then erodes within a quarter, because the conditions that created the waste are still in place. The durable fix is a feedback loop baked into how teams work:
+
+- Cost visibility that teams actually see, attributed to the things they own.
+- Cost as a factor in architecture and deployment decisions, considered during design rather than discovered on the invoice.
+- A periodic review cadence so drift is caught early, while it is small.
+
+This is the **Optimize** phase of our Idea to Operations Framework in practice -- treating cost, like performance and reliability, as something you tend continuously rather than rescue in a panic.
+
+## The balance that matters
+
+The companies that get this right are not the cheapest. They are the ones who pay for exactly the reliability and speed they need and nothing else. That balance protects margins without quietly mortgaging your uptime -- and it holds, because the discipline is built into delivery instead of bolted on after the fact.
+
+---
+
+If your cloud bill has outrun your ability to explain it, the first step is visibility, not cuts. A cloud assessment can map where the money is actually going, separate genuine waste from necessary spend, and hand you a prioritized plan that protects reliability while it lowers cost.`,
+  "managed-it-vs-in-house": `Few technology decisions get argued more emotionally and reasoned about less than whether to run IT in-house or hand it to a managed provider. The debate usually gets framed as a loyalty test -- real companies build their own team -- when it should be a straightforward question of where your people create the most value. The right answer is almost never all-or-nothing.
+
+The useful frame is not "managed IT or in-house." It is "which work belongs to whom, and why."
+
+## Start with what your internal team is for
+
+Internal technology talent is expensive, hard to hire, and easy to misallocate. The fastest way to waste it is to bury senior people in commodity work -- password resets, printer issues, patching, and routine device setup -- that any competent provider can deliver to a defined SLA.
+
+So the first question is not what to outsource. It is what only your team can do:
+
+- Work that requires deep knowledge of **your** business, products, and customers.
+- Decisions that shape strategy, architecture, and competitive advantage.
+- Anything where institutional context is the whole point and cannot be transferred cheaply.
+
+Everything outside that circle is a candidate for a provider -- not because your team could not do it, but because doing it costs you the things only they can do.
+
+## What managed services do well
+
+A good managed provider is not just cheaper labor. The value is in the operating model:
+
+**Coverage and continuity.** A service desk does not take vacations, quit, or become a single point of failure. Coverage is contractual, not dependent on one overworked admin.
+
+**Defined service levels.** Response and resolution targets are written down and reported on, which is rarely true of an informal internal arrangement.
+
+**Breadth on demand.** You get access to device, network, IMAC, and vendor coordination capability without hiring a specialist for each.
+
+**Predictable cost.** A monthly model converts lumpy, unpredictable IT spend into a planned operating expense.
+
+This is the shape of our **IMAC and Managed Technology Services** work: device deployment, service desk, network support, onboarding and offboarding, asset management, and vendor coordination, delivered against an SLA matrix with monthly reporting -- so coverage is reliable and accountable rather than ad hoc.
+
+## Where in-house still wins
+
+Outsourcing has real limits, and pretending otherwise leads to regret:
+
+1. **Deep business context.** Work that depends on knowing your operation intimately is slow and costly to transfer.
+2. **Strategic ownership.** Technology direction and architecture should be owned by people accountable to your business, not a vendor.
+3. **Speed and proximity for core product work.** If technology is your product, the core of it generally belongs in-house.
+
+The aim is not to empty the building. It is to free your internal people to focus on the work that actually moves the business.
+
+## A practical way to decide
+
+Rather than debating in the abstract, sort your technology work along two axes: how **strategic** it is to your business, and how **specialized to you** it is.
+
+- **High strategic, high specialized** -- keep in-house. This is your core.
+- **Low strategic, low specialized** -- outsource to a managed provider. This is commodity work draining your team.
+- **Mixed** -- the interesting middle, often best handled as a co-managed model where a provider runs the operational layer and your team keeps ownership and direction.
+
+Most mid-market companies land on a hybrid: an internal team focused on strategy and business-specific systems, with a managed partner handling support operations, IMAC, and the day-to-day so nothing falls through the cracks.
+
+## The decision underneath the decision
+
+The honest question is not whether you can afford managed IT. It is whether you can afford to spend scarce, expensive internal talent on work that does not require their context -- while strategic priorities wait. Framed that way, the answer is usually a deliberate split, not a wholesale choice in either direction.
+
+---
+
+If your internal team is stretched thin on support work while the bigger priorities wait, a short discovery call or a Technology Health Check can map which work genuinely belongs in-house and which is ready to hand off -- and what a sensible co-managed model would look like.`,
+  "legacy-system-modernization": `Every company that has been around long enough has at least one system it both depends on and dreads. It runs something essential -- billing, scheduling, orders, records -- and it has quietly become fragile, poorly understood, and expensive to change. Everyone agrees it needs to be modernized. Nobody wants to be the one holding the project when it goes sideways.
+
+That fear is rational. The instinct it produces -- the all-at-once rewrite -- is not. Big-bang replacements of critical systems fail more often than they succeed, and when they fail they tend to fail catastrophically, because there is no fallback and no way to course-correct partway through.
+
+## Why the rewrite is so tempting and so dangerous
+
+The appeal of starting over is obvious. The old system is ugly, the new one will be clean, and a fresh build feels faster than untangling years of accumulated decisions. The reality is harsher:
+
+- **The old system encodes years of hard-won business logic**, much of it undocumented and discovered only when it breaks.
+- **The replacement has to match the original perfectly** while it is being built, because the business cannot pause.
+- **Value arrives only at the very end**, so a project that slips -- and these projects slip -- delivers nothing for a long, exposed stretch.
+- **There is no safe rollback.** Once you cut over, you are committed, often at the worst possible moment.
+
+A rewrite asks you to bet the business on a single switch flipping cleanly. The alternative is to modernize so that you are never making one large irreversible bet.
+
+## Understand before you touch
+
+The first phase of any safe modernization is not coding. It is understanding. You cannot modernize what you cannot see, and most legacy risk lives in the parts nobody can fully explain.
+
+This is the **Discover** phase in practice: map what the system actually does, what depends on it, where the data lives, which integrations are load-bearing, and which behaviors are essential versus accidental. The goal is to replace folklore with a real map before anyone changes a line of code.
+
+Frequently this stage alone reduces risk dramatically, because the scariest part of a legacy system is not its age -- it is that no one currently understands it well enough to change it safely.
+
+## Modernize in slices, not in one leap
+
+Once you understand the system, the safe path is incremental. Rather than replacing everything at once, you carve the system into pieces and modernize them one at a time, keeping the business running throughout. A few patterns that work:
+
+1. **Strangle the edges.** Build new functionality around the old system, gradually routing more through modern components until the legacy core is doing less and less.
+2. **Extract by capability.** Pull out one well-bounded function -- a single service or workflow -- modernize it, prove it in production, then move to the next.
+3. **Decouple the data carefully.** Often the hardest and most valuable work, done deliberately so the old and new can coexist during transition.
+
+Each slice is small enough to deliver, test, and roll back on its own. Value arrives continuously, risk stays bounded, and you learn as you go rather than discovering everything at the end.
+
+## Carry it through to operations
+
+Modernization that stops at "the new code works" is only half done. A modern system that is poorly deployed, insecure, or unsupported is just a newer kind of liability. This is the advantage of carrying the work across the full lifecycle:
+
+- **Secure** -- build the controls in as you go, rather than inheriting old weaknesses or adding new ones.
+- **Deploy** -- automated, governed releases so each slice ships safely and predictably.
+- **Operate** -- observability, support, and clear ownership so the modernized system does not start decaying the day it launches.
+- **Recover** -- tested backup and recovery for the new components, not an afterthought.
+
+The same partner moving an idea through to operations is what keeps modernization from becoming a new system with all the old problems.
+
+## What good modernization feels like
+
+A well-run modernization is, frankly, less dramatic than a rewrite. There is no doomsday cutover weekend. Instead there is a steady cadence of small, reversible improvements, each one reducing risk and adding value, until one day the legacy core is small enough to retire quietly. It is slower in appearance and far faster in delivered value, because the business never stops and the project never has to be perfect on the first try.
+
+---
+
+If there is a system you depend on but are afraid to touch, the riskiest move is to keep waiting -- or to bet everything on a single rewrite. A Technology Health Check can map what that system really does, surface the hidden dependencies, and lay out an incremental path to modernize it without betting the business.`,
+  "ai-automation-roi": `The conversation about AI in the mid-market has finally moved past whether to use it and onto a harder question: where does it actually pay for itself? The honest answer is that AI automation delivers real, measurable return -- but only in specific places. Spread it everywhere and you get a pile of impressive demos and a disappointing P&L. Aim it carefully and it compounds.
+
+The skill is not adopting AI. It is choosing the right first workflows.
+
+## ROI lives in the boring work
+
+The flashiest AI use cases are rarely the most profitable ones. The durable returns come from work that is unglamorous, high-volume, and quietly expensive in human hours. Look for processes with these traits:
+
+- **Frequent and repetitive** -- the same shape of task many times a day, where small per-task savings add up fast.
+- **Labor-intensive but low-judgment** -- work that consumes skilled people's time without truly requiring their expertise.
+- **Tolerant of review** -- a human can check the output before anything consequential happens, so an occasional wrong answer is caught, not shipped.
+- **Backed by available data** -- the information the task needs already exists in usable form.
+
+Document processing, triage and routing, summarization, classification, data entry and extraction, and first-draft generation tend to score high on every axis. These are not exciting, which is precisely why they are profitable -- they are eating real hours right now.
+
+## Do the math before the pilot
+
+The fastest way to waste an AI budget is to start building before anyone has defined what success means. A workflow is worth automating only when the numbers hold up, so the analysis comes first:
+
+1. **Baseline the cost.** How many times does this happen, how long does each take, and what does that time cost today?
+2. **Estimate the realistic capture.** AI rarely removes 100 percent of the effort. A target of cutting manual time by half on a high-volume task is often transformative on its own.
+3. **Count the full cost.** Build, the human-review layer, and ongoing operation -- not just the model.
+4. **Set the measurable outcome.** Define the metric -- hours saved, turnaround reduced, error rate lowered -- before you start, so you can prove the result rather than assert it.
+
+If a workflow cannot clear this simple test on paper, it will not clear it in production.
+
+## Keep a human in the loop
+
+The mid-market pattern that consistently works is **human-in-the-loop**: the system drafts, suggests, classifies, or triages, and a person reviews before anything irreversible happens. This is not a lack of ambition. It is what makes the ROI bankable.
+
+Human review caps the downside of a wrong answer and produces a steady stream of corrections you can learn from. As accuracy proves out, you widen the system's autonomy deliberately, backed by evidence rather than hope. Clear governance over what the system may and may not do on its own is what lets you expand with confidence instead of crossing your fingers.
+
+This is the philosophy behind our **AI-enabled application** work: pick one high-value workflow, build a focused solution with human review and clear governance, and measure whether it genuinely reduces manual effort and turnaround time before scaling it.
+
+## Prove it small, then compound it
+
+You do not validate AI ROI with a strategy deck or a company-wide rollout. You validate it with one narrow, well-instrumented workflow shipped to real users, measured against the baseline you set. Get one of these right and you gain something more valuable than the savings themselves: a repeatable pattern and an organization that now believes, with evidence, that the next one will work too.
+
+From there the returns compound. The second automation is easier than the first, the third easier still, because you are building on a proven approach instead of starting each time from a blank page and a hope.
+
+## The uncomfortable discipline
+
+The hard part of AI automation is not technical. It is the discipline to say no to the exciting use case with murky economics and yes to the dull one with obvious returns. The companies pulling ahead are not running the most AI. They are running it precisely where the math works -- and letting that earned credibility fund the next step.
+
+---
+
+If AI feels like pressure to do something rather than a clear plan to do the right thing, the answer is a sharper starting point, not a bigger project. An AI Readiness Assessment can identify the workflows where automation actually pays off, confirm your data supports them, and define a focused first step worth measuring.`,
 };
 
 export function getArticle(slug: string): string | undefined {

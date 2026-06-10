@@ -58,7 +58,7 @@ export default function ContactPage() {
               </a>
               <p className="flex items-center gap-3 text-navy-600">
                 <Icon name="building" className="h-5 w-5 text-accent-500" />
-                {siteConfig.locations.join(" · ")}
+                HQ: {siteConfig.headquarters} — serving clients worldwide
               </p>
             </div>
 

@@ -34,6 +34,11 @@ export const metadata: Metadata = {
     "fractional CTO services",
     "AI consulting services",
     "digital transformation consulting",
+    "global technology consulting",
+    "global IT services company",
+    "remote IT consulting",
+    "nearshore software development",
+    "offshore managed services",
   ],
   authors: [{ name: siteConfig.name }],
   openGraph: {
@@ -62,7 +67,18 @@ const jsonLd = {
   url: siteConfig.url,
   email: siteConfig.email,
   telephone: siteConfig.phone,
-  areaServed: ["New Hampshire", "Boston", "United States"],
+  knowsAbout: [
+    "Cloud Computing",
+    "DevOps",
+    "Cybersecurity",
+    "Artificial Intelligence",
+    "Managed IT Services",
+    "Business Continuity",
+  ],
+  areaServed: {
+    "@type": "Place",
+    name: "Worldwide",
+  },
   serviceType: [
     "Technology Consulting",
     "Application Development",

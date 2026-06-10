@@ -7,6 +7,7 @@ import { solutions } from "@/lib/content/solutions";
 
 const company = [
   { label: "About", href: "/about" },
+  { label: "Global Delivery", href: "/global" },
   { label: "Pricing", href: "/pricing" },
   { label: "Free Health Check", href: "/assessment" },
   { label: "Downtime Calculator", href: "/roi-calculator" },
@@ -20,6 +21,7 @@ const company = [
 ];
 
 const serviceAreas = [
+  { label: "Global Delivery", href: "/global" },
   { label: "New Hampshire", href: "/locations/new-hampshire" },
   { label: "Boston", href: "/locations/boston" },
 ];
@@ -43,7 +45,8 @@ export function Footer() {
               <a href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`} className="block hover:text-accent-400">
                 {siteConfig.phone}
               </a>
-              <p className="text-navy-400">{siteConfig.locations.join(" · ")}</p>
+              <p className="text-navy-400">HQ: {siteConfig.headquarters}</p>
+              <p className="text-navy-400">{siteConfig.coverage}</p>
             </div>
           </div>
 

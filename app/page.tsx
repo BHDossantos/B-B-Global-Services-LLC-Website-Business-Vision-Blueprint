@@ -21,6 +21,7 @@ import {
   caseStudies,
   faqs,
 } from "@/lib/content/site-content";
+import { regions, globalStats } from "@/lib/content/global";
 
 export default function HomePage() {
   return (
@@ -114,6 +115,44 @@ export default function HomePage() {
           <Button href="/industries" variant="ghost">
             Explore industries <Icon name="arrow" className="h-4 w-4" />
           </Button>
+        </div>
+      </Section>
+
+      {/* Global reach */}
+      <Section dark>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div>
+            <SectionHeading
+              light
+              eyebrow="Global Delivery"
+              title="A Global Partner, Delivered Remotely"
+              description="From our New Hampshire home base, we deliver worldwide — with follow-the-sun operations, multi-region cloud, and delivery that respects regional data and compliance needs."
+            />
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="/global" variant="white">
+                Explore Global Delivery <Icon name="arrow" className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {globalStats.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center"
+              >
+                <p className="text-3xl font-bold text-white">{s.value}</p>
+                <p className="mt-1 text-sm text-navy-200">{s.label}</p>
+              </div>
+            ))}
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:col-span-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent-300">
+                Regions served
+              </p>
+              <p className="mt-2 text-sm text-navy-100">
+                {regions.map((r) => r.name).join(" · ")}
+              </p>
+            </div>
+          </div>
         </div>
       </Section>
 

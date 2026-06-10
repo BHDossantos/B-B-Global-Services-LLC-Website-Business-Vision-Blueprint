@@ -56,9 +56,9 @@ export function Hero() {
             </div>
 
             <p className="mt-8 max-w-lg text-sm leading-relaxed text-navy-400">
-              Enterprise experience across cloud, DevOps, SRE, AI, application
-              delivery, cybersecurity, data platforms, and operational
-              resilience.
+              A global, remote-first partner with enterprise experience across
+              cloud, DevOps, SRE, AI, application delivery, cybersecurity, data
+              platforms, and operational resilience — delivered worldwide.
             </p>
           </div>
 

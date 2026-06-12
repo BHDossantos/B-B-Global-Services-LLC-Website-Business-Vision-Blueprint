@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionHeading, Button, Card } from "@/components/ui";
 import { CTABanner } from "@/components/CTABanner";
@@ -74,20 +75,27 @@ export default function GlobalPage() {
         />
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {regions.map((r) => (
-            <Card key={r.slug} className="flex flex-col">
-              <h3 className="text-lg font-semibold text-navy-900">{r.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-600">{r.blurb}</p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {r.markets.map((m) => (
-                  <li
-                    key={m}
-                    className="rounded-full border border-navy-200 bg-white px-3 py-1 text-xs font-medium text-navy-700"
-                  >
-                    {m}
-                  </li>
-                ))}
-              </ul>
-            </Card>
+            <Link key={r.slug} href={`/global/${r.slug}`} className="group">
+              <Card className="flex h-full flex-col">
+                <h3 className="text-lg font-semibold text-navy-900 group-hover:text-accent-700">
+                  {r.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-600">{r.blurb}</p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {r.markets.map((m) => (
+                    <li
+                      key={m}
+                      className="rounded-full border border-navy-200 bg-white px-3 py-1 text-xs font-medium text-navy-700"
+                    >
+                      {m}
+                    </li>
+                  ))}
+                </ul>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600">
+                  Explore {r.name} <Icon name="arrow" className="h-4 w-4" />
+                </span>
+              </Card>
+            </Link>
           ))}
         </div>
         <p className="mt-8 text-sm text-navy-500">

@@ -1,0 +1,43 @@
+export const siteConfig = {
+  name: "B&B Global Services LLC",
+  shortName: "B&B Global Services",
+  tagline: "From Idea to Operations",
+  description:
+    "B&B Global Services is a global technology partner helping businesses worldwide design, build, secure, deploy, support, and recover technology solutions across app development, cloud, DevOps, cybersecurity, managed IT, and business continuity.",
+  positioning:
+    "B&B Global Services helps organizations worldwide design, build, secure, deploy, operate, and support technology solutions from idea to long-term operations.",
+  url: "https://bnbglobal.net",
+  email: "hello@bnbglobal.net",
+  phone: "+1 (603) 555-0142",
+  // Calendly / scheduling link — replace with the real booking URL once the
+  // Calendly account is created.
+  bookingUrl: "https://calendly.com/bnbglobal/consultation",
+  // Home base for local presence; global remote-first delivery worldwide.
+  headquarters: "New Hampshire, USA",
+  coverage: "Global · Remote-first delivery across the Americas, EMEA & APAC",
+  locations: ["New Hampshire", "Boston, MA"],
+  social: {
+    linkedin: "https://www.linkedin.com/company/bb-global-services",
+  },
+} as const;
+
+export const mainNav = [
+  { label: "Services", href: "/services" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Industries", href: "/industries" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Insights", href: "/insights" },
+  { label: "About", href: "/about" },
+] as const;
+
+export const lifecyclePhases = [
+  "Idea",
+  "Design",
+  "Build",
+  "Secure",
+  "Deploy",
+  "Operate",
+  "Recover",
+  "Optimize",
+] as const;

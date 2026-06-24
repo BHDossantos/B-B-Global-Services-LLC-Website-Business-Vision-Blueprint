@@ -8,7 +8,7 @@ export const siteConfig = {
     "B&B Global Services helps organizations worldwide design, build, secure, deploy, operate, and support technology solutions from idea to long-term operations.",
   url: "https://bnbglobal.net",
   email: "hello@bnbglobal.net",
-  phone: "+1 (603) 555-0142",
+  phone: "+1 (603) 930-8272",
   // Calendly / scheduling link — replace with the real booking URL once the
   // Calendly account is created.
   bookingUrl: "https://calendly.com/bnbglobal/consultation",

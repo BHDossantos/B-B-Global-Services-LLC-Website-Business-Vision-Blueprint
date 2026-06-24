@@ -21,7 +21,7 @@ This Statement of Work ("SOW") is entered into under and governed by the Master 
 | **Address** | [CLIENT_ADDRESS] | [BNB_ADDRESS], New Hampshire |
 | **Primary contact** | [CLIENT_CONTACT_NAME], [CLIENT_CONTACT_TITLE] | [BNB_CONTACT_NAME], [BNB_CONTACT_TITLE] |
 | **Email** | [CLIENT_EMAIL] | hello@bnbglobal.net |
-| **Phone** | [CLIENT_PHONE] | +1 (603) 555-0142 |
+| **Phone** | [CLIENT_PHONE] | +1 (603) 930-8272 |
 
 ---
 
@@ -193,4 +193,4 @@ Date: ______________________________
 ---
 
 **B&B Global Services LLC** · New Hampshire · Boston, MA
-[hello@bnbglobal.net](mailto:hello@bnbglobal.net) · +1 (603) 555-0142 · [bnbglobal.net](https://bnbglobal.net)
+[hello@bnbglobal.net](mailto:hello@bnbglobal.net) · +1 (603) 930-8272 · [bnbglobal.net](https://bnbglobal.net)

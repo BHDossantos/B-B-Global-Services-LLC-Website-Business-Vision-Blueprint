@@ -14,7 +14,7 @@ A 4-email sequence for reaching former colleagues and business owners, offering 
 
 > Bruno Dos Santos
 > B&B Global Services LLC — From Idea to Operations
-> hello@bnbglobal.net · +1 (603) 555-0142
+> hello@bnbglobal.net · +1 (603) 930-8272
 > New Hampshire & Boston · https://bnbglobal.net
 
 ---

@@ -222,7 +222,9 @@ async function sendEmailNotification(lead: Lead, score: LeadScore): Promise<bool
 async function sendAutoReply(lead: Lead): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM_EMAIL;
-  const replyTo = process.env.CONTACT_TO_EMAIL;
+  // Replies from prospects go to the PUBLIC address, never the private
+  // delivery inbox (CONTACT_TO_EMAIL), so the personal email stays hidden.
+  const replyTo = siteConfig.email;
   if (!apiKey || !from) return false;
 
   const firstName = lead.name.split(" ")[0] || "there";
@@ -232,8 +234,8 @@ async function sendAutoReply(lead: Lead): Promise<boolean> {
       <p>Thanks for reaching out to B&amp;B Global Services. We've received your
       message and a member of our team will follow up within one business day
       to schedule your discovery call.</p>
-      <p>In the meantime, if it's helpful, you can grab a time directly here:
-      <a href="${siteConfig.bookingUrl}">book a consultation</a>.</p>
+      <p>In the meantime, if it's helpful, you can reach us any time here:
+      <a href="${siteConfig.calendlyUrl || `${siteConfig.url}/contact`}">get in touch</a>.</p>
       <p>Talk soon,<br/>The B&amp;B Global Services Team</p>
       <p style="color:#94a3b8;font-size:12px;margin-top:20px">
         Technology delivery from idea to operations · bnbglobal.net
@@ -249,7 +251,7 @@ async function sendAutoReply(lead: Lead): Promise<boolean> {
     body: JSON.stringify({
       from,
       to: [lead.email],
-      reply_to: replyTo ? replyTo.split(",").map((e) => e.trim()) : undefined,
+      reply_to: replyTo,
       subject: "We received your message — B&B Global Services",
       html,
     }),

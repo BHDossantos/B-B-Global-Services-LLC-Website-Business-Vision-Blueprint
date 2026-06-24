@@ -49,7 +49,7 @@ Most engagements begin with a focused **Technology Health Check**: a current-sta
 
 **Ready to talk?** Book a consultation at [bnbglobal.net](https://bnbglobal.net) or email hello@bnbglobal.net.
 
-📍 New Hampshire & Boston, MA · ☎ +1 (603) 555-0142
+📍 New Hampshire & Boston, MA · ☎ +1 (603) 930-8272
 
 ---
 
@@ -70,7 +70,7 @@ Technology consulting, Managed IT services, Fractional CTO, Digital transformati
 | **Headquarters** | New Hampshire, United States |
 | **Locations** | New Hampshire; Boston, MA |
 | **Website** | https://bnbglobal.net |
-| **Phone** | +1 (603) 555-0142 |
+| **Phone** | +1 (603) 930-8272 |
 
 ---
 

@@ -128,7 +128,11 @@ export function Button({
 
   const classes = cn(base, variants[variant], className);
 
-  if (external) {
+  // Internal paths always render as in-app links, even if `external` was set
+  // (prevents booking CTAs from opening the contact page in a broken new tab).
+  const isInternal = href.startsWith("/") || href.startsWith("#");
+
+  if (external && !isInternal) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
         {children}

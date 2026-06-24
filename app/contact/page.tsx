@@ -29,23 +29,25 @@ export default function ContactPage() {
           </div>
 
           <aside className="space-y-8">
-            <div>
-              <h2 className="text-lg font-semibold text-navy-900">
-                Prefer to book directly?
-              </h2>
-              <p className="mt-2 text-sm text-navy-600">
-                Grab a time that works for you and we&apos;ll come prepared.
-              </p>
-              <a
-                href={siteConfig.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-accent-600"
-              >
-                <Icon name="calendar" className="h-4 w-4" />
-                Book on Calendly
-              </a>
-            </div>
+            {siteConfig.calendlyUrl ? (
+              <div>
+                <h2 className="text-lg font-semibold text-navy-900">
+                  Prefer to book directly?
+                </h2>
+                <p className="mt-2 text-sm text-navy-600">
+                  Grab a time that works for you and we&apos;ll come prepared.
+                </p>
+                <a
+                  href={siteConfig.calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-accent-600"
+                >
+                  <Icon name="calendar" className="h-4 w-4" />
+                  Book on Calendly
+                </a>
+              </div>
+            ) : null}
 
             <div className="space-y-3 border-t border-navy-100 pt-6 text-sm">
               <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-navy-700 hover:text-accent-600">
@@ -87,7 +89,7 @@ export default function ContactPage() {
                 {engagementOffers.map((offer) => (
                   <li key={offer.name}>
                     <p className="font-semibold text-navy-900">{offer.name}</p>
-                    <p className="text-sm text-navy-600">{offer.price}</p>
+                    <p className="text-sm text-navy-600">{offer.tagline}</p>
                   </li>
                 ))}
               </ul>
@@ -96,17 +98,19 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <Section muted>
-        <SectionHeading
-          align="center"
-          eyebrow="Book Instantly"
-          title="Pick a Time That Works for You"
-          description="Grab a slot for a 30-minute discovery call and we'll come prepared to talk through your goals."
-        />
-        <div className="mx-auto mt-10 max-w-3xl">
-          <CalendlyEmbed url={siteConfig.bookingUrl} />
-        </div>
-      </Section>
+      {siteConfig.calendlyUrl ? (
+        <Section muted>
+          <SectionHeading
+            align="center"
+            eyebrow="Book Instantly"
+            title="Pick a Time That Works for You"
+            description="Grab a slot for a 30-minute discovery call and we'll come prepared to talk through your goals."
+          />
+          <div className="mx-auto mt-10 max-w-3xl">
+            <CalendlyEmbed url={siteConfig.calendlyUrl} />
+          </div>
+        </Section>
+      ) : null}
     </>
   );
 }

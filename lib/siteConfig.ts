@@ -8,10 +8,15 @@ export const siteConfig = {
     "B&B Global Services helps organizations worldwide design, build, secure, deploy, operate, and support technology solutions from idea to long-term operations.",
   url: "https://bnbglobal.net",
   email: "hello@bnbglobal.net",
-  phone: "+1 (603) 555-0142",
-  // Calendly / scheduling link — replace with the real booking URL once the
-  // Calendly account is created.
-  bookingUrl: "https://calendly.com/bnbglobal/consultation",
+  phone: "+1 (603) 930-8272",
+  // Where every "Book a Consultation" action goes. Until a real Calendly
+  // event exists, this points to the on-site contact form (which works and
+  // captures leads). When you have Calendly, set `calendlyUrl` below to the
+  // real link and change this to that same URL.
+  bookingUrl: "/contact",
+  // Real Calendly scheduling link. Leave empty to hide the embedded calendar
+  // and route booking to the contact form instead.
+  calendlyUrl: "",
   // Home base for local presence; global remote-first delivery worldwide.
   headquarters: "New Hampshire, USA",
   coverage: "Global · Remote-first delivery across the Americas, EMEA & APAC",

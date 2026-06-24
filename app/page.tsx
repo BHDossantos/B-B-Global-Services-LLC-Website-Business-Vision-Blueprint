@@ -9,6 +9,8 @@ import {
 } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
 import { Testimonials } from "@/components/Testimonials";
+import { TechStack, StatsBand, Comparison } from "@/components/MarketingSections";
+import { Reveal } from "@/components/Reveal";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FaqJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
@@ -28,6 +30,9 @@ export default function HomePage() {
     <>
       <FaqJsonLd items={faqs} />
       <Hero />
+
+      {/* Credibility stats */}
+      <StatsBand />
 
       {/* Section 2: Problem Statement */}
       <Section muted>
@@ -51,8 +56,10 @@ export default function HomePage() {
           description="From strategy through long-term operations, we cover the disciplines most businesses have to stitch together across multiple vendors."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
+          {services.map((service, i) => (
+            <Reveal key={service.slug} delay={i * 60}>
+              <ServiceCard service={service} />
+            </Reveal>
           ))}
         </div>
         <div className="mt-10">
@@ -61,6 +68,12 @@ export default function HomePage() {
           </Button>
         </div>
       </Section>
+
+      {/* Technologies we master */}
+      <TechStack />
+
+      {/* Where we fit — comparison */}
+      <Comparison />
 
       {/* Free assessment promo band */}
       <Section>

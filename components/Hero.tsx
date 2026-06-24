@@ -50,10 +50,19 @@ export function Hero() {
               <Button href={siteConfig.bookingUrl} external>
                 Book a Consultation <Icon name="arrow" className="h-4 w-4" />
               </Button>
-              <Button href="/services" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
-                Explore Services
+              <Button href="/assessment" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
+                Free Technology Health Check
               </Button>
             </div>
+
+            <ul className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-navy-300">
+              {["Free consultation", "No obligation", "Reply within 1 business day"].map((t) => (
+                <li key={t} className="flex items-center gap-1.5">
+                  <Icon name="check" className="h-4 w-4 text-accent-400" />
+                  {t}
+                </li>
+              ))}
+            </ul>
 
             <p className="mt-8 max-w-lg text-sm leading-relaxed text-navy-400">
               A global, remote-first partner with enterprise experience across

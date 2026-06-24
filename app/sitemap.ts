@@ -4,6 +4,7 @@ import { services } from "@/lib/content/services";
 import { solutions } from "@/lib/content/solutions";
 import { caseStudies, insights } from "@/lib/content/site-content";
 import { locations } from "@/lib/content/locations";
+import { regions } from "@/lib/content/global";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries",
     "/pricing",
     "/assessment",
+    "/ai-readiness",
     "/roi-calculator",
     "/global",
     "/about",
@@ -67,6 +69,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const regionRoutes = regions.map((r) => ({
+    url: `${base}/global/${r.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticRoutes,
     ...serviceRoutes,
@@ -74,5 +83,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...caseStudyRoutes,
     ...insightRoutes,
     ...locationRoutes,
+    ...regionRoutes,
   ];
 }

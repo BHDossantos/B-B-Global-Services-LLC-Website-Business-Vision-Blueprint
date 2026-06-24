@@ -161,7 +161,7 @@ export default function CapabilityStatementPage() {
                     {offer.name}
                   </h4>
                   <p className="mt-1 text-xs font-medium text-accent-600">
-                    {offer.price}
+                    {offer.tagline}
                   </p>
                   <ul className="mt-2 space-y-1 text-xs text-navy-600">
                     {offer.includes.slice(0, 4).map((item) => (

@@ -40,10 +40,10 @@ export default function AssessmentPage() {
               ))}
             </ul>
             <p className="mt-8 rounded-xl border border-navy-100 bg-navy-50 p-5 text-sm leading-relaxed text-navy-600">
-              This self-assessment mirrors the first step of our paid{" "}
+              This self-assessment mirrors the first step of our{" "}
               <span className="font-semibold text-navy-800">Technology Health Check</span>{" "}
-              ($5,000–$15,000), which goes deeper with a full review, risk
-              analysis, and a 90-day roadmap.
+              engagement, which goes deeper with a full review, risk analysis,
+              and a 90-day roadmap — scoped and quoted to fit your business.
             </p>
           </div>
 

@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "qa": "node scripts/qa-crawl.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@/components/Analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
+import { StickyCTA } from "@/components/StickyCTA";
 import { siteConfig } from "@/lib/siteConfig";
 
 const inter = Inter({
@@ -56,6 +57,12 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0a1429",
 };
 
 // Schema.org ProfessionalService / LocalBusiness markup for SEO.
@@ -117,6 +124,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <StickyCTA />
         <Analytics />
         <VercelAnalytics />
       </body>

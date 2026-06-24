@@ -49,6 +49,24 @@ export const solutions: Solution[] = [
     relatedServices: ["cloud-devops", "strategy-advisory", "reliability-bcdr"],
   },
   {
+    slug: "adopt-ai",
+    title: "Adopt AI & Analytics",
+    audience: "Leaders who want to use AI and data for real results.",
+    summary:
+      "Find the AI and data opportunities with real ROI, then build and deploy them responsibly.",
+    body: "Move past the AI hype. We help you identify the use cases that actually pay off, build generative AI and machine learning solutions, turn your data into decisions, and deploy it all with proper governance and monitoring.",
+    icon: "ai",
+    includes: [
+      "AI & data readiness assessment",
+      "High-ROI use-case identification",
+      "Generative AI & LLM applications",
+      "Machine learning & predictive models",
+      "Analytics & BI dashboards",
+      "MLOps, monitoring & AI governance",
+    ],
+    relatedServices: ["data-analytics-ai", "application-development", "strategy-advisory"],
+  },
+  {
     slug: "secure-my-business",
     title: "Secure My Business",
     audience: "Companies worried about cybersecurity.",

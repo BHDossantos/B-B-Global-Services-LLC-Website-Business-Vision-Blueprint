@@ -27,7 +27,13 @@ npm run build      # production build
 npm run start      # serve the production build
 npm run lint       # eslint (next/core-web-vitals)
 npm run typecheck  # tsc --noEmit
+npm run qa         # crawl a running server for broken links & metadata issues
 ```
+
+**Pre-deploy QA:** start the server (`npm run build && npm run start`), then in
+another shell run `QA_BASE=http://localhost:3000 npm run qa`. It crawls every
+sitemap URL and internal link, flagging broken links, missing/duplicate titles
+and meta descriptions, and rendering glitches.
 
 ## Project structure
 

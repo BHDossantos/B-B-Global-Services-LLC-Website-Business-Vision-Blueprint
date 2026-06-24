@@ -48,6 +48,13 @@ const paths: Record<string, React.ReactNode> = {
       <line x1="6" y1="20" x2="6" y2="14" />
     </>
   ),
+  ai: (
+    <>
+      <rect x="6" y="6" width="12" height="12" rx="2" />
+      <rect x="9" y="9" width="6" height="6" />
+      <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2" />
+    </>
+  ),
   check: <polyline points="20 6 9 17 4 12" />,
   arrow: (
     <>

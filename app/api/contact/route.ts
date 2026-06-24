@@ -222,7 +222,9 @@ async function sendEmailNotification(lead: Lead, score: LeadScore): Promise<bool
 async function sendAutoReply(lead: Lead): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM_EMAIL;
-  const replyTo = process.env.CONTACT_TO_EMAIL;
+  // Replies from prospects go to the PUBLIC address, never the private
+  // delivery inbox (CONTACT_TO_EMAIL), so the personal email stays hidden.
+  const replyTo = siteConfig.email;
   if (!apiKey || !from) return false;
 
   const firstName = lead.name.split(" ")[0] || "there";
@@ -249,7 +251,7 @@ async function sendAutoReply(lead: Lead): Promise<boolean> {
     body: JSON.stringify({
       from,
       to: [lead.email],
-      reply_to: replyTo ? replyTo.split(",").map((e) => e.trim()) : undefined,
+      reply_to: replyTo,
       subject: "We received your message — B&B Global Services",
       html,
     }),

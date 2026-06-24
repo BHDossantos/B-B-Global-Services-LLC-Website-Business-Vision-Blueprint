@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Icon } from "./Icon";
 import { cn } from "./ui";
 import { siteConfig } from "@/lib/siteConfig";
@@ -32,15 +33,13 @@ export function StickyCTA() {
         shown ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       )}
     >
-      <a
+      <Link
         href={siteConfig.bookingUrl}
-        target="_blank"
-        rel="noopener noreferrer"
         className="inline-flex items-center gap-2 rounded-full bg-accent-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/30 transition hover:bg-accent-600"
       >
         <Icon name="calendar" className="h-4 w-4" />
         Book a Consultation
-      </a>
+      </Link>
       <button
         type="button"
         onClick={() => setDismissed(true)}

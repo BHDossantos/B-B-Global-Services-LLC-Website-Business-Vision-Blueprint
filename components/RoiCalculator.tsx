@@ -150,14 +150,12 @@ export function RoiCalculator() {
         </div>
 
         <div className="mt-auto pt-6">
-          <a
+          <Link
             href={siteConfig.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-accent-600"
           >
             Reduce Your Downtime Cost <Icon name="arrow" className="h-4 w-4" />
-          </a>
+          </Link>
           <Link
             href="/services/reliability-bcdr"
             className="mt-3 inline-flex w-full items-center justify-center gap-1.5 text-sm font-semibold text-accent-300 hover:text-accent-200"

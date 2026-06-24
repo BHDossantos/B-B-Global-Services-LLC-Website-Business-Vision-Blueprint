@@ -285,14 +285,12 @@ export function AssessmentTool() {
       </div>
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a
+        <Link
           href={siteConfig.bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
           className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-accent-600"
         >
           Book a Consultation <Icon name="arrow" className="h-4 w-4" />
-        </a>
+        </Link>
         <Link
           href="/contact"
           className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-navy-200 px-6 py-3 text-base font-semibold text-navy-800 transition hover:border-navy-400 hover:bg-navy-50"

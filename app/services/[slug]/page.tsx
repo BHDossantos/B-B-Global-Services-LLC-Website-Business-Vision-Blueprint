@@ -90,30 +90,36 @@ export default function ServicePillarPage({
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <Card className="bg-navy-50">
               <h3 className="text-lg font-semibold text-navy-900">
-                Engagement & Pricing
+                Custom-Scoped Engagement
               </h3>
-              <p className="mt-1 text-sm text-navy-600">
-                Indicative ranges. Final scope is tailored to your goals and
-                environment.
+              <p className="mt-2 text-sm leading-relaxed text-navy-600">
+                Every engagement is tailored to your environment, goals, and
+                budget. Talk to our team and we&apos;ll put together a clear,
+                custom proposal — no one-size-fits-all price tags.
               </p>
-              <dl className="mt-5 space-y-4">
-                {service.pricing.map((p) => (
-                  <div
-                    key={p.label}
-                    className="flex items-baseline justify-between gap-4 border-b border-navy-100 pb-3 last:border-0"
-                  >
-                    <dt className="text-sm font-medium text-navy-700">
-                      {p.label}
-                    </dt>
-                    <dd className="text-right text-sm font-semibold text-navy-900">
-                      {p.range}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+              <ul className="mt-5 space-y-2.5 text-sm text-navy-700">
+                <li className="flex items-start gap-2.5">
+                  <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-accent-500" />
+                  Fixed-scope assessments with defined deliverables
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-accent-500" />
+                  Value-based pricing for projects
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-accent-500" />
+                  Monthly retainers for managed services
+                </li>
+              </ul>
               <Button href={siteConfig.bookingUrl} external className="mt-6 w-full">
-                Book a Consultation <Icon name="arrow" className="h-4 w-4" />
+                Talk to Our Team <Icon name="arrow" className="h-4 w-4" />
               </Button>
+              <Link
+                href="/contact"
+                className="mt-3 inline-flex w-full items-center justify-center text-sm font-semibold text-accent-600 hover:text-accent-700"
+              >
+                Request a custom quote
+              </Link>
             </Card>
           </aside>
         </div>

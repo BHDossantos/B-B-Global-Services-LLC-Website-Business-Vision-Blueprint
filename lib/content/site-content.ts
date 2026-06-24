@@ -376,7 +376,7 @@ export const testimonials: Testimonial[] = [];
 export const engagementOffers = [
   {
     name: "Technology Health Check",
-    price: "$5,000–$15,000",
+    tagline: "A fast, fixed-scope review and 90-day roadmap.",
     includes: [
       "Current state review",
       "Risk analysis",
@@ -387,7 +387,7 @@ export const engagementOffers = [
   },
   {
     name: "Idea to App MVP",
-    price: "$25,000–$75,000",
+    tagline: "From concept to a working, deployed product.",
     includes: [
       "Discovery",
       "UX/UI",
@@ -399,7 +399,7 @@ export const engagementOffers = [
   },
   {
     name: "Managed Technology Support",
-    price: "$1,500–$10,000/month",
+    tagline: "Ongoing support, scoped to your team and systems.",
     includes: [
       "User support",
       "Device support",

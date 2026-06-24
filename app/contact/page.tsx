@@ -87,7 +87,7 @@ export default function ContactPage() {
                 {engagementOffers.map((offer) => (
                   <li key={offer.name}>
                     <p className="font-semibold text-navy-900">{offer.name}</p>
-                    <p className="text-sm text-navy-600">{offer.price}</p>
+                    <p className="text-sm text-navy-600">{offer.tagline}</p>
                   </li>
                 ))}
               </ul>

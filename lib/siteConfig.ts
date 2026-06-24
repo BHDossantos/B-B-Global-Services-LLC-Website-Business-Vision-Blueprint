@@ -22,7 +22,7 @@ export const siteConfig = {
   coverage: "Global · Remote-first delivery across the Americas, EMEA & APAC",
   locations: ["New Hampshire", "Boston, MA"],
   social: {
-    linkedin: "https://www.linkedin.com/company/bb-global-services",
+    linkedin: "https://www.linkedin.com/in/brunodssantos/",
   },
 } as const;
 

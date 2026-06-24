@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "./ui";
 import { Logo } from "./Logo";
+import { NewsletterSignup } from "./NewsletterSignup";
 import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/content/services";
 import { solutions } from "@/lib/content/solutions";
@@ -32,6 +33,22 @@ export function Footer() {
   return (
     <footer className="bg-navy-950 text-navy-200">
       <Container>
+        {/* Newsletter band */}
+        <div className="flex flex-col gap-5 border-b border-navy-800 py-10 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-md">
+            <h3 className="text-lg font-semibold text-white">
+              Practical technology insights, no hype
+            </h3>
+            <p className="mt-1 text-sm text-navy-300">
+              Occasional, useful thinking on strategy, cloud, security, and
+              resilience for growing businesses.
+            </p>
+          </div>
+          <div className="w-full max-w-md lg:w-auto lg:min-w-[360px]">
+            <NewsletterSignup source="footer" variant="footer" />
+          </div>
+        </div>
+
         <div className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <Logo light />

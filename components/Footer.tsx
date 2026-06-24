@@ -11,6 +11,7 @@ const company = [
   { label: "Global Delivery", href: "/global" },
   { label: "Pricing", href: "/pricing" },
   { label: "Free Health Check", href: "/assessment" },
+  { label: "AI Readiness Assessment", href: "/ai-readiness" },
   { label: "Downtime Calculator", href: "/roi-calculator" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },

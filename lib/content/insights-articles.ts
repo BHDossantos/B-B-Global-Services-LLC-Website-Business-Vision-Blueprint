@@ -480,6 +480,104 @@ The hard part of AI automation is not technical. It is the discipline to say no 
 ---
 
 If AI feels like pressure to do something rather than a clear plan to do the right thing, the answer is a sharper starting point, not a bigger project. An AI Readiness Assessment can identify the workflows where automation actually pays off, confirm your data supports them, and define a focused first step worth measuring.`,
+  "generative-ai-for-business": `Ask most teams what generative AI is for and you will hear the same answer: a chatbot. It is the obvious demo, the one everyone has tried, and it is also the use case least likely to move a business outcome. The companies getting real value from generative AI are rarely the ones with the slickest chat interface. They are the ones who pointed the technology at a specific, expensive piece of work and wrapped it in enough discipline to trust the output.
+
+The chatbot is a starting point, not a strategy. Below it sits a set of patterns that quietly change how work gets done.
+
+## Where generative AI actually earns its place
+
+The valuable use cases share a profile. They involve language-heavy work, a clear definition of "good," and a human who can review the result before it matters. A few patterns recur:
+
+- **Drafting and summarizing.** First-draft proposals, meeting summaries, and report skeletons that a person finishes rather than starts from nothing.
+- **Knowledge retrieval.** Answering questions over your own documents, policies, and past work, with citations back to the source so the answer is verifiable.
+- **Classification and extraction.** Reading unstructured documents -- contracts, tickets, forms -- and pulling structured fields into systems that expect them.
+- **Code and content acceleration.** Helping engineers and writers move faster on routine work while keeping judgment with the human.
+
+Notice what these have in common. Each one targets a defined task with a measurable baseline, not an open-ended promise to "use AI." That focus is what separates a result from a demo.
+
+## Why grounding beats cleverness
+
+A generative model on its own is a confident guesser. It will produce fluent answers whether or not it knows anything, which is precisely the failure mode that makes leaders nervous. The fix is not a better model -- it is **grounding**.
+
+Retrieval-augmented generation, or RAG, pairs the model with your actual sources. The system retrieves the relevant documents first, then asks the model to answer using only what it found, with citations attached. The result is an answer you can check, traced back to a real policy or record rather than the model's imagination. For most business use cases, a well-grounded ordinary model beats a clever ungrounded one every time.
+
+## The discipline that makes it safe to ship
+
+The reason many generative AI pilots never reach production is not capability. It is the absence of the controls that make output trustworthy. Three are non-negotiable:
+
+**Human-in-the-loop review.** For anything that reaches a customer or a decision, a person reviews before it ships. The AI drafts; the human approves. This is how you capture the speed without inheriting the risk.
+
+**Evaluation against a baseline.** You define what a good answer looks like and measure the system against real examples, continuously. Without evaluation you are flying blind on quality and have no way to know when an update made things worse.
+
+**Governance and access.** Clear rules on what data the system can see, who can use it, what it is allowed to do, and how it is monitored. Generative AI inherits every access mistake in your underlying data, so the boundary has to be deliberate.
+
+This is the work our **Data, Analytics & AI** pillar exists to do -- not just standing up a model, but the grounding, evaluation, and governance that turn a promising prototype into something a business can actually depend on.
+
+## Fitting it into the bigger picture
+
+A generative AI feature is still software, and software that is not delivered well does not last. That is why these use cases live inside the **Idea to Operations** framework rather than alongside it. The model gets designed, built, secured, deployed, and operated like any other system -- with ownership, monitoring, and a recovery path, not as a clever experiment that decays the moment its champion moves on.
+
+The teams that win with generative AI treat it as a capability to operationalize, not a toy to show off. They pick one expensive workflow, ground the model in real sources, keep a human in the loop, and measure relentlessly. Then they do it again.
+
+## A grounded first step
+
+You do not need an AI strategy offsite to begin. You need one workflow where people spend too much time on language-heavy work, a clear definition of a good answer, and the willingness to keep a human in the review loop while you prove it out.
+
+---
+
+If generative AI feels like pressure to ship something impressive rather than a plan to solve something specific, the fix is a sharper starting point. A short consultation or an AI and Technology Health Check can identify the workflow worth grounding first, confirm your data supports it, and define a first step you can actually measure.`,
+  "modern-data-stack": `The modern data stack has a quiet problem: it is easy to assemble and easy to overbuild. The tooling is mature, the integrations are a few clicks away, and within a quarter a team can stand up ingestion, a warehouse, a transformation layer, and a gleaming set of dashboards. What is harder -- and what actually matters -- is building a stack that produces decisions people trust, rather than an expensive pile of tools nobody fully believes.
+
+A data stack earns its keep when it changes what the business does, not when it looks impressive in an architecture diagram.
+
+## What a modern data stack is for
+
+Strip away the vendor logos and the job of a data stack is simple to state: move data from where it is created to where decisions are made, reliably and with trust intact. Every layer exists to serve that path:
+
+- **Ingestion** brings data in from your operational systems and third parties.
+- **Storage** -- a warehouse or lakehouse -- holds it in one queryable place.
+- **Transformation** turns raw data into clean, documented, business-ready models.
+- **Analytics and BI** put those models in front of people as dashboards and metrics.
+- **Activation** pushes insights back into the tools where work happens.
+
+The mistake is treating these as boxes to check rather than a chain whose strength is set by its weakest link. A pristine warehouse fed by flaky pipelines produces confident, wrong answers.
+
+## Trust is the actual product
+
+The most overlooked layer in most stacks is the one that has no logo: trust. A dashboard nobody believes is worse than no dashboard, because it invites argument instead of decision. Trust is built deliberately, through a few unglamorous practices:
+
+**Define metrics once.** "Revenue" and "active customer" should mean exactly one thing, defined in a shared semantic layer, not reinvented in every report. Most data disputes are really definition disputes.
+
+**Test your data.** Pipelines need the same automated checks code does -- freshness, uniqueness, expected ranges -- so a broken upstream change is caught before it reaches a dashboard, not after a leader acts on it.
+
+**Make lineage visible.** People trust a number more when they can see where it came from. Documented lineage from source to dashboard turns "where did this come from?" from a half-day investigation into a click.
+
+## Reliability is an operating discipline
+
+Data pipelines are production systems, and they fail the way production systems do -- quietly, at the worst moment. Treating the data platform as a set-and-forget asset is how organizations end up with reporting they cannot trust during the exact week they need it most.
+
+The fix is to operate the platform deliberately: monitoring on pipeline health, clear ownership for each data product, and an incident process for when something breaks. This is the same delivery discipline our **Idea to Operations** framework applies to any system -- design, build, secure, deploy, operate, recover -- because a data platform that ships once and decays is not an asset, it is a liability with a dashboard.
+
+## Build for the decisions you actually make
+
+The strongest cost discipline in data is not negotiating cloud rates. It is refusing to build for hypothetical needs. A stack sized for the questions the business genuinely asks is cheaper, faster, and easier to trust than one built for an imagined future that never arrives.
+
+A practical sequence keeps the stack honest:
+
+1. **Start from a decision.** Name a real decision the business makes badly today for lack of data.
+2. **Trace the data it needs.** Identify the minimum sources, models, and metrics required to support that decision well.
+3. **Build that thin slice end to end.** Ingestion through trusted dashboard, with tests and ownership, for one decision.
+4. **Prove it, then extend.** Once people act on it with confidence, add the next decision using the same pattern.
+
+This is the work our **Data, Analytics & AI** pillar exists to do -- not assembling every tool on the market, but building the trusted, well-operated slice that changes a real decision, then compounding from there. It is also the foundation that makes later AI work viable, because models are only as trustworthy as the data underneath them.
+
+## The stack that earns its keep
+
+A modern data stack is not a trophy. It is a working system whose value shows up in better decisions, made faster, by people who believe the numbers. Build it decision-first, test it like production, operate it deliberately, and resist the urge to overbuild. The result is smaller than the demo and far more valuable.
+
+---
+
+If your data stack produces plenty of dashboards but not much trust, the issue is usually design and discipline, not tooling. A short consultation or a Technology Health Check can map where trust breaks down today and define a focused first slice worth building.`,
 };
 
 export function getArticle(slug: string): string | undefined {

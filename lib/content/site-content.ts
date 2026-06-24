@@ -234,6 +234,19 @@ export const caseStudies = [
     outcome:
       "Reduced manual effort, faster turnaround, and a foundation for broader AI adoption.",
   },
+  {
+    slug: "generative-ai-knowledge-assistant",
+    title: "Generative AI Knowledge Assistant",
+    industry: "Professional services firm",
+    challenge:
+      "Consultants spent hours searching scattered documents, methodologies, and past engagements, slowing client responses and inconsistent answers across teams.",
+    approach:
+      "Mapped the firm's high-value internal knowledge, defined trust and access boundaries, and scoped a retrieval-augmented (RAG) assistant grounded only in approved sources.",
+    solution:
+      "Built a RAG generative AI assistant with citations, human-in-the-loop review for sensitive answers, and an AI governance model covering access, evaluation, and monitoring.",
+    outcome:
+      "Less time spent hunting for documents, faster and more consistent client responses, and a governed foundation the firm trusts enough to expand.",
+  },
 ];
 
 export const insights = [
@@ -317,6 +330,24 @@ export const insights = [
     category: "AI",
     date: "2025-09-23",
     readMinutes: 7,
+  },
+  {
+    slug: "generative-ai-for-business",
+    title: "Generative AI for Business: Real Use Cases Beyond the Chatbot",
+    excerpt:
+      "The headline use case is rarely the valuable one. Where generative AI earns its place in real operations — with the guardrails that make it safe to ship.",
+    category: "AI",
+    date: "2026-01-21",
+    readMinutes: 7,
+  },
+  {
+    slug: "modern-data-stack",
+    title: "Building a Modern Data Stack That Earns Its Keep",
+    excerpt:
+      "A modern data stack is easy to assemble and easy to overbuild. How to design one that produces trusted decisions instead of an expensive pile of tools.",
+    category: "Data",
+    date: "2025-10-14",
+    readMinutes: 8,
   },
 ];
 

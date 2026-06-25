@@ -61,7 +61,15 @@ export default function InsightPage({
           { name: post.title, path: `/insights/${post.slug}` },
         ]}
       />
-      <PageHeader eyebrow={post.category} title={post.title}>
+      <PageHeader
+        eyebrow={post.category}
+        title={post.title}
+        breadcrumbs={[
+          { name: "Home", href: "/" },
+          { name: "Insights", href: "/insights" },
+          { name: post.title },
+        ]}
+      >
         <span className="flex items-center gap-3 text-sm text-navy-300">
           {date}
           <span aria-hidden>·</span>

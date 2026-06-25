@@ -66,6 +66,10 @@ export default function LocationPage({
         eyebrow={`Serving ${loc.city}`}
         title={loc.title}
         description={loc.intro}
+        breadcrumbs={[
+          { name: "Home", href: "/" },
+          { name: loc.city },
+        ]}
       >
         <Button href={siteConfig.bookingUrl} external>
           Book a Consultation

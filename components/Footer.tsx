@@ -142,7 +142,14 @@ export function Footer() {
           <p>
             © {year} {siteConfig.name}. All rights reserved.
           </p>
-          <p>Technology delivery from idea to operations.</p>
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <Link href="/privacy" className="hover:text-accent-400">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-accent-400">
+              Terms of Service
+            </Link>
+          </nav>
         </div>
       </Container>
     </footer>

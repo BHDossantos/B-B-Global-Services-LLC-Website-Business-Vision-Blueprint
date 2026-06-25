@@ -72,6 +72,11 @@ export default function RegionPage({
         eyebrow={`Global Delivery · ${region.name}`}
         title={region.title}
         description={region.intro}
+        breadcrumbs={[
+          { name: "Home", href: "/" },
+          { name: "Global Delivery", href: "/global" },
+          { name: region.name },
+        ]}
       >
         <Button href={siteConfig.bookingUrl} external>
           Book a Consultation

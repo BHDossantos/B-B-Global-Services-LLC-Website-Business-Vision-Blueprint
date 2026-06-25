@@ -55,6 +55,11 @@ export default function ServicePillarPage({
         eyebrow="Services"
         title={service.headline}
         description={service.summary}
+        breadcrumbs={[
+          { name: "Home", href: "/" },
+          { name: "Services", href: "/services" },
+          { name: service.title },
+        ]}
       >
         <Button href={siteConfig.bookingUrl} external>
           Book a Consultation

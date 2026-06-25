@@ -1,4 +1,5 @@
 import { Container } from "./ui";
+import { Breadcrumbs } from "./Breadcrumbs";
 import type { ReactNode } from "react";
 
 export function PageHeader({
@@ -6,11 +7,13 @@ export function PageHeader({
   title,
   description,
   children,
+  breadcrumbs,
 }: {
   eyebrow?: string;
   title: string;
   description?: ReactNode;
   children?: ReactNode;
+  breadcrumbs?: { name: string; href?: string }[];
 }) {
   return (
     <section className="relative overflow-hidden bg-navy-950 text-white">
@@ -24,6 +27,7 @@ export function PageHeader({
       />
       <Container className="relative">
         <div className="max-w-3xl py-16 sm:py-20">
+          {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
           {eyebrow ? (
             <span className="text-sm font-semibold uppercase tracking-widest text-accent-300">
               {eyebrow}

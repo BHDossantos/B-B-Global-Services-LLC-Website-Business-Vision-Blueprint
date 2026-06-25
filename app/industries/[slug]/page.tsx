@@ -57,6 +57,11 @@ export default function IndustryPage({
         eyebrow={`Industries · ${industry.name}`}
         title={industry.title}
         description={industry.intro}
+        breadcrumbs={[
+          { name: "Home", href: "/" },
+          { name: "Industries", href: "/industries" },
+          { name: industry.name },
+        ]}
       >
         <Button href={siteConfig.bookingUrl}>Book a Consultation</Button>
         <Button href="/assessment" variant="ghost" className="border-white/25 text-white hover:bg-white/10">

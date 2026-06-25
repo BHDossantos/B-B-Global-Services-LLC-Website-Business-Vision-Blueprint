@@ -44,7 +44,15 @@ export default function CaseStudyPage({
 
   return (
     <>
-      <PageHeader eyebrow={study.industry} title={study.title}>
+      <PageHeader
+        eyebrow={study.industry}
+        title={study.title}
+        breadcrumbs={[
+          { name: "Home", href: "/" },
+          { name: "Case Studies", href: "/case-studies" },
+          { name: study.title },
+        ]}
+      >
         <Button href={siteConfig.bookingUrl} external>
           Book a Consultation
         </Button>

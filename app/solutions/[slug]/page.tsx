@@ -45,6 +45,11 @@ export default function SolutionPage({
         eyebrow="Solutions"
         title={solution.title}
         description={solution.body}
+        breadcrumbs={[
+          { name: "Home", href: "/" },
+          { name: "Solutions", href: "/solutions" },
+          { name: solution.title },
+        ]}
       >
         <Button href={siteConfig.bookingUrl} external>
           Book a Consultation

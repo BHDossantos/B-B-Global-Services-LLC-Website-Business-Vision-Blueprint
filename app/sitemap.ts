@@ -28,6 +28,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/careers",
     "/partners",
     "/contact",
+    "/privacy",
+    "/terms",
   ].map((path) => ({
     url: `${base}${path}`,
     lastModified: now,

@@ -349,6 +349,33 @@ export const insights = [
     date: "2025-10-14",
     readMinutes: 8,
   },
+  {
+    slug: "digital-transformation-roadmap",
+    title: "How to Build a Digital Transformation Roadmap That Survives Reality",
+    excerpt:
+      "Most transformation roadmaps look great on a slide and collapse on contact with delivery. How to build one that sequences value, survives change, and actually ships.",
+    category: "Strategy",
+    date: "2026-02-03",
+    readMinutes: 7,
+  },
+  {
+    slug: "cybersecurity-for-mid-market",
+    title: "Cybersecurity for the Mid-Market: A Practical Priority List",
+    excerpt:
+      "You can't do everything at once, and you don't need to. A grounded, ordered list of the security work that actually reduces risk for a growing company.",
+    category: "Security",
+    date: "2025-11-18",
+    readMinutes: 7,
+  },
+  {
+    slug: "cloud-migration-guide",
+    title: "Cloud Migration Without the Horror Stories",
+    excerpt:
+      "Migrations earn their bad reputation by being rushed and unplanned. A pragmatic approach that moves workloads safely, controls cost, and avoids the usual disasters.",
+    category: "Cloud",
+    date: "2026-01-07",
+    readMinutes: 8,
+  },
 ];
 
 export const faqs = [

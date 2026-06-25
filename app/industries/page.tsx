@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
-import { Section, SectionHeading } from "@/components/ui";
-import { IndustryCard, PillItem } from "@/components/cards";
+import { Section, SectionHeading, Card } from "@/components/ui";
+import { PillItem } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
-import { industries, idealCustomers } from "@/lib/content/site-content";
+import { Icon } from "@/components/Icon";
+import { Reveal } from "@/components/Reveal";
+import { industryPages } from "@/lib/content/industries-detail";
+import { idealCustomers } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
   title: "Industries We Serve",
@@ -22,8 +26,25 @@ export default function IndustriesPage() {
 
       <Section>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((industry) => (
-            <IndustryCard key={industry.name} {...industry} />
+          {industryPages.map((industry, i) => (
+            <Reveal key={industry.slug} delay={i * 50}>
+              <Link href={`/industries/${industry.slug}`} className="group block h-full">
+                <Card className="flex h-full flex-col">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy-50 text-navy-700">
+                    <Icon name={industry.icon} className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold text-navy-900 group-hover:text-accent-700">
+                    {industry.name}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-600">
+                    {industry.cardDescription}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600">
+                    Learn more <Icon name="arrow" className="h-4 w-4" />
+                  </span>
+                </Card>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </Section>

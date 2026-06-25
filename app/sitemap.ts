@@ -5,6 +5,7 @@ import { solutions } from "@/lib/content/solutions";
 import { caseStudies, insights } from "@/lib/content/site-content";
 import { locations } from "@/lib/content/locations";
 import { regions } from "@/lib/content/global";
+import { industryPages } from "@/lib/content/industries-detail";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -76,6 +77,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const industryRoutes = industryPages.map((i) => ({
+    url: `${base}/industries/${i.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticRoutes,
     ...serviceRoutes,
@@ -84,5 +92,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...insightRoutes,
     ...locationRoutes,
     ...regionRoutes,
+    ...industryRoutes,
   ];
 }

@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "qa": "node scripts/qa-crawl.mjs"
+    "qa": "node scripts/qa-crawl.mjs",
+    "outreach": "node scripts/outreach/outreach.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

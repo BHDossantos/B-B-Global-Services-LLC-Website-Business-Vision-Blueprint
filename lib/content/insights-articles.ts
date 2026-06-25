@@ -578,6 +578,186 @@ A modern data stack is not a trophy. It is a working system whose value shows up
 ---
 
 If your data stack produces plenty of dashboards but not much trust, the issue is usually design and discipline, not tooling. A short consultation or a Technology Health Check can map where trust breaks down today and define a focused first slice worth building.`,
+  "digital-transformation-roadmap": `Most digital transformation roadmaps are beautiful and useless. They look authoritative on a slide -- neat swim lanes, confident quarters, a tidy arc from legacy to modern -- and then they meet reality. A vendor slips. A priority shifts. A dependency nobody mapped surfaces in month two. Within a quarter the roadmap is a relic, quietly ignored, and the transformation drifts back into a list of disconnected projects.
+
+A roadmap that survives reality is built differently. It is less a fixed schedule and more a sequencing of value and risk that expects to be revised. Here is how to build one that holds up.
+
+## Start from outcomes, not technology
+
+The most common failure is a roadmap organized around systems to replace rather than outcomes to achieve. "Migrate the ERP" is an activity. "Cut order-to-cash time in half" is an outcome, and it tells you which work matters and which can wait.
+
+Anchor every initiative to a business result you can name and, ideally, measure:
+
+- **What changes for the business** if this lands -- revenue, cost, risk, speed, or experience.
+- **Who owns that outcome** on the business side, not just the technology side.
+- **How you will know** it worked, defined before the work starts.
+
+Initiatives that cannot be tied to an outcome are usually someone's preference, not a priority. They belong in a backlog, not on the critical path.
+
+## Sequence by value and risk, not by org chart
+
+Once outcomes are clear, sequencing is the real craft. The instinct is to do the easy things first or the loudest stakeholder's thing first. The better logic balances two questions: how much value does this unlock, and how much risk does it remove or carry?
+
+A practical ordering:
+
+1. **High value, foundational** -- the work other initiatives depend on. Do it early even when it is unglamorous.
+2. **High value, low risk** -- early wins that build credibility and fund the harder work.
+3. **High value, high risk** -- the big bets, deliberately sequenced after you have proven the team and the approach.
+4. **Low value** -- defer or drop, however much someone wants it.
+
+This is the heart of our **Strategy and Advisory** work: a current-state assessment, a future-state architecture, and an executive roadmap with a real budget attached -- sequenced by value and dependency rather than by who asked loudest.
+
+## Build in slices that ship
+
+A roadmap that only delivers value at the end is a roadmap that fails quietly, because nothing proves it is working until it is too late to change course. The durable pattern is thin, end-to-end slices: each phase ships something real to real users.
+
+This is where the **Idea to Operations** framework keeps a transformation honest. Each slice moves through the full lifecycle -- discover, design, build, secure, deploy, operate -- rather than stopping at "the code works." A slice that is built but not secured, deployed, or owned is not progress. It is unrealized risk parked on a roadmap.
+
+Shipping in slices does two things. It delivers value continuously instead of in one distant lump, and it surfaces the hidden problems early, while they are cheap to fix.
+
+## Plan for the roadmap to change
+
+The roadmaps that survive are the ones that expect to be wrong in the details. Treat the plan as a living document with a few deliberate habits:
+
+- **Review on a cadence.** Revisit sequence and priorities regularly as you learn, rather than defending a plan written before you knew anything.
+- **Keep the next phase detailed and the far ones loose.** Plan the near term precisely; sketch the distant term in pencil. False precision about month nine just creates work to maintain.
+- **Name dependencies and owners explicitly.** Most slippage comes from a handoff nobody owned. Make the seams visible.
+
+A roadmap is a hypothesis about the best path. Holding it loosely is not a lack of conviction -- it is how you avoid marching confidently off a cliff.
+
+## Make ownership the spine
+
+Transformations stall in the gaps between teams and vendors. The fix is unglamorous: every initiative has a named owner accountable for the outcome, and every handoff has someone responsible for it landing. When the same partner can carry work from strategy through build, security, and operations, the seams stop being where things fall apart.
+
+That continuity is the difference between a transformation that compounds and one that becomes a graveyard of half-finished projects.
+
+## What a durable roadmap feels like
+
+A roadmap that survives reality is shorter on certainty and longer on clarity. It names outcomes, sequences by value and risk, ships in slices, expects revision, and assigns ownership for every seam. It is less impressive as a slide and far more useful as a guide -- because it is built to bend instead of break.
+
+---
+
+If your transformation looks clear on paper but keeps stalling in practice, the issue is usually sequencing and ownership, not ambition. A short consultation or a Technology Health Check can pressure-test your roadmap, find the seams nobody owns, and define a first slice worth shipping.`,
+  "cybersecurity-for-mid-market": `Mid-market security advice tends to arrive as a wall: a hundred-control framework, a stack of tools, and the unspoken message that you are already behind. That framing paralyzes growing companies, because they cannot do everything at once and the list never says where to start. The good news is that you do not need to do everything. You need to do the right things in the right order.
+
+Risk is not evenly distributed. A handful of controls prevent the majority of real incidents, and most mid-market breaches still come through doors that have been known to be unlocked for years. Here is a practical priority list, ordered by how much risk each item removes for the effort it takes.
+
+## First: control identity
+
+Most modern breaches are not clever. They are someone logging in with credentials they should not have. Identity is the new perimeter, and it is where the highest-leverage work lives.
+
+- **Multi-factor authentication everywhere it matters** -- email, remote access, admin consoles, and any system holding sensitive data. This single control stops a large share of account-takeover attacks.
+- **Least-privilege access.** People accumulate permissions they no longer need. Review access so a compromised account cannot reach everything.
+- **Prompt offboarding.** Accounts for departed staff and stale vendors are a quiet, common entry point. Closing them fast is nearly free and genuinely protective.
+
+If you do nothing else this quarter, do this. Identity controls are the cheapest, highest-return security work available to a mid-market company.
+
+## Second: know what you have and keep it patched
+
+You cannot protect what you cannot see. A surprising number of incidents trace back to a forgotten server, an unmanaged laptop, or a system nobody remembered was exposed to the internet.
+
+1. **Inventory your assets.** Devices, servers, cloud resources, and the software running on them. An informal list beats no list; a maintained one beats both.
+2. **Patch on a real cadence.** Known, unpatched vulnerabilities are among the most exploited paths in. You do not need to be instant -- you need to be consistent and to prioritize what is internet-facing.
+3. **Reduce your exposure.** Every service open to the internet is a door. Close the ones you do not need.
+
+This is unglamorous, ongoing hygiene, and it prevents more incidents than any single product you can buy.
+
+## Third: make backups you have actually tested
+
+Ransomware turns a security problem into a survival problem, and the thing that saves you is not the tool that blocks it -- it is the backup that lets you refuse to pay. But a backup you have never restored is a hypothesis, not a safeguard.
+
+- Keep backups isolated enough that an attacker reaching your systems cannot also encrypt or delete them.
+- **Restore on a schedule, into a clean environment, timed against how long you can afford to be down.** Until you have done this, you do not actually know you can recover.
+
+This is exactly why backup validation is a distinct activity in our **Reliability, Operations and BCDR** work, separate from simply running backups. Recoverability is proven by restoring, not by hoping.
+
+## Fourth: build security into how you ship
+
+If your team builds or runs software, security has to live in delivery rather than bolted on at the end, where it slows releases and surfaces issues too late. A workable mid-market setup is modest:
+
+- **Automated scanning in the pipeline** -- dependency, container, and infrastructure checks on every change.
+- **Secrets out of code** -- credentials pulled from a managed vault, never committed to a repository.
+- **A small set of blocking gates** -- stop on the critical and rare; track and schedule the rest.
+
+That secure-by-default approach is the core of our **DevSecOps and Cybersecurity** work: a security assessment, a control matrix, and a phased remediation plan scaled to a mid-market team and budget -- not an enterprise program you cannot staff.
+
+## Fifth: prepare your people and your response
+
+Two final priorities cost little and matter a lot:
+
+**Train against the attacks you will actually face.** Most incidents start with a person clicking something. Brief, practical, recurring awareness work measurably lowers that risk.
+
+**Have an incident plan before you need one.** A simple written answer to who does what when something goes wrong -- and one tabletop walkthrough of it -- turns chaos into a procedure at the moment it counts most.
+
+## The honest order of operations
+
+Mid-market security is not about buying the most tools. It is about doing the high-leverage work first: control identity, know and patch your assets, test your backups, build security into delivery, and prepare your people. Most of the risk lives in that list, and most of it is achievable without an enterprise budget.
+
+---
+
+If security feels like an overwhelming wall rather than an ordered plan, the fix is prioritization, not panic. A security assessment or a Technology Health Check can map your real exposure and hand you a ranked, achievable list that reduces the most risk first.`,
+  "cloud-migration-guide": `Cloud migrations have earned their bad reputation honestly. Nearly everyone has heard the story: a rushed lift-and-shift that doubled the bill, a cutover weekend that bled into a cutover month, a critical workload that behaved nothing like it did on-premises. The horror stories are real. They are also almost entirely avoidable, because the disasters share a cause -- migrating before understanding, and moving for its own sake rather than for an outcome.
+
+A migration done well is undramatic. It moves the right workloads, in the right way, in a sequence that keeps the business running and the bill predictable. Here is how to get there.
+
+## Know why you are moving
+
+The first question is not how to migrate. It is why. "Everyone is in the cloud" is not a reason, and migrations driven by fashion rather than outcome are the ones that disappoint. Good reasons are specific:
+
+- **Reliability and scale** the current environment cannot deliver.
+- **Speed of delivery** -- provisioning and shipping faster than owned hardware allows.
+- **Exiting a data center** or aging infrastructure on a real deadline.
+- **Access to managed services** that remove undifferentiated operational work.
+
+The reason matters because it decides the approach. A move purely to exit a data center may favor speed; a move for long-term agility justifies more rework up front. Name the outcome, and the right path gets clearer.
+
+## Assess before you touch anything
+
+Most migration disasters are really discovery failures. The workload that misbehaved in the cloud was misunderstood before it ever moved. So the first real phase is not migration -- it is mapping.
+
+This is the **Discover** phase in practice: inventory the workloads, map their dependencies, understand their performance and data, and flag the ones that are load-bearing or poorly understood. The output is a clear-eyed picture of what you have and how hard each piece is to move.
+
+This is exactly the analysis our **Cloud, DevOps and Platform Engineering** work produces as a cloud assessment: a workload inventory, a dependency map, and a migration plan that sequences the move by value and risk rather than moving everything at once and hoping.
+
+## Choose the right move for each workload
+
+Not everything should be migrated the same way, and treating every workload identically is how costs balloon. Sort each one into a deliberate approach:
+
+1. **Rehost (lift-and-shift).** Move it largely as-is. Fast and low-risk, but it carries old inefficiencies -- and old costs -- with it.
+2. **Replatform.** Make targeted changes, such as moving to a managed database, to gain cloud benefits without a full rebuild. Often the pragmatic sweet spot.
+3. **Refactor.** Re-architect for the cloud. The most effort and the most reward, justified for the workloads that matter most.
+4. **Retire or replace.** Some workloads should not move at all -- retire what is unused, replace what a service does better.
+
+The discipline is matching the effort to the value. Refactoring everything wastes money; rehosting everything carries your problems into a more expensive home.
+
+## Control cost from day one
+
+The runaway bill is the most famous horror story, and it almost always comes from treating cloud like a rented data center -- everything always on, sized for a peak that rarely arrives, with no attribution. Avoid it from the start:
+
+- **Tag and attribute spend** so every resource maps to an owner and a purpose. Untagged spend is unmanaged spend.
+- **Right-size to real usage**, with headroom for spikes rather than provisioning for a worst case that never comes.
+- **Schedule and autoscale** -- non-production does not run nights and weekends; production scales with demand.
+
+Cost is a design decision, not an invoice surprise. Built in early, it stays controlled.
+
+## Migrate in waves, with a way back
+
+The cutover weekend that turns into a cutover month is the product of a single, all-at-once leap. The safer path is waves: move a small, low-risk group first, learn from it, then move the next. Each wave is small enough to validate and, crucially, to roll back if it misbehaves. Value arrives continuously and risk stays bounded, rather than betting the business on one switch flipping cleanly.
+
+## Carry it through to operations
+
+A migration that ends at "it runs in the cloud" is only half done. The same discipline that moved the workload has to keep it healthy:
+
+- **Secure** -- build cloud controls and identity in as you go, not after.
+- **Deploy** -- automated, governed releases so changes ship safely.
+- **Operate** -- monitoring, support, and clear ownership so the new environment does not quietly decay.
+- **Recover** -- tested backup and recovery for the migrated workloads.
+
+The same partner carrying an idea through to operations is what keeps a migration from becoming a more expensive version of the problem you started with.
+
+---
+
+If the cloud is on your roadmap but the horror stories are giving you pause, the antidote is assessment, not nerve. A cloud assessment or a Technology Health Check can map your workloads, match each to the right approach, and lay out a wave-by-wave plan that protects both uptime and budget.`,
 };
 
 export function getArticle(slug: string): string | undefined {

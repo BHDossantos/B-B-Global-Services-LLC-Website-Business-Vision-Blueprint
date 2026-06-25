@@ -1,0 +1,24 @@
+[
+  {
+    "email": "jane@example-saas.com",
+    "firstName": "Jane",
+    "company": "Example SaaS Co",
+    "role": "VP of Engineering",
+    "industry": "SaaS & Technology",
+    "companySize": "100-500",
+    "notes": "Former colleague from 2019; team is scaling fast and fighting deploy reliability.",
+    "consentBasis": "former colleague",
+    "source": "warm network"
+  },
+  {
+    "email": "dr.smith@example-clinic.com",
+    "firstName": "Pat",
+    "company": "Example Medical Group",
+    "role": "Practice Administrator",
+    "industry": "Healthcare",
+    "companySize": "25-100",
+    "notes": "Met at a regional business event; mentioned aging systems and security worries.",
+    "consentBasis": "event opt-in",
+    "source": "networking"
+  }
+]

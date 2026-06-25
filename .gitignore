@@ -32,3 +32,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# outreach runtime data (real contact lists, drafts, logs — never commit)
+/data/outreach

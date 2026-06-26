@@ -61,7 +61,10 @@ export function Footer() {
                 {siteConfig.email}
               </a>
               <a href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`} className="block hover:text-accent-400">
-                {siteConfig.phone}
+                {siteConfig.phone} <span className="text-navy-500">(US)</span>
+              </a>
+              <a href={`tel:${siteConfig.phoneIt.replace(/[^+\d]/g, "")}`} className="block hover:text-accent-400">
+                {siteConfig.phoneIt} <span className="text-navy-500">(IT)</span>
               </a>
               <p className="text-navy-400">HQ: {siteConfig.headquarters}</p>
               <p className="text-navy-400">{siteConfig.coverage}</p>

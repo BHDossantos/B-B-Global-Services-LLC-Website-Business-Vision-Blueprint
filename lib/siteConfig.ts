@@ -9,6 +9,7 @@ export const siteConfig = {
   url: "https://bnbglobal.net",
   email: "hello@bnbglobal.net",
   phone: "+1 (603) 930-8272",
+  phoneIt: "+39 331 470 8304",
   // Where every "Book a Consultation" action goes. Until a real Calendly
   // event exists, this points to the on-site contact form (which works and
   // captures leads). When you have Calendly, set `calendlyUrl` below to the

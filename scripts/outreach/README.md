@@ -45,7 +45,9 @@ npm run outreach -- generate
 npm run outreach -- send --limit 20
 
 # 4. Check the pipeline
-npm run outreach -- status
+npm run outreach -- status        # quick text summary
+npm run outreach -- dashboard     # generate an HTML dashboard (data/outreach/dashboard.html)
+#   → open it in your browser for a visual view: prospects, recent sends, reply rate
 
 # 5. Keep the sequence moving — run `send` once a day; follow-ups fire on cadence
 #    Mark replies so the sequence stops:

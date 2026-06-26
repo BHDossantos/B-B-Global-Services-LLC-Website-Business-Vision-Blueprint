@@ -18,7 +18,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {
   loadProspects, saveProspects, loadSuppression, addSuppression,
-  appendLog, normalizeProspect, OUTBOX,
+  appendLog, readLog, normalizeProspect, OUTBOX, DASHBOARD,
 } from "./store.mjs";
 import { SEQUENCE, nextStepFor } from "./sequences.mjs";
 import { generateEmail } from "./ai.mjs";
@@ -57,10 +57,11 @@ async function main() {
     case "generate": return cmdGenerate();
     case "send": return cmdSend();
     case "status": return cmdStatus();
+    case "dashboard": return cmdDashboard();
     case "reply": return cmdMark("replied");
     case "unsubscribe": return cmdUnsub();
     default:
-      console.log("Commands: add | import <file> | generate | send | status | reply --email <e> | unsubscribe --email <e>");
+      console.log("Commands: add | import <file> | generate | send | status | dashboard | reply --email <e> | unsubscribe --email <e>");
       console.log("Flags: --limit N (send/generate), --email, --company, --role, --industry, --notes, --consent");
   }
 }
@@ -158,6 +159,70 @@ function cmdStatus() {
   console.log(`Suppressed:   ${suppressed.size}`);
   console.log(`Due now:      ${due}`);
   console.log(`Total sends:  ${list.reduce((n, p) => n + (p.sentCount || 0), 0)}`);
+}
+
+function cmdDashboard() {
+  const list = loadProspects();
+  const log = readLog();
+  const suppressed = loadSuppression();
+  const due = dueList().length;
+  const totalSends = log.length;
+  const replied = list.filter((p) => p.status === "replied").length;
+  const contacted = list.filter((p) => (p.sentCount || 0) > 0).length;
+  const replyRate = contacted ? Math.round((replied / contacted) * 100) : 0;
+  const hot = log.filter((e) => e.rating === "Hot").length; // future use
+
+  const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const stat = (v, l) => `<div class="stat"><div class="v">${v}</div><div class="l">${l}</div></div>`;
+
+  const recent = [...log].reverse().slice(0, 25).map((e) =>
+    `<tr><td>${esc(e.ts?.slice(0, 16).replace("T", " "))}</td><td>${esc(e.email)}</td><td>step ${esc(e.step)}</td><td>${esc(e.source)}</td><td>${esc(e.subject)}</td></tr>`
+  ).join("");
+
+  const rows = [...list]
+    .sort((a, b) => (b.lastSentAt || "").localeCompare(a.lastSentAt || ""))
+    .map((p) =>
+      `<tr><td>${esc(p.email)}</td><td>${esc(p.company)}</td><td>${esc(p.industry)}</td><td><span class="badge ${esc(p.status)}">${esc(p.status)}</span></td><td>${p.sentCount || 0}/${SEQUENCE.length}</td><td>${esc((p.lastSentAt || "").slice(0, 10))}</td></tr>`
+    ).join("");
+
+  const html = `<!doctype html><html><head><meta charset="utf-8"><title>B&B Outreach Dashboard</title>
+<style>
+  :root{color-scheme:light}
+  body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#f1f5f9;color:#0f172a}
+  header{background:#0a1429;color:#fff;padding:20px 28px}
+  header h1{margin:0;font-size:18px}header p{margin:4px 0 0;color:#94a3b8;font-size:13px}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-bottom:24px}
+  .stat{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:16px;text-align:center}
+  .stat .v{font-size:28px;font-weight:700}.stat .l{font-size:12px;color:#64748b;margin-top:4px}
+  h2{font-size:14px;text-transform:uppercase;letter-spacing:.05em;color:#475569;margin:24px 0 10px}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;font-size:13px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid #f1f5f9}th{background:#f8fafc;color:#475569;font-size:11px;text-transform:uppercase}
+  .badge{font-size:11px;padding:2px 8px;border-radius:999px;background:#e2e8f0;color:#334155}
+  .badge.contacted{background:#dbeafe;color:#1e40af}.badge.completed{background:#e0e7ff;color:#3730a3}
+  .badge.replied{background:#dcfce7;color:#166534}.badge.unsubscribed,.badge.bounced{background:#fee2e2;color:#991b1b}
+</style></head><body>
+<header><h1>B&B Global Services — Outreach Dashboard</h1><p>Generated ${new Date().toISOString().slice(0, 16).replace("T", " ")} · local pipeline view</p></header>
+<div class="wrap">
+  <div class="stats">
+    ${stat(list.length, "Prospects")}
+    ${stat(contacted, "Contacted")}
+    ${stat(due, "Due now")}
+    ${stat(totalSends, "Total sends")}
+    ${stat(replied, "Replies")}
+    ${stat(replyRate + "%", "Reply rate")}
+    ${stat(suppressed.size, "Unsubscribed")}
+  </div>
+  <h2>Recent sends</h2>
+  <table><thead><tr><th>When</th><th>Email</th><th>Step</th><th>Source</th><th>Subject</th></tr></thead><tbody>${recent || '<tr><td colspan="5">No sends yet.</td></tr>'}</tbody></table>
+  <h2>Prospects</h2>
+  <table><thead><tr><th>Email</th><th>Company</th><th>Industry</th><th>Status</th><th>Touches</th><th>Last sent</th></tr></thead><tbody>${rows || '<tr><td colspan="6">No prospects yet — add some with: npm run outreach -- import &lt;file&gt;</td></tr>'}</tbody></table>
+  <p style="color:#94a3b8;font-size:12px;margin-top:20px">Inbound website leads land in your email inbox (Resend), not here — this dashboard covers the outreach engine. Set CONTACT_WEBHOOK_URL to also pipe inbound leads to a sheet/CRM.</p>
+</div></body></html>`;
+
+  fs.writeFileSync(DASHBOARD, html);
+  console.log(`Dashboard written: ${path.relative(process.cwd(), DASHBOARD)}`);
+  console.log("Open it in your browser (e.g. `open` on macOS, `xdg-open` on Linux).");
 }
 
 function cmdMark(status) {

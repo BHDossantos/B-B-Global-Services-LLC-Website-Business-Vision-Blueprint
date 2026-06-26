@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "./ui";
 import { Logo } from "./Logo";
 import { NewsletterSignup } from "./NewsletterSignup";
+import type { Messages } from "@/lib/i18n/messages/en";
 import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/content/services";
 import { solutions } from "@/lib/content/solutions";
@@ -28,7 +29,7 @@ const serviceAreas = [
   { label: "Rome", href: "/locations/rome" },
 ];
 
-export function Footer() {
+export function Footer({ m }: { m: Messages }) {
   const year = new Date().getFullYear();
 
   return (
@@ -38,12 +39,9 @@ export function Footer() {
         <div className="flex flex-col gap-5 border-b border-navy-800 py-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-md">
             <h3 className="text-lg font-semibold text-white">
-              Practical technology insights, no hype
+              {m.footer.newsletterTitle}
             </h3>
-            <p className="mt-1 text-sm text-navy-300">
-              Occasional, useful thinking on strategy, cloud, security, and
-              resilience for growing businesses.
-            </p>
+            <p className="mt-1 text-sm text-navy-300">{m.footer.newsletterBody}</p>
           </div>
           <div className="w-full max-w-md lg:w-auto lg:min-w-[360px]">
             <NewsletterSignup source="footer" variant="footer" />
@@ -73,7 +71,7 @@ export function Footer() {
 
           <nav aria-label="Services">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Services
+              {m.footer.services}
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
               {services.map((s) => (
@@ -88,7 +86,7 @@ export function Footer() {
 
           <nav aria-label="Solutions">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Solutions
+              {m.footer.solutions}
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
               {solutions.map((s) => (
@@ -103,7 +101,7 @@ export function Footer() {
 
           <nav aria-label="Company">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Company
+              {m.footer.company}
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
               {company.map((c) => (
@@ -129,7 +127,7 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 border-t border-navy-800 py-5 text-xs text-navy-400">
           <span className="font-semibold uppercase tracking-wide text-navy-300">
-            Service areas:
+            {m.footer.serviceAreas}
           </span>
           {serviceAreas.map((area, i) => (
             <span key={area.href} className="flex items-center gap-2">
@@ -143,14 +141,14 @@ export function Footer() {
 
         <div className="flex flex-col items-start justify-between gap-3 border-t border-navy-800 py-6 text-xs text-navy-400 sm:flex-row sm:items-center">
           <p>
-            © {year} {siteConfig.name}. All rights reserved.
+            © {year} {siteConfig.name}. {m.footer.rights}
           </p>
           <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <Link href="/privacy" className="hover:text-accent-400">
-              Privacy Policy
+              {m.footer.privacy}
             </Link>
             <Link href="/terms" className="hover:text-accent-400">
-              Terms of Service
+              {m.footer.terms}
             </Link>
           </nav>
         </div>

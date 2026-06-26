@@ -1,8 +1,9 @@
 import { Button, Container } from "./ui";
 import { Icon } from "./Icon";
-import { siteConfig, lifecyclePhases } from "@/lib/siteConfig";
+import { siteConfig } from "@/lib/siteConfig";
+import type { Messages } from "@/lib/i18n/messages/en";
 
-export function Hero() {
+export function Hero({ m }: { m: Messages }) {
   return (
     <section className="relative overflow-hidden bg-navy-950 text-white">
       {/* Background accents */}
@@ -33,30 +34,27 @@ export function Hero() {
             </span>
 
             <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Technology Delivery From{" "}
+              {m.hero.headlinePre}{" "}
               <span className="bg-gradient-to-r from-accent-300 to-electric-400 bg-clip-text text-transparent">
-                Idea to Operations
+                {m.hero.headlineHighlight}
               </span>
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-200">
-              {siteConfig.shortName} helps businesses design, build, secure,
-              deploy, support, and recover mission-critical technology solutions
-              across software, cloud, DevOps, cybersecurity, AI, managed
-              services, and business continuity.
+              {m.hero.sub}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href={siteConfig.bookingUrl} external>
-                Book a Consultation <Icon name="arrow" className="h-4 w-4" />
+              <Button href={siteConfig.bookingUrl}>
+                {m.cta.bookConsultation} <Icon name="arrow" className="h-4 w-4" />
               </Button>
               <Button href="/assessment" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
-                Free Technology Health Check
+                {m.cta.freeHealthCheck}
               </Button>
             </div>
 
             <ul className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-navy-300">
-              {["Free consultation", "No obligation", "Reply within 1 business day"].map((t) => (
+              {m.trust.map((t) => (
                 <li key={t} className="flex items-center gap-1.5">
                   <Icon name="check" className="h-4 w-4 text-accent-400" />
                   {t}
@@ -65,9 +63,7 @@ export function Hero() {
             </ul>
 
             <p className="mt-8 max-w-lg text-sm leading-relaxed text-navy-400">
-              A global, remote-first partner with enterprise experience across
-              cloud, DevOps, SRE, AI, application delivery, cybersecurity, data
-              platforms, and operational resilience — delivered worldwide.
+              {m.hero.trustLine}
             </p>
           </div>
 
@@ -75,10 +71,10 @@ export function Hero() {
           <div className="animate-fade-up [animation-delay:120ms]">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
               <p className="text-xs font-semibold uppercase tracking-widest text-accent-300">
-                The Technology Lifecycle
+                {m.hero.lifecycleTitle}
               </p>
               <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {lifecyclePhases.map((phase, i) => (
+                {m.lifecycle.map((phase, i) => (
                   <div
                     key={phase}
                     className="group relative rounded-xl border border-white/10 bg-navy-900/60 p-3 text-center"
@@ -93,9 +89,9 @@ export function Hero() {
                 ))}
               </div>
               <div className="mt-5 flex items-center justify-between rounded-lg bg-gradient-to-r from-accent-500/20 to-electric-500/20 px-4 py-3 text-sm">
-                <span className="font-medium text-white">Idea</span>
+                <span className="font-medium text-white">{m.hero.fromIdea}</span>
                 <Icon name="arrow" className="h-4 w-4 text-accent-300" />
-                <span className="font-medium text-white">Reliable Operations</span>
+                <span className="font-medium text-white">{m.hero.toOps}</span>
               </div>
             </div>
           </div>

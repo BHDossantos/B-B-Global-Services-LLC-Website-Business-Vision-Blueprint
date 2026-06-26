@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Analytics } from "@/components/Analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import { StickyCTA } from "@/components/StickyCTA";
+import { getLocale, getMessages } from "@/lib/i18n";
 import { siteConfig } from "@/lib/siteConfig";
 
 const inter = Inter({
@@ -118,8 +119,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const locale = getLocale();
+  const m = getMessages(locale);
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang={locale} className={inter.variable}>
       <body className="flex min-h-screen flex-col font-sans">
         <script
           type="application/ld+json"
@@ -131,11 +134,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Navbar />
+        <Navbar m={m} locale={locale} />
         <main id="main" className="flex-1">
           {children}
         </main>
-        <Footer />
+        <Footer m={m} />
         <StickyCTA />
         <Analytics />
         <VercelAnalytics />

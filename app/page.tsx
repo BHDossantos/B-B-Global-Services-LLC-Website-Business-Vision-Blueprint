@@ -24,12 +24,14 @@ import {
   faqs,
 } from "@/lib/content/site-content";
 import { regions, globalStats } from "@/lib/content/global";
+import { getMessages } from "@/lib/i18n";
 
 export default function HomePage() {
+  const m = getMessages();
   return (
     <>
       <FaqJsonLd items={faqs} />
-      <Hero />
+      <Hero m={m} />
 
       {/* Credibility stats */}
       <StatsBand />
@@ -37,9 +39,9 @@ export default function HomePage() {
       {/* Section 2: Problem Statement */}
       <Section muted>
         <SectionHeading
-          eyebrow="The Real Problem"
-          title="Most Companies Do Not Have a Technology Problem. They Have a Delivery Problem."
-          description="Businesses are under pressure to move faster, reduce outages, improve security, modernize systems, adopt AI, control cloud costs, and support users without increasing operational chaos. B&B Global Services brings the strategy, engineering, operations, and support model needed to move technology from concept to reliable execution."
+          eyebrow={m.home.problemEyebrow}
+          title={m.home.problemTitle}
+          description={m.home.problemBody}
         />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {painPoints.map((p) => (
@@ -51,9 +53,9 @@ export default function HomePage() {
       {/* Section 3: What We Do */}
       <Section>
         <SectionHeading
-          eyebrow="What We Do"
-          title="One Partner Across the Full Technology Lifecycle"
-          description="From strategy through long-term operations, we cover the disciplines most businesses have to stitch together across multiple vendors."
+          eyebrow={m.home.whatEyebrow}
+          title={m.home.whatTitle}
+          description={m.home.whatBody}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
@@ -64,7 +66,7 @@ export default function HomePage() {
         </div>
         <div className="mt-10">
           <Button href="/services" variant="ghost">
-            View all services <Icon name="arrow" className="h-4 w-4" />
+            {m.cta.viewAllServices} <Icon name="arrow" className="h-4 w-4" />
           </Button>
         </div>
       </Section>
@@ -80,20 +82,17 @@ export default function HomePage() {
         <div className="relative overflow-hidden rounded-3xl border border-accent-100 bg-gradient-to-br from-accent-50 to-white p-8 sm:p-12">
           <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_0.6fr]">
             <div>
-              <Eyebrow>Free, 2-Minute Tool</Eyebrow>
+              <Eyebrow>{m.home.assessEyebrow}</Eyebrow>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900">
-                How healthy is your technology?
+                {m.home.assessTitle}
               </h2>
               <p className="mt-3 max-w-xl text-lg text-navy-600">
-                Take the free Technology Health Check to score your maturity
-                across strategy, delivery, cloud, security, reliability,
-                recovery, and support — and get a recommended next step
-                instantly.
+                {m.home.assessBody}
               </p>
             </div>
             <div className="flex lg:justify-end">
               <Button href="/assessment">
-                Start the Free Check <Icon name="arrow" className="h-4 w-4" />
+                {m.cta.startFreeCheck} <Icon name="arrow" className="h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -103,9 +102,9 @@ export default function HomePage() {
       {/* Section 4: Signature Offer — The B&B Delivery Framework */}
       <Section muted>
         <SectionHeading
-          eyebrow="The B&B Delivery Framework"
-          title="Idea to Operations Framework"
-          description="A repeatable model that takes technology from concept to reliable, supported operations — and keeps improving it."
+          eyebrow={m.home.frameworkEyebrow}
+          title={m.home.frameworkTitle}
+          description={m.home.frameworkBody}
         />
         <div className="mt-10">
           <LifecycleFramework />
@@ -115,9 +114,9 @@ export default function HomePage() {
       {/* Section 5: Industries */}
       <Section>
         <SectionHeading
-          eyebrow="Industries"
-          title="Built for Organizations Between Basic IT and Big Consulting"
-          description="We serve organizations that are too complex for a basic IT provider but need a more flexible, practical, and affordable partner than a large global consulting firm."
+          eyebrow={m.home.industriesEyebrow}
+          title={m.home.industriesTitle}
+          description={m.home.industriesBody}
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((industry) => (
@@ -137,9 +136,9 @@ export default function HomePage() {
           <div>
             <SectionHeading
               light
-              eyebrow="Global Delivery"
-              title="A Global Partner, Delivered Remotely"
-              description="From our home bases in Boston and Rome, we deliver worldwide — with follow-the-sun operations, multi-region cloud, and delivery that respects regional data and compliance needs."
+              eyebrow={m.home.globalEyebrow}
+              title={m.home.globalTitle}
+              description={m.home.globalBody}
             />
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/global" variant="white">
@@ -173,8 +172,8 @@ export default function HomePage() {
       <Section dark>
         <SectionHeading
           light
-          eyebrow="Why B&B Global Services"
-          title="Enterprise Expertise. Practical Execution. Long-Term Support."
+          eyebrow={m.home.whyEyebrow}
+          title={m.home.whyTitle}
         />
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {differentiators.map((d) => (
@@ -192,9 +191,9 @@ export default function HomePage() {
       {/* Section 8: Featured Solutions */}
       <Section>
         <SectionHeading
-          eyebrow="Featured Solutions"
-          title="Outcome-Focused Engagements"
-          description="Clear, packaged ways to start — each mapped to a real business outcome."
+          eyebrow={m.home.featuredEyebrow}
+          title={m.home.featuredTitle}
+          description={m.home.featuredBody}
         />
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-2">
           {featuredSolutions.map((s) => (
@@ -219,9 +218,9 @@ export default function HomePage() {
       {/* Case studies preview */}
       <Section muted>
         <SectionHeading
-          eyebrow="Case Studies"
-          title="Outcomes From the Field"
-          description="Anonymized examples drawn from enterprise and mid-market delivery experience."
+          eyebrow={m.home.caseEyebrow}
+          title={m.home.caseTitle}
+          description={m.home.caseBody}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.slice(0, 3).map((study) => (
@@ -241,8 +240,8 @@ export default function HomePage() {
       {/* FAQ */}
       <Section>
         <SectionHeading
-          eyebrow="FAQ"
-          title="Common Questions"
+          eyebrow={m.home.faqEyebrow}
+          title={m.home.faqTitle}
           align="center"
         />
         <div className="mx-auto mt-10 max-w-3xl">
@@ -251,7 +250,11 @@ export default function HomePage() {
       </Section>
 
       {/* Section 9: CTA */}
-      <CTABanner />
+      <CTABanner
+        headline={m.home.finalTitle}
+        copy={m.home.finalBody}
+        buttonLabel={m.cta.scheduleConsultation}
+      />
     </>
   );
 }

@@ -94,11 +94,19 @@ const jsonLd = {
     "Managed IT Services",
     "Business Continuity & Disaster Recovery",
   ],
-  address: {
-    "@type": "PostalAddress",
-    addressRegion: "NH",
-    addressCountry: "US",
-  },
+  address: [
+    {
+      "@type": "PostalAddress",
+      addressLocality: "Boston",
+      addressRegion: "MA",
+      addressCountry: "US",
+    },
+    {
+      "@type": "PostalAddress",
+      addressLocality: "Rome",
+      addressCountry: "IT",
+    },
+  ],
 };
 
 export default function RootLayout({

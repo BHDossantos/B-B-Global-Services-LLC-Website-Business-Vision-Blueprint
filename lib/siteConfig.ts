@@ -17,10 +17,10 @@ export const siteConfig = {
   // Real Calendly scheduling link. Leave empty to hide the embedded calendar
   // and route booking to the contact form instead.
   calendlyUrl: "",
-  // Home base for local presence; global remote-first delivery worldwide.
-  headquarters: "New Hampshire, USA",
+  // Home bases for local presence; global remote-first delivery worldwide.
+  headquarters: "Boston, MA & Rome, Italy",
   coverage: "Global · Remote-first delivery across the Americas, EMEA & APAC",
-  locations: ["New Hampshire", "Boston, MA"],
+  locations: ["Boston, MA", "Rome, Italy"],
   social: {
     linkedin: "https://www.linkedin.com/in/brunodssantos/",
   },

@@ -24,7 +24,7 @@ export default function GlobalPage() {
       <PageHeader
         eyebrow="Global Delivery"
         title="One Technology Partner, Delivered Worldwide"
-        description="B&B Global Services is a remote-first, global technology partner. From our New Hampshire home base, we deliver strategy, software, cloud, security, reliability, and managed services to organizations across the Americas, EMEA, and Asia Pacific."
+        description="B&B Global Services is a remote-first, global technology partner. From our home bases in Boston, MA and Rome, Italy, we deliver strategy, software, cloud, security, reliability, and managed services to organizations across the Americas, EMEA, and Asia Pacific."
       >
         <Button href={siteConfig.bookingUrl} external>
           Book a Consultation

@@ -125,7 +125,7 @@ You agree to indemnify and hold harmless ${siteConfig.name} from any claims, dam
 
 ## Governing Law
 
-These Terms are governed by the laws of the State of New Hampshire, United States, without regard to its conflict-of-laws principles. Any disputes will be subject to the exclusive jurisdiction of the state and federal courts located in New Hampshire, unless otherwise agreed in a separate services agreement.
+These Terms are governed by the laws of the Commonwealth of Massachusetts, United States, without regard to its conflict-of-laws principles. Any disputes will be subject to the exclusive jurisdiction of the state and federal courts located in Massachusetts, unless otherwise agreed in a separate services agreement.
 
 ## Changes to These Terms
 

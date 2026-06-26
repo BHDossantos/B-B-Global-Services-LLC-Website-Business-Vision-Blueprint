@@ -7,7 +7,7 @@ const SENDER_NAME = process.env.OUTREACH_FROM_NAME || "Bruno Dossantos";
 const SENDER_EMAIL = process.env.OUTREACH_FROM_EMAIL || process.env.CONTACT_FROM_EMAIL || "";
 const REPLY_TO = process.env.OUTREACH_REPLY_TO || process.env.CONTACT_TO_EMAIL || "";
 // Required by CAN-SPAM: a valid physical postal address.
-const POSTAL = process.env.OUTREACH_POSTAL_ADDRESS || "B&B Global Services LLC, New Hampshire, USA";
+const POSTAL = process.env.OUTREACH_POSTAL_ADDRESS || "B&B Global Services LLC, Boston, MA, USA";
 const UNSUB_BASE = `${BRAND.site}/unsubscribe`;
 
 export function unsubscribeUrl(email) {

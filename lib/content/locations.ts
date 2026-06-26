@@ -10,20 +10,20 @@ export type Location = {
 
 export const locations: Location[] = [
   {
-    slug: "new-hampshire",
-    city: "New Hampshire",
-    region: "NH",
-    title: "Technology Consulting & Managed IT Services in New Hampshire",
+    slug: "rome",
+    city: "Rome",
+    region: "Italy",
+    title: "Technology Consulting, Cloud & Managed IT Services in Rome, Italy",
     description:
-      "B&B Global Services provides technology consulting, cloud, DevOps, cybersecurity, app development, and managed IT services to businesses across New Hampshire.",
+      "B&B Global Services provides technology consulting, cloud, DevOps, cybersecurity, software development, and managed IT to businesses in Rome and across Italy, with GDPR-aware delivery.",
     intro:
-      "B&B Global Services helps New Hampshire businesses design, build, secure, deploy, support, and recover their technology. From Manchester and Nashua to Portsmouth and the Seacoast, we bring enterprise-grade delivery to growing organizations that have outgrown basic IT but aren't ready for a massive consulting firm.",
+      "B&B Global Services helps businesses in Rome and across Italy design, build, secure, deploy, support, and recover their technology. From our Rome home base we bring enterprise-grade delivery — cloud, software, security, and reliability — to growing organizations, with full respect for GDPR and EU data-residency expectations.",
     keywords: [
-      "technology consulting New Hampshire",
-      "managed IT services New Hampshire",
-      "IT consulting NH",
-      "cloud consulting New Hampshire",
-      "cybersecurity New Hampshire",
+      "technology consulting Rome",
+      "IT consulting Italy",
+      "cloud consulting Italy",
+      "software development Rome",
+      "GDPR compliance consulting Italy",
     ],
   },
   {

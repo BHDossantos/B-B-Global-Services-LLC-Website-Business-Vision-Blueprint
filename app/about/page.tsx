@@ -30,7 +30,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="Built by Operators, Not Just Consultants"
-        description="B&B Global Services was created to help businesses close the gap between technology ideas and real operational execution — delivered remotely to clients worldwide from our New Hampshire home base."
+        description="B&B Global Services was created to help businesses close the gap between technology ideas and real operational execution — delivered remotely to clients worldwide from our home bases in Boston and Rome."
       />
 
       <Section>

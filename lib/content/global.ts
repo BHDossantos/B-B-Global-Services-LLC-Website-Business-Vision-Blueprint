@@ -1,5 +1,5 @@
 // Global delivery model content — positions B&B as a worldwide, remote-first
-// technology partner with a New Hampshire (USA) home base.
+// technology partner with home bases in Boston, MA and Rome, Italy.
 
 export type Region = {
   slug: string;
@@ -26,7 +26,7 @@ export const regions: Region[] = [
     markets: ["United States", "Canada", "Mexico"],
     title: "Technology Consulting & Managed Services in North America",
     description:
-      "Full-lifecycle technology consulting, cloud, software, cybersecurity, and managed IT across the United States and Canada — from our New Hampshire home base.",
+      "Full-lifecycle technology consulting, cloud, software, cybersecurity, and managed IT across the United States and Canada — from our Boston, MA home base.",
     intro:
       "North America is our home base. We deliver strategy, software, cloud, security, reliability, and managed services across the US and Canada — with the option of on-site engagement for clients in the Northeast and remote delivery everywhere else.",
     highlights: [

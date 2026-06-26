@@ -24,8 +24,8 @@ const company = [
 
 const serviceAreas = [
   { label: "Global Delivery", href: "/global" },
-  { label: "New Hampshire", href: "/locations/new-hampshire" },
   { label: "Boston", href: "/locations/boston" },
+  { label: "Rome", href: "/locations/rome" },
 ];
 
 export function Footer() {

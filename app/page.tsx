@@ -139,7 +139,7 @@ export default function HomePage() {
               light
               eyebrow="Global Delivery"
               title="A Global Partner, Delivered Remotely"
-              description="From our New Hampshire home base, we deliver worldwide — with follow-the-sun operations, multi-region cloud, and delivery that respects regional data and compliance needs."
+              description="From our home bases in Boston and Rome, we deliver worldwide — with follow-the-sun operations, multi-region cloud, and delivery that respects regional data and compliance needs."
             />
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/global" variant="white">

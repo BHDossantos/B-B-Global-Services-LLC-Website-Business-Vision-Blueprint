@@ -55,7 +55,7 @@ export function ServiceJsonLd({
           name: siteConfig.name,
           url: siteConfig.url,
         },
-        areaServed: ["New Hampshire", "Boston", "United States"],
+        areaServed: ["Boston", "Massachusetts", "Italy", "United States", "Worldwide"],
       }}
     />
   );

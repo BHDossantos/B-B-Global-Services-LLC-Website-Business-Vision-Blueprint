@@ -56,7 +56,7 @@ export default function CapabilityStatementPage() {
             </div>
             <div className="text-right text-xs leading-relaxed text-navy-600">
               <p className="font-semibold text-navy-900">{siteConfig.email}</p>
-              <p>{siteConfig.phone}</p>
+              <p>{siteConfig.phone} (US) · {siteConfig.phoneIt} (IT)</p>
               <p>HQ: {siteConfig.headquarters} · Global delivery</p>
               <p>{siteConfig.url.replace("https://", "")}</p>
             </div>

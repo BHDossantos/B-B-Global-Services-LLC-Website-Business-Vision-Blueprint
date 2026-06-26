@@ -78,7 +78,7 @@ We may update this Policy from time to time. We will revise the "Effective date"
 
 ## Contact Us
 
-Questions about this Policy or your information? Contact us at **${siteConfig.email}** or ${siteConfig.phone}. ${siteConfig.name}, ${siteConfig.headquarters}.`;
+Questions about this Policy or your information? Contact us at **${siteConfig.email}** or ${siteConfig.phone} (US) / ${siteConfig.phoneIt} (IT). ${siteConfig.name}, ${siteConfig.headquarters}.`;
 
 export const termsOfService = `> **Note:** These Terms of Service are a general template provided for convenience. They are not legal advice. Please have them reviewed by qualified counsel and tailored to your business before relying on them.
 
@@ -133,4 +133,4 @@ We may update these Terms from time to time. Changes are effective when posted, 
 
 ## Contact Us
 
-Questions about these Terms? Contact us at **${siteConfig.email}** or ${siteConfig.phone}. ${siteConfig.name}, ${siteConfig.headquarters}.`;
+Questions about these Terms? Contact us at **${siteConfig.email}** or ${siteConfig.phone} (US) / ${siteConfig.phoneIt} (IT). ${siteConfig.name}, ${siteConfig.headquarters}.`;

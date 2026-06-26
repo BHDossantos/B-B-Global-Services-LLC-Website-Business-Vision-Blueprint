@@ -74,6 +74,10 @@ const jsonLd = {
   url: siteConfig.url,
   email: siteConfig.email,
   telephone: siteConfig.phone,
+  contactPoint: [
+    { "@type": "ContactPoint", telephone: siteConfig.phone, areaServed: "US", contactType: "sales" },
+    { "@type": "ContactPoint", telephone: siteConfig.phoneIt, areaServed: "IT", contactType: "sales" },
+  ],
   knowsAbout: [
     "Cloud Computing",
     "DevOps",

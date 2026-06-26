@@ -5,9 +5,11 @@ import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionHeading, Button, Card } from "@/components/ui";
 import { PillItem } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
-import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/JsonLd";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { BreadcrumbJsonLd, ServiceJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
 import { services, getService } from "@/lib/content/services";
+import { getServiceFaqs } from "@/lib/content/service-faqs";
 import { siteConfig } from "@/lib/siteConfig";
 
 export function generateStaticParams() {
@@ -36,6 +38,7 @@ export default function ServicePillarPage({
   if (!service) notFound();
 
   const others = services.filter((s) => s.slug !== service.slug);
+  const faqs = getServiceFaqs(service.slug);
 
   return (
     <>
@@ -152,6 +155,16 @@ export default function ServicePillarPage({
           ))}
         </div>
       </Section>
+
+      {faqs.length > 0 && (
+        <Section>
+          <FaqJsonLd items={faqs} />
+          <SectionHeading align="center" eyebrow="FAQ" title={`${service.title} — Common Questions`} />
+          <div className="mx-auto mt-10 max-w-3xl">
+            <FAQAccordion items={faqs} />
+          </div>
+        </Section>
+      )}
 
       <CTABanner />
     </>

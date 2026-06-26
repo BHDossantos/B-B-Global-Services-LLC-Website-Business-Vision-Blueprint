@@ -56,7 +56,11 @@ export default function ContactPage() {
               </a>
               <a href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`} className="flex items-center gap-3 text-navy-700 hover:text-accent-600">
                 <Icon name="phone" className="h-5 w-5 text-accent-500" />
-                {siteConfig.phone}
+                {siteConfig.phone} <span className="text-navy-400">(US)</span>
+              </a>
+              <a href={`tel:${siteConfig.phoneIt.replace(/[^+\d]/g, "")}`} className="flex items-center gap-3 text-navy-700 hover:text-accent-600">
+                <Icon name="phone" className="h-5 w-5 text-accent-500" />
+                {siteConfig.phoneIt} <span className="text-navy-400">(IT)</span>
               </a>
               <p className="flex items-center gap-3 text-navy-600">
                 <Icon name="building" className="h-5 w-5 text-accent-500" />

@@ -46,6 +46,25 @@ export function appendLog(entry) {
   fs.appendFileSync(LOG, JSON.stringify(entry) + "\n");
 }
 
+export function readLog() {
+  ensure();
+  if (!fs.existsSync(LOG)) return [];
+  return fs
+    .readFileSync(LOG, "utf8")
+    .split("\n")
+    .filter(Boolean)
+    .map((l) => {
+      try {
+        return JSON.parse(l);
+      } catch {
+        return null;
+      }
+    })
+    .filter(Boolean);
+}
+
+export const DASHBOARD = path.join(DATA_DIR, "dashboard.html");
+
 export function normalizeProspect(raw) {
   const email = (raw.email || "").trim().toLowerCase();
   return {

@@ -14,20 +14,21 @@ import { Reveal } from "@/components/Reveal";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FaqJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
-import { services } from "@/lib/content/services";
 import {
   painPoints,
   differentiators,
   featuredSolutions,
-  industries,
   caseStudies,
   faqs,
 } from "@/lib/content/site-content";
 import { regions, globalStats } from "@/lib/content/global";
 import { getMessages } from "@/lib/i18n";
+import { localizedServices, localizedIndustries } from "@/lib/content/i18n";
 
 export default function HomePage() {
   const m = getMessages();
+  const svc = localizedServices();
+  const inds = localizedIndustries();
   return (
     <>
       <FaqJsonLd items={faqs} />
@@ -58,7 +59,7 @@ export default function HomePage() {
           description={m.home.whatBody}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
+          {svc.map((service, i) => (
             <Reveal key={service.slug} delay={i * 60}>
               <ServiceCard service={service} />
             </Reveal>
@@ -119,8 +120,13 @@ export default function HomePage() {
           description={m.home.industriesBody}
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((industry) => (
-            <IndustryCard key={industry.name} {...industry} />
+          {inds.map((industry) => (
+            <IndustryCard
+              key={industry.slug}
+              name={industry.name}
+              description={industry.cardDescription}
+              icon={industry.icon}
+            />
           ))}
         </div>
         <div className="mt-8">

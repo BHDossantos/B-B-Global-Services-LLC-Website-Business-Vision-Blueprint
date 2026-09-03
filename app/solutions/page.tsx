@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Section, Button } from "@/components/ui";
 import { SolutionCard } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
-import { solutions } from "@/lib/content/solutions";
+import { localizedSolutions } from "@/lib/content/i18n";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function SolutionsPage() {
 
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {solutions.map((solution) => (
+          {localizedSolutions().map((solution) => (
             <SolutionCard key={solution.slug} solution={solution} />
           ))}
         </div>

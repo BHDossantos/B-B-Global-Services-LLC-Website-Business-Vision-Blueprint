@@ -4,7 +4,7 @@ import { Section, SectionHeading, Button } from "@/components/ui";
 import { ServiceCard } from "@/components/cards";
 import { LifecycleStrip } from "@/components/LifecycleFramework";
 import { CTABanner } from "@/components/CTABanner";
-import { services } from "@/lib/content/services";
+import { localizedServices } from "@/lib/content/i18n";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function ServicesPage() {
 
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {localizedServices().map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
         </div>

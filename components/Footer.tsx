@@ -4,8 +4,7 @@ import { Logo } from "./Logo";
 import { NewsletterSignup } from "./NewsletterSignup";
 import type { Messages } from "@/lib/i18n/messages/en";
 import { siteConfig } from "@/lib/siteConfig";
-import { services } from "@/lib/content/services";
-import { solutions } from "@/lib/content/solutions";
+import { localizedServices, localizedSolutions } from "@/lib/content/i18n";
 
 const company = [
   { label: "About", href: "/about" },
@@ -74,7 +73,7 @@ export function Footer({ m }: { m: Messages }) {
               {m.footer.services}
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
-              {services.map((s) => (
+              {localizedServices().map((s) => (
                 <li key={s.slug}>
                   <Link href={`/services/${s.slug}`} className="hover:text-accent-400">
                     {s.title}
@@ -89,7 +88,7 @@ export function Footer({ m }: { m: Messages }) {
               {m.footer.solutions}
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
-              {solutions.map((s) => (
+              {localizedSolutions().map((s) => (
                 <li key={s.slug}>
                   <Link href={`/solutions/${s.slug}`} className="hover:text-accent-400">
                     {s.title}

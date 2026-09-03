@@ -8,7 +8,8 @@ import { CTABanner } from "@/components/CTABanner";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { BreadcrumbJsonLd, ServiceJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
-import { services, getService } from "@/lib/content/services";
+import { services } from "@/lib/content/services";
+import { localizedService, localizedServices } from "@/lib/content/i18n";
 import { getServiceFaqs } from "@/lib/content/service-faqs";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -21,7 +22,7 @@ export function generateMetadata({
 }: {
   params: { slug: string };
 }): Metadata {
-  const service = getService(params.slug);
+  const service = localizedService(params.slug);
   if (!service) return {};
   return {
     title: service.headline,
@@ -34,10 +35,10 @@ export default function ServicePillarPage({
 }: {
   params: { slug: string };
 }) {
-  const service = getService(params.slug);
+  const service = localizedService(params.slug);
   if (!service) notFound();
 
-  const others = services.filter((s) => s.slug !== service.slug);
+  const others = localizedServices().filter((s) => s.slug !== service.slug);
   const faqs = getServiceFaqs(service.slug);
 
   return (

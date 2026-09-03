@@ -8,8 +8,8 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
 import { Reveal } from "@/components/Reveal";
 import { siteConfig } from "@/lib/siteConfig";
-import { industryPages, getIndustry } from "@/lib/content/industries-detail";
-import { getService } from "@/lib/content/services";
+import { industryPages } from "@/lib/content/industries-detail";
+import { localizedIndustry, localizedIndustries, localizedService } from "@/lib/content/i18n";
 
 export function generateStaticParams() {
   return industryPages.map((i) => ({ slug: i.slug }));
@@ -20,7 +20,7 @@ export function generateMetadata({
 }: {
   params: { slug: string };
 }): Metadata {
-  const industry = getIndustry(params.slug);
+  const industry = localizedIndustry(params.slug);
   if (!industry) return {};
   return {
     title: industry.title,
@@ -35,13 +35,13 @@ export default function IndustryPage({
 }: {
   params: { slug: string };
 }) {
-  const industry = getIndustry(params.slug);
+  const industry = localizedIndustry(params.slug);
   if (!industry) notFound();
 
   const related = industry.relatedServices
-    .map((s) => getService(s))
+    .map((s) => localizedService(s))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
-  const others = industryPages.filter((i) => i.slug !== industry.slug);
+  const others = localizedIndustries().filter((i) => i.slug !== industry.slug);
 
   return (
     <>

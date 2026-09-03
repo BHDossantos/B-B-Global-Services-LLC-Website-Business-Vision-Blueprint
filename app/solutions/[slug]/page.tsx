@@ -6,8 +6,8 @@ import { Section, SectionHeading, Button } from "@/components/ui";
 import { PillItem } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
-import { solutions, getSolution } from "@/lib/content/solutions";
-import { getService } from "@/lib/content/services";
+import { solutions } from "@/lib/content/solutions";
+import { localizedSolution, localizedService } from "@/lib/content/i18n";
 import { siteConfig } from "@/lib/siteConfig";
 
 export function generateStaticParams() {
@@ -19,7 +19,7 @@ export function generateMetadata({
 }: {
   params: { slug: string };
 }): Metadata {
-  const solution = getSolution(params.slug);
+  const solution = localizedSolution(params.slug);
   if (!solution) return {};
   return {
     title: solution.title,
@@ -32,11 +32,11 @@ export default function SolutionPage({
 }: {
   params: { slug: string };
 }) {
-  const solution = getSolution(params.slug);
+  const solution = localizedSolution(params.slug);
   if (!solution) notFound();
 
   const related = solution.relatedServices
-    .map((slug) => getService(slug))
+    .map((slug) => localizedService(slug))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (

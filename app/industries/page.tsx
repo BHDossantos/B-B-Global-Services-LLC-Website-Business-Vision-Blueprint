@@ -6,7 +6,7 @@ import { PillItem } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { Reveal } from "@/components/Reveal";
-import { industryPages } from "@/lib/content/industries-detail";
+import { localizedIndustries } from "@/lib/content/i18n";
 import { idealCustomers } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function IndustriesPage() {
 
       <Section>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {industryPages.map((industry, i) => (
+          {localizedIndustries().map((industry, i) => (
             <Reveal key={industry.slug} delay={i * 50}>
               <Link href={`/industries/${industry.slug}`} className="group block h-full">
                 <Card className="flex h-full flex-col">

@@ -240,6 +240,43 @@ export const en = {
       deliverEyebrow: "How We Deliver",
       deliverTitle: "The Idea to Operations Framework",
     },
+    insights: {
+      eyebrow: "Insights",
+      title: "Practical Thinking, Not Hype",
+      description:
+        "Perspectives on technology strategy, delivery, security, resilience, and AI for growing businesses.",
+      minRead: "min read",
+      allInsights: "All insights",
+      moreInsights: "More insights",
+      applyTitle: "Ready to put this into practice?",
+      applyBody:
+        "Book a consultation and we'll apply it to your systems, goals, and constraints.",
+    },
+    caseStudies: {
+      eyebrow: "Case Studies",
+      title: "Outcomes From the Field",
+      description:
+        "Anonymized examples drawn from enterprise and mid-market delivery experience. We never name past employers — we use language like 'large healthcare enterprise' or 'enterprise SaaS organization.'",
+      // Fixed order: challenge, approach, solution, outcome.
+      sections: [
+        { label: "Challenge", question: "What problem existed?" },
+        { label: "Approach", question: "What B&B did." },
+        { label: "Solution", question: "What was implemented." },
+        { label: "Outcome", question: "What improved?" },
+      ],
+      challengeLabel: "Challenge:",
+      outcomeLabel: "Outcome:",
+      noteLabel: "Note:",
+      noteBody:
+        "Client identities are anonymized. We never name past employers or clients without written approval.",
+      moreEyebrow: "More",
+      moreTitle: "Other Case Studies",
+      read: "Read",
+      readFullStory: "Read the full story",
+      ctaHeadline: "Want Results Like These for Your Business?",
+      ctaCopy:
+        "Let's talk about your goals, systems, and constraints — and map a path from where you are to reliable operations.",
+    },
     contact: {
       eyebrow: "Contact",
       title: "Schedule a Discovery Call",

@@ -301,6 +301,13 @@ export const pt: Widen<Messages> = {
         "Reserve um horário para uma conversa de descoberta de 30 minutos e chegaremos preparados para falar sobre os seus objetivos.",
     },
   },
+  legal: {
+    eyebrow: "Jurídico",
+    privacyTitle: "Política de Privacidade",
+    privacyDescription: "Como tratamos suas informações. Em vigor desde {date}.",
+    termsTitle: "Termos de Serviço",
+    termsDescription: "Os termos que regem o uso deste site. Em vigor desde {date}.",
+  },
   form: {
     name: "Nome",
     company: "Empresa",

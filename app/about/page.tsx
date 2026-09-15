@@ -6,7 +6,7 @@ import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { siteConfig } from "@/lib/siteConfig";
 import { getMessages } from "@/lib/i18n";
-import { differentiators } from "@/lib/content/site-content";
+import { localizedSiteContent } from "@/lib/content/i18n";
 
 export const metadata: Metadata = {
   title: "About — Built by Operators, Not Just Consultants",
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const m = getMessages();
   const t = m.pages.about;
+  const { differentiators } = localizedSiteContent();
   return (
     <>
       <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />

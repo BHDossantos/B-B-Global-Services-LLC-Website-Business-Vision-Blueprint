@@ -5,9 +5,8 @@ import { Section, SectionHeading, Button, Card, cn } from "@/components/ui";
 import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { siteConfig } from "@/lib/siteConfig";
-import { localizedServices } from "@/lib/content/i18n";
+import { localizedServices, localizedSiteContent } from "@/lib/content/i18n";
 import { getMessages } from "@/lib/i18n";
-import { engagementOffers } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
   title: "Engagements & Pricing — Custom Quotes Built Around Your Goals",
@@ -23,6 +22,7 @@ const modelIcons = ["compass", "code", "support"];
 export default function PricingPage() {
   const m = getMessages();
   const t = m.pages.pricing;
+  const { engagementOffers } = localizedSiteContent();
   return (
     <>
       <PageHeader

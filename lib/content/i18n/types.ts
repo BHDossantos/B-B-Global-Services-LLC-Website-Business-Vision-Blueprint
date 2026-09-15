@@ -8,8 +8,22 @@ export type ServiceOverlay = Partial<Pick<Service, "title" | "headline" | "summa
 export type SolutionOverlay = Partial<Pick<Solution, "title" | "summary" | "audience" | "body">>;
 export type IndustryOverlay = Partial<Pick<IndustryPage, "name" | "cardDescription" | "title" | "intro">>;
 
+// Translated versions of the shared site-content arrays. Each array, when
+// present, must match the English array's length and order (it replaces the
+// English one wholesale); when absent, English is used.
+export type SiteOverlay = {
+  lifecyclePhases?: { name: string; description: string }[];
+  painPoints?: string[];
+  differentiators?: string[];
+  featuredSolutions?: string[];
+  idealCustomers?: string[];
+  faqs?: { question: string; answer: string }[];
+  engagementOffers?: { name: string; tagline: string; includes: string[] }[];
+};
+
 export type ContentOverlay = {
   services: Record<string, ServiceOverlay>;
   solutions: Record<string, SolutionOverlay>;
   industries: Record<string, IndustryOverlay>;
+  site?: SiteOverlay;
 };

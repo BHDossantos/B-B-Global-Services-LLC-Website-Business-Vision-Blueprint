@@ -6,7 +6,7 @@ import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { Icon } from "@/components/Icon";
 import { siteConfig } from "@/lib/siteConfig";
 import { fill, getMessages } from "@/lib/i18n";
-import { engagementOffers } from "@/lib/content/site-content";
+import { localizedSiteContent } from "@/lib/content/i18n";
 
 export const metadata: Metadata = {
   title: "Contact — Schedule a Discovery Call",
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const m = getMessages();
   const t = m.pages.contact;
+  const { engagementOffers } = localizedSiteContent();
   return (
     <>
       <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />

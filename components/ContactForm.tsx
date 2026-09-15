@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { Icon } from "./Icon";
 import { cn } from "./ui";
+import type { Messages } from "@/lib/i18n/messages/en";
 
+// Submitted option VALUES stay in English so lead scoring, CRM fields, and
+// notification emails remain stable across locales; only labels translate.
 const services = [
   "Strategy & Advisory",
   "Application & Product Development",
@@ -47,7 +50,7 @@ const inputClass =
 
 const labelClass = "block text-sm font-medium text-navy-800";
 
-export function ContactForm() {
+export function ContactForm({ t }: { t: Messages["form"] }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string>("");
 
@@ -74,13 +77,13 @@ export function ContactForm() {
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || "Something went wrong.");
+        throw new Error(body.error || t.errorGeneric);
       }
       setStatus("success");
       form.reset();
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong.");
+      setError(err instanceof Error ? err.message : t.errorGeneric);
     }
   }
 
@@ -90,13 +93,8 @@ export function ContactForm() {
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent-500 text-white">
           <Icon name="check" className="h-6 w-6" />
         </div>
-        <h3 className="mt-4 text-xl font-semibold text-navy-900">
-          Thank you — we&apos;ll be in touch shortly.
-        </h3>
-        <p className="mt-2 text-sm text-navy-600">
-          A member of our team will follow up within one business day to
-          schedule your discovery call.
-        </p>
+        <h3 className="mt-4 text-xl font-semibold text-navy-900">{t.successTitle}</h3>
+        <p className="mt-2 text-sm text-navy-600">{t.successBody}</p>
       </div>
     );
   }
@@ -116,69 +114,69 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
-            Name <span className="text-accent-600">*</span>
+            {t.name} <span className="text-accent-600">*</span>
           </label>
           <input id="name" name="name" type="text" required className={inputClass} placeholder="Jane Smith" />
         </div>
         <div>
           <label htmlFor="company" className={labelClass}>
-            Company
+            {t.company}
           </label>
           <input id="company" name="company" type="text" className={inputClass} placeholder="Acme Inc." />
         </div>
         <div>
           <label htmlFor="email" className={labelClass}>
-            Email <span className="text-accent-600">*</span>
+            {t.email} <span className="text-accent-600">*</span>
           </label>
           <input id="email" name="email" type="email" required className={inputClass} placeholder="jane@acme.com" />
         </div>
         <div>
           <label htmlFor="phone" className={labelClass}>
-            Phone
+            {t.phone}
           </label>
           <input id="phone" name="phone" type="tel" className={inputClass} placeholder="(555) 555-5555" />
         </div>
         <div>
           <label htmlFor="companySize" className={labelClass}>
-            Company size
+            {t.companySize}
           </label>
           <select id="companySize" name="companySize" className={inputClass} defaultValue="">
-            <option value="" disabled>Select…</option>
+            <option value="" disabled>{t.select}</option>
             {companySizes.map((s) => (
-              <option key={s} value={s}>{s} employees</option>
+              <option key={s} value={s}>{s} {t.employees}</option>
             ))}
           </select>
         </div>
         <div>
           <label htmlFor="service" className={labelClass}>
-            Service needed
+            {t.serviceNeeded}
           </label>
           <select id="service" name="service" className={inputClass} defaultValue="">
-            <option value="" disabled>Select…</option>
-            {services.map((s) => (
-              <option key={s} value={s}>{s}</option>
+            <option value="" disabled>{t.select}</option>
+            {services.map((s, i) => (
+              <option key={s} value={s}>{t.services[i] ?? s}</option>
             ))}
           </select>
         </div>
         <div>
           <label htmlFor="budget" className={labelClass}>
-            Budget range
+            {t.budgetRange}
           </label>
           <select id="budget" name="budget" className={inputClass} defaultValue="">
-            <option value="" disabled>Select…</option>
-            {budgets.map((b) => (
-              <option key={b} value={b}>{b}</option>
+            <option value="" disabled>{t.select}</option>
+            {budgets.map((b, i) => (
+              <option key={b} value={b}>{t.budgets[i] ?? b}</option>
             ))}
           </select>
         </div>
         <div>
           <label htmlFor="timeline" className={labelClass}>
-            Timeline
+            {t.timeline}
           </label>
           <select id="timeline" name="timeline" className={inputClass} defaultValue="">
-            <option value="" disabled>Select…</option>
-            {timelines.map((t) => (
-              <option key={t} value={t}>{t}</option>
+            <option value="" disabled>{t.select}</option>
+            {timelines.map((tl, i) => (
+              <option key={tl} value={tl}>{t.timelines[i] ?? tl}</option>
             ))}
           </select>
         </div>
@@ -186,7 +184,7 @@ export function ContactForm() {
 
       <div className="mt-5">
         <label htmlFor="message" className={labelClass}>
-          Message <span className="text-accent-600">*</span>
+          {t.message} <span className="text-accent-600">*</span>
         </label>
         <textarea
           id="message"
@@ -194,7 +192,7 @@ export function ContactForm() {
           required
           rows={5}
           className={inputClass}
-          placeholder="Tell us about your goals, systems, and the problem you'd like to solve."
+          placeholder={t.messagePlaceholder}
         />
       </div>
 
@@ -211,14 +209,11 @@ export function ContactForm() {
           "mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-accent-600 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
         )}
       >
-        {status === "submitting" ? "Sending…" : "Schedule a Discovery Call"}
+        {status === "submitting" ? t.sending : t.submit}
         {status !== "submitting" && <Icon name="arrow" className="h-4 w-4" />}
       </button>
 
-      <p className="mt-3 text-xs text-navy-500">
-        By submitting, you agree to be contacted about your inquiry. We respect
-        your privacy and never share your information.
-      </p>
+      <p className="mt-3 text-xs text-navy-500">{t.consent}</p>
     </form>
   );
 }

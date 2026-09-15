@@ -5,6 +5,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { Icon } from "@/components/Icon";
 import { siteConfig } from "@/lib/siteConfig";
+import { fill, getMessages } from "@/lib/i18n";
 import { engagementOffers } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
@@ -14,29 +15,23 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const m = getMessages();
+  const t = m.pages.contact;
   return (
     <>
-      <PageHeader
-        eyebrow="Contact"
-        title="Schedule a Discovery Call"
-        description="Whether you're building an app, modernizing cloud, improving security, supporting your workforce, or preparing for disaster recovery — let's talk."
-      />
+      <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
-            <ContactForm />
+            <ContactForm t={m.form} />
           </div>
 
           <aside className="space-y-8">
             {siteConfig.calendlyUrl ? (
               <div>
-                <h2 className="text-lg font-semibold text-navy-900">
-                  Prefer to book directly?
-                </h2>
-                <p className="mt-2 text-sm text-navy-600">
-                  Grab a time that works for you and we&apos;ll come prepared.
-                </p>
+                <h2 className="text-lg font-semibold text-navy-900">{t.bookDirectTitle}</h2>
+                <p className="mt-2 text-sm text-navy-600">{t.bookDirectBody}</p>
                 <a
                   href={siteConfig.calendlyUrl}
                   target="_blank"
@@ -44,7 +39,7 @@ export default function ContactPage() {
                   className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-accent-600"
                 >
                   <Icon name="calendar" className="h-4 w-4" />
-                  Book on Calendly
+                  {t.bookOnCalendly}
                 </a>
               </div>
             ) : null}
@@ -64,30 +59,25 @@ export default function ContactPage() {
               </a>
               <p className="flex items-center gap-3 text-navy-600">
                 <Icon name="building" className="h-5 w-5 text-accent-500" />
-                HQ: {siteConfig.headquarters} — serving clients worldwide
+                {fill(t.hqLine, { hq: siteConfig.headquarters })}
               </p>
             </div>
 
             <div>
-              <h2 className="text-lg font-semibold text-navy-900">
-                Capability statement
-              </h2>
-              <p className="mt-2 text-sm text-navy-600">
-                A one-page overview of our competencies, differentiators, and
-                engagement models — ready to share with your team.
-              </p>
+              <h2 className="text-lg font-semibold text-navy-900">{t.capabilityTitle}</h2>
+              <p className="mt-2 text-sm text-navy-600">{t.capabilityBody}</p>
               <a
                 href="/capability-statement"
                 className="mt-4 inline-flex items-center gap-2 rounded-lg border border-navy-200 px-5 py-3 text-sm font-semibold text-navy-800 transition hover:border-navy-400 hover:bg-navy-50"
               >
                 <Icon name="arrow" className="h-4 w-4" />
-                View &amp; Download
+                {t.viewDownload}
               </a>
             </div>
 
             <div className="rounded-2xl border border-navy-100 bg-navy-50 p-6">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-600">
-                Easy Ways to Start
+                {t.easyWaysTitle}
               </h3>
               <ul className="mt-4 space-y-4">
                 {engagementOffers.map((offer) => (
@@ -106,9 +96,9 @@ export default function ContactPage() {
         <Section muted>
           <SectionHeading
             align="center"
-            eyebrow="Book Instantly"
-            title="Pick a Time That Works for You"
-            description="Grab a slot for a 30-minute discovery call and we'll come prepared to talk through your goals."
+            eyebrow={t.bookInstantlyEyebrow}
+            title={t.pickTimeTitle}
+            description={t.pickTimeBody}
           />
           <div className="mx-auto mt-10 max-w-3xl">
             <CalendlyEmbed url={siteConfig.calendlyUrl} />

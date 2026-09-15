@@ -5,6 +5,7 @@ import { LifecycleStrip } from "@/components/LifecycleFramework";
 import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { siteConfig } from "@/lib/siteConfig";
+import { getMessages } from "@/lib/i18n";
 import { differentiators } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
@@ -13,36 +14,18 @@ export const metadata: Metadata = {
     "B&B Global Services closes the gap between technology ideas and real operational execution — combining strategy, engineering, security, operations, and support.",
 };
 
-const expertise = [
-  "Cloud engineering",
-  "DevOps & SRE",
-  "Application delivery",
-  "AI & data platforms",
-  "Cybersecurity & DevSecOps",
-  "Business continuity",
-  "Enterprise operations",
-  "Managed services",
-];
-
 export default function AboutPage() {
+  const m = getMessages();
+  const t = m.pages.about;
   return (
     <>
-      <PageHeader
-        eyebrow="About"
-        title="Built by Operators, Not Just Consultants"
-        description="B&B Global Services was created to help businesses close the gap between technology ideas and real operational execution — delivered remotely to clients worldwide from our home bases in Boston and Rome."
-      />
+      <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <SectionHeading eyebrow="Our Approach" title="We Bring the Disciplines Together" />
-            <p className="mt-6 text-lg leading-relaxed text-navy-600">
-              Many companies can advise. Some can build. Others can support. We
-              bring these disciplines together so organizations can move faster,
-              reduce risk, improve reliability, and get more value from
-              technology.
-            </p>
+            <SectionHeading eyebrow={t.approachEyebrow} title={t.approachTitle} />
+            <p className="mt-6 text-lg leading-relaxed text-navy-600">{t.approachBody}</p>
             <div className="mt-8 space-y-3">
               {differentiators.slice(0, 4).map((d) => (
                 <div key={d} className="flex items-start gap-3">
@@ -55,22 +38,13 @@ export default function AboutPage() {
 
           <Card className="bg-navy-50">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-600">
-              Vision
+              {t.visionLabel}
             </h3>
-            <p className="mt-2 text-navy-800">
-              To become the trusted technology delivery partner for growing
-              businesses by helping them design, build, secure, operate, and
-              continuously improve the systems that power their future.
-            </p>
+            <p className="mt-2 text-navy-800">{t.visionBody}</p>
             <h3 className="mt-8 text-sm font-semibold uppercase tracking-wider text-accent-600">
-              Mission
+              {t.missionLabel}
             </h3>
-            <p className="mt-2 text-navy-800">
-              To help organizations turn technology ideas into secure, scalable,
-              reliable, and supported business solutions through strategy,
-              engineering, cloud, cybersecurity, operations, and managed
-              services.
-            </p>
+            <p className="mt-2 text-navy-800">{t.missionBody}</p>
           </Card>
         </div>
       </Section>
@@ -85,21 +59,13 @@ export default function AboutPage() {
             <h2 className="mt-5 text-2xl font-bold text-navy-900">
               Bruno Dossantos
             </h2>
-            <p className="text-navy-600">Founder &amp; Principal</p>
+            <p className="text-navy-600">{t.founderRole}</p>
           </div>
           <div>
-            <SectionHeading eyebrow="Founder" title="Deep, Hands-On Experience" />
-            <p className="mt-6 text-lg leading-relaxed text-navy-600">
-              Bruno Dossantos brings deep experience across cloud engineering,
-              DevOps, SRE, application delivery, AI, data platforms,
-              cybersecurity, business continuity, and enterprise operations. His
-              background includes leading technology teams, building platforms,
-              modernizing systems, supporting mission-critical environments, and
-              helping organizations improve delivery from strategy through
-              support.
-            </p>
+            <SectionHeading eyebrow={t.founderEyebrow} title={t.founderTitle} />
+            <p className="mt-6 text-lg leading-relaxed text-navy-600">{t.founderBio}</p>
             <ul className="mt-6 flex flex-wrap gap-2">
-              {expertise.map((e) => (
+              {t.expertise.map((e) => (
                 <li
                   key={e}
                   className="rounded-full border border-navy-200 bg-white px-3.5 py-1.5 text-sm font-medium text-navy-700"
@@ -115,15 +81,15 @@ export default function AboutPage() {
       <Section>
         <SectionHeading
           align="center"
-          eyebrow="How We Deliver"
-          title="The Idea to Operations Framework"
+          eyebrow={t.deliverEyebrow}
+          title={t.deliverTitle}
         />
         <div className="mt-10">
           <LifecycleStrip />
         </div>
         <div className="mt-10 text-center">
           <Button href={siteConfig.bookingUrl} external>
-            Book a Consultation <Icon name="arrow" className="h-4 w-4" />
+            {m.cta.bookConsultation} <Icon name="arrow" className="h-4 w-4" />
           </Button>
         </div>
       </Section>

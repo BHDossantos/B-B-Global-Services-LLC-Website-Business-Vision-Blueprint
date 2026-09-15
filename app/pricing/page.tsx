@@ -5,7 +5,8 @@ import { Section, SectionHeading, Button, Card, cn } from "@/components/ui";
 import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { siteConfig } from "@/lib/siteConfig";
-import { services } from "@/lib/content/services";
+import { localizedServices } from "@/lib/content/i18n";
+import { getMessages } from "@/lib/i18n";
 import { engagementOffers } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
@@ -17,37 +18,23 @@ export const metadata: Metadata = {
 // The flagship packaged ways to start, with the first featured.
 const featuredIndex = 0;
 
-const engagementModels = [
-  {
-    title: "Fixed-scope assessments",
-    body: "Clear, time-boxed reviews with defined deliverables — like the Technology Health Check — so you know exactly what you'll get and what it costs before we start.",
-    icon: "compass",
-  },
-  {
-    title: "Value-based projects",
-    body: "Application builds, cloud modernization, and security programs scoped and priced around outcomes and complexity — not hourly guesswork.",
-    icon: "code",
-  },
-  {
-    title: "Monthly retainers & managed services",
-    body: "Predictable monthly engagements for managed IT, application maintenance, BCDR, and fractional leadership — sized to your team and systems.",
-    icon: "support",
-  },
-];
+const modelIcons = ["compass", "code", "support"];
 
 export default function PricingPage() {
+  const m = getMessages();
+  const t = m.pages.pricing;
   return (
     <>
       <PageHeader
-        eyebrow="Engagements & Pricing"
-        title="Pricing Built Around Your Goals — Not a Menu"
-        description="Every engagement is scoped to your environment, goals, and budget. Rather than one-size-fits-all price tags, we give you a clear, custom proposal after a short conversation. Most clients start with a focused assessment, then expand into implementation and ongoing managed services."
+        eyebrow={t.eyebrow}
+        title={t.title}
+        description={t.description}
       >
         <Button href={siteConfig.bookingUrl} external>
-          Talk to Our Team
+          {m.cta.talkToTeam}
         </Button>
         <Button href="/assessment" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
-          Take the Free Health Check
+          {t.takeHealthCheck}
         </Button>
       </PageHeader>
 
@@ -55,9 +42,9 @@ export default function PricingPage() {
       <Section>
         <SectionHeading
           align="center"
-          eyebrow="Start Here"
-          title="Three Easy Ways to Engage"
-          description="Low-risk entry points designed to deliver value fast and expand naturally. Each is scoped and quoted to fit your situation."
+          eyebrow={t.startEyebrow}
+          title={t.startTitle}
+          description={t.startBody}
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {engagementOffers.map((offer, i) => {
@@ -74,14 +61,14 @@ export default function PricingPage() {
               >
                 {featured && (
                   <span className="absolute -top-3 left-7 rounded-full bg-accent-500 px-3 py-1 text-xs font-semibold text-white">
-                    Most popular
+                    {m.common.mostPopular}
                   </span>
                 )}
                 <h3 className={cn("text-lg font-semibold", featured ? "text-white" : "text-navy-900")}>
                   {offer.name}
                 </h3>
                 <p className={cn("mt-2 text-sm font-semibold uppercase tracking-wide", featured ? "text-accent-300" : "text-accent-600")}>
-                  Custom quote
+                  {m.common.customQuote}
                 </p>
                 <ul className="mt-6 flex-1 space-y-2.5">
                   {offer.includes.map((item) => (
@@ -100,7 +87,7 @@ export default function PricingPage() {
                   variant={featured ? "primary" : "ghost"}
                   className="mt-7 w-full"
                 >
-                  Request a Quote
+                  {m.common.requestQuote}
                 </Button>
               </div>
             );
@@ -111,18 +98,18 @@ export default function PricingPage() {
       {/* How we price */}
       <Section muted>
         <SectionHeading
-          eyebrow="How We Price"
-          title="Engagement Models That Fit How You Work"
-          description="We match the commercial model to the work — fixed scope where it's clear, value-based for projects, and recurring for ongoing partnership."
+          eyebrow={t.howEyebrow}
+          title={t.howTitle}
+          description={t.howBody}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {engagementModels.map((m) => (
-            <Card key={m.title}>
+          {t.models.map((model, i) => (
+            <Card key={model.title}>
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600">
-                <Icon name={m.icon} className="h-6 w-6" />
+                <Icon name={modelIcons[i] ?? "compass"} className="h-6 w-6" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-navy-900">{m.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-600">{m.body}</p>
+              <h3 className="mt-4 text-lg font-semibold text-navy-900">{model.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy-600">{model.body}</p>
             </Card>
           ))}
         </div>
@@ -131,12 +118,12 @@ export default function PricingPage() {
       {/* Services list (no prices) */}
       <Section>
         <SectionHeading
-          eyebrow="What We Deliver"
-          title="Services Across the Full Lifecycle"
-          description="Explore any service for details — then talk to our team for pricing tailored to your scope."
+          eyebrow={t.deliverEyebrow}
+          title={t.deliverTitle}
+          description={t.deliverBody}
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
+          {localizedServices().map((s) => (
             <Link
               key={s.slug}
               href={`/services/${s.slug}`}
@@ -154,11 +141,7 @@ export default function PricingPage() {
         </div>
       </Section>
 
-      <CTABanner
-        headline="Let's Build a Quote Around Your Goals"
-        copy="Take the free Technology Health Check or book a short call — we'll recommend the right starting point and give you a clear, custom proposal."
-        buttonLabel="Talk to an Expert"
-      />
+      <CTABanner headline={t.ctaHeadline} copy={t.ctaCopy} buttonLabel={t.ctaButton} />
     </>
   );
 }

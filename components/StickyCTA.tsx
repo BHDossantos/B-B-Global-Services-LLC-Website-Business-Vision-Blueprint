@@ -11,7 +11,7 @@ import { siteConfig } from "@/lib/siteConfig";
  * past the hero, then can be dismissed for the session. Keeps the primary
  * conversion action one tap away without nagging.
  */
-export function StickyCTA() {
+export function StickyCTA({ label = "Book a Consultation" }: { label?: string }) {
   const [shown, setShown] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
@@ -38,7 +38,7 @@ export function StickyCTA() {
         className="inline-flex items-center gap-2 rounded-full bg-accent-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-500/30 transition hover:bg-accent-600"
       >
         <Icon name="calendar" className="h-4 w-4" />
-        Book a Consultation
+        {label}
       </Link>
       <button
         type="button"

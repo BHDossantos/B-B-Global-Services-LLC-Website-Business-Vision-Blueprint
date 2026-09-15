@@ -306,6 +306,15 @@ export const es: Widen<Messages> = {
         "Reserva un espacio para una llamada de descubrimiento de 30 minutos y llegaremos preparados para conversar sobre tus objetivos.",
     },
   },
+  legal: {
+    eyebrow: "Legal",
+    privacyTitle: "Política de Privacidad",
+    privacyDescription:
+      "Cómo tratamos tu información. En vigor desde el {date}.",
+    termsTitle: "Términos de Servicio",
+    termsDescription:
+      "Los términos que rigen el uso de este sitio. En vigor desde el {date}.",
+  },
   form: {
     name: "Nombre",
     company: "Empresa",

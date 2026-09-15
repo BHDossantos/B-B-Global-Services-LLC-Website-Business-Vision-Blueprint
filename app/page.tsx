@@ -14,21 +14,20 @@ import { Reveal } from "@/components/Reveal";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FaqJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
-import {
-  painPoints,
-  differentiators,
-  featuredSolutions,
-  caseStudies,
-  faqs,
-} from "@/lib/content/site-content";
+import { caseStudies } from "@/lib/content/site-content";
 import { regions, globalStats } from "@/lib/content/global";
 import { getMessages } from "@/lib/i18n";
-import { localizedServices, localizedIndustries } from "@/lib/content/i18n";
+import {
+  localizedServices,
+  localizedIndustries,
+  localizedSiteContent,
+} from "@/lib/content/i18n";
 
 export default function HomePage() {
   const m = getMessages();
   const svc = localizedServices();
   const inds = localizedIndustries();
+  const { painPoints, differentiators, featuredSolutions, faqs } = localizedSiteContent();
   return (
     <>
       <FaqJsonLd items={faqs} />

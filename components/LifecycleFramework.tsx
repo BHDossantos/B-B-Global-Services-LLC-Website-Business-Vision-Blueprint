@@ -1,7 +1,8 @@
 import { Icon } from "./Icon";
-import { lifecycleFramework } from "@/lib/content/site-content";
+import { localizedSiteContent } from "@/lib/content/i18n";
 
 export function LifecycleFramework() {
+  const { lifecycleFramework } = localizedSiteContent();
   return (
     <ol className="relative grid gap-4 md:grid-cols-2">
       {lifecycleFramework.phases.map((phase, i) => (
@@ -27,7 +28,7 @@ export function LifecycleFramework() {
 }
 
 export function LifecycleStrip() {
-  const labels = lifecycleFramework.phases.map((p) => p.name);
+  const labels = localizedSiteContent().lifecycleFramework.phases.map((p) => p.name);
   return (
     <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-3">
       {labels.map((label, i) => (

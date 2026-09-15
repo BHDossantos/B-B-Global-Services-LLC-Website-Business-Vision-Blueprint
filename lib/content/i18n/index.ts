@@ -4,6 +4,15 @@
 import { services, type Service } from "../services";
 import { solutions, type Solution } from "../solutions";
 import { industryPages, type IndustryPage } from "../industries-detail";
+import {
+  lifecycleFramework,
+  painPoints,
+  differentiators,
+  featuredSolutions,
+  idealCustomers,
+  faqs,
+  engagementOffers,
+} from "../site-content";
 import { getLocale } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n/config";
 import type { ContentOverlay } from "./types";
@@ -49,4 +58,26 @@ export function localizedIndustries(locale?: Locale): IndustryPage[] {
 
 export function localizedIndustry(slug: string, locale?: Locale): IndustryPage | undefined {
   return localizedIndustries(locale).find((i) => i.slug === slug);
+}
+
+/** Shared site-content arrays with the active locale's translations applied. */
+export function localizedSiteContent(locale?: Locale) {
+  const site = overlayFor(locale)?.site;
+  return {
+    lifecycleFramework: site?.lifecyclePhases
+      ? {
+          ...lifecycleFramework,
+          phases: lifecycleFramework.phases.map((p, i) => ({
+            ...p,
+            ...site.lifecyclePhases?.[i],
+          })),
+        }
+      : lifecycleFramework,
+    painPoints: site?.painPoints ?? painPoints,
+    differentiators: site?.differentiators ?? differentiators,
+    featuredSolutions: site?.featuredSolutions ?? featuredSolutions,
+    idealCustomers: site?.idealCustomers ?? idealCustomers,
+    faqs: site?.faqs ?? faqs,
+    engagementOffers: site?.engagementOffers ?? engagementOffers,
+  };
 }

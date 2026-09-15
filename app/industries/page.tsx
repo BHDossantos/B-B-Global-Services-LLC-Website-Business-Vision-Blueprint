@@ -6,9 +6,8 @@ import { PillItem } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { Reveal } from "@/components/Reveal";
-import { localizedIndustries } from "@/lib/content/i18n";
+import { localizedIndustries, localizedSiteContent } from "@/lib/content/i18n";
 import { getMessages } from "@/lib/i18n";
-import { idealCustomers } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
   title: "Industries We Serve",
@@ -18,6 +17,7 @@ export const metadata: Metadata = {
 
 export default function IndustriesPage() {
   const m = getMessages();
+  const { idealCustomers } = localizedSiteContent();
   return (
     <>
       <PageHeader

@@ -164,4 +164,160 @@ export const ptContent: ContentOverlay = {
         "Fundos de private equity precisam que a tecnologia seja um ativo, não um passivo — na diligência e ao longo de todo o período de investimento. Ajudamos a avaliar o risco tecnológico antes do negócio e, depois, a modernizar, proteger e operar os sistemas das empresas do portfólio para gerar valor mensurável.",
     },
   },
+  site: {
+    lifecyclePhases: [
+      {
+        name: "Descobrir",
+        description:
+          "Entender objetivos de negócio, sistemas, riscos, usuários e restrições.",
+      },
+      {
+        name: "Projetar",
+        description:
+          "Criar a arquitetura, o roadmap, o plano de entrega, o modelo de segurança e o modelo operacional.",
+      },
+      {
+        name: "Construir",
+        description:
+          "Desenvolver aplicações, plataformas, automações, integrações e infraestrutura.",
+      },
+      {
+        name: "Proteger",
+        description:
+          "Incorporar DevSecOps, gestão de identidades, compliance, gestão de vulnerabilidades e controles de segurança.",
+      },
+      {
+        name: "Implantar",
+        description:
+          "Implementar CI/CD, governança de releases, implantação em cloud, testes e documentação.",
+      },
+      {
+        name: "Operar",
+        description:
+          "Prover observabilidade, suporte, gestão de incidentes, service desk, operações gerenciadas e melhoria contínua.",
+      },
+      {
+        name: "Recuperar",
+        description:
+          "Estruturar recuperação de desastres, continuidade de negócios, validação de backups, runbooks, exercícios de simulação e testes de recuperação.",
+      },
+      {
+        name: "Otimizar",
+        description:
+          "Melhorar performance, custos, confiabilidade, automação, experiência do usuário e resultados de negócio.",
+      },
+    ],
+    painPoints: [
+      "Entrega de software lenta",
+      "Fornecedores desconectados",
+      "Documentação precária",
+      "Controles de segurança frágeis",
+      "Implantações manuais",
+      "Complexidade da cloud",
+      "Falta de recuperação de desastres",
+      "Nenhum responsável claro após o lançamento",
+      "Experiência de suporte ruim",
+      "Indisponibilidades e incidentes recorrentes",
+    ],
+    differentiators: [
+      "Não apenas aconselhamos. Nós construímos.",
+      "Não apenas construímos. Nós operamos.",
+      "Não apenas operamos. Nós protegemos e recuperamos.",
+      "Entendemos de estratégia executiva e de engenharia na prática.",
+      "Levamos práticas de nível enterprise a empresas em crescimento.",
+      "Combinamos consultoria, entrega de software, cloud, cibersegurança, IMAC e serviços gerenciados.",
+    ],
+    featuredSolutions: [
+      "Avaliação de Tecnologia",
+      "Construção de Aplicações",
+      "Avaliação de Prontidão para IA",
+      "Modernização de Cloud",
+      "Implementação de DevSecOps",
+      "Programa de Continuidade de Negócios & Recuperação de Desastres",
+      "Suporte de TI Gerenciado",
+      "Consultoria de CTO Fracionado",
+      "Estruturação de Tecnologia do Escritório",
+      "Avaliação de Confiabilidade da Plataforma de Dados",
+    ],
+    idealCustomers: [
+      "Empresas de médio porte com 50 a 5.000 colaboradores",
+      "Startups construindo sua primeira plataforma de verdade",
+      "Empresas modernizando sistemas legados",
+      "Empresas que precisam de desenvolvimento de apps e suporte de longo prazo",
+      "Organizações com lacunas em cloud, segurança ou confiabilidade",
+      "Fundos de private equity avaliando ou aprimorando empresas do portfólio",
+      "Empresas de saúde e de setores regulados que exigem entrega de tecnologia segura",
+    ],
+    faqs: [
+      {
+        question:
+          "Como a B&B se diferencia de um provedor de TI típico ou de uma grande consultoria?",
+        answer:
+          "Ajudamos empresas que superaram a TI básica, mas ainda não precisam de consultorias gigantes. Combinamos estratégia, entrega de software, cloud, cibersegurança, IMAC e serviços gerenciados em um único modelo de entrega integrado — práticas de nível enterprise sem a complexidade nem o custo enterprise.",
+      },
+      {
+        question: "Vocês apenas aconselham, ou também constroem e operam?",
+        answer:
+          "As três coisas. Aconselhamos, construímos, protegemos, implantamos, operamos e recuperamos. A essência do nosso Framework da Ideia à Operação é que o mesmo parceiro leva você do conceito a operações confiáveis e bem suportadas.",
+      },
+      {
+        question: "Com empresas de que porte vocês trabalham?",
+        answer:
+          "Focamos em empresas de médio porte e em crescimento — normalmente de 25 a 5.000 colaboradores — incluindo startups construindo sua primeira plataforma de verdade e empresas de portfólio de private equity.",
+      },
+      {
+        question: "Como os projetos normalmente começam?",
+        answer:
+          "A maioria dos projetos começa com uma conversa de descoberta e uma avaliação focada, como o nosso Diagnóstico de Tecnologia. A avaliação gera um roadmap priorizado e, a partir dele, podemos avançar para a implementação e o suporte contínuo.",
+      },
+      {
+        question:
+          "Vocês oferecem serviços gerenciados contínuos após um projeto?",
+        answer:
+          "Sim. Oferecemos suporte de tecnologia gerenciado, manutenção de aplicações e contratos recorrentes de BCDR, garantindo responsabilidade clara e melhoria contínua após o lançamento — sem entregas no vácuo.",
+      },
+      {
+        question: "Quais setores vocês atendem?",
+        answer:
+          "Saúde, serviços financeiros, SaaS e tecnologia, serviços profissionais, mercado imobiliário e gestão de propriedades, hotelaria e hospitalidade, pequenas e médias empresas e empresas de portfólio de private equity.",
+      },
+    ],
+    engagementOffers: [
+      {
+        name: "Diagnóstico de Tecnologia",
+        tagline: "Uma revisão rápida, de escopo fechado, com roadmap de 90 dias.",
+        includes: [
+          "Revisão do estado atual",
+          "Análise de riscos",
+          "Revisão de cloud / segurança / aplicações / suporte",
+          "Sumário executivo",
+          "Roadmap de 90 dias",
+        ],
+      },
+      {
+        name: "Da Ideia ao MVP",
+        tagline: "Do conceito a um produto funcional e implantado.",
+        includes: [
+          "Descoberta",
+          "UX/UI",
+          "Arquitetura",
+          "Desenvolvimento do MVP",
+          "Implantação",
+          "Suporte básico",
+        ],
+      },
+      {
+        name: "Suporte de Tecnologia Gerenciado",
+        tagline: "Suporte contínuo, dimensionado para o seu time e seus sistemas.",
+        includes: [
+          "Suporte ao usuário",
+          "Suporte a dispositivos",
+          "IMAC",
+          "Coordenação de fornecedores",
+          "Relatórios mensais",
+          "Supervisão básica de segurança e backups",
+        ],
+      },
+    ],
+  },
 };

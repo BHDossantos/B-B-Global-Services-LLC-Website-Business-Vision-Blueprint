@@ -21,9 +21,26 @@ export type SiteOverlay = {
   engagementOffers?: { name: string; tagline: string; includes: string[] }[];
 };
 
+export type CaseStudyOverlay = Partial<{
+  title: string;
+  industry: string;
+  challenge: string;
+  approach: string;
+  solution: string;
+  outcome: string;
+}>;
+
+export type InsightOverlay = Partial<{
+  title: string;
+  excerpt: string;
+  category: string;
+}>;
+
 export type ContentOverlay = {
   services: Record<string, ServiceOverlay>;
   solutions: Record<string, SolutionOverlay>;
   industries: Record<string, IndustryOverlay>;
   site?: SiteOverlay;
+  caseStudies?: Record<string, CaseStudyOverlay>;
+  insights?: Record<string, InsightOverlay>;
 };

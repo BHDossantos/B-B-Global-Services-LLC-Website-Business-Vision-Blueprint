@@ -320,4 +320,188 @@ export const ptContent: ContentOverlay = {
       },
     ],
   },
+  caseStudies: {
+    "enterprise-observability-transformation": {
+      title: "Transformação de Observability em Escala Enterprise",
+      industry: "Grande empresa de saúde",
+      challenge:
+        "Indisponibilidades recorrentes e resposta lenta a incidentes em um cenário de monitoramento fragmentado, sem uma fonte única de verdade.",
+      approach:
+        "Avaliamos a stack de observability, definimos SLOs/SLIs e padronizamos telemetria, dashboards e alertas entre as equipes.",
+      solution:
+        "Implementamos observability unificada com alertas acionáveis, runbooks de plantão e um processo de gestão de incidentes.",
+      outcome:
+        "Detecção e resolução mais rápidas, menos incidentes com impacto no cliente e responsabilidade operacional mais clara.",
+    },
+    "cloud-delivery-modernization": {
+      title: "Modernização da Entrega em Cloud",
+      industry: "Organização enterprise de SaaS",
+      challenge:
+        "Implantações manuais e ambientes inconsistentes atrasavam os releases e introduziam riscos.",
+      approach:
+        "Projetamos um modelo de entrega cloud-native com infraestrutura como código e ambientes padronizados.",
+      solution:
+        "Construímos pipelines de CI/CD, provisionamento automatizado e governança de releases com testes incorporados.",
+      outcome:
+        "Releases dramaticamente mais rápidos e seguros e um caminho repetível do commit à produção.",
+    },
+    "data-platform-reliability-program": {
+      title: "Programa de Confiabilidade da Plataforma de Dados",
+      industry: "Organização enterprise de dados",
+      challenge:
+        "Pipelines de dados pouco confiáveis e responsabilidades indefinidas corroíam a confiança em relatórios críticos para o negócio.",
+      approach:
+        "Mapeamos os fluxos de dados, definimos metas de confiabilidade e instrumentamos os pipelines de ponta a ponta.",
+      solution:
+        "Introduzimos monitoramento, verificações de qualidade de dados e processos de incidentes para a plataforma de dados.",
+      outcome:
+        "Maior confiabilidade dos pipelines e confiança renovada nos produtos de dados em toda a empresa.",
+    },
+    "cicd-devsecops-implementation": {
+      title: "Implementação de CI/CD e DevSecOps",
+      industry: "Empresa de tecnologia de médio porte",
+      challenge:
+        "A segurança era um portão de fim de ciclo que atrasava os releases e revelava problemas tarde demais.",
+      approach:
+        "Incorporamos a segurança ao pipeline de entrega com portões automatizados e responsabilidade compartilhada.",
+      solution:
+        "Implementamos varredura de segurança no CI/CD, gestão de secrets, melhorias de IAM e um fluxo de remediação.",
+      outcome:
+        "Achados de segurança detectados mais cedo, remediação mais rápida e releases que saem seguros por padrão.",
+    },
+    "business-continuity-disaster-recovery-program": {
+      title: "Programa de Continuidade de Negócios e Recuperação de Desastres",
+      industry: "Organização de serviços regulados",
+      challenge:
+        "A ausência de um plano de recuperação testado e de RTO/RPO definidos deixava o negócio exposto a interrupções.",
+      approach:
+        "Definimos objetivos de recuperação, documentamos runbooks e validamos os backups contra cenários reais.",
+      solution:
+        "Entregamos um programa de BCDR com runbooks, exercícios de simulação e uma cadência de testes de recuperação.",
+      outcome:
+        "Uma capacidade de recuperação testada e defensável e confiança executiva na resiliência.",
+    },
+    "office-technology-managed-support-setup": {
+      title: "Estruturação de Tecnologia do Escritório e Suporte Gerenciado",
+      industry: "Firma de serviços profissionais em crescimento",
+      challenge:
+        "Uma mudança de escritório e o crescimento do quadro de pessoal superaram o suporte de TI improvisado e o onboarding.",
+      approach:
+        "Projetamos um modelo de suporte, um processo de ativos e um padrão de tecnologia para o escritório.",
+      solution:
+        "Entregamos implantação de dispositivos, IMAC, configuração de rede, service desk e relatórios mensais.",
+      outcome:
+        "Uma mudança de escritório tranquila, onboarding mais rápido e uma equipe confiável e bem atendida.",
+    },
+    "ai-enabled-application-mvp": {
+      title: "MVP de Aplicação com IA",
+      industry: "Empresa de serviços de médio porte",
+      challenge:
+        "Fluxos de trabalho manuais e repetitivos limitavam a capacidade e atrasavam a resposta ao cliente.",
+      approach:
+        "Identificamos oportunidades de automação de alto valor e definimos o escopo de um MVP focado.",
+      solution:
+        "Construímos uma aplicação com IA, com revisão humana (human-in-the-loop) e governança clara.",
+      outcome:
+        "Menos esforço manual, respostas mais rápidas e uma base para uma adoção de IA mais ampla.",
+    },
+    "generative-ai-knowledge-assistant": {
+      title: "Assistente de Conhecimento com IA Generativa",
+      industry: "Firma de serviços profissionais",
+      challenge:
+        "Consultores gastavam horas buscando documentos, metodologias e projetos anteriores dispersos, atrasando respostas a clientes e gerando respostas inconsistentes entre as equipes.",
+      approach:
+        "Mapeamos o conhecimento interno de alto valor da firma, definimos limites de confiança e acesso e estruturamos um assistente com RAG (retrieval-augmented generation) fundamentado apenas em fontes aprovadas.",
+      solution:
+        "Construímos um assistente de IA generativa com RAG, citações, revisão humana para respostas sensíveis e um modelo de governança de IA cobrindo acesso, avaliação e monitoramento.",
+      outcome:
+        "Menos tempo caçando documentos, respostas a clientes mais rápidas e consistentes e uma base governada em que a firma confia o suficiente para expandir.",
+    },
+  },
+  insights: {
+    "idea-to-operations": {
+      title: "Por Que a Maioria das Empresas Tem um Problema de Entrega, Não de Tecnologia",
+      excerpt:
+        "A lacuna entre ideias de tecnologia e operações confiáveis raramente é sobre ferramentas — é sobre entrega. Veja como fechá-la.",
+      category: "Estratégia",
+    },
+    "devsecops-for-mid-market": {
+      title: "DevSecOps para o Mid-Market: Segurança Sem Perder Velocidade",
+      excerpt:
+        "Incorporar segurança à entrega não precisa atrasar os releases. Um caminho prático para pipelines seguros por padrão.",
+      category: "Segurança",
+    },
+    "bcdr-that-actually-works": {
+      title: "Continuidade de Negócios Que Realmente Funciona Quando Você Precisa",
+      excerpt:
+        "Um plano de recuperação que você nunca testou é um palpite. Como definir RTO/RPO e comprovar sua resiliência.",
+      category: "Resiliência",
+    },
+    "ai-readiness": {
+      title: "Prontidão para IA: Por Onde Empresas de Médio Porte Deveriam Realmente Começar",
+      excerpt:
+        "Deixe o hype de lado. Uma abordagem fundamentada para identificar oportunidades de IA com ROI real e risco gerenciável.",
+      category: "IA",
+    },
+    "fractional-cto-guide": {
+      title: "Quando (e Por Que) Contratar um CTO Fracionado",
+      excerpt:
+        "Um CTO em tempo integral é uma grande aposta para uma empresa em crescimento. Veja como saber quando a liderança fracionada é a jogada mais inteligente.",
+      category: "Estratégia",
+    },
+    "cloud-cost-optimization": {
+      title: "Otimização de Custos de Cloud: Pare de Pagar Demais Sem Perder Ritmo",
+      excerpt:
+        "As faturas de cloud crescem em silêncio. Uma abordagem prática para cortar desperdício sem sacrificar confiabilidade ou velocidade.",
+      category: "Cloud",
+    },
+    "managed-it-vs-in-house": {
+      title: "TI Gerenciada vs. Equipe Interna: Como Empresas de Médio Porte Devem Decidir",
+      excerpt:
+        "A resposta certa raramente é tudo ou nada. Um framework para decidir o que manter internamente e o que delegar.",
+      category: "TI Gerenciada",
+    },
+    "legacy-system-modernization": {
+      title: "Modernizando Sistemas Legados Sem Apostar o Negócio",
+      excerpt:
+        "Reescritas do tipo big bang fracassam mais do que dão certo. Como modernizar os sistemas dos quais você depende sem essa aposta.",
+      category: "Operações",
+    },
+    "ai-automation-roi": {
+      title: "Onde a Automação com IA Realmente Compensa nas Operações de Médio Porte",
+      excerpt:
+        "O ROI da automação com IA é real, mas apenas em lugares específicos. Como encontrar os fluxos de trabalho que valem a pena automatizar primeiro.",
+      category: "IA",
+    },
+    "generative-ai-for-business": {
+      title: "IA Generativa para Negócios: Casos de Uso Reais Além do Chatbot",
+      excerpt:
+        "O caso de uso da manchete raramente é o mais valioso. Onde a IA generativa conquista seu lugar em operações reais — com as salvaguardas que a tornam segura para lançar.",
+      category: "IA",
+    },
+    "modern-data-stack": {
+      title: "Construindo uma Stack de Dados Moderna Que Justifica Seu Custo",
+      excerpt:
+        "Uma stack de dados moderna é fácil de montar e fácil de superdimensionar. Como projetar uma que produza decisões confiáveis em vez de uma pilha cara de ferramentas.",
+      category: "Dados",
+    },
+    "digital-transformation-roadmap": {
+      title: "Como Construir um Roadmap de Transformação Digital Que Sobreviva à Realidade",
+      excerpt:
+        "A maioria dos roadmaps de transformação fica ótima no slide e desmorona ao encontrar a entrega. Como construir um que sequencie valor, sobreviva às mudanças e realmente saia do papel.",
+      category: "Estratégia",
+    },
+    "cybersecurity-for-mid-market": {
+      title: "Cibersegurança para o Mid-Market: Uma Lista Prática de Prioridades",
+      excerpt:
+        "Você não pode fazer tudo de uma vez, e não precisa. Uma lista fundamentada e ordenada do trabalho de segurança que realmente reduz riscos para uma empresa em crescimento.",
+      category: "Segurança",
+    },
+    "cloud-migration-guide": {
+      title: "Migração para a Cloud Sem Histórias de Terror",
+      excerpt:
+        "As migrações conquistam sua má fama por serem apressadas e mal planejadas. Uma abordagem pragmática que move workloads com segurança, controla custos e evita os desastres de sempre.",
+      category: "Cloud",
+    },
+  },
 };

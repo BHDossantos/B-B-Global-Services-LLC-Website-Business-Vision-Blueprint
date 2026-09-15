@@ -12,7 +12,13 @@ import {
   idealCustomers,
   faqs,
   engagementOffers,
+  caseStudies,
+  insights,
 } from "../site-content";
+import { insightArticles } from "../insights-articles";
+import { articlesPt } from "./articles.pt";
+import { articlesEs } from "./articles.es";
+import { articlesIt } from "./articles.it";
 import { getLocale } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n/config";
 import type { ContentOverlay } from "./types";
@@ -80,4 +86,36 @@ export function localizedSiteContent(locale?: Locale) {
     faqs: site?.faqs ?? faqs,
     engagementOffers: site?.engagementOffers ?? engagementOffers,
   };
+}
+
+export function localizedCaseStudies(locale?: Locale) {
+  const ov = overlayFor(locale)?.caseStudies;
+  if (!ov) return caseStudies;
+  return caseStudies.map((c) => ({ ...c, ...ov[c.slug] }));
+}
+
+export function localizedCaseStudy(slug: string, locale?: Locale) {
+  return localizedCaseStudies(locale).find((c) => c.slug === slug);
+}
+
+export function localizedInsights(locale?: Locale) {
+  const ov = overlayFor(locale)?.insights;
+  if (!ov) return insights;
+  return insights.map((p) => ({ ...p, ...ov[p.slug] }));
+}
+
+export function localizedInsight(slug: string, locale?: Locale) {
+  return localizedInsights(locale).find((p) => p.slug === slug);
+}
+
+const articleMaps: Partial<Record<Locale, Record<string, string>>> = {
+  pt: articlesPt,
+  es: articlesEs,
+  it: articlesIt,
+};
+
+/** Localized article body with English fallback. */
+export function localizedArticle(slug: string, locale?: Locale): string | undefined {
+  const map = articleMaps[locale ?? getLocale()];
+  return map?.[slug] ?? insightArticles[slug];
 }

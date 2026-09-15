@@ -244,6 +244,43 @@ export const it: Widen<Messages> = {
       deliverEyebrow: "Come lavoriamo",
       deliverTitle: "Il framework dall'idea alle operazioni",
     },
+    insights: {
+      eyebrow: "Approfondimenti",
+      title: "Pensiero concreto, senza hype",
+      description:
+        "Punti di vista su strategia tecnologica, delivery, sicurezza, resilienza e AI per le aziende in crescita.",
+      minRead: "min di lettura",
+      allInsights: "Tutti gli approfondimenti",
+      moreInsights: "Altri approfondimenti",
+      applyTitle: "Pronto a metterlo in pratica?",
+      applyBody:
+        "Prenota una consulenza e lo applicheremo ai tuoi sistemi, ai tuoi obiettivi e ai tuoi vincoli.",
+    },
+    caseStudies: {
+      eyebrow: "Casi di successo",
+      title: "Risultati sul campo",
+      description:
+        "Esempi anonimizzati tratti dalla nostra esperienza di delivery in ambito enterprise e mid-market. Non nominiamo mai i datori di lavoro precedenti — usiamo espressioni come 'grande realtà sanitaria enterprise' o 'organizzazione SaaS enterprise'.",
+      // Fixed order: challenge, approach, solution, outcome.
+      sections: [
+        { label: "La sfida", question: "Qual era il problema?" },
+        { label: "L'approccio", question: "Cosa ha fatto B&B." },
+        { label: "La soluzione", question: "Cosa è stato implementato." },
+        { label: "Il risultato", question: "Cosa è migliorato?" },
+      ],
+      challengeLabel: "Sfida:",
+      outcomeLabel: "Risultato:",
+      noteLabel: "Nota:",
+      noteBody:
+        "Le identità dei clienti sono anonimizzate. Non nominiamo mai datori di lavoro o clienti precedenti senza autorizzazione scritta.",
+      moreEyebrow: "Altro",
+      moreTitle: "Altri casi di successo",
+      read: "Leggi",
+      readFullStory: "Leggi la storia completa",
+      ctaHeadline: "Vuoi risultati come questi per la tua azienda?",
+      ctaCopy:
+        "Parliamo dei tuoi obiettivi, dei tuoi sistemi e dei tuoi vincoli — e tracciamo un percorso da dove sei oggi fino a operazioni affidabili.",
+    },
     contact: {
       eyebrow: "Contatti",
       title: "Fissa una discovery call",

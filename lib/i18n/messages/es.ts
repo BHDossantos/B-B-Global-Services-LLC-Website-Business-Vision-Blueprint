@@ -249,6 +249,43 @@ export const es: Widen<Messages> = {
       deliverEyebrow: "Cómo Entregamos",
       deliverTitle: "El Marco De la Idea a las Operaciones",
     },
+    insights: {
+      eyebrow: "Perspectivas",
+      title: "Pensamiento Práctico, Sin Exageraciones",
+      description:
+        "Perspectivas sobre estrategia tecnológica, entrega, seguridad, resiliencia e IA para empresas en crecimiento.",
+      minRead: "min de lectura",
+      allInsights: "Todas las perspectivas",
+      moreInsights: "Más perspectivas",
+      applyTitle: "¿Listo para ponerlo en práctica?",
+      applyBody:
+        "Agenda una consultoría y lo aplicaremos a tus sistemas, tus objetivos y tus restricciones.",
+    },
+    caseStudies: {
+      eyebrow: "Casos de Éxito",
+      title: "Resultados Reales",
+      description:
+        "Ejemplos anonimizados extraídos de nuestra experiencia de entrega en grandes empresas y el mercado medio. Nunca nombramos a empleadores anteriores — usamos expresiones como 'gran empresa del sector salud' u 'organización SaaS empresarial'.",
+      // Orden fijo: desafío, enfoque, solución, resultado.
+      sections: [
+        { label: "Desafío", question: "¿Qué problema existía?" },
+        { label: "Enfoque", question: "Qué hizo B&B." },
+        { label: "Solución", question: "Qué se implementó." },
+        { label: "Resultado", question: "¿Qué mejoró?" },
+      ],
+      challengeLabel: "Desafío:",
+      outcomeLabel: "Resultado:",
+      noteLabel: "Nota:",
+      noteBody:
+        "Las identidades de los clientes están anonimizadas. Nunca nombramos a empleadores ni clientes anteriores sin aprobación por escrito.",
+      moreEyebrow: "Más",
+      moreTitle: "Otros Casos de Éxito",
+      read: "Leer",
+      readFullStory: "Lee la historia completa",
+      ctaHeadline: "¿Quieres Resultados Como Estos para Tu Negocio?",
+      ctaCopy:
+        "Hablemos de tus objetivos, tus sistemas y tus restricciones — y tracemos un camino desde donde estás hasta operaciones confiables.",
+    },
     contact: {
       eyebrow: "Contacto",
       title: "Programa una Llamada de Descubrimiento",

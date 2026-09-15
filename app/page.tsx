@@ -14,13 +14,13 @@ import { Reveal } from "@/components/Reveal";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FaqJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
-import { caseStudies } from "@/lib/content/site-content";
 import { regions, globalStats } from "@/lib/content/global";
 import { getMessages } from "@/lib/i18n";
 import {
   localizedServices,
   localizedIndustries,
   localizedSiteContent,
+  localizedCaseStudies,
 } from "@/lib/content/i18n";
 
 export default function HomePage() {
@@ -228,7 +228,7 @@ export default function HomePage() {
           description={m.home.caseBody}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.slice(0, 3).map((study) => (
+          {localizedCaseStudies().slice(0, 3).map((study) => (
             <CaseStudyCard key={study.slug} study={study} />
           ))}
         </div>

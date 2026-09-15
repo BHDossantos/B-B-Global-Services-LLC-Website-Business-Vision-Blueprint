@@ -244,6 +244,43 @@ export const pt: Widen<Messages> = {
       deliverEyebrow: "Como Entregamos",
       deliverTitle: "O Framework Da Ideia às Operações",
     },
+    insights: {
+      eyebrow: "Insights",
+      title: "Pensamento Prático, Sem Hype",
+      description:
+        "Perspectivas sobre estratégia de tecnologia, entrega, segurança, resiliência e IA para empresas em crescimento.",
+      minRead: "min de leitura",
+      allInsights: "Todos os insights",
+      moreInsights: "Mais insights",
+      applyTitle: "Pronto para colocar isso em prática?",
+      applyBody:
+        "Agende uma consultoria e aplicaremos isso aos seus sistemas, objetivos e restrições.",
+    },
+    caseStudies: {
+      eyebrow: "Cases",
+      title: "Resultados na Prática",
+      description:
+        "Exemplos anonimizados extraídos da experiência de entrega em grandes empresas e no mid-market. Nunca citamos empregadores anteriores — usamos expressões como 'grande empresa de saúde' ou 'organização enterprise de SaaS'.",
+      // Ordem fixa: desafio, abordagem, solução, resultado.
+      sections: [
+        { label: "Desafio", question: "Qual era o problema?" },
+        { label: "Abordagem", question: "O que a B&B fez." },
+        { label: "Solução", question: "O que foi implementado." },
+        { label: "Resultado", question: "O que melhorou?" },
+      ],
+      challengeLabel: "Desafio:",
+      outcomeLabel: "Resultado:",
+      noteLabel: "Nota:",
+      noteBody:
+        "As identidades dos clientes são anonimizadas. Nunca citamos empregadores ou clientes anteriores sem aprovação por escrito.",
+      moreEyebrow: "Mais",
+      moreTitle: "Outros Cases",
+      read: "Ler",
+      readFullStory: "Leia a história completa",
+      ctaHeadline: "Quer Resultados Como Estes para o Seu Negócio?",
+      ctaCopy:
+        "Vamos conversar sobre seus objetivos, sistemas e restrições — e traçar um caminho de onde você está até operações confiáveis.",
+    },
     contact: {
       eyebrow: "Contato",
       title: "Agende uma Conversa de Descoberta",

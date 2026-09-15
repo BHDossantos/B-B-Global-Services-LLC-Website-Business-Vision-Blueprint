@@ -4,6 +4,7 @@ import { Section, Button } from "@/components/ui";
 import { SolutionCard } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
 import { localizedSolutions } from "@/lib/content/i18n";
+import { getMessages } from "@/lib/i18n";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -13,15 +14,16 @@ export const metadata: Metadata = {
 };
 
 export default function SolutionsPage() {
+  const m = getMessages();
   return (
     <>
       <PageHeader
-        eyebrow="Solutions"
-        title="Solutions Built Around Business Outcomes"
-        description="Not technical jargon — the outcomes you actually need. Pick the goal that matches where you are today."
+        eyebrow={m.pages.solutions.eyebrow}
+        title={m.pages.solutions.title}
+        description={m.pages.solutions.description}
       >
         <Button href={siteConfig.bookingUrl} external>
-          Book a Consultation
+          {m.cta.bookConsultation}
         </Button>
       </PageHeader>
 

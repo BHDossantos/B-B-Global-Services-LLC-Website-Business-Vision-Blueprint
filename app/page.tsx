@@ -131,7 +131,7 @@ export default function HomePage() {
         </div>
         <div className="mt-8">
           <Button href="/industries" variant="ghost">
-            Explore industries <Icon name="arrow" className="h-4 w-4" />
+            {m.common.exploreIndustries} <Icon name="arrow" className="h-4 w-4" />
           </Button>
         </div>
       </Section>
@@ -216,7 +216,7 @@ export default function HomePage() {
         </div>
         <div className="mt-8">
           <Button href="/solutions" variant="ghost">
-            Browse solutions <Icon name="arrow" className="h-4 w-4" />
+            {m.common.browseSolutions} <Icon name="arrow" className="h-4 w-4" />
           </Button>
         </div>
       </Section>
@@ -235,7 +235,7 @@ export default function HomePage() {
         </div>
         <div className="mt-8">
           <Button href="/case-studies" variant="ghost">
-            View all case studies <Icon name="arrow" className="h-4 w-4" />
+            {m.common.viewAllCaseStudies} <Icon name="arrow" className="h-4 w-4" />
           </Button>
         </div>
       </Section>

@@ -7,6 +7,7 @@ import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { Reveal } from "@/components/Reveal";
 import { localizedIndustries } from "@/lib/content/i18n";
+import { getMessages } from "@/lib/i18n";
 import { idealCustomers } from "@/lib/content/site-content";
 
 export const metadata: Metadata = {
@@ -16,12 +17,13 @@ export const metadata: Metadata = {
 };
 
 export default function IndustriesPage() {
+  const m = getMessages();
   return (
     <>
       <PageHeader
-        eyebrow="Industries"
-        title="Industries We Serve"
-        description="We serve organizations that are too complex for a basic IT provider but need a more flexible, practical, and affordable partner than a large global consulting firm."
+        eyebrow={m.pages.industries.eyebrow}
+        title={m.pages.industries.title}
+        description={m.pages.industries.description}
       />
 
       <Section>
@@ -40,7 +42,7 @@ export default function IndustriesPage() {
                     {industry.cardDescription}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600">
-                    Learn more <Icon name="arrow" className="h-4 w-4" />
+                    {m.cta.learnMore} <Icon name="arrow" className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>
@@ -51,9 +53,9 @@ export default function IndustriesPage() {
 
       <Section muted>
         <SectionHeading
-          eyebrow="Who We Help"
-          title="Our Ideal Customers"
-          description="If one of these sounds like you, we're built for exactly your situation."
+          eyebrow={m.pages.industries.whoEyebrow}
+          title={m.pages.industries.whoTitle}
+          description={m.pages.industries.whoBody}
         />
         <ul className="mt-10 grid gap-3 md:grid-cols-2">
           {idealCustomers.map((c) => (

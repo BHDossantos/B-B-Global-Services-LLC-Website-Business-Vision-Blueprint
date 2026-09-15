@@ -98,5 +98,211 @@ export const pt: Widen<Messages> = {
     privacy: "Política de Privacidade",
     terms: "Termos de Serviço",
   },
+  common: {
+    home: "Início",
+    mostPopular: "Mais popular",
+    customQuote: "Orçamento personalizado",
+    requestQuote: "Solicitar Orçamento",
+    requestProposal: "Solicitar Proposta",
+    requestCustomQuote: "Solicite um orçamento personalizado",
+    faq: "Perguntas Frequentes",
+    exploreIndustries: "Conheça os setores",
+    browseSolutions: "Explorar soluções",
+    viewAllCaseStudies: "Ver todos os cases",
+  },
+  detail: {
+    service: {
+      whatsIncluded: "O Que Está Incluído",
+      capabilities: "Competências",
+      outcomes: "Resultados",
+      deliverables: "Entregáveis",
+      customTitle: "Engajamento com Escopo Sob Medida",
+      customBody:
+        "Cada engajamento é adaptado ao seu ambiente, aos seus objetivos e ao seu orçamento. Fale com nosso time e montaremos uma proposta clara e personalizada — sem tabelas de preço padronizadas.",
+      customBullets: [
+        "Avaliações de escopo fixo com entregáveis definidos",
+        "Precificação baseada em valor para projetos",
+        "Mensalidades para serviços gerenciados",
+      ],
+      exploreEyebrow: "Explore",
+      otherServices: "Outros Serviços",
+      commonQuestions: "Perguntas Comuns",
+    },
+    solution: {
+      whoItsFor: "Para Quem É",
+      whatsIncluded: "O que está incluído",
+      relatedEyebrow: "Serviços Relacionados",
+      relatedTitle: "As Competências Por Trás Desta Solução",
+    },
+    industry: {
+      challengeEyebrow: "O Desafio",
+      challengeTitle: "O Que as Equipes de {name} Estão Enfrentando",
+      helpEyebrow: "Como Ajudamos",
+      helpTitle: "Onde Fazemos a Diferença",
+      relevantEyebrow: "Serviços Mais Relevantes",
+      relevantTitle: "Serviços Que Fazem a Diferença em {name}",
+      moreEyebrow: "Mais Setores",
+      moreTitle: "Atendemos Organizações Como a Sua",
+      ctaHeadline: "Vamos Falar de Tecnologia para o Seu Negócio de {name}",
+      ctaCopy:
+        "Agende uma consultoria ou faça o Diagnóstico Gratuito de Tecnologia para saber onde você está e o que priorizar.",
+    },
+  },
+  pages: {
+    services: {
+      eyebrow: "Serviços",
+      title: "Serviços de Tecnologia em Todo o Ciclo de Vida da Entrega",
+      description:
+        "A B&B Global Services oferece serviços de consultoria, desenvolvimento, cloud, cibersegurança, operações, suporte e continuidade para empresas que precisam que a tecnologia funcione com segurança, confiabilidade e em escala.",
+      deliverEyebrow: "Como Entregamos",
+      deliverTitle: "O Framework Da Ideia às Operações",
+      deliverBody:
+        "Cada engajamento segue o mesmo caminho disciplinado do conceito às operações confiáveis.",
+    },
+    solutions: {
+      eyebrow: "Soluções",
+      title: "Soluções Construídas em Torno de Resultados de Negócio",
+      description:
+        "Nada de jargão técnico — os resultados de que você realmente precisa. Escolha o objetivo que corresponde ao seu momento atual.",
+    },
+    industries: {
+      eyebrow: "Setores",
+      title: "Setores Que Atendemos",
+      description:
+        "Atendemos organizações complexas demais para um provedor de TI básico, mas que precisam de um parceiro mais flexível, prático e acessível do que uma grande consultoria global.",
+      whoEyebrow: "Quem Ajudamos",
+      whoTitle: "Nossos Clientes Ideais",
+      whoBody: "Se algum destes perfis parece com o seu, fomos feitos exatamente para a sua situação.",
+    },
+    pricing: {
+      eyebrow: "Engajamentos & Preços",
+      title: "Preços Construídos em Torno dos Seus Objetivos — Não de um Menu",
+      description:
+        "Cada engajamento tem escopo definido de acordo com o seu ambiente, seus objetivos e seu orçamento. Em vez de tabelas de preço padronizadas, entregamos uma proposta clara e personalizada após uma breve conversa. A maioria dos clientes começa com uma avaliação focada e depois expande para implementação e serviços gerenciados contínuos.",
+      takeHealthCheck: "Faça o Diagnóstico Gratuito",
+      startEyebrow: "Comece Por Aqui",
+      startTitle: "Três Formas Fáceis de Começar",
+      startBody:
+        "Pontos de partida de baixo risco, pensados para gerar valor rápido e crescer naturalmente. Cada um é dimensionado e orçado para a sua situação.",
+      howEyebrow: "Como Precificamos",
+      howTitle: "Modelos de Engajamento Que Se Ajustam ao Seu Jeito de Trabalhar",
+      howBody:
+        "Ajustamos o modelo comercial ao trabalho — escopo fixo quando ele é claro, baseado em valor para projetos e recorrente para parcerias contínuas.",
+      models: [
+        {
+          title: "Avaliações de escopo fixo",
+          body: "Revisões claras e com prazo definido, com entregáveis estabelecidos — como o Diagnóstico de Tecnologia — para que você saiba exatamente o que vai receber e quanto custa antes de começarmos.",
+        },
+        {
+          title: "Projetos baseados em valor",
+          body: "Construção de aplicações, modernização de cloud e programas de segurança dimensionados e precificados por resultados e complexidade — não por estimativas de horas.",
+        },
+        {
+          title: "Mensalidades & serviços gerenciados",
+          body: "Engajamentos mensais previsíveis para TI gerenciada, manutenção de aplicações, BCDR e liderança fracionada — dimensionados para a sua equipe e seus sistemas.",
+        },
+      ],
+      deliverEyebrow: "O Que Entregamos",
+      deliverTitle: "Serviços em Todo o Ciclo de Vida",
+      deliverBody:
+        "Explore qualquer serviço para conhecer os detalhes — e depois fale com nosso time para um preço adequado ao seu escopo.",
+      ctaHeadline: "Vamos Montar um Orçamento em Torno dos Seus Objetivos",
+      ctaCopy:
+        "Faça o Diagnóstico Gratuito de Tecnologia ou agende uma conversa rápida — recomendaremos o ponto de partida certo e entregaremos uma proposta clara e personalizada.",
+      ctaButton: "Fale com um Especialista",
+    },
+    about: {
+      eyebrow: "Sobre",
+      title: "Construída por Quem Opera, Não Apenas por Consultores",
+      description:
+        "A B&B Global Services nasceu para ajudar empresas a fechar a lacuna entre ideias de tecnologia e a execução operacional real — com entrega remota para clientes no mundo todo a partir de nossas bases em Boston e Roma.",
+      approachEyebrow: "Nossa Abordagem",
+      approachTitle: "Reunimos as Disciplinas",
+      approachBody:
+        "Muitas empresas sabem aconselhar. Algumas sabem construir. Outras sabem dar suporte. Nós reunimos essas disciplinas para que as organizações avancem mais rápido, reduzam riscos, aumentem a confiabilidade e extraiam mais valor da tecnologia.",
+      visionLabel: "Visão",
+      visionBody:
+        "Ser o parceiro de entrega de tecnologia de confiança para empresas em crescimento, ajudando-as a projetar, construir, proteger, operar e aprimorar continuamente os sistemas que impulsionam o seu futuro.",
+      missionLabel: "Missão",
+      missionBody:
+        "Ajudar organizações a transformar ideias de tecnologia em soluções de negócio seguras, escaláveis, confiáveis e bem suportadas por meio de estratégia, engenharia, cloud, cibersegurança, operações e serviços gerenciados.",
+      founderEyebrow: "Fundador",
+      founderTitle: "Experiência Profunda e Mão na Massa",
+      founderRole: "Fundador & Principal",
+      founderBio:
+        "Bruno Dossantos traz uma experiência profunda em engenharia de cloud, DevOps, SRE, entrega de aplicações, IA, plataformas de dados, cibersegurança, continuidade de negócios e operações corporativas. Sua trajetória inclui liderar times de tecnologia, construir plataformas, modernizar sistemas, sustentar ambientes de missão crítica e ajudar organizações a aprimorar a entrega da estratégia ao suporte.",
+      expertise: [
+        "Engenharia de cloud",
+        "DevOps & SRE",
+        "Entrega de aplicações",
+        "IA & plataformas de dados",
+        "Cibersegurança & DevSecOps",
+        "Continuidade de negócios",
+        "Operações corporativas",
+        "Serviços gerenciados",
+      ],
+      deliverEyebrow: "Como Entregamos",
+      deliverTitle: "O Framework Da Ideia às Operações",
+    },
+    contact: {
+      eyebrow: "Contato",
+      title: "Agende uma Conversa de Descoberta",
+      description:
+        "Seja para construir uma aplicação, modernizar a cloud, fortalecer a segurança, dar suporte à sua equipe ou se preparar para recuperação de desastres — vamos conversar.",
+      bookDirectTitle: "Prefere agendar diretamente?",
+      bookDirectBody: "Escolha um horário que funcione para você e chegaremos preparados.",
+      bookOnCalendly: "Agendar no Calendly",
+      hqLine: "Sede: {hq} — atendendo clientes no mundo todo",
+      capabilityTitle: "Declaração de competências",
+      capabilityBody:
+        "Um resumo de uma página com nossas competências, diferenciais e modelos de engajamento — pronto para compartilhar com o seu time.",
+      viewDownload: "Ver & Baixar",
+      easyWaysTitle: "Formas Fáceis de Começar",
+      bookInstantlyEyebrow: "Agende Agora",
+      pickTimeTitle: "Escolha um Horário Que Funcione para Você",
+      pickTimeBody:
+        "Reserve um horário para uma conversa de descoberta de 30 minutos e chegaremos preparados para falar sobre os seus objetivos.",
+    },
+  },
+  form: {
+    name: "Nome",
+    company: "Empresa",
+    email: "E-mail",
+    phone: "Telefone",
+    companySize: "Porte da empresa",
+    serviceNeeded: "Serviço necessário",
+    budgetRange: "Faixa de orçamento",
+    timeline: "Prazo",
+    message: "Mensagem",
+    select: "Selecione…",
+    employees: "funcionários",
+    services: [
+      "Estratégia & Consultoria",
+      "Desenvolvimento de Aplicações & Produtos",
+      "Cloud, DevOps & Engenharia de Plataforma",
+      "DevSecOps & Cibersegurança",
+      "Confiabilidade, Operações & BCDR",
+      "IMAC & Serviços Gerenciados de Tecnologia",
+      "Ainda não sei",
+    ],
+    budgets: [
+      "Menos de US$ 10.000",
+      "US$ 10.000–25.000",
+      "US$ 25.000–100.000",
+      "US$ 100.000–250.000",
+      "Acima de US$ 250.000",
+      "Serviços gerenciados mensais",
+    ],
+    timelines: ["Imediatamente", "1–3 meses", "3–6 meses", "Mais de 6 meses", "Apenas explorando"],
+    messagePlaceholder: "Conte-nos sobre seus objetivos, seus sistemas e o problema que gostaria de resolver.",
+    submit: "Agendar uma Conversa de Descoberta",
+    sending: "Enviando…",
+    errorGeneric: "Algo deu errado.",
+    successTitle: "Obrigado — entraremos em contato em breve.",
+    successBody:
+      "Um membro do nosso time fará contato em até um dia útil para agendar sua conversa de descoberta.",
+    consent:
+      "Ao enviar, você concorda em ser contatado sobre sua solicitação. Respeitamos sua privacidade e nunca compartilhamos suas informações.",
+  },
   switcher: { label: "Idioma" },
 };

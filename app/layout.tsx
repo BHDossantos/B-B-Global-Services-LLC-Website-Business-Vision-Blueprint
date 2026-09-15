@@ -139,7 +139,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer m={m} />
-        <StickyCTA />
+        <StickyCTA label={m.cta.bookConsultation} />
         <Analytics />
         <VercelAnalytics />
       </body>

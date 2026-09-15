@@ -10,6 +10,7 @@ import { Reveal } from "@/components/Reveal";
 import { siteConfig } from "@/lib/siteConfig";
 import { industryPages } from "@/lib/content/industries-detail";
 import { localizedIndustry, localizedIndustries, localizedService } from "@/lib/content/i18n";
+import { fill, getMessages } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return industryPages.map((i) => ({ slug: i.slug }));
@@ -38,6 +39,8 @@ export default function IndustryPage({
   const industry = localizedIndustry(params.slug);
   if (!industry) notFound();
 
+  const m = getMessages();
+  const t = m.detail.industry;
   const related = industry.relatedServices
     .map((s) => localizedService(s))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
@@ -54,25 +57,25 @@ export default function IndustryPage({
       />
 
       <PageHeader
-        eyebrow={`Industries · ${industry.name}`}
+        eyebrow={`${m.nav.industries} · ${industry.name}`}
         title={industry.title}
         description={industry.intro}
         breadcrumbs={[
-          { name: "Home", href: "/" },
-          { name: "Industries", href: "/industries" },
+          { name: m.common.home, href: "/" },
+          { name: m.nav.industries, href: "/industries" },
           { name: industry.name },
         ]}
       >
-        <Button href={siteConfig.bookingUrl}>Book a Consultation</Button>
+        <Button href={siteConfig.bookingUrl}>{m.cta.bookConsultation}</Button>
         <Button href="/assessment" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
-          Free Health Check
+          {m.cta.freeHealthCheck}
         </Button>
       </PageHeader>
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <SectionHeading eyebrow="The Challenge" title={`What ${industry.name} Teams Are Up Against`} />
+            <SectionHeading eyebrow={t.challengeEyebrow} title={fill(t.challengeTitle, { name: industry.name })} />
             <ul className="mt-8 space-y-3">
               {industry.challenges.map((c) => (
                 <li key={c} className="flex items-start gap-3">
@@ -85,7 +88,7 @@ export default function IndustryPage({
             </ul>
           </div>
           <div>
-            <SectionHeading eyebrow="How We Help" title="Where We Make the Difference" />
+            <SectionHeading eyebrow={t.helpEyebrow} title={t.helpTitle} />
             <ul className="mt-8 space-y-3">
               {industry.howWeHelp.map((h) => (
                 <li key={h} className="flex items-start gap-3 rounded-lg border border-navy-100 bg-white px-4 py-3">
@@ -100,7 +103,7 @@ export default function IndustryPage({
 
       {related.length > 0 && (
         <Section muted>
-          <SectionHeading eyebrow="Most Relevant Services" title={`Services That Move the Needle in ${industry.name}`} />
+          <SectionHeading eyebrow={t.relevantEyebrow} title={fill(t.relevantTitle, { name: industry.name })} />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((s, i) => (
               <Reveal key={s.slug} delay={i * 60}>
@@ -120,7 +123,7 @@ export default function IndustryPage({
       )}
 
       <Section>
-        <SectionHeading eyebrow="More Industries" title="We Serve Organizations Like Yours" />
+        <SectionHeading eyebrow={t.moreEyebrow} title={t.moreTitle} />
         <div className="mt-8 flex flex-wrap gap-3">
           {others.map((i) => (
             <Link
@@ -136,8 +139,8 @@ export default function IndustryPage({
       </Section>
 
       <CTABanner
-        headline={`Let's Talk About Technology for Your ${industry.name} Business`}
-        copy="Book a consultation or take the free Technology Health Check to see where you stand and what to prioritize."
+        headline={fill(t.ctaHeadline, { name: industry.name })}
+        copy={t.ctaCopy}
       />
     </>
   );

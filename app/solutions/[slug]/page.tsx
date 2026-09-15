@@ -8,6 +8,7 @@ import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { solutions } from "@/lib/content/solutions";
 import { localizedSolution, localizedService } from "@/lib/content/i18n";
+import { getMessages } from "@/lib/i18n";
 import { siteConfig } from "@/lib/siteConfig";
 
 export function generateStaticParams() {
@@ -35,6 +36,8 @@ export default function SolutionPage({
   const solution = localizedSolution(params.slug);
   if (!solution) notFound();
 
+  const m = getMessages();
+  const t = m.detail.solution;
   const related = solution.relatedServices
     .map((slug) => localizedService(slug))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
@@ -42,40 +45,38 @@ export default function SolutionPage({
   return (
     <>
       <PageHeader
-        eyebrow="Solutions"
+        eyebrow={m.nav.solutions}
         title={solution.title}
         description={solution.body}
         breadcrumbs={[
-          { name: "Home", href: "/" },
-          { name: "Solutions", href: "/solutions" },
+          { name: m.common.home, href: "/" },
+          { name: m.nav.solutions, href: "/solutions" },
           { name: solution.title },
         ]}
       >
         <Button href={siteConfig.bookingUrl} external>
-          Book a Consultation
+          {m.cta.bookConsultation}
         </Button>
       </PageHeader>
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <SectionHeading eyebrow="Who It's For" title={solution.audience} />
+            <SectionHeading eyebrow={t.whoItsFor} title={solution.audience} />
             <p className="mt-6 text-lg leading-relaxed text-navy-600">
               {solution.body}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href={siteConfig.bookingUrl} external>
-                Get Started <Icon name="arrow" className="h-4 w-4" />
+                {m.cta.getStarted} <Icon name="arrow" className="h-4 w-4" />
               </Button>
               <Button href="/contact" variant="ghost">
-                Request Proposal
+                {m.common.requestProposal}
               </Button>
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-navy-900">
-              What&apos;s included
-            </h3>
+            <h3 className="text-lg font-semibold text-navy-900">{t.whatsIncluded}</h3>
             <ul className="mt-5 grid gap-3">
               {solution.includes.map((item) => (
                 <PillItem key={item}>{item}</PillItem>
@@ -87,10 +88,7 @@ export default function SolutionPage({
 
       {related.length > 0 && (
         <Section muted>
-          <SectionHeading
-            eyebrow="Related Services"
-            title="The Capabilities Behind This Solution"
-          />
+          <SectionHeading eyebrow={t.relatedEyebrow} title={t.relatedTitle} />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((s) => (
               <Link

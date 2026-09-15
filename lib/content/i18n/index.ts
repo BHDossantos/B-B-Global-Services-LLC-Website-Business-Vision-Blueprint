@@ -16,9 +16,13 @@ import {
   insights,
 } from "../site-content";
 import { insightArticles } from "../insights-articles";
+import { privacyPolicy, termsOfService } from "../legal";
 import { articlesPt } from "./articles.pt";
 import { articlesEs } from "./articles.es";
 import { articlesIt } from "./articles.it";
+import { legalPt } from "./legal.pt";
+import { legalEs } from "./legal.es";
+import { legalIt } from "./legal.it";
 import { getLocale } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n/config";
 import type { ContentOverlay } from "./types";
@@ -118,4 +122,21 @@ const articleMaps: Partial<Record<Locale, Record<string, string>>> = {
 export function localizedArticle(slug: string, locale?: Locale): string | undefined {
   const map = articleMaps[locale ?? getLocale()];
   return map?.[slug] ?? insightArticles[slug];
+}
+
+const legalMaps: Partial<
+  Record<Locale, { privacyPolicy?: string; termsOfService?: string }>
+> = {
+  pt: legalPt,
+  es: legalEs,
+  it: legalIt,
+};
+
+/** Localized legal documents (courtesy translations) with English fallback. */
+export function localizedLegal(locale?: Locale) {
+  const map = legalMaps[locale ?? getLocale()];
+  return {
+    privacyPolicy: map?.privacyPolicy ?? privacyPolicy,
+    termsOfService: map?.termsOfService ?? termsOfService,
+  };
 }

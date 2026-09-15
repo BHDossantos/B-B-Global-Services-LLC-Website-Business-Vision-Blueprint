@@ -301,6 +301,15 @@ export const it: Widen<Messages> = {
         "Prenota una discovery call di 30 minuti: arriveremo preparati per parlare dei tuoi obiettivi.",
     },
   },
+  legal: {
+    eyebrow: "Note legali",
+    privacyTitle: "Informativa sulla privacy",
+    privacyDescription:
+      "Come trattiamo le tue informazioni. In vigore dal {date}.",
+    termsTitle: "Termini di servizio",
+    termsDescription:
+      "I termini che regolano l'uso di questo sito. In vigore dal {date}.",
+  },
   form: {
     name: "Nome",
     company: "Azienda",

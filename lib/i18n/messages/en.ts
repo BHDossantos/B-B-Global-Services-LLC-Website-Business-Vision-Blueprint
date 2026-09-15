@@ -297,6 +297,13 @@ export const en = {
         "Grab a slot for a 30-minute discovery call and we'll come prepared to talk through your goals.",
     },
   },
+  legal: {
+    eyebrow: "Legal",
+    privacyTitle: "Privacy Policy",
+    privacyDescription: "How we handle your information. Effective {date}.",
+    termsTitle: "Terms of Service",
+    termsDescription: "The terms governing use of this site. Effective {date}.",
+  },
   form: {
     name: "Name",
     company: "Company",

@@ -290,7 +290,7 @@ export const es: Widen<Messages> = {
       eyebrow: "Contacto",
       title: "Programa una Llamada de Descubrimiento",
       description:
-        "Ya sea que estés construyendo una aplicación, modernizando tu cloud, mejorando la seguridad, dando soporte a tu personal o preparándote para la recuperación ante desastres — hablemos.",
+        "Solicita una cotización o consultoría y nuestro equipo te contactará sobre tu solicitud — por teléfono, correo o mensaje de texto si compartes tu número. Ya sea que estés construyendo una aplicación, modernizando tu cloud, mejorando la seguridad, dando soporte a tu personal o preparándote para la recuperación ante desastres — hablemos.",
       bookDirectTitle: "¿Prefieres reservar directamente?",
       bookDirectBody: "Elige un horario que te convenga y llegaremos preparados.",
       bookOnCalendly: "Reserva en Calendly",
@@ -354,9 +354,13 @@ export const es: Widen<Messages> = {
     errorGeneric: "Algo salió mal.",
     successTitle: "Gracias — nos pondremos en contacto muy pronto.",
     successBody:
-      "Un miembro de nuestro equipo te contactará dentro de un día hábil para programar tu llamada de descubrimiento.",
+      "Un miembro de nuestro equipo te contactará dentro de un día hábil — por teléfono, correo o mensaje de texto — para programar tu llamada de descubrimiento.",
+    smsConsent:
+      "Al proporcionar tu número de teléfono y enviar este formulario, aceptas recibir llamadas y mensajes de texto de B&B Global Services LLC sobre tu solicitud. La frecuencia de los mensajes varía. Pueden aplicarse tarifas de mensajes y datos. Responde STOP para darte de baja o HELP para obtener ayuda.",
     consent:
       "Al enviar este formulario, aceptas que te contactemos sobre tu consulta. Respetamos tu privacidad y nunca compartimos tu información.",
+    privacyPolicy: "Política de Privacidad",
+    termsOfService: "Términos de Servicio",
   },
   switcher: { label: "Idioma" },
 };

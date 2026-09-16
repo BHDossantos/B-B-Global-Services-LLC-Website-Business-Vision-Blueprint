@@ -52,6 +52,12 @@ The Site uses cookies and similar technologies for functionality and analytics. 
 
 If we contact you with sales or marketing email, every message includes a clear way to opt out. You can unsubscribe at any time using the link in our emails, by visiting ${siteConfig.url}/unsubscribe, or by emailing us at ${siteConfig.email}. We honor opt-out requests promptly and maintain a suppression list to prevent further contact.
 
+## SMS/Text Messaging Consent
+
+SMS/Text Messaging Consent: B&B Global Services LLC does not sell, rent, or share mobile opt-in information or SMS consent with any third parties for marketing purposes. Phone numbers collected for SMS are used solely to contact you about your request. Message frequency varies; message and data rates may apply. Reply STOP to opt out, HELP for help.
+
+If you provide your phone number when requesting a quote, consultation, or assessment through the Site and agree to the consent disclosure on the form, we may contact you by phone call or text message about that request. You can opt out of text messages at any time by replying STOP to any message, reply HELP for help, or contact us at ${siteConfig.email}.
+
 ## Data Retention
 
 We retain personal information for as long as needed to fulfill the purposes described in this Policy, to provide our services, and to comply with our legal obligations, after which we delete or de-identify it.
@@ -106,6 +112,16 @@ The Site and its content — including text, graphics, logos, and design — are
 ## Submissions
 
 If you submit information through the Site (for example, via our contact form or assessments), you represent that it is accurate and that you have the right to provide it. We handle such information as described in our Privacy Policy.
+
+## Messaging Terms (SMS/Text)
+
+By providing your phone number through the Site (for example, on our contact or quote form) and agreeing to the consent disclosure presented with the form, you consent to receive calls and text messages from ${siteConfig.name} about your request — such as scheduling, follow-ups, proposals, and service updates related to your inquiry. Consent to receive text messages is not a condition of any purchase.
+
+- **Message frequency varies** depending on your request and your interactions with us.
+- **Message and data rates may apply** according to your mobile carrier's plan.
+- **Opt out at any time** by replying STOP to any message; we will confirm your opt-out and send no further texts. Reply HELP for help, or contact us at ${siteConfig.email} or ${siteConfig.phone}.
+- **Carriers are not liable** for delayed or undelivered messages.
+- Mobile opt-in information and SMS consent are not sold, rented, or shared with third parties for marketing purposes. See our Privacy Policy for details.
 
 ## Third-Party Links
 

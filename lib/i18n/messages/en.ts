@@ -281,7 +281,7 @@ export const en = {
       eyebrow: "Contact",
       title: "Schedule a Discovery Call",
       description:
-        "Whether you're building an app, modernizing cloud, improving security, supporting your workforce, or preparing for disaster recovery — let's talk.",
+        "Request a quote or consultation and our team will follow up about your request — by phone, email, or text if you share your number. Whether you're building an app, modernizing cloud, improving security, supporting your workforce, or preparing for disaster recovery — let's talk.",
       bookDirectTitle: "Prefer to book directly?",
       bookDirectBody: "Grab a time that works for you and we'll come prepared.",
       bookOnCalendly: "Book on Calendly",
@@ -342,9 +342,15 @@ export const en = {
     errorGeneric: "Something went wrong.",
     successTitle: "Thank you — we'll be in touch shortly.",
     successBody:
-      "A member of our team will follow up within one business day to schedule your discovery call.",
+      "A member of our team will follow up within one business day — by phone, email, or text — to schedule your discovery call.",
+    // Carrier-required SMS consent disclosure. Keep this English text EXACT —
+    // Twilio/carriers verify it verbatim during toll-free SMS verification.
+    smsConsent:
+      "By providing your phone number and submitting this form, you agree to receive calls and text messages from B&B Global Services LLC about your request. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.",
     consent:
       "By submitting, you agree to be contacted about your inquiry. We respect your privacy and never share your information.",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
   },
   switcher: { label: "Language" },
 };

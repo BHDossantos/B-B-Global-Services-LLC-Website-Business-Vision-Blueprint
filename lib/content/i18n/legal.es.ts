@@ -50,6 +50,12 @@ El Sitio utiliza cookies y tecnologías similares con fines funcionales y de ana
 
 Si nos comunicamos con usted mediante correos electrónicos de ventas o marketing, cada mensaje incluye una forma clara de darse de baja. Puede cancelar su suscripción en cualquier momento usando el enlace incluido en nuestros correos, visitando ${siteConfig.url}/unsubscribe o escribiéndonos a ${siteConfig.email}. Atendemos las solicitudes de baja con prontitud y mantenemos una lista de exclusión para evitar contactos posteriores.
 
+## Consentimiento de SMS/Mensajes de Texto
+
+B&B Global Services LLC no vende, alquila ni comparte información de opt-in móvil ni el consentimiento de SMS con terceros para fines de marketing. Los números de teléfono recopilados para SMS se utilizan únicamente para contactarle sobre su solicitud. La frecuencia de los mensajes varía; pueden aplicarse tarifas de mensajes y datos. Responda STOP para darse de baja o HELP para obtener ayuda.
+
+Si proporciona su número de teléfono al solicitar una cotización, consultoría o evaluación a través del Sitio y acepta el aviso de consentimiento del formulario, podremos contactarle por llamada o mensaje de texto sobre esa solicitud. Puede darse de baja de los mensajes de texto en cualquier momento respondiendo STOP a cualquier mensaje, responder HELP para obtener ayuda o contactarnos en ${siteConfig.email}.
+
 ## Conservación de Datos
 
 Conservamos la información personal durante el tiempo necesario para cumplir los fines descritos en esta Política, prestar nuestros servicios y cumplir con nuestras obligaciones legales, tras lo cual la eliminamos o la anonimizamos.
@@ -104,6 +110,16 @@ El Sitio y su contenido — incluidos los textos, gráficos, logotipos y el dise
 ## Envíos de Información
 
 Si envía información a través del Sitio (por ejemplo, mediante nuestro formulario de contacto o nuestras evaluaciones), usted declara que dicha información es exacta y que tiene derecho a proporcionarla. Tratamos dicha información según lo descrito en nuestra Política de Privacidad.
+
+## Términos de Mensajería (SMS/Texto)
+
+Al proporcionar su número de teléfono a través del Sitio (por ejemplo, en nuestro formulario de contacto o cotización) y aceptar el aviso de consentimiento presentado con el formulario, usted acepta recibir llamadas y mensajes de texto de ${siteConfig.name} sobre su solicitud — como programación de citas, seguimientos, propuestas y actualizaciones de servicio relacionadas con su consulta. El consentimiento para recibir mensajes de texto no es condición de ninguna compra.
+
+- **La frecuencia de los mensajes varía** según su solicitud y sus interacciones con nosotros.
+- **Pueden aplicarse tarifas de mensajes y datos**, según el plan de su operador móvil.
+- **Dese de baja en cualquier momento** respondiendo STOP a cualquier mensaje; confirmaremos su baja y no enviaremos más mensajes. Responda HELP para obtener ayuda o contáctenos en ${siteConfig.email} o ${siteConfig.phone}.
+- **Los operadores no son responsables** de mensajes retrasados o no entregados.
+- La información de opt-in móvil y el consentimiento de SMS no se venden, alquilan ni comparten con terceros para fines de marketing. Consulte nuestra Política de Privacidad para más detalles.
 
 ## Enlaces de Terceros
 

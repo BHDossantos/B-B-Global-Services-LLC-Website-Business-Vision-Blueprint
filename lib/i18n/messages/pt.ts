@@ -285,7 +285,7 @@ export const pt: Widen<Messages> = {
       eyebrow: "Contato",
       title: "Agende uma Conversa de Descoberta",
       description:
-        "Seja para construir uma aplicação, modernizar a cloud, fortalecer a segurança, dar suporte à sua equipe ou se preparar para recuperação de desastres — vamos conversar.",
+        "Solicite um orçamento ou uma consultoria e nosso time fará contato sobre sua solicitação — por telefone, e-mail ou mensagem de texto, caso você informe seu número. Seja para construir uma aplicação, modernizar a cloud, fortalecer a segurança, dar suporte à sua equipe ou se preparar para recuperação de desastres — vamos conversar.",
       bookDirectTitle: "Prefere agendar diretamente?",
       bookDirectBody: "Escolha um horário que funcione para você e chegaremos preparados.",
       bookOnCalendly: "Agendar no Calendly",
@@ -344,9 +344,13 @@ export const pt: Widen<Messages> = {
     errorGeneric: "Algo deu errado.",
     successTitle: "Obrigado — entraremos em contato em breve.",
     successBody:
-      "Um membro do nosso time fará contato em até um dia útil para agendar sua conversa de descoberta.",
+      "Um membro do nosso time fará contato em até um dia útil — por telefone, e-mail ou mensagem de texto — para agendar sua conversa de descoberta.",
+    smsConsent:
+      "Ao fornecer seu número de telefone e enviar este formulário, você concorda em receber ligações e mensagens de texto da B&B Global Services LLC sobre sua solicitação. A frequência das mensagens varia. Podem ser aplicadas tarifas de mensagens e dados. Responda STOP para cancelar ou HELP para obter ajuda.",
     consent:
       "Ao enviar, você concorda em ser contatado sobre sua solicitação. Respeitamos sua privacidade e nunca compartilhamos suas informações.",
+    privacyPolicy: "Política de Privacidade",
+    termsOfService: "Termos de Serviço",
   },
   switcher: { label: "Idioma" },
 };

@@ -50,6 +50,12 @@ O Site utiliza cookies e tecnologias semelhantes para funcionalidade e análise.
 
 Se entrarmos em contato com você por e-mail de vendas ou marketing, toda mensagem incluirá uma forma clara de cancelar o recebimento. Você pode cancelar a inscrição a qualquer momento usando o link em nossos e-mails, visitando ${siteConfig.url}/unsubscribe ou nos escrevendo em ${siteConfig.email}. Atendemos prontamente aos pedidos de cancelamento e mantemos uma lista de supressão para evitar novos contatos.
 
+## Consentimento para SMS/Mensagens de Texto
+
+A B&B Global Services LLC não vende, aluga nem compartilha informações de opt-in móvel ou consentimento para SMS com terceiros para fins de marketing. Os números de telefone coletados para SMS são usados exclusivamente para contatá-lo sobre a sua solicitação. A frequência das mensagens varia; podem ser aplicadas tarifas de mensagens e dados. Responda STOP para cancelar ou HELP para obter ajuda.
+
+Se você informar seu número de telefone ao solicitar um orçamento, consultoria ou avaliação pelo Site e concordar com o aviso de consentimento do formulário, poderemos contatá-lo por ligação ou mensagem de texto sobre essa solicitação. Você pode cancelar as mensagens de texto a qualquer momento respondendo STOP a qualquer mensagem, responder HELP para obter ajuda ou nos contatar em ${siteConfig.email}.
+
 ## Retenção de Dados
 
 Retemos informações pessoais pelo tempo necessário para cumprir os propósitos descritos nesta Política, prestar nossos serviços e cumprir nossas obrigações legais; depois disso, nós as excluímos ou desidentificamos.
@@ -104,6 +110,16 @@ O Site e seu conteúdo — incluindo textos, gráficos, logotipos e design — p
 ## Envios de Informações
 
 Se você enviar informações por meio do Site (por exemplo, pelo nosso formulário de contato ou pelas avaliações), você declara que elas são precisas e que tem o direito de fornecê-las. Tratamos essas informações conforme descrito em nossa Política de Privacidade.
+
+## Termos de Mensagens (SMS/Texto)
+
+Ao fornecer seu número de telefone pelo Site (por exemplo, em nosso formulário de contato ou orçamento) e concordar com o aviso de consentimento apresentado com o formulário, você aceita receber ligações e mensagens de texto da ${siteConfig.name} sobre a sua solicitação — como agendamentos, follow-ups, propostas e atualizações de serviço relacionadas ao seu pedido. O consentimento para receber mensagens de texto não é condição para nenhuma compra.
+
+- **A frequência das mensagens varia** conforme a sua solicitação e as suas interações conosco.
+- **Podem ser aplicadas tarifas de mensagens e dados**, de acordo com o plano da sua operadora.
+- **Cancele a qualquer momento** respondendo STOP a qualquer mensagem; confirmaremos o cancelamento e não enviaremos mais mensagens. Responda HELP para obter ajuda ou contate-nos em ${siteConfig.email} ou ${siteConfig.phone}.
+- **As operadoras não são responsáveis** por mensagens atrasadas ou não entregues.
+- As informações de opt-in móvel e o consentimento para SMS não são vendidos, alugados nem compartilhados com terceiros para fins de marketing. Consulte nossa Política de Privacidade para mais detalhes.
 
 ## Links de Terceiros
 

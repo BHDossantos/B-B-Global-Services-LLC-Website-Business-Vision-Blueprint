@@ -108,12 +108,12 @@ export const itContent: ContentOverlay = {
         "Le organizzazioni sanitarie affrontano alcune delle sfide tecnologiche più delicate: sicurezza dei pazienti, dati sensibili, requisiti di conformità stringenti e tolleranza zero per i fermi di sistema. Aiutiamo i team clinici e amministrativi a modernizzare e gestire la tecnologia in totale sicurezza — senza rallentare l'assistenza.",
     },
     "financial-services": {
-      name: "Servizi Finanziari",
+      name: "Servizi Finanziari, Fintech & Assicurazioni",
       cardDescription:
-        "Piattaforme affidabili e sicure, con i controlli richiesti dalla finanza regolamentata.",
-      title: "Consulenza Tecnologica per Servizi Finanziari e Fintech",
+        "Piattaforme affidabili e sicure per banche, fintech e assicurazioni — con i controlli richiesti dalla finanza regolamentata.",
+      title: "Consulenza Tecnologica per Servizi Finanziari, Fintech e Assicurazioni",
       intro:
-        "Nei servizi finanziari la fiducia è il prodotto — e la fiducia dipende da una tecnologia sicura, affidabile e ben governata. Aiutiamo banche, istituti di credito, consulenti e fintech a realizzare e gestire piattaforme all'altezza delle aspettative di regolatori e clienti.",
+        "Nei servizi finanziari e assicurativi la fiducia è il prodotto — e la fiducia dipende da una tecnologia sicura, affidabile e ben governata. Aiutiamo banche, istituti di credito, consulenti, fintech, compagnie assicurative e insurtech a realizzare e gestire piattaforme all'altezza delle aspettative di regolatori e clienti.",
     },
     "saas-technology": {
       name: "SaaS e Tecnologia",
@@ -278,7 +278,7 @@ export const itContent: ContentOverlay = {
       {
         question: "Quali settori servite?",
         answer:
-          "Sanità, servizi finanziari, SaaS e tecnologia, servizi professionali, real estate e property management, hospitality, piccole e medie imprese e società in portafoglio di private equity.",
+          "Sanità, servizi finanziari, fintech, assicurazioni, SaaS e tecnologia, servizi professionali, real estate e property management, hospitality, piccole e medie imprese e società in portafoglio di private equity.",
       },
     ],
     engagementOffers: [

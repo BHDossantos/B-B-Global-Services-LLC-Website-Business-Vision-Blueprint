@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Icon } from "./Icon";
 import { cn } from "./ui";
 import type { Messages } from "@/lib/i18n/messages/en";
@@ -202,11 +203,15 @@ export function ContactForm({ t }: { t: Messages["form"] }) {
         </p>
       )}
 
+      {/* SMS consent disclosure — must remain directly adjacent to the submit
+          button for carrier (Twilio toll-free) verification. */}
+      <p className="mt-6 text-xs leading-relaxed text-navy-600">{t.smsConsent}</p>
+
       <button
         type="submit"
         disabled={status === "submitting"}
         className={cn(
-          "mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-accent-600 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+          "mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-accent-600 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
         )}
       >
         {status === "submitting" ? t.sending : t.submit}
@@ -214,6 +219,15 @@ export function ContactForm({ t }: { t: Messages["form"] }) {
       </button>
 
       <p className="mt-3 text-xs text-navy-500">{t.consent}</p>
+      <p className="mt-2 text-xs text-navy-500">
+        <Link href="/privacy" className="font-semibold text-accent-600 underline hover:text-accent-700">
+          {t.privacyPolicy}
+        </Link>
+        {" · "}
+        <Link href="/terms" className="font-semibold text-accent-600 underline hover:text-accent-700">
+          {t.termsOfService}
+        </Link>
+      </p>
     </form>
   );
 }

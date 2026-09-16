@@ -407,7 +407,7 @@ export const faqs = [
   {
     question: "Which industries do you serve?",
     answer:
-      "Healthcare, financial services, SaaS and technology, professional services, real estate and property management, hospitality, small and mid-sized businesses, and private equity portfolio companies.",
+      "Healthcare, financial services, fintech, insurance, SaaS and technology, professional services, real estate and property management, hospitality, small and mid-sized businesses, and private equity portfolio companies.",
   },
 ];
 

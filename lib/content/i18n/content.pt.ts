@@ -108,12 +108,12 @@ export const ptContent: ContentOverlay = {
         "Organizações de saúde lidam com o que há de mais crítico em tecnologia: segurança do paciente, dados sensíveis, compliance rigoroso e tolerância zero a indisponibilidade. Ajudamos equipes clínicas e administrativas a modernizar e operar a tecnologia com segurança — sem atrasar o atendimento.",
     },
     "financial-services": {
-      name: "Serviços Financeiros",
+      name: "Serviços Financeiros, Fintech & Seguros",
       cardDescription:
-        "Plataformas confiáveis e seguras, com os controles que o setor financeiro regulado exige.",
-      title: "Consultoria de Tecnologia para Serviços Financeiros e Fintechs",
+        "Plataformas confiáveis e seguras para bancos, fintechs e seguradoras — com os controles que o setor financeiro regulado exige.",
+      title: "Consultoria de Tecnologia para Serviços Financeiros, Fintechs e Seguros",
       intro:
-        "Em serviços financeiros, confiança é o produto — e confiança depende de tecnologia segura, confiável e bem governada. Ajudamos bancos, credoras, assessorias e fintechs a entregar e operar plataformas à altura do que reguladores e clientes esperam.",
+        "Em serviços financeiros e seguros, confiança é o produto — e confiança depende de tecnologia segura, confiável e bem governada. Ajudamos bancos, credoras, assessorias, fintechs, seguradoras e insurtechs a entregar e operar plataformas à altura do que reguladores e clientes esperam.",
     },
     "saas-technology": {
       name: "SaaS & Tecnologia",
@@ -279,7 +279,7 @@ export const ptContent: ContentOverlay = {
       {
         question: "Quais setores vocês atendem?",
         answer:
-          "Saúde, serviços financeiros, SaaS e tecnologia, serviços profissionais, mercado imobiliário e gestão de propriedades, hotelaria e hospitalidade, pequenas e médias empresas e empresas de portfólio de private equity.",
+          "Saúde, serviços financeiros, fintech, seguros, SaaS e tecnologia, serviços profissionais, mercado imobiliário e gestão de propriedades, hotelaria e hospitalidade, pequenas e médias empresas e empresas de portfólio de private equity.",
       },
     ],
     engagementOffers: [

@@ -285,7 +285,7 @@ export const it: Widen<Messages> = {
       eyebrow: "Contatti",
       title: "Fissa una discovery call",
       description:
-        "Che tu stia sviluppando un'app, modernizzando il cloud, rafforzando la sicurezza, supportando il tuo personale o preparandoti al disaster recovery — parliamone.",
+        "Richiedi un preventivo o una consulenza e il nostro team ti ricontatterà in merito alla tua richiesta — per telefono, email o SMS se condividi il tuo numero. Che tu stia sviluppando un'app, modernizzando il cloud, rafforzando la sicurezza, supportando il tuo personale o preparandoti al disaster recovery — parliamone.",
       bookDirectTitle: "Preferisci prenotare direttamente?",
       bookDirectBody: "Scegli l'orario che preferisci e arriveremo preparati.",
       bookOnCalendly: "Prenota su Calendly",
@@ -348,9 +348,13 @@ export const it: Widen<Messages> = {
     errorGeneric: "Si è verificato un errore.",
     successTitle: "Grazie — ti ricontatteremo a breve.",
     successBody:
-      "Un membro del nostro team ti ricontatterà entro un giorno lavorativo per fissare la tua discovery call.",
+      "Un membro del nostro team ti ricontatterà entro un giorno lavorativo — per telefono, email o SMS — per fissare la tua discovery call.",
+    smsConsent:
+      "Fornendo il tuo numero di telefono e inviando questo modulo, accetti di ricevere chiamate e messaggi di testo da B&B Global Services LLC in merito alla tua richiesta. La frequenza dei messaggi varia. Possono essere applicate tariffe per messaggi e dati. Rispondi STOP per annullare l'iscrizione o HELP per assistenza.",
     consent:
       "Inviando il modulo, accetti di essere contattato in merito alla tua richiesta. Rispettiamo la tua privacy e non condividiamo mai le tue informazioni.",
+    privacyPolicy: "Informativa sulla privacy",
+    termsOfService: "Termini di servizio",
   },
   switcher: { label: "Lingua" },
 };

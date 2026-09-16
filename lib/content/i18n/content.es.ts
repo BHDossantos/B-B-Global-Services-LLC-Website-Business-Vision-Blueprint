@@ -108,12 +108,12 @@ export const esContent: ContentOverlay = {
         "Las organizaciones de salud manejan algunos de los riesgos más altos en tecnología: la seguridad del paciente, datos sensibles, un cumplimiento normativo estricto y tolerancia cero a las caídas. Ayudamos a los equipos clínicos y administrativos a modernizar y operar su tecnología de forma segura, sin frenar la atención.",
     },
     "financial-services": {
-      name: "Servicios Financieros",
+      name: "Servicios Financieros, Fintech y Seguros",
       cardDescription:
-        "Plataformas confiables y seguras con los controles que exige el sector financiero regulado.",
-      title: "Consultoría Tecnológica para Servicios Financieros y Fintech",
+        "Plataformas confiables y seguras para bancos, fintechs y aseguradoras — con los controles que exige el sector financiero regulado.",
+      title: "Consultoría Tecnológica para Servicios Financieros, Fintech y Seguros",
       intro:
-        "En los servicios financieros, la confianza es el producto, y la confianza depende de una tecnología segura, confiable y bien gobernada. Ayudamos a bancos, entidades de crédito, asesores y fintechs a construir y operar plataformas que cumplen con el nivel que exigen los reguladores y los clientes.",
+        "En los servicios financieros y los seguros, la confianza es el producto, y la confianza depende de una tecnología segura, confiable y bien gobernada. Ayudamos a bancos, entidades de crédito, asesores, fintechs, aseguradoras e insurtechs a construir y operar plataformas que cumplen con el nivel que exigen los reguladores y los clientes.",
     },
     "saas-technology": {
       name: "SaaS y Tecnología",
@@ -277,7 +277,7 @@ export const esContent: ContentOverlay = {
       {
         question: "¿Qué industrias atienden?",
         answer:
-          "Salud, servicios financieros, SaaS y tecnología, servicios profesionales, bienes raíces y administración de propiedades, hospitalidad, pequeñas y medianas empresas, y empresas de portafolio de private equity.",
+          "Salud, servicios financieros, fintech, seguros, SaaS y tecnología, servicios profesionales, bienes raíces y administración de propiedades, hospitalidad, pequeñas y medianas empresas, y empresas de portafolio de private equity.",
       },
     ],
     engagementOffers: [

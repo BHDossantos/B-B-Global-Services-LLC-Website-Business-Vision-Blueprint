@@ -31,7 +31,7 @@ export const en = {
   hero: {
     headlinePre: "Technology Delivery From",
     headlineHighlight: "Idea to Operations",
-    sub: "B&B Global Services helps businesses design, build, secure, deploy, support, and recover mission-critical technology solutions across software, cloud, DevOps, cybersecurity, AI, managed services, and business continuity.",
+    sub: "B&B Global Services helps businesses design, build, secure, deploy, support, and recover mission-critical technology solutions across software, fintech and insurance platforms, data and AI, cloud, DevOps, cybersecurity, managed services, and business continuity.",
     lifecycleTitle: "The Technology Lifecycle",
     fromIdea: "Idea",
     toOps: "Reliable Operations",

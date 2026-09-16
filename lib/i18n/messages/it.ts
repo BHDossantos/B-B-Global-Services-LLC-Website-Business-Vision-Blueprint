@@ -35,7 +35,7 @@ export const it: Widen<Messages> = {
   hero: {
     headlinePre: "Delivery tecnologico",
     headlineHighlight: "dall'idea alle operazioni",
-    sub: "B&B Global Services aiuta le aziende a progettare, sviluppare, proteggere, rilasciare, supportare e ripristinare soluzioni tecnologiche mission-critical su software, cloud, DevOps, cybersecurity, AI, managed services e business continuity.",
+    sub: "B&B Global Services aiuta le aziende a progettare, sviluppare, proteggere, rilasciare, supportare e ripristinare soluzioni tecnologiche mission-critical su software, piattaforme fintech e assicurative, dati e AI, cloud, DevOps, cybersecurity, managed services e business continuity.",
     lifecycleTitle: "Il ciclo di vita della tecnologia",
     fromIdea: "Idea",
     toOps: "Operazioni affidabili",

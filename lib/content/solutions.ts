@@ -67,6 +67,26 @@ export const solutions: Solution[] = [
     relatedServices: ["data-analytics-ai", "application-development", "strategy-advisory"],
   },
   {
+    slug: "fintech-insurance-platforms",
+    title: "Launch a Fintech or Insurance Product",
+    audience: "Fintechs, insurers, lenders, banks, and financial services teams.",
+    summary:
+      "Build and operate payment, lending, banking, and insurance platforms with the security and controls regulators expect.",
+    body: "Financial and insurance products carry a higher bar: money movement, sensitive customer data, audit trails, and regulators watching. We help fintechs, insurers, lenders, and financial services teams design, build, secure, and operate platforms that clear that bar — from payments and lending workflows to policy, claims, and underwriting systems — with compliance readiness and reliability engineered in from day one.",
+    icon: "chart",
+    includes: [
+      "Payments, billing, and money-movement integrations",
+      "Digital banking, lending, and loan origination platforms",
+      "Insurance policy, quoting, claims, and underwriting workflows",
+      "Core system and third-party API integrations",
+      "PCI DSS, SOC 2, and regulatory compliance readiness",
+      "Fraud detection, risk scoring, and AI-assisted decisioning",
+      "Audit logging, data governance, and access controls",
+      "High-availability architecture and tested disaster recovery",
+    ],
+    relatedServices: ["application-development", "devsecops-cybersecurity", "data-analytics-ai"],
+  },
+  {
     slug: "secure-my-business",
     title: "Secure My Business",
     audience: "Companies worried about cybersecurity.",

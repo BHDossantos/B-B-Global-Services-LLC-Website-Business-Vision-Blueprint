@@ -69,6 +69,13 @@ export const ptContent: ContentOverlay = {
         "Identifique as oportunidades de IA e dados com ROI real e coloque-as em produção de forma responsável.",
       body: "Vá além do hype da IA. Ajudamos você a identificar os casos de uso que realmente geram retorno, construir soluções de IA generativa e machine learning, transformar seus dados em decisões e implantar tudo com governança e monitoramento adequados.",
     },
+    "fintech-insurance-platforms": {
+      title: "Lançar um Produto de Fintech ou Seguros",
+      audience: "Fintechs, seguradoras, credoras, bancos e times de serviços financeiros.",
+      summary:
+        "Construa e opere plataformas de pagamentos, crédito, banking e seguros com a segurança e os controles que os reguladores exigem.",
+      body: "Produtos financeiros e de seguros têm um nível de exigência mais alto: movimentação de dinheiro, dados sensíveis de clientes, trilhas de auditoria e reguladores atentos. Ajudamos fintechs, seguradoras, credoras e times de serviços financeiros a projetar, construir, proteger e operar plataformas à altura dessa exigência — de pagamentos e fluxos de crédito a sistemas de apólices, sinistros e subscrição — com prontidão para compliance e confiabilidade incorporadas desde o primeiro dia.",
+    },
     "secure-my-business": {
       title: "Proteger Meu Negócio",
       audience: "Empresas preocupadas com cibersegurança.",
@@ -231,6 +238,8 @@ export const ptContent: ContentOverlay = {
       "Avaliação de Tecnologia",
       "Construção de Aplicações",
       "Avaliação de Prontidão para IA",
+      "Construção de Plataformas de Fintech & Seguros",
+      "Integração de Pagamentos & Sistemas Core",
       "Modernização de Cloud",
       "Implementação de DevSecOps",
       "Programa de Continuidade de Negócios & Recuperação de Desastres",

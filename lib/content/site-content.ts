@@ -72,6 +72,8 @@ export const featuredSolutions = [
   "Technology Assessment",
   "Application Buildout",
   "AI Readiness Assessment",
+  "Fintech & Insurance Platform Build",
+  "Payments & Core System Integration",
   "Cloud Modernization",
   "DevSecOps Implementation",
   "Business Continuity & Disaster Recovery Program",
@@ -89,9 +91,9 @@ export const industries = [
     icon: "heart",
   },
   {
-    name: "Financial Services",
+    name: "Financial Services, Fintech & Insurance",
     description:
-      "Reliable, secure platforms with the controls regulated finance demands.",
+      "Payments, lending, banking, and insurance platforms with the controls regulated finance demands.",
     icon: "shield",
   },
   {

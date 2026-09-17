@@ -16,7 +16,7 @@ ${siteConfig.name} ("B&B Global Services," "we," "us," or "our") respects your p
 
 ## Information We Collect
 
-**Information you provide.** When you fill out our contact form, request an assessment, use the technology health check or cost calculator, subscribe to our updates, or otherwise contact us, you may provide information such as your name, email address, company, job title, phone number, company size, budget range, timeline, and any message or details you choose to share.
+**Information you provide.** When you request an insurance quote, fill out our contact form, request an assessment, use the technology health check or cost calculator, subscribe to our updates, or otherwise contact us, you may provide information such as your name, email address, phone number, the type of coverage or service you are asking about, company, job title, company size, budget range, timeline, and any message or details you choose to share. On our insurance quote request form, name, email address, and phone number are required so we can respond to your request.
 
 **Information collected automatically.** When you visit the Site, we and our analytics providers may automatically collect technical information such as your IP address, browser type, device information, pages viewed, referring URLs, and general usage data, including through cookies and similar technologies.
 
@@ -26,7 +26,8 @@ ${siteConfig.name} ("B&B Global Services," "we," "us," or "our") respects your p
 
 We use the information we collect to:
 
-- Respond to your inquiries and provide requested assessments, proposals, and services.
+- Respond to your inquiries and provide requested insurance quotes, assessments, proposals, and services.
+- Contact you by phone call, text message, or email about the quote or request you submitted.
 - Operate, maintain, secure, and improve the Site and our offerings.
 - Send you administrative messages and, where permitted, relevant updates or outreach about our services.
 - Understand how the Site is used through analytics.
@@ -41,6 +42,7 @@ Where applicable law (such as the GDPR or UK GDPR) requires, we rely on the foll
 We do not sell your personal information. We share information only as needed:
 
 - **Service providers** who help us operate, such as our website host (Vercel), email delivery (Resend), customer relationship and analytics tools (which may include HubSpot, Google Analytics, or PostHog), and similar vendors, who process information on our behalf.
+- **Licensed insurance brokers** we partner with, where you have asked us for an insurance quote and sharing your details is necessary to prepare and deliver that quote to you. Mobile opt-in information and SMS consent are never shared for marketing purposes.
 - **Legal and safety** purposes, where required by law, regulation, legal process, or to protect rights, property, or safety.
 - **Business transfers**, in connection with a merger, acquisition, or sale of assets, subject to this Policy.
 
@@ -52,11 +54,11 @@ The Site uses cookies and similar technologies for functionality and analytics. 
 
 If we contact you with sales or marketing email, every message includes a clear way to opt out. You can unsubscribe at any time using the link in our emails, by visiting ${siteConfig.url}/unsubscribe, or by emailing us at ${siteConfig.email}. We honor opt-out requests promptly and maintain a suppression list to prevent further contact.
 
-## SMS/Text Messaging Consent
+## SMS/Text Messaging
 
-SMS/Text Messaging Consent: B&B Global Services LLC does not sell, rent, or share mobile opt-in information or SMS consent with any third parties for marketing purposes. Phone numbers collected for SMS are used solely to contact you about your request. Message frequency varies; message and data rates may apply. Reply STOP to opt out, HELP for help.
+SMS/Text Messaging: B&B Global Services LLC does not sell, rent, or share mobile opt-in information or SMS consent with any third parties for marketing purposes. Phone numbers collected are used solely to contact you about your insurance quote/request. Message frequency varies; message and data rates may apply. Reply STOP to opt out, HELP for help.
 
-If you provide your phone number when requesting a quote, consultation, or assessment through the Site and agree to the consent disclosure on the form, we may contact you by phone call or text message about that request. You can opt out of text messages at any time by replying STOP to any message, reply HELP for help, or contact us at ${siteConfig.email}.
+When you submit our insurance quote request form or another form on the Site and provide your phone number, you agree to the consent disclosure shown with that form, and we may contact you by phone call or text message about your request — for example to confirm details, follow up on your quote, or schedule a call. Consent to receive text messages is not a condition of any purchase. You can opt out of text messages at any time by replying STOP to any message; reply HELP for help, or contact us at ${siteConfig.email} or ${siteConfig.phone}. We record the date, time, and exact disclosure text you agreed to as our record of consent.
 
 ## Data Retention
 
@@ -94,7 +96,7 @@ These Terms of Service ("Terms") govern your access to and use of ${domain} (the
 
 ## Use of the Site
 
-The Site provides information about our technology consulting and managed services. You may use the Site for lawful purposes only. You agree not to:
+The Site provides information about our technology, fintech, and managed services, and lets you request an insurance quote that we arrange through licensed insurance brokers. You may use the Site for lawful purposes only. You agree not to:
 
 - Use the Site in any way that violates applicable law or these Terms.
 - Attempt to gain unauthorized access to the Site, its systems, or related networks.
@@ -115,13 +117,17 @@ If you submit information through the Site (for example, via our contact form or
 
 ## Messaging Terms (SMS/Text)
 
-By providing your phone number through the Site (for example, on our contact or quote form) and agreeing to the consent disclosure presented with the form, you consent to receive calls and text messages from ${siteConfig.name} about your request — such as scheduling, follow-ups, proposals, and service updates related to your inquiry. Consent to receive text messages is not a condition of any purchase.
+By providing your phone number through the Site (for example, on our insurance quote request form or contact form) and agreeing to the consent disclosure presented with the form, you consent to receive calls and text messages from ${siteConfig.name} about your request. Consent to receive text messages is not a condition of any purchase.
+
+**Types of messages you may receive.** Insurance quote follow-ups and quote details, requests for information needed to complete your quote, appointment and call scheduling or reminders, replies to questions you send us, and status updates about the request you submitted. We do not send unrelated marketing texts to numbers collected this way.
 
 - **Message frequency varies** depending on your request and your interactions with us.
-- **Message and data rates may apply** according to your mobile carrier's plan.
+- **Msg & data rates may apply** according to your mobile carrier's plan.
 - **Opt out at any time** by replying STOP to any message; we will confirm your opt-out and send no further texts. Reply HELP for help, or contact us at ${siteConfig.email} or ${siteConfig.phone}.
-- **Carriers are not liable** for delayed or undelivered messages.
+- **Carriers are not liable for delayed or undelivered messages.** Delivery depends on your mobile carrier and network conditions, and we cannot guarantee that any message will be delivered or delivered on time.
 - Mobile opt-in information and SMS consent are not sold, rented, or shared with third parties for marketing purposes. See our Privacy Policy for details.
+
+Insurance quotes and coverage are provided through licensed insurance brokers we partner with. ${siteConfig.name} is not an insurer, and nothing on the Site is an offer of insurance or a binding quote.
 
 ## Third-Party Links
 

@@ -31,6 +31,7 @@ export const mainNav = [
   { label: "Services", href: "/services" },
   { label: "Solutions", href: "/solutions" },
   { label: "Industries", href: "/industries" },
+  { label: "Insurance Quote", href: "/quote" },
   { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },

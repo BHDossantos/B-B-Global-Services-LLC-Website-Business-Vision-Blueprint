@@ -239,6 +239,40 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Insurance quote requests — states plainly that we collect a phone
+          number and follow up by call/text, matching our SMS program. */}
+      <Section muted>
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <SectionHeading
+              eyebrow={m.home.insuranceEyebrow}
+              title={m.home.insuranceTitle}
+            />
+            <p className="mt-6 text-lg leading-relaxed text-navy-600">
+              {m.home.insuranceBody}
+            </p>
+            <div className="mt-8">
+              <Button href="/quote">
+                {m.home.insuranceCta} <Icon name="arrow" className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+          <ol className="space-y-5 rounded-2xl border border-navy-100 bg-white p-7 shadow-sm">
+            {m.quote.steps.map((step, i) => (
+              <li key={step.title} className="flex gap-4">
+                <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-navy-900 font-mono text-sm font-bold text-accent-300">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="text-sm font-semibold text-navy-900">{step.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-navy-600">{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
       {/* Testimonials — renders only when real quotes are added */}
       <Testimonials />
 

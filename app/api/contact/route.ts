@@ -13,6 +13,14 @@ type ContactPayload = {
   budget?: string;
   timeline?: string;
   message?: string;
+  /** Which form produced this lead, e.g. "insurance-quote". */
+  formType?: string;
+  /** What the person is requesting a quote for. */
+  quoteType?: string;
+  /** True when the SMS/calls consent disclosure was shown and accepted. */
+  smsConsent?: boolean;
+  /** Exact disclosure text displayed at opt-in (kept for TCPA records). */
+  consentText?: string;
   company_website?: string; // honeypot
 };
 
@@ -28,6 +36,10 @@ type Lead = {
   budget: string;
   timeline: string;
   message: string;
+  formType: string;
+  quoteType: string;
+  smsConsent: boolean;
+  consentText: string;
   submittedAt: string;
 };
 
@@ -50,7 +62,9 @@ export async function POST(request: Request) {
   if (!data.email?.trim() || !EMAIL_RE.test(data.email)) {
     errors.push("A valid email is required.");
   }
-  if (!data.message?.trim()) errors.push("Message is required.");
+  const isQuote = data.formType === "insurance-quote";
+  if (!isQuote && !data.message?.trim()) errors.push("Message is required.");
+  if (isQuote && !data.phone?.trim()) errors.push("Phone number is required.");
 
   if (errors.length > 0) {
     return NextResponse.json({ error: errors.join(" ") }, { status: 422 });
@@ -65,7 +79,13 @@ export async function POST(request: Request) {
     service: data.service || "",
     budget: data.budget || "",
     timeline: data.timeline || "",
-    message: data.message!.trim(),
+    message:
+      data.message?.trim() ||
+      (data.quoteType ? `Insurance quote request: ${data.quoteType}` : "Insurance quote request"),
+    formType: data.formType?.trim() || "contact",
+    quoteType: data.quoteType?.trim() || "",
+    smsConsent: data.smsConsent === true,
+    consentText: data.consentText?.trim() || "",
     submittedAt: new Date().toISOString(),
   };
 
@@ -165,6 +185,12 @@ async function sendEmailNotification(lead: Lead, score: LeadScore): Promise<bool
     ["Service needed", lead.service],
     ["Budget range", lead.budget],
     ["Timeline", lead.timeline],
+    ["Quote type", lead.quoteType],
+    ["Form", lead.formType],
+    [
+      "SMS/calls consent",
+      lead.smsConsent ? `YES — agreed ${lead.submittedAt}` : "",
+    ],
   ]
     .filter(([, v]) => v)
     .map(
@@ -189,6 +215,14 @@ async function sendEmailNotification(lead: Lead, score: LeadScore): Promise<bool
       <p style="white-space:pre-wrap;font-size:14px;color:#0f172a">${escapeHtml(
         lead.message
       )}</p>
+      ${
+        lead.smsConsent && lead.consentText
+          ? `<h3 style="color:#0a1429;margin-top:20px">Consent disclosure shown</h3>
+      <p style="font-size:12px;color:#475569;border-left:3px solid #13a3a3;padding-left:10px">${escapeHtml(
+        lead.consentText
+      )}</p>`
+          : ""
+      }
       <p style="color:#94a3b8;font-size:12px;margin-top:20px">Submitted ${lead.submittedAt}</p>
     </div>`;
 
@@ -202,7 +236,9 @@ async function sendEmailNotification(lead: Lead, score: LeadScore): Promise<bool
       from,
       to: to.split(",").map((e) => e.trim()),
       reply_to: lead.email,
-      subject: `[${score.rating}] New consultation request — ${lead.name}${
+      subject: `[${score.rating}] ${
+        lead.formType === "insurance-quote" ? "New insurance quote request" : "New consultation request"
+      } — ${lead.name}${
         lead.company ? ` (${lead.company})` : ""
       }`,
       html,

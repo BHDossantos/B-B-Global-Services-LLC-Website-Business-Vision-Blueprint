@@ -8,6 +8,7 @@ import { localizedServices, localizedSolutions } from "@/lib/content/i18n";
 
 const company = [
   { label: "About", href: "/about" },
+  { label: "Insurance Quote", href: "/quote" },
   { label: "Global Delivery", href: "/global" },
   { label: "Pricing", href: "/pricing" },
   { label: "Free Health Check", href: "/assessment" },

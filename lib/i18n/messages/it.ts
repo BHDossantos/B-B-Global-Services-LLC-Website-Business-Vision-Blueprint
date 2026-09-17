@@ -11,6 +11,7 @@ export const it: Widen<Messages> = {
     services: "Servizi",
     solutions: "Soluzioni",
     industries: "Settori",
+    quote: "Preventivo Assicurativo",
     pricing: "Prezzi",
     caseStudies: "Casi di successo",
     insights: "Approfondimenti",
@@ -78,6 +79,11 @@ export const it: Widen<Messages> = {
     caseTitle: "Risultati sul campo",
     caseBody:
       "Esempi anonimizzati tratti dalla nostra esperienza di delivery in ambito enterprise e mid-market.",
+    insuranceEyebrow: "Preventivi assicurativi",
+    insuranceTitle: "Ti serve un preventivo assicurativo? Ti ricontattiamo personalmente.",
+    insuranceBody:
+      "Accanto al nostro lavoro nella tecnologia e nel fintech, B&B Global Services aiuta persone e aziende a richiedere preventivi e informazioni assicurative. Tu ci dici cosa vuoi assicurare e ci lasci il tuo numero di telefono; un membro del nostro team ti ricontatta poi con una telefonata, un messaggio di testo o un'email in merito alla tua richiesta, e collaboriamo con broker assicurativi autorizzati per trovarti le opzioni giuste. La frequenza dei messaggi varia, possono essere applicate tariffe per messaggi e dati e puoi rispondere STOP in qualsiasi momento per annullare l'iscrizione oppure HELP per assistenza.",
+    insuranceCta: "Richiedi un preventivo assicurativo",
     faqEyebrow: "FAQ",
     faqTitle: "Domande frequenti",
     finalTitle: "Pronto a passare dalle idee tecnologiche a un'esecuzione affidabile?",
@@ -300,6 +306,69 @@ export const it: Widen<Messages> = {
       pickTimeBody:
         "Prenota una discovery call di 30 minuti: arriveremo preparati per parlare dei tuoi obiettivi.",
     },
+  },
+  // Flusso di richiesta preventivo assicurativo. L'informativa di consenso SMS
+  // qui sotto viene mostrata al momento dell'opt-in: la versione inglese è
+  // verificata parola per parola dagli operatori telefonici.
+  quote: {
+    eyebrow: "Preventivi assicurativi",
+    title: "Richiedi un preventivo assicurativo",
+    description:
+      "Dicci cosa vuoi assicurare e come contattarti. B&B Global Services collabora con broker assicurativi autorizzati per ottenerti un preventivo e un membro del nostro team ti ricontatta per telefono, SMS o email in merito alla tua richiesta.",
+    formTitle: "Richiedi il tuo preventivo",
+    formIntro: "Ti basta circa un minuto. Nessun impegno e le tue informazioni non vengono mai vendute.",
+    nameLabel: "Nome",
+    namePlaceholder: "Maria Rossi",
+    emailLabel: "Email",
+    emailPlaceholder: "maria@esempio.com",
+    phoneLabel: "Numero di telefono",
+    phonePlaceholder: "(555) 555-5555",
+    typeLabel: "Per cosa ti serve un preventivo?",
+    typeSelect: "Seleziona…",
+    types: [
+      "Assicurazione aziendale / commerciale",
+      "Responsabilità civile generale",
+      "Responsabilità civile professionale (E&O)",
+      "Responsabilità cyber",
+      "Assicurazione beni e immobili",
+      "Assicurazione infortuni sul lavoro",
+      "Welfare aziendale / sanità integrativa di gruppo",
+      "Assicurazione auto",
+      "Assicurazione casa",
+      "Assicurazione sulla vita",
+      "Altro / non so ancora",
+    ],
+    messageLabel: "Altro che dovremmo sapere? (facoltativo)",
+    messagePlaceholder: "Massimali, data di rinnovo, compagnia attuale o qualsiasi altra informazione utile per prepararti un preventivo accurato.",
+    submit: "Richiedi il preventivo",
+    sending: "Invio in corso…",
+    // Informativa di consenso SMS mostrata all'opt-in.
+    smsConsent:
+      "Fornendo il tuo numero di telefono e inviando questo modulo, accetti di ricevere chiamate e messaggi di testo da B&B Global Services in merito al tuo preventivo o alla tua richiesta assicurativa. La frequenza dei messaggi varia. Possono essere applicate tariffe per messaggi e dati. Rispondi STOP per annullare l'iscrizione o HELP per assistenza.",
+    legalIntro: "Consulta:",
+    privacyPolicy: "Informativa sulla privacy",
+    termsOfService: "Termini e condizioni",
+    brokerDisclosure:
+      "I preventivi e le coperture assicurative sono forniti tramite i broker assicurativi autorizzati con cui collaboriamo. B&B Global Services non è una compagnia assicurativa.",
+    successTitle: "Grazie — abbiamo ricevuto la tua richiesta di preventivo.",
+    successBody:
+      "Un membro del nostro team ti ricontatterà a breve per telefono, SMS o email in merito al tuo preventivo assicurativo. Se ci hai chiesto di scriverti via SMS, rispondi STOP in qualsiasi momento per annullare l'iscrizione oppure HELP per assistenza.",
+    errorGeneric: "Si è verificato un errore. Riprova oppure chiamaci.",
+    stepsTitle: "Come funziona",
+    steps: [
+      {
+        title: "Richiedi un preventivo",
+        body: "Compila il breve modulo con nome, email, numero di telefono e ciò che vuoi assicurare.",
+      },
+      {
+        title: "Ti ricontattiamo per telefono o SMS",
+        body: "Un membro del nostro team ti contatta in merito alla tua richiesta — con una telefonata, un messaggio di testo o un'email — per confermare i dettagli e rispondere alle tue domande.",
+      },
+      {
+        title: "Ricevi il tuo preventivo",
+        body: "Collaboriamo con broker assicurativi autorizzati per mettere insieme le opzioni e poi te le spieghiamo una per una. Nessun obbligo di acquisto.",
+      },
+    ],
   },
   legal: {
     eyebrow: "Note legali",

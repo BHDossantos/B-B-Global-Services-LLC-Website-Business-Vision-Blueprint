@@ -14,7 +14,7 @@ A ${siteConfig.name} ("B&B Global Services", "nós" ou "nosso") respeita a sua p
 
 ## Informações Que Coletamos
 
-**Informações que você fornece.** Quando você preenche nosso formulário de contato, solicita uma avaliação, utiliza o diagnóstico de saúde tecnológica ou a calculadora de custos, assina nossas atualizações ou entra em contato conosco de outra forma, você pode fornecer informações como nome, endereço de e-mail, empresa, cargo, telefone, porte da empresa, faixa de orçamento, prazo e qualquer mensagem ou detalhe que decida compartilhar.
+**Informações que você fornece.** Quando você solicita uma cotação de seguro, preenche nosso formulário de contato, solicita uma avaliação, utiliza o diagnóstico de saúde tecnológica ou a calculadora de custos, assina nossas atualizações ou entra em contato conosco de outra forma, você pode fornecer informações como nome, endereço de e-mail, telefone, o tipo de cobertura ou serviço sobre o qual você está perguntando, empresa, cargo, porte da empresa, faixa de orçamento, prazo e qualquer mensagem ou detalhe que decida compartilhar. No nosso formulário de solicitação de cotação de seguro, nome, endereço de e-mail e telefone são obrigatórios para que possamos responder à sua solicitação.
 
 **Informações coletadas automaticamente.** Quando você visita o Site, nós e nossos provedores de análise podemos coletar automaticamente informações técnicas como seu endereço IP, tipo de navegador, informações do dispositivo, páginas visualizadas, URLs de origem e dados gerais de uso, inclusive por meio de cookies e tecnologias semelhantes.
 
@@ -24,7 +24,8 @@ A ${siteConfig.name} ("B&B Global Services", "nós" ou "nosso") respeita a sua p
 
 Usamos as informações que coletamos para:
 
-- Responder às suas solicitações e fornecer as avaliações, propostas e serviços requisitados.
+- Responder às suas solicitações e fornecer as cotações de seguro, avaliações, propostas e serviços requisitados.
+- Entrar em contato com você por ligação, mensagem de texto ou e-mail sobre a cotação ou solicitação que você enviou.
 - Operar, manter, proteger e aprimorar o Site e nossas ofertas.
 - Enviar mensagens administrativas e, quando permitido, atualizações relevantes ou comunicações sobre nossos serviços.
 - Entender como o Site é utilizado por meio de análises.
@@ -39,6 +40,7 @@ Quando a legislação aplicável (como o GDPR ou o UK GDPR) assim exigir, baseam
 Não vendemos suas informações pessoais. Compartilhamos informações apenas quando necessário:
 
 - **Prestadores de serviços** que nos ajudam a operar, como nosso provedor de hospedagem (Vercel), envio de e-mails (Resend), ferramentas de relacionamento com clientes e análise (que podem incluir HubSpot, Google Analytics ou PostHog) e fornecedores semelhantes, que processam informações em nosso nome.
+- **Corretoras de seguros licenciadas** com as quais atuamos em parceria, quando você nos pede uma cotação de seguro e o compartilhamento dos seus dados é necessário para preparar e entregar essa cotação. As informações de opt-in móvel e o consentimento para SMS nunca são compartilhados para fins de marketing.
 - **Fins legais e de segurança**, quando exigido por lei, regulamento, processo judicial, ou para proteger direitos, propriedade ou segurança.
 - **Transferências de negócios**, no contexto de fusão, aquisição ou venda de ativos, sujeitas a esta Política.
 
@@ -50,11 +52,11 @@ O Site utiliza cookies e tecnologias semelhantes para funcionalidade e análise.
 
 Se entrarmos em contato com você por e-mail de vendas ou marketing, toda mensagem incluirá uma forma clara de cancelar o recebimento. Você pode cancelar a inscrição a qualquer momento usando o link em nossos e-mails, visitando ${siteConfig.url}/unsubscribe ou nos escrevendo em ${siteConfig.email}. Atendemos prontamente aos pedidos de cancelamento e mantemos uma lista de supressão para evitar novos contatos.
 
-## Consentimento para SMS/Mensagens de Texto
+## SMS/Mensagens de Texto
 
-A B&B Global Services LLC não vende, aluga nem compartilha informações de opt-in móvel ou consentimento para SMS com terceiros para fins de marketing. Os números de telefone coletados para SMS são usados exclusivamente para contatá-lo sobre a sua solicitação. A frequência das mensagens varia; podem ser aplicadas tarifas de mensagens e dados. Responda STOP para cancelar ou HELP para obter ajuda.
+SMS/Mensagens de Texto: a B&B Global Services LLC não vende, aluga nem compartilha informações de opt-in móvel ou consentimento para SMS com terceiros para fins de marketing. Os números de telefone coletados são usados exclusivamente para contatá-lo sobre a sua cotação/solicitação de seguro. A frequência das mensagens varia; podem ser aplicadas tarifas de mensagens e dados. Responda STOP para cancelar ou HELP para obter ajuda.
 
-Se você informar seu número de telefone ao solicitar um orçamento, consultoria ou avaliação pelo Site e concordar com o aviso de consentimento do formulário, poderemos contatá-lo por ligação ou mensagem de texto sobre essa solicitação. Você pode cancelar as mensagens de texto a qualquer momento respondendo STOP a qualquer mensagem, responder HELP para obter ajuda ou nos contatar em ${siteConfig.email}.
+Quando você envia nosso formulário de solicitação de cotação de seguro ou outro formulário do Site e informa seu número de telefone, você concorda com o aviso de consentimento exibido junto àquele formulário, e poderemos contatá-lo por ligação ou mensagem de texto sobre a sua solicitação — por exemplo, para confirmar detalhes, dar andamento à sua cotação ou agendar uma conversa. O consentimento para receber mensagens de texto não é condição para nenhuma compra. Você pode cancelar as mensagens de texto a qualquer momento respondendo STOP a qualquer mensagem; responda HELP para obter ajuda ou entre em contato conosco em ${siteConfig.email} ou ${siteConfig.phone}. Registramos a data, o horário e o texto exato do aviso com o qual você concordou como nosso registro de consentimento.
 
 ## Retenção de Dados
 
@@ -92,7 +94,7 @@ Estes Termos de Serviço ("Termos") regem seu acesso e uso de ${domain} (o "Site
 
 ## Uso do Site
 
-O Site fornece informações sobre nossos serviços de consultoria em tecnologia e serviços gerenciados. Você só pode usar o Site para fins lícitos. Você concorda em não:
+O Site fornece informações sobre nossos serviços de tecnologia, fintech e serviços gerenciados, e permite que você solicite uma cotação de seguro que providenciamos por meio de corretoras de seguros licenciadas. Você só pode usar o Site para fins lícitos. Você concorda em não:
 
 - Usar o Site de qualquer forma que viole a legislação aplicável ou estes Termos.
 - Tentar obter acesso não autorizado ao Site, a seus sistemas ou a redes relacionadas.
@@ -113,13 +115,17 @@ Se você enviar informações por meio do Site (por exemplo, pelo nosso formulá
 
 ## Termos de Mensagens (SMS/Texto)
 
-Ao fornecer seu número de telefone pelo Site (por exemplo, em nosso formulário de contato ou orçamento) e concordar com o aviso de consentimento apresentado com o formulário, você aceita receber ligações e mensagens de texto da ${siteConfig.name} sobre a sua solicitação — como agendamentos, follow-ups, propostas e atualizações de serviço relacionadas ao seu pedido. O consentimento para receber mensagens de texto não é condição para nenhuma compra.
+Ao fornecer seu número de telefone pelo Site (por exemplo, em nosso formulário de solicitação de cotação de seguro ou no formulário de contato) e concordar com o aviso de consentimento apresentado com o formulário, você aceita receber ligações e mensagens de texto da ${siteConfig.name} sobre a sua solicitação. O consentimento para receber mensagens de texto não é condição para nenhuma compra.
+
+**Tipos de mensagens que você pode receber.** Acompanhamento e detalhes da sua cotação de seguro, pedidos de informações necessárias para concluir a cotação, agendamentos e lembretes de compromissos e ligações, respostas às perguntas que você nos enviar e atualizações sobre o andamento da solicitação enviada. Não enviamos mensagens de marketing sem relação com a solicitação para números coletados dessa forma.
 
 - **A frequência das mensagens varia** conforme a sua solicitação e as suas interações conosco.
 - **Podem ser aplicadas tarifas de mensagens e dados**, de acordo com o plano da sua operadora.
 - **Cancele a qualquer momento** respondendo STOP a qualquer mensagem; confirmaremos o cancelamento e não enviaremos mais mensagens. Responda HELP para obter ajuda ou contate-nos em ${siteConfig.email} ou ${siteConfig.phone}.
-- **As operadoras não são responsáveis** por mensagens atrasadas ou não entregues.
+- **As operadoras não são responsáveis por mensagens atrasadas ou não entregues.** A entrega depende da sua operadora móvel e das condições da rede, e não podemos garantir que qualquer mensagem será entregue ou entregue no prazo.
 - As informações de opt-in móvel e o consentimento para SMS não são vendidos, alugados nem compartilhados com terceiros para fins de marketing. Consulte nossa Política de Privacidade para mais detalhes.
+
+As cotações e as coberturas de seguro são fornecidas por corretoras de seguros licenciadas com as quais atuamos em parceria. A ${siteConfig.name} não é uma seguradora, e nada no Site constitui oferta de seguro ou cotação vinculante.
 
 ## Links de Terceiros
 

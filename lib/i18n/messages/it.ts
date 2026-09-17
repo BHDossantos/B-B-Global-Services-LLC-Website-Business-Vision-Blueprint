@@ -11,6 +11,7 @@ export const it: Widen<Messages> = {
     services: "Servizi",
     solutions: "Soluzioni",
     industries: "Settori",
+    quote: "Preventivo Assicurativo",
     pricing: "Prezzi",
     caseStudies: "Casi di successo",
     insights: "Approfondimenti",

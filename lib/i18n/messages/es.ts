@@ -16,6 +16,7 @@ export const es: Widen<Messages> = {
     services: "Servicios",
     solutions: "Soluciones",
     industries: "Industrias",
+    quote: "Cotización de Seguro",
     pricing: "Precios",
     caseStudies: "Casos de Éxito",
     insights: "Perspectivas",
@@ -83,6 +84,11 @@ export const es: Widen<Messages> = {
     caseTitle: "Resultados Reales",
     caseBody:
       "Ejemplos anonimizados extraídos de nuestra experiencia de entrega en grandes empresas y el mercado medio.",
+    insuranceEyebrow: "Cotizaciones de Seguros",
+    insuranceTitle: "¿Necesitas una Cotización de Seguro? Te Damos Seguimiento Personal.",
+    insuranceBody:
+      "Además de nuestro trabajo en tecnología y fintech, B&B Global Services ayuda a personas y empresas a solicitar cotizaciones e información de seguros. Tú nos cuentas qué necesitas cubrir y nos dejas tu número de teléfono; después, un miembro de nuestro equipo te contacta por llamada telefónica, mensaje de texto o correo electrónico sobre tu solicitud, y trabajamos con corredores de seguros con licencia para conseguirte opciones. La frecuencia de los mensajes varía, pueden aplicarse tarifas de mensajes y datos, y puedes responder STOP en cualquier momento para darte de baja o HELP para obtener ayuda.",
+    insuranceCta: "Solicita una Cotización de Seguro",
     faqEyebrow: "Preguntas Frecuentes",
     faqTitle: "Preguntas Comunes",
     finalTitle: "¿Listo para Pasar de las Ideas Tecnológicas a una Ejecución Confiable?",
@@ -305,6 +311,68 @@ export const es: Widen<Messages> = {
       pickTimeBody:
         "Reserva un espacio para una llamada de descubrimiento de 30 minutos y llegaremos preparados para conversar sobre tus objetivos.",
     },
+  },
+  // Flujo de solicitud de cotización de seguro. El aviso de consentimiento de
+  // SMS que aparece más abajo se muestra en el momento del opt-in; el texto en
+  // inglés de en.ts es el que verifican los operadores.
+  quote: {
+    eyebrow: "Cotizaciones de Seguros",
+    title: "Solicita una Cotización de Seguro",
+    description:
+      "Cuéntanos qué necesitas cubrir y cómo contactarte. B&B Global Services trabaja con corredores de seguros con licencia para conseguirte una cotización, y un miembro de nuestro equipo te da seguimiento por teléfono, mensaje de texto o correo electrónico sobre tu solicitud.",
+    formTitle: "Solicita tu cotización",
+    formIntro: "Toma alrededor de un minuto. Sin compromiso, y tu información nunca se vende.",
+    nameLabel: "Nombre",
+    namePlaceholder: "Ana Martínez",
+    emailLabel: "Correo electrónico",
+    emailPlaceholder: "ana@ejemplo.com",
+    phoneLabel: "Número de teléfono",
+    phonePlaceholder: "(555) 555-5555",
+    typeLabel: "¿Para qué necesitas una cotización?",
+    typeSelect: "Selecciona…",
+    types: [
+      "Seguro empresarial / comercial",
+      "Responsabilidad civil general",
+      "Responsabilidad civil profesional (E&O)",
+      "Responsabilidad cibernética",
+      "Seguro de propiedad",
+      "Compensación para trabajadores",
+      "Beneficios para empleados / salud grupal",
+      "Seguro de auto",
+      "Seguro de hogar",
+      "Seguro de vida",
+      "Otro / aún no estoy seguro",
+    ],
+    messageLabel: "¿Hay algo más que debamos saber? (opcional)",
+    messagePlaceholder: "Montos de cobertura, fecha de renovación, aseguradora actual o cualquier otro dato que nos ayude a cotizar con precisión.",
+    submit: "Solicitar Mi Cotización",
+    sending: "Enviando…",
+    smsConsent:
+      "Al proporcionar tu número de teléfono y enviar este formulario, aceptas recibir llamadas y mensajes de texto de B&B Global Services sobre tu cotización o solicitud de seguro. La frecuencia de los mensajes varía. Pueden aplicarse tarifas de mensajes y datos. Responde STOP para darte de baja o HELP para obtener ayuda.",
+    legalIntro: "Lee nuestra",
+    privacyPolicy: "Política de Privacidad",
+    termsOfService: "Términos y Condiciones",
+    brokerDisclosure:
+      "Las cotizaciones y las coberturas de seguros se ofrecen a través de corredores de seguros con licencia con los que colaboramos. B&B Global Services no es una aseguradora.",
+    successTitle: "Gracias — ya recibimos tu solicitud de cotización.",
+    successBody:
+      "Un miembro de nuestro equipo te contactará muy pronto por teléfono, mensaje de texto o correo electrónico sobre tu cotización de seguro. Si nos pediste que te escribiéramos por mensaje de texto, responde STOP en cualquier momento para darte de baja o HELP para obtener ayuda.",
+    errorGeneric: "Algo salió mal. Vuelve a intentarlo o llámanos.",
+    stepsTitle: "Cómo funciona",
+    steps: [
+      {
+        title: "Solicitas una cotización",
+        body: "Completa el formulario breve con tu nombre, correo electrónico, número de teléfono y lo que necesitas cubrir.",
+      },
+      {
+        title: "Te damos seguimiento por llamada o mensaje de texto",
+        body: "Un miembro de nuestro equipo te contacta sobre tu solicitud — por llamada telefónica, mensaje de texto o correo electrónico — para confirmar los detalles y responder tus preguntas.",
+      },
+      {
+        title: "Recibes tu cotización",
+        body: "Trabajamos con corredores de seguros con licencia para reunir opciones y luego te las explicamos paso a paso. Sin compromiso de compra.",
+      },
+    ],
   },
   legal: {
     eyebrow: "Legal",

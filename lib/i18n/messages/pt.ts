@@ -11,6 +11,7 @@ export const pt: Widen<Messages> = {
     services: "Serviços",
     solutions: "Soluções",
     industries: "Setores",
+    quote: "Cotação de Seguro",
     pricing: "Preços",
     caseStudies: "Cases",
     insights: "Insights",
@@ -78,6 +79,11 @@ export const pt: Widen<Messages> = {
     caseTitle: "Resultados na Prática",
     caseBody:
       "Exemplos anonimizados extraídos da experiência de entrega em grandes empresas e no mid-market.",
+    insuranceEyebrow: "Cotações de Seguro",
+    insuranceTitle: "Precisa de uma Cotação de Seguro? Nós Entramos em Contato Pessoalmente.",
+    insuranceBody:
+      "Além do nosso trabalho em tecnologia e fintech, a B&B Global Services ajuda pessoas e empresas a solicitar cotações e informações de seguro. Você nos conta o que precisa proteger e informa seu telefone; em seguida, um integrante da nossa equipe entra em contato por ligação, mensagem de texto ou e-mail sobre a sua solicitação, e trabalhamos com corretoras de seguros licenciadas para apresentar opções. A frequência de mensagens varia, podem incidir tarifas de mensagem e dados, e você pode responder STOP a qualquer momento para cancelar o recebimento ou HELP para obter ajuda.",
+    insuranceCta: "Solicitar uma Cotação de Seguro",
     faqEyebrow: "Perguntas Frequentes",
     faqTitle: "Perguntas Comuns",
     finalTitle: "Pronto para Sair das Ideias de Tecnologia e Chegar à Execução Confiável?",
@@ -300,6 +306,69 @@ export const pt: Widen<Messages> = {
       pickTimeBody:
         "Reserve um horário para uma conversa de descoberta de 30 minutos e chegaremos preparados para falar sobre os seus objetivos.",
     },
+  },
+  // Fluxo de solicitação de cotação de seguro. O aviso de consentimento de SMS
+  // abaixo é exibido no opt-in e é verificado literalmente pelas operadoras
+  // durante o registro de SMS em número gratuito — não reescreva.
+  quote: {
+    eyebrow: "Cotações de Seguro",
+    title: "Solicite uma Cotação de Seguro",
+    description:
+      "Conte para nós o que você precisa proteger e como falar com você. A B&B Global Services trabalha com corretoras de seguros licenciadas para conseguir a sua cotação, e um integrante da nossa equipe entra em contato por telefone, mensagem de texto ou e-mail sobre a sua solicitação.",
+    formTitle: "Solicite sua cotação",
+    formIntro: "Leva cerca de um minuto. Sem compromisso, e suas informações nunca são vendidas.",
+    nameLabel: "Nome",
+    namePlaceholder: "Ana Silva",
+    emailLabel: "E-mail",
+    emailPlaceholder: "ana@exemplo.com",
+    phoneLabel: "Telefone",
+    phonePlaceholder: "(11) 99999-9999",
+    typeLabel: "Para que você precisa de cotação?",
+    typeSelect: "Selecione…",
+    types: [
+      "Seguro empresarial / comercial",
+      "Responsabilidade civil geral",
+      "Responsabilidade civil profissional (E&O)",
+      "Responsabilidade cibernética",
+      "Seguro patrimonial",
+      "Seguro de acidentes de trabalho",
+      "Benefícios / plano de saúde coletivo",
+      "Seguro de automóvel",
+      "Seguro residencial",
+      "Seguro de vida",
+      "Outro / ainda não sei",
+    ],
+    messageLabel: "Mais alguma informação relevante? (opcional)",
+    messagePlaceholder: "Valores de cobertura, data de renovação, seguradora atual ou qualquer detalhe que ajude a cotar com precisão.",
+    submit: "Solicitar Minha Cotação",
+    sending: "Enviando…",
+    // LITERAL — aviso de consentimento de SMS verificado pelas operadoras. Não edite.
+    smsConsent:
+      "Ao informar seu telefone e enviar este formulário, você concorda em receber ligações e mensagens de texto da B&B Global Services sobre a sua cotação/solicitação de seguro. A frequência de mensagens varia. Podem incidir tarifas de mensagem e dados. Responda STOP para cancelar o recebimento e HELP para obter ajuda.",
+    legalIntro: "Leia nossa",
+    privacyPolicy: "Política de Privacidade",
+    termsOfService: "Termos e Condições",
+    brokerDisclosure:
+      "As cotações e as coberturas de seguro são fornecidas por corretoras de seguros licenciadas com as quais atuamos em parceria. A B&B Global Services não é uma seguradora.",
+    successTitle: "Obrigado — recebemos sua solicitação de cotação.",
+    successBody:
+      "Um integrante da nossa equipe entrará em contato em breve por telefone, mensagem de texto ou e-mail sobre a sua cotação de seguro. Se você pediu para receber mensagens de texto, responda STOP a qualquer momento para cancelar o recebimento ou HELP para obter ajuda.",
+    errorGeneric: "Algo deu errado. Tente novamente ou ligue para nós.",
+    stepsTitle: "Como funciona",
+    steps: [
+      {
+        title: "Você solicita a cotação",
+        body: "Preencha o formulário rápido com seu nome, e-mail, telefone e o que você precisa proteger.",
+      },
+      {
+        title: "Entramos em contato por ligação ou mensagem",
+        body: "Um integrante da nossa equipe fala com você sobre a solicitação — por ligação, mensagem de texto ou e-mail — para confirmar detalhes e tirar dúvidas.",
+      },
+      {
+        title: "Você recebe sua cotação",
+        body: "Trabalhamos com corretoras de seguros licenciadas para montar as opções e depois explicamos cada uma para você. Sem compromisso de compra.",
+      },
+    ],
   },
   legal: {
     eyebrow: "Jurídico",

@@ -7,6 +7,7 @@ export const en = {
     services: "Services",
     solutions: "Solutions",
     industries: "Industries",
+    quote: "Insurance Quote",
     pricing: "Pricing",
     caseStudies: "Case Studies",
     insights: "Insights",
@@ -74,6 +75,11 @@ export const en = {
     caseTitle: "Outcomes From the Field",
     caseBody:
       "Anonymized examples drawn from enterprise and mid-market delivery experience.",
+    insuranceEyebrow: "Insurance Quotes",
+    insuranceTitle: "Need an Insurance Quote? We'll Follow Up Personally.",
+    insuranceBody:
+      "Alongside our technology and fintech work, B&B Global Services helps people and businesses request insurance quotes and information. You tell us what you need covered and give us your phone number; a member of our team then follows up by phone call, text message, or email about your request, and we work with licensed insurance brokers to get you options. Message frequency varies, msg & data rates may apply, and you can reply STOP at any time to opt out or HELP for help.",
+    insuranceCta: "Request an Insurance Quote",
     faqEyebrow: "FAQ",
     faqTitle: "Common Questions",
     finalTitle: "Ready to Move From Technology Ideas to Reliable Execution?",
@@ -296,6 +302,69 @@ export const en = {
       pickTimeBody:
         "Grab a slot for a 30-minute discovery call and we'll come prepared to talk through your goals.",
     },
+  },
+  // Insurance quote request flow. The SMS consent disclosure below is shown
+  // at opt-in and is verified verbatim by carriers during toll-free SMS
+  // registration — do not reword it.
+  quote: {
+    eyebrow: "Insurance Quotes",
+    title: "Request an Insurance Quote",
+    description:
+      "Tell us what you need covered and how to reach you. B&B Global Services works with licensed insurance brokers to get you a quote, and a member of our team follows up by phone, text, or email about your request.",
+    formTitle: "Request your quote",
+    formIntro: "Takes about a minute. No obligation, and your information is never sold.",
+    nameLabel: "Name",
+    namePlaceholder: "Jane Smith",
+    emailLabel: "Email",
+    emailPlaceholder: "jane@example.com",
+    phoneLabel: "Phone number",
+    phonePlaceholder: "(555) 555-5555",
+    typeLabel: "What do you need a quote for?",
+    typeSelect: "Select…",
+    types: [
+      "Business / commercial insurance",
+      "General liability",
+      "Professional liability (E&O)",
+      "Cyber liability",
+      "Property insurance",
+      "Workers' compensation",
+      "Employee benefits / group health",
+      "Auto insurance",
+      "Home insurance",
+      "Life insurance",
+      "Other / not sure yet",
+    ],
+    messageLabel: "Anything else we should know? (optional)",
+    messagePlaceholder: "Coverage amounts, renewal date, current carrier, or anything else that helps us quote accurately.",
+    submit: "Request My Quote",
+    sending: "Sending…",
+    // VERBATIM — carrier-verified SMS opt-in disclosure. Do not edit.
+    smsConsent:
+      "By providing your phone number and submitting this form, you agree to receive calls and text messages from B&B Global Services about your insurance quote/request. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.",
+    legalIntro: "Read our",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms & Conditions",
+    brokerDisclosure:
+      "Insurance quotes and coverage are provided through licensed insurance brokers we partner with. B&B Global Services is not an insurer.",
+    successTitle: "Thanks — your quote request is in.",
+    successBody:
+      "A member of our team will follow up shortly by phone, text, or email about your insurance quote. If you asked us to text you, reply STOP at any time to opt out, or HELP for help.",
+    errorGeneric: "Something went wrong. Please try again or call us.",
+    stepsTitle: "How it works",
+    steps: [
+      {
+        title: "You request a quote",
+        body: "Fill out the short form with your name, email, phone number, and what you need covered.",
+      },
+      {
+        title: "We follow up by call or text",
+        body: "A member of our team contacts you about your request — by phone call, text message, or email — to confirm details and answer questions.",
+      },
+      {
+        title: "You get your quote",
+        body: "We work with licensed insurance brokers to put together options, then walk you through them. No obligation to buy.",
+      },
+    ],
   },
   legal: {
     eyebrow: "Legal",

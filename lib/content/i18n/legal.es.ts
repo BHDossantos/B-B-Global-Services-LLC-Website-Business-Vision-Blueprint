@@ -94,7 +94,7 @@ Estos Términos de Servicio (los "Términos") rigen su acceso y uso de ${domain}
 
 ## Uso del Sitio
 
-El Sitio proporciona información sobre nuestros servicios de consultoría tecnológica y servicios gestionados. Usted puede utilizar el Sitio únicamente con fines lícitos. Usted se compromete a no:
+El Sitio proporciona información sobre nuestros servicios de tecnología, fintech y servicios gestionados, y le permite solicitar una cotización de seguro que gestionamos a través de corredores de seguros con licencia. Usted puede utilizar el Sitio únicamente con fines lícitos. Usted se compromete a no:
 
 - Utilizar el Sitio de cualquier forma que infrinja la legislación aplicable o estos Términos.
 - Intentar obtener acceso no autorizado al Sitio, sus sistemas o las redes relacionadas.

@@ -14,7 +14,7 @@ ${siteConfig.name} ("B&B Global Services", "noi" o "nostro") rispetta la tua pri
 
 ## Informazioni che raccogliamo
 
-**Informazioni che fornisci.** Quando compili il nostro modulo di contatto, richiedi una valutazione, utilizzi il technology health check o il calcolatore dei costi, ti iscrivi ai nostri aggiornamenti o ci contatti in altro modo, puoi fornire informazioni come nome, indirizzo email, azienda, ruolo, numero di telefono, dimensione dell'azienda, fascia di budget, tempistiche e qualsiasi messaggio o dettaglio che scegli di condividere.
+**Informazioni che fornisci.** Quando richiedi un preventivo assicurativo, compili il nostro modulo di contatto, richiedi una valutazione, utilizzi il technology health check o il calcolatore dei costi, ti iscrivi ai nostri aggiornamenti o ci contatti in altro modo, puoi fornire informazioni come nome, indirizzo email, numero di telefono, il tipo di copertura o di servizio su cui ci stai chiedendo informazioni, azienda, ruolo, dimensione dell'azienda, fascia di budget, tempistiche e qualsiasi messaggio o dettaglio che scegli di condividere. Nel nostro modulo di richiesta di preventivo assicurativo, nome, indirizzo email e numero di telefono sono obbligatori per consentirci di rispondere alla tua richiesta.
 
 **Informazioni raccolte automaticamente.** Quando visiti il Sito, noi e i nostri fornitori di analytics possiamo raccogliere automaticamente informazioni tecniche come indirizzo IP, tipo di browser, informazioni sul dispositivo, pagine visualizzate, URL di provenienza e dati generali di utilizzo, anche tramite cookie e tecnologie simili.
 
@@ -24,7 +24,8 @@ ${siteConfig.name} ("B&B Global Services", "noi" o "nostro") rispetta la tua pri
 
 Utilizziamo le informazioni raccolte per:
 
-- Rispondere alle tue richieste e fornire le valutazioni, le proposte e i servizi richiesti.
+- Rispondere alle tue richieste e fornire i preventivi assicurativi, le valutazioni, le proposte e i servizi richiesti.
+- Contattarti tramite chiamata telefonica, messaggio di testo o email in merito al preventivo o alla richiesta che ci hai inviato.
 - Gestire, mantenere, proteggere e migliorare il Sito e le nostre offerte.
 - Inviarti comunicazioni amministrative e, ove consentito, aggiornamenti pertinenti o comunicazioni commerciali sui nostri servizi.
 - Comprendere come viene utilizzato il Sito attraverso gli analytics.
@@ -39,6 +40,7 @@ Ove richiesto dalla legge applicabile (come il GDPR o l'UK GDPR), ci basiamo sul
 Non vendiamo le tue informazioni personali. Condividiamo le informazioni solo quando necessario:
 
 - **Fornitori di servizi** che ci aiutano a operare, come il nostro provider di hosting (Vercel), il servizio di invio email (Resend), gli strumenti di CRM e analytics (che possono includere HubSpot, Google Analytics o PostHog) e fornitori simili, che trattano le informazioni per nostro conto.
+- **Broker assicurativi autorizzati** con cui collaboriamo, quando ci hai chiesto un preventivo assicurativo e la condivisione dei tuoi dati è necessaria per predisporre e fornirti tale preventivo. Le informazioni di opt-in mobile e il consenso agli SMS non vengono mai condivisi per finalità di marketing.
 - **Finalità legali e di sicurezza**, ove richiesto da legge, regolamento, procedimento legale, o per proteggere diritti, proprietà o sicurezza.
 - **Operazioni societarie**, nell'ambito di una fusione, acquisizione o cessione di attività, nel rispetto di questa Informativa.
 
@@ -50,11 +52,11 @@ Il Sito utilizza cookie e tecnologie simili per funzionalità e analytics. Puoi 
 
 Se ti contattiamo con email commerciali o di marketing, ogni messaggio include un modo chiaro per rinunciare. Puoi annullare l'iscrizione in qualsiasi momento usando il link nelle nostre email, visitando ${siteConfig.url}/unsubscribe o scrivendoci a ${siteConfig.email}. Diamo seguito tempestivamente alle richieste di rinuncia e manteniamo una lista di esclusione per evitare ulteriori contatti.
 
-## Consenso SMS/messaggi di testo
+## SMS/Messaggi di testo
 
-B&B Global Services LLC non vende, noleggia né condivide con terzi le informazioni di opt-in mobile o il consenso agli SMS per finalità di marketing. I numeri di telefono raccolti per gli SMS sono utilizzati esclusivamente per contattarti in merito alla tua richiesta. La frequenza dei messaggi varia; possono essere applicate tariffe per messaggi e dati. Rispondi STOP per annullare l'iscrizione o HELP per assistenza.
+SMS/Messaggi di testo: B&B Global Services LLC non vende, noleggia né condivide con terzi le informazioni di opt-in mobile o il consenso agli SMS per finalità di marketing. I numeri di telefono raccolti sono utilizzati esclusivamente per contattarti in merito al tuo preventivo o alla tua richiesta assicurativa. La frequenza dei messaggi varia; possono essere applicate tariffe per messaggi e dati. Rispondi STOP per annullare l'iscrizione o HELP per assistenza.
 
-Se fornisci il tuo numero di telefono richiedendo un preventivo, una consulenza o un assessment tramite il Sito e accetti l'informativa di consenso del modulo, potremo contattarti tramite chiamata o messaggio di testo in merito a quella richiesta. Puoi annullare l'iscrizione ai messaggi di testo in qualsiasi momento rispondendo STOP a qualsiasi messaggio, rispondere HELP per assistenza o contattarci a ${siteConfig.email}.
+Quando invii il nostro modulo di richiesta di preventivo assicurativo o un altro modulo del Sito e fornisci il tuo numero di telefono, accetti l'informativa di consenso mostrata insieme a quel modulo e potremo contattarti tramite chiamata o messaggio di testo in merito alla tua richiesta — ad esempio per confermare dei dettagli, dare seguito al tuo preventivo o fissare una call. Il consenso a ricevere messaggi di testo non è una condizione per alcun acquisto. Puoi annullare l'iscrizione ai messaggi di testo in qualsiasi momento rispondendo STOP a qualsiasi messaggio; rispondi HELP per assistenza oppure contattaci a ${siteConfig.email} o ${siteConfig.phone}. Registriamo la data, l'ora e il testo esatto dell'informativa che hai accettato come prova del consenso.
 
 ## Conservazione dei dati
 
@@ -92,7 +94,7 @@ I presenti Termini di servizio (i "Termini") disciplinano l'accesso a e l'utiliz
 
 ## Utilizzo del Sito
 
-Il Sito fornisce informazioni sui nostri servizi di consulenza tecnologica e servizi gestiti. Puoi utilizzare il Sito solo per finalità lecite. Ti impegni a non:
+Il Sito fornisce informazioni sui nostri servizi tecnologici, fintech e gestiti e ti consente di richiedere un preventivo assicurativo che organizziamo tramite broker assicurativi autorizzati. Puoi utilizzare il Sito solo per finalità lecite. Ti impegni a non:
 
 - Utilizzare il Sito in modi che violino la legge applicabile o questi Termini.
 - Tentare di ottenere un accesso non autorizzato al Sito, ai suoi sistemi o alle reti collegate.
@@ -113,13 +115,17 @@ Se invii informazioni tramite il Sito (ad esempio tramite il nostro modulo di co
 
 ## Termini di messaggistica (SMS/testo)
 
-Fornendo il tuo numero di telefono tramite il Sito (ad esempio nel nostro modulo di contatto o preventivo) e accettando l'informativa di consenso presentata con il modulo, accetti di ricevere chiamate e messaggi di testo da ${siteConfig.name} in merito alla tua richiesta — come appuntamenti, follow-up, proposte e aggiornamenti di servizio relativi alla tua richiesta. Il consenso a ricevere messaggi di testo non è una condizione per alcun acquisto.
+Fornendo il tuo numero di telefono tramite il Sito (ad esempio nel nostro modulo di richiesta di preventivo assicurativo o nel modulo di contatto) e accettando l'informativa di consenso presentata con il modulo, accetti di ricevere chiamate e messaggi di testo da ${siteConfig.name} in merito alla tua richiesta. Il consenso a ricevere messaggi di testo non è una condizione per alcun acquisto.
+
+**Tipi di messaggi che potresti ricevere.** Follow-up e dettagli sui preventivi assicurativi, richieste delle informazioni necessarie a completare il tuo preventivo, fissazione di appuntamenti e chiamate o relativi promemoria, risposte alle domande che ci invii e aggiornamenti sullo stato della richiesta che hai inviato. Non inviamo messaggi di marketing estranei ai numeri raccolti in questo modo.
 
 - **La frequenza dei messaggi varia** in base alla tua richiesta e alle tue interazioni con noi.
 - **Possono essere applicate tariffe per messaggi e dati**, secondo il piano del tuo operatore mobile.
 - **Annulla l'iscrizione in qualsiasi momento** rispondendo STOP a qualsiasi messaggio; confermeremo l'annullamento e non invieremo altri messaggi. Rispondi HELP per assistenza oppure contattaci a ${siteConfig.email} o ${siteConfig.phone}.
-- **Gli operatori non sono responsabili** per messaggi ritardati o non consegnati.
+- **Gli operatori telefonici non sono responsabili per messaggi ritardati o non consegnati.** La consegna dipende dal tuo operatore mobile e dalle condizioni di rete e non possiamo garantire che un messaggio venga consegnato o consegnato in tempo.
 - Le informazioni di opt-in mobile e il consenso agli SMS non vengono venduti, noleggiati né condivisi con terzi per finalità di marketing. Consulta la nostra Informativa sulla privacy per i dettagli.
+
+I preventivi e le coperture assicurative sono forniti tramite i broker assicurativi autorizzati con cui collaboriamo. ${siteConfig.name} non è una compagnia assicurativa e nulla di quanto presente sul Sito costituisce un'offerta di assicurazione o un preventivo vincolante.
 
 ## Link a siti di terzi
 

@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -18,12 +19,13 @@ export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const service = localizedService(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const activeLocale = await readActiveLocale();
+  const service = localizedService((await params).slug, activeLocale);
   if (!service) return {};
   return {
     title: service.headline,
@@ -31,17 +33,18 @@ export function generateMetadata({
   };
 }
 
-export default function ServicePillarPage({
+export default async function ServicePillarPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const service = localizedService(params.slug);
+  const activeLocale = await readActiveLocale();
+  const service = localizedService((await params).slug, activeLocale);
   if (!service) notFound();
 
-  const m = getMessages();
+  const m = getMessages(activeLocale);
   const t = m.detail.service;
-  const others = localizedServices().filter((s) => s.slug !== service.slug);
+  const others = localizedServices(activeLocale).filter((s) => s.slug !== service.slug);
   const faqs = getServiceFaqs(service.slug);
 
   return (

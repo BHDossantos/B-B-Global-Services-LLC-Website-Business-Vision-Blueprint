@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { Icon } from "./Icon";
 import { Card, cn } from "./ui";
@@ -83,7 +84,7 @@ export function IndustryCard({
   );
 }
 
-export function CaseStudyCard({
+export async function CaseStudyCard({
   study,
 }: {
   study: {
@@ -94,7 +95,8 @@ export function CaseStudyCard({
     outcome: string;
   };
 }) {
-  const m = getMessages();
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   return (
     <Card className="flex h-full flex-col">
       <p className="text-xs font-semibold uppercase tracking-wide text-accent-600">
@@ -113,7 +115,7 @@ export function CaseStudyCard({
   );
 }
 
-export function BlogCard({
+export async function BlogCard({
   post,
 }: {
   post: {
@@ -125,8 +127,9 @@ export function BlogCard({
     readMinutes: number;
   };
 }) {
-  const m = getMessages();
-  const date = new Date(post.date).toLocaleDateString(localeTags[getLocale()], {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
+  const date = new Date(post.date).toLocaleDateString(localeTags[(await getLocale())], {
     year: "numeric",
     month: "short",
     day: "numeric",

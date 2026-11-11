@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import { Hero } from "@/components/Hero";
 import { Section, SectionHeading, Button, Eyebrow } from "@/components/ui";
 import { LifecycleFramework } from "@/components/LifecycleFramework";
@@ -23,11 +24,12 @@ import {
   localizedCaseStudies,
 } from "@/lib/content/i18n";
 
-export default function HomePage() {
-  const m = getMessages();
-  const svc = localizedServices();
-  const inds = localizedIndustries();
-  const { painPoints, differentiators, featuredSolutions, faqs } = localizedSiteContent();
+export default async function HomePage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
+  const svc = localizedServices(activeLocale);
+  const inds = localizedIndustries(activeLocale);
+  const { painPoints, differentiators, featuredSolutions, faqs } = localizedSiteContent(activeLocale);
   return (
     <>
       <FaqJsonLd items={faqs} />
@@ -228,7 +230,7 @@ export default function HomePage() {
           description={m.home.caseBody}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {localizedCaseStudies().slice(0, 3).map((study) => (
+          {localizedCaseStudies(activeLocale).slice(0, 3).map((study) => (
             <CaseStudyCard key={study.slug} study={study} />
           ))}
         </div>

@@ -40,3 +40,15 @@ jobs:
         env:
           # Disable Next.js telemetry in CI
           NEXT_TELEMETRY_DISABLED: "1"
+
+      - name: Crawl built pages and verify locale rendering
+        run: |
+          npm start -- -H 127.0.0.1 -p 3199 > /tmp/bb-site.log 2>&1 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:3199/sitemap.xml >/dev/null && break; sleep 1; done
+          QA_BASE=http://127.0.0.1:3199 npm run qa
+          QA_BASE=http://127.0.0.1:3199 node scripts/qa-locales.mjs
+
+      - name: Production dependency audit
+        run: npm audit --omit=dev --audit-level=high

@@ -33,14 +33,14 @@ function deepMerge(base: any, over: any): any {
 }
 
 /** Read the active locale from the cookie (set by middleware / switcher). */
-export function getLocale(): Locale {
-  const v = cookies().get(LOCALE_COOKIE)?.value;
+export async function getLocale(): Promise<Locale> {
+  const v = (await cookies()).get(LOCALE_COOKIE)?.value;
   return isLocale(v) ? v : defaultLocale;
 }
 
 /** Get the message catalog for the active (or given) locale, with EN fallback. */
-export function getMessages(locale?: Locale): Messages {
-  return withFallback(locale ?? getLocale());
+export function getMessages(locale: Locale): Messages {
+  return withFallback(locale);
 }
 
 /** Fill `{placeholders}` in a translated template, e.g. fill(t, { name }). */

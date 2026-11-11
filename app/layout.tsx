@@ -125,12 +125,12 @@ const jsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const locale = getLocale();
+  const locale = (await getLocale());
   const m = getMessages(locale);
   return (
     <html lang={locale} className={inter.variable}>

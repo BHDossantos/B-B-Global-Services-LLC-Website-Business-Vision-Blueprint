@@ -8,7 +8,7 @@ Built from the official Business Vision Blueprint.
 
 ## Stack
 
-- **[Next.js 14](https://nextjs.org/)** (App Router) + **React 18**
+- **[Next.js 16](https://nextjs.org/)** (App Router) + **React 19**
 - **TypeScript**
 - **Tailwind CSS**
 - Deploy target: **[Vercel](https://vercel.com/)**
@@ -187,3 +187,7 @@ business/
 - Add Google Analytics / PostHog
 - Per-page case study and insight detail routes
 - Careers, Partners, and Client Portal sections
+
+### Demo release checks
+
+Use Node.js 22 or later. `npm test` verifies contact intake and QA failure handling. After the production build, start on localhost and run `npm run qa` plus `node scripts/qa-locales.mjs` with `QA_BASE` set to that local address. The crawl must cover a nonempty sitemap and report no broken links or metadata issues. CI also checks four supported locales and production dependency advisories.

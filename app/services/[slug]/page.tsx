@@ -10,6 +10,7 @@ import { BreadcrumbJsonLd, ServiceJsonLd, FaqJsonLd } from "@/components/JsonLd"
 import { Icon } from "@/components/Icon";
 import { services } from "@/lib/content/services";
 import { localizedService, localizedServices } from "@/lib/content/i18n";
+import { getMessages } from "@/lib/i18n";
 import { getServiceFaqs } from "@/lib/content/service-faqs";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -38,6 +39,8 @@ export default function ServicePillarPage({
   const service = localizedService(params.slug);
   if (!service) notFound();
 
+  const m = getMessages();
+  const t = m.detail.service;
   const others = localizedServices().filter((s) => s.slug !== service.slug);
   const faqs = getServiceFaqs(service.slug);
 
@@ -56,20 +59,20 @@ export default function ServicePillarPage({
         ]}
       />
       <PageHeader
-        eyebrow="Services"
+        eyebrow={m.nav.services}
         title={service.headline}
         description={service.summary}
         breadcrumbs={[
-          { name: "Home", href: "/" },
-          { name: "Services", href: "/services" },
+          { name: m.common.home, href: "/" },
+          { name: m.nav.services, href: "/services" },
           { name: service.title },
         ]}
       >
         <Button href={siteConfig.bookingUrl} external>
-          Book a Consultation
+          {m.cta.bookConsultation}
         </Button>
         <Button href="/contact" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
-          Request Proposal
+          {m.common.requestProposal}
         </Button>
       </PageHeader>
 
@@ -77,8 +80,8 @@ export default function ServicePillarPage({
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <SectionHeading
-              eyebrow="What's Included"
-              title="Capabilities"
+              eyebrow={t.whatsIncluded}
+              title={t.capabilities}
             />
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {service.services.map((item) => (
@@ -87,7 +90,7 @@ export default function ServicePillarPage({
             </ul>
 
             <div className="mt-12">
-              <SectionHeading eyebrow="Outcomes" title="Deliverables" />
+              <SectionHeading eyebrow={t.outcomes} title={t.deliverables} />
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {service.deliverables.map((item) => (
                   <PillItem key={item}>{item}</PillItem>
@@ -98,36 +101,24 @@ export default function ServicePillarPage({
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <Card className="bg-navy-50">
-              <h3 className="text-lg font-semibold text-navy-900">
-                Custom-Scoped Engagement
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-600">
-                Every engagement is tailored to your environment, goals, and
-                budget. Talk to our team and we&apos;ll put together a clear,
-                custom proposal — no one-size-fits-all price tags.
-              </p>
+              <h3 className="text-lg font-semibold text-navy-900">{t.customTitle}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy-600">{t.customBody}</p>
               <ul className="mt-5 space-y-2.5 text-sm text-navy-700">
-                <li className="flex items-start gap-2.5">
-                  <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-accent-500" />
-                  Fixed-scope assessments with defined deliverables
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-accent-500" />
-                  Value-based pricing for projects
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-accent-500" />
-                  Monthly retainers for managed services
-                </li>
+                {t.customBullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-2.5">
+                    <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-accent-500" />
+                    {bullet}
+                  </li>
+                ))}
               </ul>
               <Button href={siteConfig.bookingUrl} external className="mt-6 w-full">
-                Talk to Our Team <Icon name="arrow" className="h-4 w-4" />
+                {m.cta.talkToTeam} <Icon name="arrow" className="h-4 w-4" />
               </Button>
               <Link
                 href="/contact"
                 className="mt-3 inline-flex w-full items-center justify-center text-sm font-semibold text-accent-600 hover:text-accent-700"
               >
-                Request a custom quote
+                {m.common.requestCustomQuote}
               </Link>
             </Card>
           </aside>
@@ -135,7 +126,7 @@ export default function ServicePillarPage({
       </Section>
 
       <Section muted>
-        <SectionHeading eyebrow="Explore" title="Other Services" />
+        <SectionHeading eyebrow={t.exploreEyebrow} title={t.otherServices} />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((s) => (
             <Link
@@ -160,7 +151,7 @@ export default function ServicePillarPage({
       {faqs.length > 0 && (
         <Section>
           <FaqJsonLd items={faqs} />
-          <SectionHeading align="center" eyebrow="FAQ" title={`${service.title} — Common Questions`} />
+          <SectionHeading align="center" eyebrow={m.common.faq} title={`${service.title} — ${t.commonQuestions}`} />
           <div className="mx-auto mt-10 max-w-3xl">
             <FAQAccordion items={faqs} />
           </div>

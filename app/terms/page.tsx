@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/ui";
 import { Markdown } from "@/components/Markdown";
-import { termsOfService, legalEffectiveDate } from "@/lib/content/legal";
+import { legalEffectiveDate } from "@/lib/content/legal";
+import { localizedLegal } from "@/lib/content/i18n";
+import { fill, getMessages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -12,15 +14,18 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
+  const m = getMessages();
+  const t = m.legal;
+  const { termsOfService } = localizedLegal();
   return (
     <>
       <PageHeader
-        eyebrow="Legal"
-        title="Terms of Service"
-        description={`The terms governing use of this site. Effective ${legalEffectiveDate}.`}
+        eyebrow={t.eyebrow}
+        title={t.termsTitle}
+        description={fill(t.termsDescription, { date: legalEffectiveDate })}
         breadcrumbs={[
-          { name: "Home", href: "/" },
-          { name: "Terms of Service" },
+          { name: m.common.home, href: "/" },
+          { name: t.termsTitle },
         ]}
       />
       <Section>

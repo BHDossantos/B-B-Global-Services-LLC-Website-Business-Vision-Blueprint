@@ -42,3 +42,8 @@ export function getLocale(): Locale {
 export function getMessages(locale?: Locale): Messages {
   return withFallback(locale ?? getLocale());
 }
+
+/** Fill `{placeholders}` in a translated template, e.g. fill(t, { name }). */
+export function fill(template: string, vars: Record<string, string>): string {
+  return template.replace(/\{(\w+)\}/g, (match, key) => vars[key] ?? match);
+}

@@ -14,21 +14,20 @@ import { Reveal } from "@/components/Reveal";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FaqJsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
-import {
-  painPoints,
-  differentiators,
-  featuredSolutions,
-  caseStudies,
-  faqs,
-} from "@/lib/content/site-content";
 import { regions, globalStats } from "@/lib/content/global";
 import { getMessages } from "@/lib/i18n";
-import { localizedServices, localizedIndustries } from "@/lib/content/i18n";
+import {
+  localizedServices,
+  localizedIndustries,
+  localizedSiteContent,
+  localizedCaseStudies,
+} from "@/lib/content/i18n";
 
 export default function HomePage() {
   const m = getMessages();
   const svc = localizedServices();
   const inds = localizedIndustries();
+  const { painPoints, differentiators, featuredSolutions, faqs } = localizedSiteContent();
   return (
     <>
       <FaqJsonLd items={faqs} />
@@ -131,7 +130,7 @@ export default function HomePage() {
         </div>
         <div className="mt-8">
           <Button href="/industries" variant="ghost">
-            Explore industries <Icon name="arrow" className="h-4 w-4" />
+            {m.common.exploreIndustries} <Icon name="arrow" className="h-4 w-4" />
           </Button>
         </div>
       </Section>
@@ -216,7 +215,7 @@ export default function HomePage() {
         </div>
         <div className="mt-8">
           <Button href="/solutions" variant="ghost">
-            Browse solutions <Icon name="arrow" className="h-4 w-4" />
+            {m.common.browseSolutions} <Icon name="arrow" className="h-4 w-4" />
           </Button>
         </div>
       </Section>
@@ -229,14 +228,48 @@ export default function HomePage() {
           description={m.home.caseBody}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.slice(0, 3).map((study) => (
+          {localizedCaseStudies().slice(0, 3).map((study) => (
             <CaseStudyCard key={study.slug} study={study} />
           ))}
         </div>
         <div className="mt-8">
           <Button href="/case-studies" variant="ghost">
-            View all case studies <Icon name="arrow" className="h-4 w-4" />
+            {m.common.viewAllCaseStudies} <Icon name="arrow" className="h-4 w-4" />
           </Button>
+        </div>
+      </Section>
+
+      {/* Insurance quote requests — states plainly that we collect a phone
+          number and follow up by call/text, matching our SMS program. */}
+      <Section muted>
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <SectionHeading
+              eyebrow={m.home.insuranceEyebrow}
+              title={m.home.insuranceTitle}
+            />
+            <p className="mt-6 text-lg leading-relaxed text-navy-600">
+              {m.home.insuranceBody}
+            </p>
+            <div className="mt-8">
+              <Button href="/quote">
+                {m.home.insuranceCta} <Icon name="arrow" className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+          <ol className="space-y-5 rounded-2xl border border-navy-100 bg-white p-7 shadow-sm">
+            {m.quote.steps.map((step, i) => (
+              <li key={step.title} className="flex gap-4">
+                <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-navy-900 font-mono text-sm font-bold text-accent-300">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="text-sm font-semibold text-navy-900">{step.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-navy-600">{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </Section>
 

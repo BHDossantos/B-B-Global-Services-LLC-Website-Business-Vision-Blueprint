@@ -1,16 +1,22 @@
 import { Button, Container } from "./ui";
 import { Icon } from "./Icon";
 import { siteConfig } from "@/lib/siteConfig";
+import { getMessages } from "@/lib/i18n";
 
 export function CTABanner({
-  headline = "Ready to Move From Technology Ideas to Reliable Execution?",
-  copy = "Whether you need to build an application, modernize your cloud, improve cybersecurity, support your workforce, or create a disaster recovery plan, B&B Global Services can help you move from vision to execution.",
-  buttonLabel = "Schedule a Consultation",
+  headline,
+  copy,
+  buttonLabel,
 }: {
   headline?: string;
   copy?: string;
   buttonLabel?: string;
 }) {
+  const m = getMessages();
+  const finalHeadline = headline ?? m.home.finalTitle;
+  const finalCopy = copy ?? m.home.finalBody;
+  const finalButton = buttonLabel ?? m.cta.scheduleConsultation;
+
   return (
     <section className="bg-navy-900">
       <Container>
@@ -25,15 +31,15 @@ export function CTABanner({
           />
           <div className="relative mx-auto max-w-2xl">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              {headline}
+              {finalHeadline}
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-navy-200">{copy}</p>
+            <p className="mt-4 text-lg leading-relaxed text-navy-200">{finalCopy}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button href={siteConfig.bookingUrl} external>
-                {buttonLabel} <Icon name="arrow" className="h-4 w-4" />
+                {finalButton} <Icon name="arrow" className="h-4 w-4" />
               </Button>
               <Button href="/contact" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
-                Request an Assessment
+                {m.cta.requestAssessment}
               </Button>
             </div>
           </div>

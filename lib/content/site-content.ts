@@ -72,6 +72,8 @@ export const featuredSolutions = [
   "Technology Assessment",
   "Application Buildout",
   "AI Readiness Assessment",
+  "Fintech & Insurance Platform Build",
+  "Payments & Core System Integration",
   "Cloud Modernization",
   "DevSecOps Implementation",
   "Business Continuity & Disaster Recovery Program",
@@ -89,9 +91,9 @@ export const industries = [
     icon: "heart",
   },
   {
-    name: "Financial Services",
+    name: "Financial Services, Fintech & Insurance",
     description:
-      "Reliable, secure platforms with the controls regulated finance demands.",
+      "Payments, lending, banking, and insurance platforms with the controls regulated finance demands.",
     icon: "shield",
   },
   {
@@ -407,7 +409,7 @@ export const faqs = [
   {
     question: "Which industries do you serve?",
     answer:
-      "Healthcare, financial services, SaaS and technology, professional services, real estate and property management, hospitality, small and mid-sized businesses, and private equity portfolio companies.",
+      "Healthcare, financial services, fintech, insurance, SaaS and technology, professional services, real estate and property management, hospitality, small and mid-sized businesses, and private equity portfolio companies.",
   },
 ];
 

@@ -52,15 +52,15 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: "financial-services",
-    name: "Financial Services",
+    name: "Financial Services, Fintech & Insurance",
     icon: "shield",
     cardDescription:
-      "Reliable, secure platforms with the controls regulated finance demands.",
-    title: "Technology Consulting for Financial Services & Fintech",
+      "Reliable, secure platforms for banks, fintechs, and insurers — with the controls regulated finance demands.",
+    title: "Technology Consulting for Financial Services, Fintech & Insurance",
     metaDescription:
-      "Reliable, secure, and compliant technology for financial services and fintech — cloud, software, DevSecOps, reliability, and managed services with the controls regulators expect.",
+      "Reliable, secure, and compliant technology for financial services, fintech, and insurance — cloud, software, DevSecOps, reliability, and managed services with the controls regulators expect.",
     intro:
-      "In financial services, trust is the product — and trust depends on secure, reliable, well-governed technology. We help banks, lenders, advisors, and fintechs deliver and operate platforms that meet the bar regulators and customers expect.",
+      "In financial services and insurance, trust is the product — and trust depends on secure, reliable, well-governed technology. We help banks, lenders, advisors, fintechs, insurers, and insurtech teams deliver and operate platforms that meet the bar regulators and customers expect.",
     challenges: [
       "Meeting security and regulatory expectations (SOC 2, PCI, and more)",
       "Reliability and uptime for transaction-critical systems",
@@ -79,6 +79,8 @@ export const industryPages: IndustryPage[] = [
     keywords: [
       "financial services technology consulting",
       "fintech software development",
+      "insurance technology consulting",
+      "insurtech software development",
       "financial cybersecurity consulting",
       "SOC 2 readiness consulting",
     ],

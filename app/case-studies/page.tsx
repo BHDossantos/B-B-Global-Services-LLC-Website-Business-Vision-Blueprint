@@ -5,6 +5,8 @@ import { Section, Card } from "@/components/ui";
 import { CTABanner } from "@/components/CTABanner";
 import { Icon } from "@/components/Icon";
 import { caseStudies } from "@/lib/content/site-content";
+import { localizedCaseStudies } from "@/lib/content/i18n";
+import { getMessages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Case Studies",
@@ -12,25 +14,18 @@ export const metadata: Metadata = {
     "Anonymized examples of technology delivery outcomes across observability, cloud modernization, DevSecOps, BCDR, managed support, and AI-enabled applications.",
 };
 
-const fields: { key: keyof (typeof caseStudies)[number]; label: string }[] = [
-  { key: "challenge", label: "Challenge" },
-  { key: "approach", label: "Approach" },
-  { key: "solution", label: "Solution" },
-  { key: "outcome", label: "Outcome" },
-];
+const fieldKeys = ["challenge", "approach", "solution", "outcome"] as const satisfies readonly (keyof (typeof caseStudies)[number])[];
 
 export default function CaseStudiesPage() {
+  const m = getMessages();
+  const t = m.pages.caseStudies;
   return (
     <>
-      <PageHeader
-        eyebrow="Case Studies"
-        title="Outcomes From the Field"
-        description="Anonymized examples drawn from enterprise and mid-market delivery experience. We never name past employers — we use language like 'large healthcare enterprise' or 'enterprise SaaS organization.'"
-      />
+      <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-2">
-          {caseStudies.map((study) => (
+          {localizedCaseStudies().map((study) => (
             <Card key={study.slug} className="flex flex-col">
               <p className="text-xs font-semibold uppercase tracking-wide text-accent-600">
                 {study.industry}
@@ -39,13 +34,13 @@ export default function CaseStudiesPage() {
                 {study.title}
               </h2>
               <dl className="mt-5 space-y-4">
-                {fields.map((f) => (
-                  <div key={f.key}>
+                {fieldKeys.map((key, i) => (
+                  <div key={key}>
                     <dt className="text-xs font-semibold uppercase tracking-wide text-navy-500">
-                      {f.label}
+                      {t.sections[i]?.label}
                     </dt>
                     <dd className="mt-1 text-sm leading-relaxed text-navy-700">
-                      {study[f.key]}
+                      {study[key]}
                     </dd>
                   </div>
                 ))}
@@ -54,17 +49,14 @@ export default function CaseStudiesPage() {
                 href={`/case-studies/${study.slug}`}
                 className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 transition hover:gap-2.5"
               >
-                Read the full story <Icon name="arrow" className="h-4 w-4" />
+                {t.readFullStory} <Icon name="arrow" className="h-4 w-4" />
               </Link>
             </Card>
           ))}
         </div>
       </Section>
 
-      <CTABanner
-        headline="Want Results Like These for Your Business?"
-        copy="Let's talk about your goals, systems, and constraints — and map a path from where you are to reliable operations."
-      />
+      <CTABanner headline={t.ctaHeadline} copy={t.ctaCopy} />
     </>
   );
 }

@@ -20,6 +20,14 @@ export const localeShort: Record<Locale, string> = {
   it: "IT",
 };
 
+// BCP 47 tags for date/number formatting.
+export const localeTags: Record<Locale, string> = {
+  en: "en-US",
+  pt: "pt-BR",
+  es: "es-ES",
+  it: "it-IT",
+};
+
 export function isLocale(value: string | undefined): value is Locale {
   return !!value && (locales as readonly string[]).includes(value);
 }

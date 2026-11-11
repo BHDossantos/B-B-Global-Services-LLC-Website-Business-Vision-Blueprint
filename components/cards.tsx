@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Icon } from "./Icon";
 import { Card, cn } from "./ui";
+import { getLocale, getMessages } from "@/lib/i18n";
+import { localeTags } from "@/lib/i18n/config";
 import type { Service } from "@/lib/content/services";
 import type { Solution } from "@/lib/content/solutions";
 
@@ -92,6 +94,7 @@ export function CaseStudyCard({
     outcome: string;
   };
 }) {
+  const m = getMessages();
   return (
     <Card className="flex h-full flex-col">
       <p className="text-xs font-semibold uppercase tracking-wide text-accent-600">
@@ -99,11 +102,11 @@ export function CaseStudyCard({
       </p>
       <h3 className="mt-2 text-lg font-semibold text-navy-900">{study.title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-navy-600">
-        <span className="font-semibold text-navy-800">Challenge: </span>
+        <span className="font-semibold text-navy-800">{m.pages.caseStudies.challengeLabel} </span>
         {study.challenge}
       </p>
       <p className="mt-2 text-sm leading-relaxed text-navy-600">
-        <span className="font-semibold text-navy-800">Outcome: </span>
+        <span className="font-semibold text-navy-800">{m.pages.caseStudies.outcomeLabel} </span>
         {study.outcome}
       </p>
     </Card>
@@ -122,7 +125,8 @@ export function BlogCard({
     readMinutes: number;
   };
 }) {
-  const date = new Date(post.date).toLocaleDateString("en-US", {
+  const m = getMessages();
+  const date = new Date(post.date).toLocaleDateString(localeTags[getLocale()], {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -135,7 +139,7 @@ export function BlogCard({
         </span>
         <span>{date}</span>
         <span aria-hidden>·</span>
-        <span>{post.readMinutes} min read</span>
+        <span>{post.readMinutes} {m.pages.insights.minRead}</span>
       </div>
       <h3 className="mt-3 text-lg font-semibold text-navy-900 group-hover:text-accent-700">
         {post.title}
@@ -144,7 +148,7 @@ export function BlogCard({
         {post.excerpt}
       </p>
       <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600">
-        Read article <Icon name="arrow" className="h-4 w-4" />
+        {m.cta.readArticle} <Icon name="arrow" className="h-4 w-4" />
       </span>
     </Card>
   );

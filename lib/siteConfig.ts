@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "B&B Global Services",
   tagline: "From Idea to Operations",
   description:
-    "B&B Global Services is a global technology partner helping businesses worldwide design, build, secure, deploy, support, and recover technology solutions across app development, cloud, DevOps, cybersecurity, managed IT, and business continuity.",
+    "B&B Global Services is a global technology and fintech partner helping businesses worldwide design, build, secure, deploy, support, and recover technology solutions across app development, fintech and insurance platforms, data and AI, cloud, DevOps, cybersecurity, managed IT, and business continuity.",
   positioning:
     "B&B Global Services helps organizations worldwide design, build, secure, deploy, operate, and support technology solutions from idea to long-term operations.",
   url: "https://bnbglobal.net",
@@ -31,6 +31,7 @@ export const mainNav = [
   { label: "Services", href: "/services" },
   { label: "Solutions", href: "/solutions" },
   { label: "Industries", href: "/industries" },
+  { label: "Insurance Quote", href: "/quote" },
   { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },

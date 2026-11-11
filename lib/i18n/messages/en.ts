@@ -7,6 +7,7 @@ export const en = {
     services: "Services",
     solutions: "Solutions",
     industries: "Industries",
+    quote: "Insurance Quote",
     pricing: "Pricing",
     caseStudies: "Case Studies",
     insights: "Insights",
@@ -31,7 +32,7 @@ export const en = {
   hero: {
     headlinePre: "Technology Delivery From",
     headlineHighlight: "Idea to Operations",
-    sub: "B&B Global Services helps businesses design, build, secure, deploy, support, and recover mission-critical technology solutions across software, cloud, DevOps, cybersecurity, AI, managed services, and business continuity.",
+    sub: "B&B Global Services helps businesses design, build, secure, deploy, support, and recover mission-critical technology solutions across software, fintech and insurance platforms, data and AI, cloud, DevOps, cybersecurity, managed services, and business continuity.",
     lifecycleTitle: "The Technology Lifecycle",
     fromIdea: "Idea",
     toOps: "Reliable Operations",
@@ -74,6 +75,11 @@ export const en = {
     caseTitle: "Outcomes From the Field",
     caseBody:
       "Anonymized examples drawn from enterprise and mid-market delivery experience.",
+    insuranceEyebrow: "Insurance Quotes",
+    insuranceTitle: "Need an Insurance Quote? We'll Follow Up Personally.",
+    insuranceBody:
+      "Alongside our technology and fintech work, B&B Global Services helps people and businesses request insurance quotes and information. You tell us what you need covered and give us your phone number; a member of our team then follows up by phone call, text message, or email about your request, and we work with licensed insurance brokers to get you options. Message frequency varies, msg & data rates may apply, and you can reply STOP at any time to opt out or HELP for help.",
+    insuranceCta: "Request an Insurance Quote",
     faqEyebrow: "FAQ",
     faqTitle: "Common Questions",
     finalTitle: "Ready to Move From Technology Ideas to Reliable Execution?",
@@ -93,6 +99,327 @@ export const en = {
     emailPlaceholder: "you@company.com",
     privacy: "Privacy Policy",
     terms: "Terms of Service",
+  },
+  common: {
+    home: "Home",
+    mostPopular: "Most popular",
+    customQuote: "Custom quote",
+    requestQuote: "Request a Quote",
+    requestProposal: "Request Proposal",
+    requestCustomQuote: "Request a custom quote",
+    faq: "FAQ",
+    exploreIndustries: "Explore industries",
+    browseSolutions: "Browse solutions",
+    viewAllCaseStudies: "View all case studies",
+  },
+  detail: {
+    service: {
+      whatsIncluded: "What's Included",
+      capabilities: "Capabilities",
+      outcomes: "Outcomes",
+      deliverables: "Deliverables",
+      customTitle: "Custom-Scoped Engagement",
+      customBody:
+        "Every engagement is tailored to your environment, goals, and budget. Talk to our team and we'll put together a clear, custom proposal — no one-size-fits-all price tags.",
+      customBullets: [
+        "Fixed-scope assessments with defined deliverables",
+        "Value-based pricing for projects",
+        "Monthly retainers for managed services",
+      ],
+      exploreEyebrow: "Explore",
+      otherServices: "Other Services",
+      commonQuestions: "Common Questions",
+    },
+    solution: {
+      whoItsFor: "Who It's For",
+      whatsIncluded: "What's included",
+      relatedEyebrow: "Related Services",
+      relatedTitle: "The Capabilities Behind This Solution",
+    },
+    industry: {
+      challengeEyebrow: "The Challenge",
+      challengeTitle: "What {name} Teams Are Up Against",
+      helpEyebrow: "How We Help",
+      helpTitle: "Where We Make the Difference",
+      relevantEyebrow: "Most Relevant Services",
+      relevantTitle: "Services That Move the Needle in {name}",
+      moreEyebrow: "More Industries",
+      moreTitle: "We Serve Organizations Like Yours",
+      ctaHeadline: "Let's Talk About Technology for Your {name} Business",
+      ctaCopy:
+        "Book a consultation or take the free Technology Health Check to see where you stand and what to prioritize.",
+    },
+  },
+  pages: {
+    services: {
+      eyebrow: "Services",
+      title: "Technology Services Across the Full Delivery Lifecycle",
+      description:
+        "B&B Global Services provides advisory, development, cloud, cybersecurity, operations, support, and continuity services for businesses that need technology to work securely, reliably, and at scale.",
+      deliverEyebrow: "How We Deliver",
+      deliverTitle: "The Idea to Operations Framework",
+      deliverBody:
+        "Every engagement follows the same disciplined path from concept to reliable operations.",
+    },
+    solutions: {
+      eyebrow: "Solutions",
+      title: "Solutions Built Around Business Outcomes",
+      description:
+        "Not technical jargon — the outcomes you actually need. Pick the goal that matches where you are today.",
+    },
+    industries: {
+      eyebrow: "Industries",
+      title: "Industries We Serve",
+      description:
+        "We serve organizations that are too complex for a basic IT provider but need a more flexible, practical, and affordable partner than a large global consulting firm.",
+      whoEyebrow: "Who We Help",
+      whoTitle: "Our Ideal Customers",
+      whoBody: "If one of these sounds like you, we're built for exactly your situation.",
+    },
+    pricing: {
+      eyebrow: "Engagements & Pricing",
+      title: "Pricing Built Around Your Goals — Not a Menu",
+      description:
+        "Every engagement is scoped to your environment, goals, and budget. Rather than one-size-fits-all price tags, we give you a clear, custom proposal after a short conversation. Most clients start with a focused assessment, then expand into implementation and ongoing managed services.",
+      takeHealthCheck: "Take the Free Health Check",
+      startEyebrow: "Start Here",
+      startTitle: "Three Easy Ways to Engage",
+      startBody:
+        "Low-risk entry points designed to deliver value fast and expand naturally. Each is scoped and quoted to fit your situation.",
+      howEyebrow: "How We Price",
+      howTitle: "Engagement Models That Fit How You Work",
+      howBody:
+        "We match the commercial model to the work — fixed scope where it's clear, value-based for projects, and recurring for ongoing partnership.",
+      models: [
+        {
+          title: "Fixed-scope assessments",
+          body: "Clear, time-boxed reviews with defined deliverables — like the Technology Health Check — so you know exactly what you'll get and what it costs before we start.",
+        },
+        {
+          title: "Value-based projects",
+          body: "Application builds, cloud modernization, and security programs scoped and priced around outcomes and complexity — not hourly guesswork.",
+        },
+        {
+          title: "Monthly retainers & managed services",
+          body: "Predictable monthly engagements for managed IT, application maintenance, BCDR, and fractional leadership — sized to your team and systems.",
+        },
+      ],
+      deliverEyebrow: "What We Deliver",
+      deliverTitle: "Services Across the Full Lifecycle",
+      deliverBody:
+        "Explore any service for details — then talk to our team for pricing tailored to your scope.",
+      ctaHeadline: "Let's Build a Quote Around Your Goals",
+      ctaCopy:
+        "Take the free Technology Health Check or book a short call — we'll recommend the right starting point and give you a clear, custom proposal.",
+      ctaButton: "Talk to an Expert",
+    },
+    about: {
+      eyebrow: "About",
+      title: "Built by Operators, Not Just Consultants",
+      description:
+        "B&B Global Services was created to help businesses close the gap between technology ideas and real operational execution — delivered remotely to clients worldwide from our home bases in Boston and Rome.",
+      approachEyebrow: "Our Approach",
+      approachTitle: "We Bring the Disciplines Together",
+      approachBody:
+        "Many companies can advise. Some can build. Others can support. We bring these disciplines together so organizations can move faster, reduce risk, improve reliability, and get more value from technology.",
+      visionLabel: "Vision",
+      visionBody:
+        "To become the trusted technology delivery partner for growing businesses by helping them design, build, secure, operate, and continuously improve the systems that power their future.",
+      missionLabel: "Mission",
+      missionBody:
+        "To help organizations turn technology ideas into secure, scalable, reliable, and supported business solutions through strategy, engineering, cloud, cybersecurity, operations, and managed services.",
+      founderEyebrow: "Founder",
+      founderTitle: "Deep, Hands-On Experience",
+      founderRole: "Founder & Principal",
+      founderBio:
+        "Bruno Dossantos brings deep experience across cloud engineering, DevOps, SRE, application delivery, AI, data platforms, cybersecurity, business continuity, and enterprise operations. His background includes leading technology teams, building platforms, modernizing systems, supporting mission-critical environments, and helping organizations improve delivery from strategy through support.",
+      expertise: [
+        "Cloud engineering",
+        "DevOps & SRE",
+        "Application delivery",
+        "AI & data platforms",
+        "Cybersecurity & DevSecOps",
+        "Business continuity",
+        "Enterprise operations",
+        "Managed services",
+      ],
+      deliverEyebrow: "How We Deliver",
+      deliverTitle: "The Idea to Operations Framework",
+    },
+    insights: {
+      eyebrow: "Insights",
+      title: "Practical Thinking, Not Hype",
+      description:
+        "Perspectives on technology strategy, delivery, security, resilience, and AI for growing businesses.",
+      minRead: "min read",
+      allInsights: "All insights",
+      moreInsights: "More insights",
+      applyTitle: "Ready to put this into practice?",
+      applyBody:
+        "Book a consultation and we'll apply it to your systems, goals, and constraints.",
+    },
+    caseStudies: {
+      eyebrow: "Case Studies",
+      title: "Outcomes From the Field",
+      description:
+        "Anonymized examples drawn from enterprise and mid-market delivery experience. We never name past employers — we use language like 'large healthcare enterprise' or 'enterprise SaaS organization.'",
+      // Fixed order: challenge, approach, solution, outcome.
+      sections: [
+        { label: "Challenge", question: "What problem existed?" },
+        { label: "Approach", question: "What B&B did." },
+        { label: "Solution", question: "What was implemented." },
+        { label: "Outcome", question: "What improved?" },
+      ],
+      challengeLabel: "Challenge:",
+      outcomeLabel: "Outcome:",
+      noteLabel: "Note:",
+      noteBody:
+        "Client identities are anonymized. We never name past employers or clients without written approval.",
+      moreEyebrow: "More",
+      moreTitle: "Other Case Studies",
+      read: "Read",
+      readFullStory: "Read the full story",
+      ctaHeadline: "Want Results Like These for Your Business?",
+      ctaCopy:
+        "Let's talk about your goals, systems, and constraints — and map a path from where you are to reliable operations.",
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Schedule a Discovery Call",
+      description:
+        "Request a quote or consultation and our team will follow up about your request — by phone, email, or text if you share your number. Whether you're building an app, modernizing cloud, improving security, supporting your workforce, or preparing for disaster recovery — let's talk.",
+      bookDirectTitle: "Prefer to book directly?",
+      bookDirectBody: "Grab a time that works for you and we'll come prepared.",
+      bookOnCalendly: "Book on Calendly",
+      hqLine: "HQ: {hq} — serving clients worldwide",
+      capabilityTitle: "Capability statement",
+      capabilityBody:
+        "A one-page overview of our competencies, differentiators, and engagement models — ready to share with your team.",
+      viewDownload: "View & Download",
+      easyWaysTitle: "Easy Ways to Start",
+      bookInstantlyEyebrow: "Book Instantly",
+      pickTimeTitle: "Pick a Time That Works for You",
+      pickTimeBody:
+        "Grab a slot for a 30-minute discovery call and we'll come prepared to talk through your goals.",
+    },
+  },
+  // Insurance quote request flow. The SMS consent disclosure below is shown
+  // at opt-in and is verified verbatim by carriers during toll-free SMS
+  // registration — do not reword it.
+  quote: {
+    eyebrow: "Insurance Quotes",
+    title: "Request an Insurance Quote",
+    description:
+      "Tell us what you need covered and how to reach you. B&B Global Services works with licensed insurance brokers to get you a quote, and a member of our team follows up by phone, text, or email about your request.",
+    formTitle: "Request your quote",
+    formIntro: "Takes about a minute. No obligation, and your information is never sold.",
+    nameLabel: "Name",
+    namePlaceholder: "Jane Smith",
+    emailLabel: "Email",
+    emailPlaceholder: "jane@example.com",
+    phoneLabel: "Phone number",
+    phonePlaceholder: "(555) 555-5555",
+    typeLabel: "What do you need a quote for?",
+    typeSelect: "Select…",
+    types: [
+      "Business / commercial insurance",
+      "General liability",
+      "Professional liability (E&O)",
+      "Cyber liability",
+      "Property insurance",
+      "Workers' compensation",
+      "Employee benefits / group health",
+      "Auto insurance",
+      "Home insurance",
+      "Life insurance",
+      "Other / not sure yet",
+    ],
+    messageLabel: "Anything else we should know? (optional)",
+    messagePlaceholder: "Coverage amounts, renewal date, current carrier, or anything else that helps us quote accurately.",
+    submit: "Request My Quote",
+    sending: "Sending…",
+    // VERBATIM — carrier-verified SMS opt-in disclosure. Do not edit.
+    smsConsent:
+      "By providing your phone number and submitting this form, you agree to receive calls and text messages from B&B Global Services about your insurance quote/request. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.",
+    legalIntro: "Read our",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms & Conditions",
+    brokerDisclosure:
+      "Insurance quotes and coverage are provided through licensed insurance brokers we partner with. B&B Global Services is not an insurer.",
+    successTitle: "Thanks — your quote request is in.",
+    successBody:
+      "A member of our team will follow up shortly by phone, text, or email about your insurance quote. If you asked us to text you, reply STOP at any time to opt out, or HELP for help.",
+    errorGeneric: "Something went wrong. Please try again or call us.",
+    stepsTitle: "How it works",
+    steps: [
+      {
+        title: "You request a quote",
+        body: "Fill out the short form with your name, email, phone number, and what you need covered.",
+      },
+      {
+        title: "We follow up by call or text",
+        body: "A member of our team contacts you about your request — by phone call, text message, or email — to confirm details and answer questions.",
+      },
+      {
+        title: "You get your quote",
+        body: "We work with licensed insurance brokers to put together options, then walk you through them. No obligation to buy.",
+      },
+    ],
+  },
+  legal: {
+    eyebrow: "Legal",
+    privacyTitle: "Privacy Policy",
+    privacyDescription: "How we handle your information. Effective {date}.",
+    termsTitle: "Terms of Service",
+    termsDescription: "The terms governing use of this site. Effective {date}.",
+  },
+  form: {
+    name: "Name",
+    company: "Company",
+    email: "Email",
+    phone: "Phone",
+    companySize: "Company size",
+    serviceNeeded: "Service needed",
+    budgetRange: "Budget range",
+    timeline: "Timeline",
+    message: "Message",
+    select: "Select…",
+    employees: "employees",
+    // Display labels for select options. The submitted values stay in English
+    // (see ContactForm) so lead scoring and CRM fields remain stable.
+    services: [
+      "Strategy & Advisory",
+      "Application & Product Development",
+      "Cloud, DevOps & Platform Engineering",
+      "DevSecOps & Cybersecurity",
+      "Reliability, Operations & BCDR",
+      "IMAC & Managed Technology Services",
+      "Not sure yet",
+    ],
+    budgets: [
+      "Under $10,000",
+      "$10,000–$25,000",
+      "$25,000–$100,000",
+      "$100,000–$250,000",
+      "$250,000+",
+      "Monthly managed services",
+    ],
+    timelines: ["Immediately", "1–3 months", "3–6 months", "6+ months", "Just exploring"],
+    messagePlaceholder: "Tell us about your goals, systems, and the problem you'd like to solve.",
+    submit: "Schedule a Discovery Call",
+    sending: "Sending…",
+    errorGeneric: "Something went wrong.",
+    successTitle: "Thank you — we'll be in touch shortly.",
+    successBody:
+      "A member of our team will follow up within one business day — by phone, email, or text — to schedule your discovery call.",
+    // Carrier-required SMS consent disclosure. Keep this English text EXACT —
+    // Twilio/carriers verify it verbatim during toll-free SMS verification.
+    smsConsent:
+      "By providing your phone number and submitting this form, you agree to receive calls and text messages from B&B Global Services LLC about your request. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.",
+    consent:
+      "By submitting, you agree to be contacted about your inquiry. We respect your privacy and never share your information.",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
   },
   switcher: { label: "Language" },
 };

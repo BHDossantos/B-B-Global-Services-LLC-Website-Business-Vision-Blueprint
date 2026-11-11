@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/ui";
 import { Markdown } from "@/components/Markdown";
-import { privacyPolicy, legalEffectiveDate } from "@/lib/content/legal";
+import { legalEffectiveDate } from "@/lib/content/legal";
+import { localizedLegal } from "@/lib/content/i18n";
+import { fill, getMessages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -12,15 +14,18 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
+  const m = getMessages();
+  const t = m.legal;
+  const { privacyPolicy } = localizedLegal();
   return (
     <>
       <PageHeader
-        eyebrow="Legal"
-        title="Privacy Policy"
-        description={`How we handle your information. Effective ${legalEffectiveDate}.`}
+        eyebrow={t.eyebrow}
+        title={t.privacyTitle}
+        description={fill(t.privacyDescription, { date: legalEffectiveDate })}
         breadcrumbs={[
-          { name: "Home", href: "/" },
-          { name: "Privacy Policy" },
+          { name: m.common.home, href: "/" },
+          { name: t.privacyTitle },
         ]}
       />
       <Section>

@@ -16,6 +16,7 @@ export function Navbar({ m, locale }: { m: Messages; locale: Locale }) {
     { href: "/services", label: m.nav.services },
     { href: "/solutions", label: m.nav.solutions },
     { href: "/industries", label: m.nav.industries },
+    { href: "/quote", label: m.nav.quote },
     { href: "/pricing", label: m.nav.pricing },
     { href: "/case-studies", label: m.nav.caseStudies },
     { href: "/insights", label: m.nav.insights },

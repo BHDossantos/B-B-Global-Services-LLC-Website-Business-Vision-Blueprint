@@ -4,7 +4,8 @@ import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/ui";
 import { BlogCard } from "@/components/cards";
 import { CTABanner } from "@/components/CTABanner";
-import { insights } from "@/lib/content/site-content";
+import { localizedInsights } from "@/lib/content/i18n";
+import { getMessages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -13,17 +14,14 @@ export const metadata: Metadata = {
 };
 
 export default function InsightsPage() {
+  const t = getMessages().pages.insights;
   return (
     <>
-      <PageHeader
-        eyebrow="Insights"
-        title="Practical Thinking, Not Hype"
-        description="Perspectives on technology strategy, delivery, security, resilience, and AI for growing businesses."
-      />
+      <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {insights.map((post) => (
+          {localizedInsights().map((post) => (
             <Link key={post.slug} href={`/insights/${post.slug}`}>
               <BlogCard post={post} />
             </Link>

@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
@@ -16,8 +17,9 @@ export const metadata: Metadata = {
 
 const fieldKeys = ["challenge", "approach", "solution", "outcome"] as const satisfies readonly (keyof (typeof caseStudies)[number])[];
 
-export default function CaseStudiesPage() {
-  const m = getMessages();
+export default async function CaseStudiesPage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   const t = m.pages.caseStudies;
   return (
     <>
@@ -25,7 +27,7 @@ export default function CaseStudiesPage() {
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-2">
-          {localizedCaseStudies().map((study) => (
+          {localizedCaseStudies(activeLocale).map((study) => (
             <Card key={study.slug} className="flex flex-col">
               <p className="text-xs font-semibold uppercase tracking-wide text-accent-600">
                 {study.industry}

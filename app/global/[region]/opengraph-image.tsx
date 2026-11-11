@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return regions.map((r) => ({ region: r.slug }));
 }
 
-export default function Image({ params }: { params: { region: string } }) {
-  const region = getRegion(params.region);
+export default async function Image({ params }: { params: Promise<{ region: string }> }) {
+  const resolvedParams = await params;
+  const region = getRegion(resolvedParams.region);
   return renderOgImage({
     eyebrow: "Global Delivery",
     title: region?.title ?? "Global Delivery",

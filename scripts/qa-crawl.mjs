@@ -3,7 +3,7 @@
 const BASE = process.env.QA_BASE || "http://localhost:3199";
 
 async function getText(path) {
-  const res = await fetch(BASE + path);
+  const res = await fetch(BASE + path, { signal: AbortSignal.timeout(20000) });
   const body = await res.text();
   return { status: res.status, body };
 }
@@ -16,10 +16,13 @@ function attr(html, re) {
 async function main() {
   // 1. Pull sitemap URLs.
   const sm = await getText("/sitemap.xml");
+  if (sm.status !== 200) throw new Error(`SITEMAP ${sm.status}: /sitemap.xml`);
   const urls = [...sm.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
     m[1].replace(/^https?:\/\/[^/]+/, "").replace(/^https?:\/\/bnbglobal\.net/, "")
   );
   const paths = Array.from(new Set(urls.map((u) => u.replace("https://bnbglobal.net", "") || "/")));
+
+  if (!paths.length) throw new Error("Sitemap contains no pages; coverage is unverified.");
 
   const titles = new Map();
   const descs = new Map();
@@ -52,7 +55,7 @@ async function main() {
   // 2. Check every internal link resolves.
   for (const link of internalLinks) {
     if (link.startsWith("/_next") || link.startsWith("/api")) continue;
-    const res = await fetch(BASE + link, { method: "GET" });
+    const res = await fetch(BASE + link, { method: "GET", signal: AbortSignal.timeout(20000) });
     if (res.status >= 400) {
       brokenLinks.add(`${res.status} ${link}`);
     }
@@ -67,6 +70,7 @@ async function main() {
   console.log(brokenLinks.size ? [...brokenLinks].join("\n") : "none");
   console.log(`\n=== ISSUES (${issues.length}) ===`);
   console.log(issues.length ? issues.join("\n") : "none");
+  if (issues.length || brokenLinks.size) process.exitCode = 1;
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

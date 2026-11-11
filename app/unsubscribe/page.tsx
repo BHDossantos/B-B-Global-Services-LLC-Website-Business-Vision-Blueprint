@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function UnsubscribePage({
+export default async function UnsubscribePage({
   searchParams,
 }: {
-  searchParams: { e?: string };
+  searchParams: Promise<{ e?: string }>;
 }) {
   return (
     <Container>
@@ -22,7 +22,7 @@ export default function UnsubscribePage({
           outreach right away — no hard feelings.
         </p>
         <div className="mt-8">
-          <UnsubscribeForm initialEmail={searchParams.e ?? ""} />
+          <UnsubscribeForm initialEmail={(await searchParams).e ?? ""} />
         </div>
       </div>
     </Container>

@@ -1,9 +1,10 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import { Button, Container } from "./ui";
 import { Icon } from "./Icon";
 import { siteConfig } from "@/lib/siteConfig";
 import { getMessages } from "@/lib/i18n";
 
-export function CTABanner({
+export async function CTABanner({
   headline,
   copy,
   buttonLabel,
@@ -12,7 +13,8 @@ export function CTABanner({
   copy?: string;
   buttonLabel?: string;
 }) {
-  const m = getMessages();
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   const finalHeadline = headline ?? m.home.finalTitle;
   const finalCopy = copy ?? m.home.finalBody;
   const finalButton = buttonLabel ?? m.cta.scheduleConsultation;

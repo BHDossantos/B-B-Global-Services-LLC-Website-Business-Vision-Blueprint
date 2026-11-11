@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
-export default function Image({ params }: { params: { slug: string } }) {
-  const service = getService(params.slug);
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const service = getService(resolvedParams.slug);
   return renderOgImage({
     eyebrow: "Services",
     title: service?.headline ?? "Technology Services",

@@ -25,6 +25,8 @@ export function LanguageSwitcher({
   }, []);
 
   function choose(loc: Locale) {
+    // Browser cookie writes are intentional side effects of this click handler.
+    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `NEXT_LOCALE=${loc}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`;
     setOpen(false);
     router.refresh();

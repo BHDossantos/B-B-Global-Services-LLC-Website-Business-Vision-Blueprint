@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { Container } from "./ui";
 import { Logo } from "./Logo";
@@ -29,7 +30,8 @@ const serviceAreas = [
   { label: "Rome", href: "/locations/rome" },
 ];
 
-export function Footer({ m }: { m: Messages }) {
+export async function Footer({ m }: { m: Messages }) {
+  const activeLocale = await readActiveLocale();
   const year = new Date().getFullYear();
 
   return (
@@ -74,7 +76,7 @@ export function Footer({ m }: { m: Messages }) {
               {m.footer.services}
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
-              {localizedServices().map((s) => (
+              {localizedServices(activeLocale).map((s) => (
                 <li key={s.slug}>
                   <Link href={`/services/${s.slug}`} className="hover:text-accent-400">
                     {s.title}
@@ -89,7 +91,7 @@ export function Footer({ m }: { m: Messages }) {
               {m.footer.solutions}
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
-              {localizedSolutions().map((s) => (
+              {localizedSolutions(activeLocale).map((s) => (
                 <li key={s.slug}>
                   <Link href={`/solutions/${s.slug}`} className="hover:text-accent-400">
                     {s.title}

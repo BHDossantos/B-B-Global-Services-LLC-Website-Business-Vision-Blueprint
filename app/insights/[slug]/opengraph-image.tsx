@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return insights.map((p) => ({ slug: p.slug }));
 }
 
-export default function Image({ params }: { params: { slug: string } }) {
-  const post = insights.find((p) => p.slug === params.slug);
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const post = insights.find((p) => p.slug === resolvedParams.slug);
   return renderOgImage({
     eyebrow: post?.category ?? "Insights",
     title: post?.title ?? "Insights",

@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
@@ -15,8 +16,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function QuotePage() {
-  const m = getMessages();
+export default async function QuotePage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   const t = m.quote;
 
   return (

@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
@@ -15,9 +16,10 @@ export const metadata: Metadata = {
     "We serve organizations that are too complex for a basic IT provider but need a more flexible, practical, and affordable partner than a large global consulting firm.",
 };
 
-export default function IndustriesPage() {
-  const m = getMessages();
-  const { idealCustomers } = localizedSiteContent();
+export default async function IndustriesPage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
+  const { idealCustomers } = localizedSiteContent(activeLocale);
   return (
     <>
       <PageHeader
@@ -28,7 +30,7 @@ export default function IndustriesPage() {
 
       <Section>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {localizedIndustries().map((industry, i) => (
+          {localizedIndustries(activeLocale).map((industry, i) => (
             <Reveal key={industry.slug} delay={i * 50}>
               <Link href={`/industries/${industry.slug}`} className="group block h-full">
                 <Card className="flex h-full flex-col">

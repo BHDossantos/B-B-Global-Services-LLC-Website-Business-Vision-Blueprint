@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionHeading, Button } from "@/components/ui";
@@ -14,8 +15,9 @@ export const metadata: Metadata = {
     "Advisory, development, cloud, cybersecurity, operations, support, and continuity services for businesses that need technology to work securely, reliably, and at scale.",
 };
 
-export default function ServicesPage() {
-  const m = getMessages();
+export default async function ServicesPage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   return (
     <>
       <PageHeader
@@ -33,7 +35,7 @@ export default function ServicesPage() {
 
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {localizedServices().map((service) => (
+          {localizedServices(activeLocale).map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
         </div>

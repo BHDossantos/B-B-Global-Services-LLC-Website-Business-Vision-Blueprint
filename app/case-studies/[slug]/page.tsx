@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -14,12 +15,13 @@ export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const study = localizedCaseStudy(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const activeLocale = await readActiveLocale();
+  const study = localizedCaseStudy((await params).slug, activeLocale);
   if (!study) return {};
   return {
     title: study.title,
@@ -29,17 +31,18 @@ export function generateMetadata({
 
 const sectionKeys = ["challenge", "approach", "solution", "outcome"] as const;
 
-export default function CaseStudyPage({
+export default async function CaseStudyPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const study = localizedCaseStudy(params.slug);
+  const activeLocale = await readActiveLocale();
+  const study = localizedCaseStudy((await params).slug, activeLocale);
   if (!study) notFound();
 
-  const m = getMessages();
+  const m = getMessages(activeLocale);
   const t = m.pages.caseStudies;
-  const others = localizedCaseStudies().filter((c) => c.slug !== study.slug).slice(0, 3);
+  const others = localizedCaseStudies(activeLocale).filter((c) => c.slug !== study.slug).slice(0, 3);
 
   return (
     <>

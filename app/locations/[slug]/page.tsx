@@ -14,12 +14,12 @@ export function generateStaticParams() {
   return locations.map((l) => ({ slug: l.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const loc = getLocation(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const loc = getLocation((await params).slug);
   if (!loc) return {};
   return {
     title: loc.title,
@@ -29,12 +29,12 @@ export function generateMetadata({
   };
 }
 
-export default function LocationPage({
+export default async function LocationPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const loc = getLocation(params.slug);
+  const loc = getLocation((await params).slug);
   if (!loc) notFound();
 
   // LocalBusiness schema scoped to this service area.

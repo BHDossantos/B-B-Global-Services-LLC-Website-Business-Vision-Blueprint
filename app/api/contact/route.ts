@@ -46,9 +46,24 @@ type Lead = {
 export async function POST(request: Request) {
   let data: ContactPayload;
   try {
-    data = await request.json();
+    const body: unknown = await request.json();
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+    }
+    data = body as ContactPayload;
   } catch {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+  }
+
+  // Reject malformed types before calling string methods or forwarding data.
+  const textFields: (keyof ContactPayload)[] = [
+    "name", "company", "email", "phone", "companySize", "service", "budget",
+    "timeline", "message", "formType", "quoteType", "consentText", "company_website",
+  ];
+  if (textFields.some((key) => data[key] !== undefined &&
+      (typeof data[key] !== "string" || (data[key] as string).length > 5000)) ||
+      (data.smsConsent !== undefined && typeof data.smsConsent !== "boolean")) {
+    return NextResponse.json({ error: "Invalid field value." }, { status: 422 });
   }
 
   // Honeypot: silently accept to avoid tipping off bots.
@@ -91,27 +106,36 @@ export async function POST(request: Request) {
 
   const score = scoreLead(lead);
 
-  // Fan out to every configured destination. None block the user's success
-  // response — a downstream outage should never lose a lead or show an error.
+  // Only an operator destination's acceptance can acknowledge intake. An
+  // auto-reply is not a record in the team's inbox/CRM. Never use logs as a store.
+  const channels = ["team_email", "hubspot", "webhook"] as const;
   const results = await Promise.allSettled([
     sendEmailNotification(lead, score),
-    sendAutoReply(lead),
     submitToHubSpot(lead),
     postToWebhook({ ...lead, leadScore: score.score, leadRating: score.rating }),
   ]);
-
-  const delivered = results.some((r) => r.status === "fulfilled" && r.value);
-  results.forEach((r) => {
-    if (r.status === "rejected") console.error("Contact delivery error:", r.reason);
+  results.forEach((result, index) => {
+    if (result.status === "rejected") {
+      // Provider errors can contain contact details, credentials and response
+      // bodies. Log only the channel, never the exception or submitted lead.
+      console.error("contact.destination_unconfirmed", { channel: channels[index] });
+    }
   });
 
-  if (!delivered) {
-    // No integration is configured (or all failed). Log so the lead isn't lost
-    // and the developer knows to set environment variables.
-    console.info(
-      "New contact lead (configure RESEND_API_KEY, HUBSPOT_*, or CONTACT_WEBHOOK_URL to forward):",
-      lead
-    );
+  const accepted = results.some((result) => result.status === "fulfilled" && result.value);
+  if (!accepted) {
+    console.error("contact.intake_unconfirmed");
+    return NextResponse.json({
+      ok: false,
+      error: "We couldn't confirm receipt of your request. Please contact us directly before submitting again.",
+    }, { status: 503 });
+  }
+
+  // A failed courtesy reply must not invite resubmission after intake succeeded.
+  try {
+    await sendAutoReply(lead);
+  } catch {
+    console.error("contact.autoreply_unconfirmed");
   }
 
   return NextResponse.json({ ok: true });
@@ -228,6 +252,8 @@ async function sendEmailNotification(lead: Lead, score: LeadScore): Promise<bool
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
+    signal: AbortSignal.timeout(4000),
+    redirect: "error",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
@@ -246,7 +272,11 @@ async function sendEmailNotification(lead: Lead, score: LeadScore): Promise<bool
   });
 
   if (!res.ok) {
-    throw new Error(`Resend failed: ${res.status} ${await res.text()}`);
+    throw new Error(`Resend failed: ${res.status}`);
+  }
+  const receipt = await res.json();
+  if (typeof receipt?.id !== "string" || !receipt.id.trim()) {
+    throw new Error("Resend did not confirm acceptance");
   }
   return true;
 }
@@ -280,6 +310,8 @@ async function sendAutoReply(lead: Lead): Promise<boolean> {
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
+    signal: AbortSignal.timeout(4000),
+    redirect: "error",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
@@ -294,7 +326,7 @@ async function sendAutoReply(lead: Lead): Promise<boolean> {
   });
 
   if (!res.ok) {
-    throw new Error(`Resend auto-reply failed: ${res.status} ${await res.text()}`);
+    throw new Error(`Resend auto-reply failed: ${res.status}`);
   }
   return true;
 }
@@ -328,6 +360,8 @@ async function submitToHubSpot(lead: Lead): Promise<boolean> {
     `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`,
     {
       method: "POST",
+      signal: AbortSignal.timeout(4000),
+      redirect: "error",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         fields,
@@ -337,7 +371,7 @@ async function submitToHubSpot(lead: Lead): Promise<boolean> {
   );
 
   if (!res.ok) {
-    throw new Error(`HubSpot failed: ${res.status} ${await res.text()}`);
+    throw new Error(`HubSpot failed: ${res.status}`);
   }
   return true;
 }
@@ -351,11 +385,20 @@ async function postToWebhook(
 
   const res = await fetch(webhook, {
     method: "POST",
+    signal: AbortSignal.timeout(4000),
+    redirect: "error",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(lead),
   });
   if (!res.ok) {
     throw new Error(`Webhook failed: ${res.status}`);
+  }
+  // The receiver must persist before acknowledging, not merely accept HTTP.
+  // A generic 200/202 from an automation trigger is not durable intake proof.
+  const receipt = await res.json();
+  if (receipt?.accepted !== true || typeof receipt.receiptId !== "string" ||
+      !receipt.receiptId.trim()) {
+    throw new Error("Webhook did not confirm durable acceptance");
   }
   return true;
 }

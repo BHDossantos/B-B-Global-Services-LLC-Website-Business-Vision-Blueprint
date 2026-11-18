@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, Button } from "@/components/ui";
@@ -13,8 +14,9 @@ export const metadata: Metadata = {
     "From building an app to modernizing technology, securing your business, supporting your workforce, preparing for disaster recovery, and scaling your team.",
 };
 
-export default function SolutionsPage() {
-  const m = getMessages();
+export default async function SolutionsPage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   return (
     <>
       <PageHeader
@@ -29,7 +31,7 @@ export default function SolutionsPage() {
 
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {localizedSolutions().map((solution) => (
+          {localizedSolutions(activeLocale).map((solution) => (
             <SolutionCard key={solution.slug} solution={solution} />
           ))}
         </div>

@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
@@ -13,15 +14,16 @@ export const metadata: Metadata = {
     "Practical thinking on technology strategy, DevSecOps, resilience, and AI for mid-market businesses.",
 };
 
-export default function InsightsPage() {
-  const t = getMessages().pages.insights;
+export default async function InsightsPage() {
+  const activeLocale = await readActiveLocale();
+  const t = getMessages(activeLocale).pages.insights;
   return (
     <>
       <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {localizedInsights().map((post) => (
+          {localizedInsights(activeLocale).map((post) => (
             <Link key={post.slug} href={`/insights/${post.slug}`}>
               <BlogCard post={post} />
             </Link>

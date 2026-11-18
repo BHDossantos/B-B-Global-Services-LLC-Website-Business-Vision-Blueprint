@@ -23,7 +23,6 @@ import { articlesIt } from "./articles.it";
 import { legalPt } from "./legal.pt";
 import { legalEs } from "./legal.es";
 import { legalIt } from "./legal.it";
-import { getLocale } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n/config";
 import type { ContentOverlay } from "./types";
 import { ptContent } from "./content.pt";
@@ -36,42 +35,42 @@ const overlays: Partial<Record<Locale, ContentOverlay>> = {
   it: itContent,
 };
 
-function overlayFor(locale?: Locale): ContentOverlay | undefined {
-  return overlays[locale ?? getLocale()];
+function overlayFor(locale: Locale): ContentOverlay | undefined {
+  return overlays[locale];
 }
 
-export function localizedServices(locale?: Locale): Service[] {
+export function localizedServices(locale: Locale): Service[] {
   const ov = overlayFor(locale);
   if (!ov) return services;
   return services.map((s) => ({ ...s, ...ov.services[s.slug] }));
 }
 
-export function localizedService(slug: string, locale?: Locale): Service | undefined {
+export function localizedService(slug: string, locale: Locale): Service | undefined {
   return localizedServices(locale).find((s) => s.slug === slug);
 }
 
-export function localizedSolutions(locale?: Locale): Solution[] {
+export function localizedSolutions(locale: Locale): Solution[] {
   const ov = overlayFor(locale);
   if (!ov) return solutions;
   return solutions.map((s) => ({ ...s, ...ov.solutions[s.slug] }));
 }
 
-export function localizedSolution(slug: string, locale?: Locale): Solution | undefined {
+export function localizedSolution(slug: string, locale: Locale): Solution | undefined {
   return localizedSolutions(locale).find((s) => s.slug === slug);
 }
 
-export function localizedIndustries(locale?: Locale): IndustryPage[] {
+export function localizedIndustries(locale: Locale): IndustryPage[] {
   const ov = overlayFor(locale);
   if (!ov) return industryPages;
   return industryPages.map((i) => ({ ...i, ...ov.industries[i.slug] }));
 }
 
-export function localizedIndustry(slug: string, locale?: Locale): IndustryPage | undefined {
+export function localizedIndustry(slug: string, locale: Locale): IndustryPage | undefined {
   return localizedIndustries(locale).find((i) => i.slug === slug);
 }
 
 /** Shared site-content arrays with the active locale's translations applied. */
-export function localizedSiteContent(locale?: Locale) {
+export function localizedSiteContent(locale: Locale) {
   const site = overlayFor(locale)?.site;
   return {
     lifecycleFramework: site?.lifecyclePhases
@@ -92,23 +91,23 @@ export function localizedSiteContent(locale?: Locale) {
   };
 }
 
-export function localizedCaseStudies(locale?: Locale) {
+export function localizedCaseStudies(locale: Locale) {
   const ov = overlayFor(locale)?.caseStudies;
   if (!ov) return caseStudies;
   return caseStudies.map((c) => ({ ...c, ...ov[c.slug] }));
 }
 
-export function localizedCaseStudy(slug: string, locale?: Locale) {
+export function localizedCaseStudy(slug: string, locale: Locale) {
   return localizedCaseStudies(locale).find((c) => c.slug === slug);
 }
 
-export function localizedInsights(locale?: Locale) {
+export function localizedInsights(locale: Locale) {
   const ov = overlayFor(locale)?.insights;
   if (!ov) return insights;
   return insights.map((p) => ({ ...p, ...ov[p.slug] }));
 }
 
-export function localizedInsight(slug: string, locale?: Locale) {
+export function localizedInsight(slug: string, locale: Locale) {
   return localizedInsights(locale).find((p) => p.slug === slug);
 }
 
@@ -119,8 +118,8 @@ const articleMaps: Partial<Record<Locale, Record<string, string>>> = {
 };
 
 /** Localized article body with English fallback. */
-export function localizedArticle(slug: string, locale?: Locale): string | undefined {
-  const map = articleMaps[locale ?? getLocale()];
+export function localizedArticle(slug: string, locale: Locale): string | undefined {
+  const map = articleMaps[locale];
   return map?.[slug] ?? insightArticles[slug];
 }
 
@@ -133,8 +132,8 @@ const legalMaps: Partial<
 };
 
 /** Localized legal documents (courtesy translations) with English fallback. */
-export function localizedLegal(locale?: Locale) {
-  const map = legalMaps[locale ?? getLocale()];
+export function localizedLegal(locale: Locale) {
+  const map = legalMaps[locale];
   return {
     privacyPolicy: map?.privacyPolicy ?? privacyPolicy,
     termsOfService: map?.termsOfService ?? termsOfService,

@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/ui";
@@ -13,10 +14,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
 };
 
-export default function TermsPage() {
-  const m = getMessages();
+export default async function TermsPage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   const t = m.legal;
-  const { termsOfService } = localizedLegal();
+  const { termsOfService } = localizedLegal(activeLocale);
   return (
     <>
       <PageHeader

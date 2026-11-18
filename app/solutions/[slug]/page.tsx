@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -15,12 +16,13 @@ export function generateStaticParams() {
   return solutions.map((s) => ({ slug: s.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const solution = localizedSolution(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const activeLocale = await readActiveLocale();
+  const solution = localizedSolution((await params).slug, activeLocale);
   if (!solution) return {};
   return {
     title: solution.title,
@@ -28,18 +30,19 @@ export function generateMetadata({
   };
 }
 
-export default function SolutionPage({
+export default async function SolutionPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const solution = localizedSolution(params.slug);
+  const activeLocale = await readActiveLocale();
+  const solution = localizedSolution((await params).slug, activeLocale);
   if (!solution) notFound();
 
-  const m = getMessages();
+  const m = getMessages(activeLocale);
   const t = m.detail.solution;
   const related = solution.relatedServices
-    .map((slug) => localizedService(slug))
+    .map((slug) => localizedService(slug, activeLocale))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (

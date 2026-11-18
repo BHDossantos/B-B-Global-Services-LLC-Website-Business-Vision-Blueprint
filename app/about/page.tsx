@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionHeading, Button, Card } from "@/components/ui";
@@ -14,10 +15,11 @@ export const metadata: Metadata = {
     "B&B Global Services closes the gap between technology ideas and real operational execution — combining strategy, engineering, security, operations, and support.",
 };
 
-export default function AboutPage() {
-  const m = getMessages();
+export default async function AboutPage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   const t = m.pages.about;
-  const { differentiators } = localizedSiteContent();
+  const { differentiators } = localizedSiteContent(activeLocale);
   return (
     <>
       <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />

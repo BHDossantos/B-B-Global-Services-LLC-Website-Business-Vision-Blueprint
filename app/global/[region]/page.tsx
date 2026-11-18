@@ -15,12 +15,12 @@ export function generateStaticParams() {
   return regions.map((r) => ({ region: r.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { region: string };
-}): Metadata {
-  const region = getRegion(params.region);
+  params: Promise<{ region: string }>;
+}): Promise<Metadata> {
+  const region = getRegion((await params).region);
   if (!region) return {};
   return {
     title: region.title,
@@ -30,12 +30,12 @@ export function generateMetadata({
   };
 }
 
-export default function RegionPage({
+export default async function RegionPage({
   params,
 }: {
-  params: { region: string };
+  params: Promise<{ region: string }>;
 }) {
-  const region = getRegion(params.region);
+  const region = getRegion((await params).region);
   if (!region) notFound();
 
   const others = regions.filter((r) => r.slug !== region.slug);

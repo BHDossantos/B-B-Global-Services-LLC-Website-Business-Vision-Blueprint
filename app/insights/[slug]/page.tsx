@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -22,12 +23,13 @@ export function generateStaticParams() {
   return insights.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const post = localizedInsight(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const activeLocale = await readActiveLocale();
+  const post = localizedInsight((await params).slug, activeLocale);
   if (!post) return {};
   return {
     title: post.title,
@@ -36,23 +38,24 @@ export function generateMetadata({
   };
 }
 
-export default function InsightPage({
+export default async function InsightPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = localizedInsight(params.slug);
-  const body = localizedArticle(params.slug);
+  const activeLocale = await readActiveLocale();
+  const post = localizedInsight((await params).slug, activeLocale);
+  const body = localizedArticle((await params).slug, activeLocale);
   if (!post || !body) notFound();
 
-  const m = getMessages();
+  const m = getMessages(activeLocale);
   const t = m.pages.insights;
-  const date = new Date(post.date).toLocaleDateString(localeTags[getLocale()], {
+  const date = new Date(post.date).toLocaleDateString(localeTags[(await getLocale())], {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
-  const more = localizedInsights().filter((p) => p.slug !== post.slug).slice(0, 3);
+  const more = localizedInsights(activeLocale).filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
     <>

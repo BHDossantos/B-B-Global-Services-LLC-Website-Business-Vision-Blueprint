@@ -1,8 +1,10 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import { Icon } from "./Icon";
 import { localizedSiteContent } from "@/lib/content/i18n";
 
-export function LifecycleFramework() {
-  const { lifecycleFramework } = localizedSiteContent();
+export async function LifecycleFramework() {
+  const activeLocale = await readActiveLocale();
+  const { lifecycleFramework } = localizedSiteContent(activeLocale);
   return (
     <ol className="relative grid gap-4 md:grid-cols-2">
       {lifecycleFramework.phases.map((phase, i) => (
@@ -27,8 +29,9 @@ export function LifecycleFramework() {
   );
 }
 
-export function LifecycleStrip() {
-  const labels = localizedSiteContent().lifecycleFramework.phases.map((p) => p.name);
+export async function LifecycleStrip() {
+  const activeLocale = await readActiveLocale();
+  const labels = localizedSiteContent(activeLocale).lifecycleFramework.phases.map((p) => p.name);
   return (
     <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-3">
       {labels.map((label, i) => (

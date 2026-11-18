@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionHeading } from "@/components/ui";
@@ -14,10 +15,11 @@ export const metadata: Metadata = {
     "Tell us about your goals and systems. Book a consultation, request an assessment, or ask about managed services.",
 };
 
-export default function ContactPage() {
-  const m = getMessages();
+export default async function ContactPage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   const t = m.pages.contact;
-  const { engagementOffers } = localizedSiteContent();
+  const { engagementOffers } = localizedSiteContent(activeLocale);
   return (
     <>
       <PageHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />

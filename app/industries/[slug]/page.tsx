@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -16,12 +17,13 @@ export function generateStaticParams() {
   return industryPages.map((i) => ({ slug: i.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const industry = localizedIndustry(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const activeLocale = await readActiveLocale();
+  const industry = localizedIndustry((await params).slug, activeLocale);
   if (!industry) return {};
   return {
     title: industry.title,
@@ -31,20 +33,21 @@ export function generateMetadata({
   };
 }
 
-export default function IndustryPage({
+export default async function IndustryPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const industry = localizedIndustry(params.slug);
+  const activeLocale = await readActiveLocale();
+  const industry = localizedIndustry((await params).slug, activeLocale);
   if (!industry) notFound();
 
-  const m = getMessages();
+  const m = getMessages(activeLocale);
   const t = m.detail.industry;
   const related = industry.relatedServices
-    .map((s) => localizedService(s))
+    .map((s) => localizedService(s, activeLocale))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
-  const others = localizedIndustries().filter((i) => i.slug !== industry.slug);
+  const others = localizedIndustries(activeLocale).filter((i) => i.slug !== industry.slug);
 
   return (
     <>

@@ -1,3 +1,4 @@
+import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
@@ -19,10 +20,11 @@ const featuredIndex = 0;
 
 const modelIcons = ["compass", "code", "support"];
 
-export default function PricingPage() {
-  const m = getMessages();
+export default async function PricingPage() {
+  const activeLocale = await readActiveLocale();
+  const m = getMessages(activeLocale);
   const t = m.pages.pricing;
-  const { engagementOffers } = localizedSiteContent();
+  const { engagementOffers } = localizedSiteContent(activeLocale);
   return (
     <>
       <PageHeader
@@ -123,7 +125,7 @@ export default function PricingPage() {
           description={t.deliverBody}
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {localizedServices().map((s) => (
+          {localizedServices(activeLocale).map((s) => (
             <Link
               key={s.slug}
               href={`/services/${s.slug}`}

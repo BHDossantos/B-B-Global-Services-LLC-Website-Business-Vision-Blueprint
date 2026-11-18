@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return industryPages.map((i) => ({ slug: i.slug }));
 }
 
-export default function Image({ params }: { params: { slug: string } }) {
-  const industry = getIndustry(params.slug);
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const industry = getIndustry(resolvedParams.slug);
   return renderOgImage({
     eyebrow: "Industries",
     title: industry?.title ?? "Industries",

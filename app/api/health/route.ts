@@ -5,23 +5,12 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 /**
- * Lead-pipeline health check.
- *
- * This exists because of a real incident: bnbglobal.net lost its Resend DNS
- * records during a DNS migration, so every lead notification and auto-reply was
- * rejected with a 403 while the contact form kept showing "Thank you". The
- * failure was invisible for a month because downstream delivery is deliberately
- * non-blocking (a provider outage must never cost us the visitor).
- *
- * Point an uptime monitor at this route. It returns 503 when leads would be
- * silently dropped, so the next breakage pages someone instead of going unnoticed.
- *
- * The response deliberately contains no secrets and no inbox addresses — only
- * booleans and the sending domain, which is already public in every email header.
+ * Configuration canary, not an end-to-end delivery receipt.
+ * Degrades for missing configuration, restricted sandbox sending, or provider
+ * state we cannot verify. No secret values or inbox addresses are exposed.
  */
 
-/** Resend's sandbox sender. Works without domain verification; fine as a
- *  temporary fallback, but it should not be the permanent sender. */
+/** Resend sandbox sender: restricted to the account owner, not prospects. */
 const FALLBACK_SENDER_DOMAIN = "resend.dev";
 
 type DomainState = "verified" | "unverified" | "not_found" | "unknown";
@@ -65,13 +54,13 @@ export async function GET() {
 
   // Other lead destinations. Either one can carry leads on its own, so their
   // absence is reported but is not by itself a failure.
-  const hubspotConfigured = Boolean(process.env.HUBSPOT_ACCESS_TOKEN);
+  const hubspotConfigured = Boolean(process.env.HUBSPOT_PORTAL_ID && process.env.HUBSPOT_FORM_GUID);
   const webhookConfigured = Boolean(process.env.CONTACT_WEBHOOK_URL);
 
   let senderDomainStatus: DomainState = "unknown";
   if (apiKey && senderDomain) {
     senderDomainStatus = usingFallbackSender
-      ? "verified" // the sandbox sender needs no verification to deliver
+      ? "unknown" // sandbox only permits the account owner; not production delivery proof
       : await senderDomainState(apiKey, senderDomain);
   }
 
@@ -88,7 +77,7 @@ export async function GET() {
   }
   if (usingFallbackSender) {
     notes.push(
-      `Sending from the ${FALLBACK_SENDER_DOMAIN} fallback. Leads are being delivered, but restore the real sending domain so mail is branded and authenticated.`
+      `Sending from the ${FALLBACK_SENDER_DOMAIN} testing fallback. Only the Resend account owner can receive these emails; external auto-replies are unavailable. Delivery has not been verified.`
     );
   }
   if (senderDomainStatus === "unknown" && emailConfigured) {
@@ -100,12 +89,10 @@ export async function GET() {
     );
   }
 
-  // Degraded only when leads would actually be lost. An unreachable Resend API
-  // or a missing optional CRM must not trip the alarm.
+  // Unknown provider state is not delivery proof; keep the canary degraded
+  // until production email configuration can be verified.
   const leadDeliveryBroken =
-    !emailConfigured ||
-    senderDomainStatus === "unverified" ||
-    senderDomainStatus === "not_found";
+    !emailConfigured || usingFallbackSender || senderDomainStatus !== "verified";
 
   const body = {
     status: leadDeliveryBroken ? "degraded" : "ok",

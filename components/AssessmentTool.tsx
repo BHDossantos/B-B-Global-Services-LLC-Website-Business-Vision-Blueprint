@@ -28,7 +28,7 @@ export function AssessmentTool() {
     () => Object.values(answers).reduce((a, b) => a + b, 0),
     [answers]
   );
-  const answeredCount = Object.keys(answers).length;
+  const [shared, setShared] = useState(false);
   const tier = getTier(total);
   const percent = Math.round((total / maxScore) * 100);
 
@@ -41,7 +41,7 @@ export function AssessmentTool() {
     if (step < assessmentQuestions.length - 1) {
       setStep(step + 1);
     } else {
-      setPhase("capture");
+      setPhase("result");
     }
   }
 
@@ -85,6 +85,7 @@ export function AssessmentTool() {
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error || "Something went wrong.");
       }
+      setShared(true);
       setPhase("result");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -150,15 +151,14 @@ export function AssessmentTool() {
           questions answered
         </div>
         <h2 className="mt-3 text-2xl font-bold text-navy-900">
-          Where should we send your results?
+          Discuss your results with our team
         </h2>
         <p className="mt-2 text-sm text-navy-600">
-          See your technology maturity score, a per-area breakdown, and the
-          recommended next step. No spam — just your results and an optional
-          follow-up.
+          Send your assessment and contact details to our team to request a follow-up.
+          Your results are already available without submitting this form.
         </p>
 
-        <form onSubmit={handleCapture} className="mt-6" noValidate>
+        <form onSubmit={handleCapture} className="mt-6">
           <div className="hidden" aria-hidden="true">
             <label htmlFor="company_website">Company website</label>
             <input id="company_website" name="company_website" tabIndex={-1} autoComplete="off" />
@@ -193,12 +193,16 @@ export function AssessmentTool() {
             disabled={submitting}
             className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-accent-600 disabled:opacity-70 sm:w-auto"
           >
-            {submitting ? "Calculating…" : "Show My Results"}
+            {submitting ? "Sending…" : "Request a Follow-up"}
             {!submitting && <Icon name="arrow" className="h-4 w-4" />}
           </button>
           <p className="mt-3 text-xs text-navy-500">
             We respect your privacy and never share your information.
           </p>
+          <button type="button" disabled={submitting} onClick={() => setPhase("result")}
+            className="mt-4 block text-sm font-semibold text-accent-600">
+            Back to my results
+          </button>
         </form>
       </div>
     );
@@ -284,6 +288,17 @@ export function AssessmentTool() {
         </ul>
       </div>
 
+      <div className="mt-8 rounded-xl border border-navy-200 p-5">
+        <p className="text-sm text-navy-600">These results are based on your answers, not an independent audit.</p>
+        {shared ? (
+          <p role="status" className="mt-3 font-semibold text-accent-700">Your follow-up request was received.</p>
+        ) : (
+          <button type="button" onClick={() => setPhase("capture")}
+            className="mt-3 font-semibold text-accent-600">Discuss these results with our team →</button>
+        )}
+        <button type="button" onClick={() => { setStep(0); setShared(false); setError(""); setPhase("questions"); }}
+          className="mt-3 block text-sm text-navy-600 underline">Review my answers</button>
+      </div>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Link
           href={siteConfig.bookingUrl}

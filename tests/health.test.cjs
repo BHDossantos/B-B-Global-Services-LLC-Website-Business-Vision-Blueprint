@@ -76,22 +76,22 @@ test('degrades when email delivery is unconfigured', async () => {
   assert.equal(calls.length, 0, 'should not call Resend without a key');
 });
 
-test('treats the resend.dev fallback as delivering, but flags it', async () => {
+test('degrades the resend.dev fallback because external replies are unavailable', async () => {
   const { GET, calls } = route(
     { ...configured, CONTACT_FROM_EMAIL: 'onboarding@resend.dev' }
   );
   const { status, body } = await read(await GET());
-  assert.equal(status, 200, 'the fallback sender does deliver');
-  assert.equal(body.status, 'ok');
+  assert.equal(status, 503, 'the fallback cannot deliver external replies');
+  assert.equal(body.status, 'degraded');
   assert.equal(body.checks.usingFallbackSender, true);
   assert.ok(body.notes.some((n) => n.includes('fallback')));
   assert.equal(calls.length, 0, 'the sandbox sender needs no domain lookup');
 });
 
-test('a Resend outage does not trip the alarm', async () => {
+test('unknown provider state is not delivery proof', async () => {
   const { GET } = route(configured, null, { fail: true });
   const { status, body } = await read(await GET());
-  assert.equal(status, 200, 'an unreachable provider is not a misconfiguration');
+  assert.equal(status, 503, 'an unreachable provider cannot confirm delivery');
   assert.equal(body.checks.senderDomainStatus, 'unknown');
 });
 
@@ -112,3 +112,15 @@ test('never leaks credentials or inbox addresses', async () => {
   assert.ok(!serialized.includes('team@example.test'), 'must not expose the lead inbox');
   assert.ok(!serialized.includes('hello@example.test'), 'must not expose the sender address');
 });
+
+ test('missing key and fallback never claim leads were delivered', async () => {
+ const { GET } = route({ CONTACT_FROM_EMAIL: 'onboarding@resend.dev', CONTACT_TO_EMAIL: 'team@example.test' });
+ const { status, body } = await read(await GET());
+ assert.equal(status, 503);
+ assert.ok(!body.notes.some(n => n.includes('Leads are being delivered')));
+ });
+ test('HubSpot configuration matches the actual contact route', async () => {
+ const { GET } = route({ HUBSPOT_ACCESS_TOKEN: 'not-used', HUBSPOT_PORTAL_ID: 'portal', HUBSPOT_FORM_GUID: 'form' });
+ const { body } = await read(await GET());
+ assert.equal(body.checks.hubspotConfigured, true);
+ });

@@ -383,11 +383,22 @@ async function postToWebhook(
   const webhook = process.env.CONTACT_WEBHOOK_URL;
   if (!webhook) return false;
 
+  // Lead payloads contain personal details. Reject insecure/malformed receiver
+  // configuration before any network request; never put credentials in a URL.
+  const destination = new URL(webhook);
+  if (destination.protocol !== "https:" || destination.username ||
+      destination.password || destination.hash) {
+    throw new Error("Invalid webhook destination");
+  }
+  const token = process.env.CONTACT_WEBHOOK_TOKEN?.trim();
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (token) headers.Authorization = `Bearer ${token}`;
+
   const res = await fetch(webhook, {
     method: "POST",
     signal: AbortSignal.timeout(4000),
     redirect: "error",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify(lead),
   });
   if (!res.ok) {

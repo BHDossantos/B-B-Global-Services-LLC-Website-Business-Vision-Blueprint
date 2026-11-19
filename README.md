@@ -102,7 +102,7 @@ Copy `.env.example` to `.env.local` and fill in what you use:
 |---|---|---|
 | **Resend** | `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | Email notification to the team (reply-to is the prospect) |
 | **HubSpot** | `HUBSPOT_PORTAL_ID`, `HUBSPOT_FORM_GUID` | CRM lead capture via Forms API |
-| **Webhook** | `CONTACT_WEBHOOK_URL` | JSON POST to a receiver that persists before returning the receipt below |
+| **Webhook** | `CONTACT_WEBHOOK_URL`, optional `CONTACT_WEBHOOK_TOKEN` | JSON POST to a receiver that persists before returning the receipt below |
 
 The route acknowledges a request only after the team email provider returns a
 message ID, HubSpot accepts the form submission, or the configured webhook
@@ -111,6 +111,14 @@ confirms durable storage with a JSON response:
 ```json
 {"accepted": true, "receiptId": "receiver-generated-persistent-id"}
 ```
+
+Webhook destinations must use HTTPS without URL credentials or fragments.
+For a receiver requiring authentication, configure the optional server-only
+`CONTACT_WEBHOOK_TOKEN`; it is sent as `Authorization: Bearer <token>`.
+The receiver must verify the credential before storing a lead. This code does
+not provision a receiver, database, token, or sender, and setting a URL alone
+does not establish a working intake channel. Never use filesystem/log storage
+as an outage queue or reuse a credential from an unrelated integration.
 
 A generic webhook 200/202 without that receipt does not count as acceptance.
 The receiver must issue the receipt **after** durable storage, not before an

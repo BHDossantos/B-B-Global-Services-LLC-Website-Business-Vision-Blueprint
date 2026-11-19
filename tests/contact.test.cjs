@@ -25,6 +25,7 @@ function route(env = {}, transport = async () => { throw Error('unexpected trans
     },
     process: { env },
     AbortSignal,
+    URL,
     console: { error: (...args) => logs.push(args), info: (...args) => logs.push(args) },
     fetch: async (url, options) => {
       calls.push({ url, options });
@@ -133,4 +134,50 @@ test('honeypot continues to return success without recording or sending', async 
   assert.equal((await r.submit({ ...valid, company_website: 'bot' })).status, 200);
   assert.equal(r.calls.length, 0);
   assert.equal(r.logs.length, 0);
+});
+
+
+test('insecure or malformed webhook configuration never transmits lead data', async () => {
+  for (const url of [
+    'http://receiver.example.test', 'not a URL',
+    'https://user:password@receiver.example.test', 'https://receiver.example.test/#secret',
+    'file:///tmp/leads',
+  ]) {
+    const r = route({ CONTACT_WEBHOOK_URL: url });
+    assert.equal((await r.submit()).status, 503);
+    assert.equal(r.calls.length, 0);
+    assert.ok(!JSON.stringify(r.logs).includes(url));
+    assert.ok(!JSON.stringify(r.logs).includes(valid.email));
+  }
+});
+
+test('authenticated webhook sends the optional credential only in the header', async () => {
+  const r = route({
+    CONTACT_WEBHOOK_URL: 'https://receiver.example.test/intake',
+    CONTACT_WEBHOOK_TOKEN: 'test-private-token',
+  }, async () => Response.json({ accepted: true, receiptId: 'persisted-1' }));
+  assert.equal((await r.submit()).status, 200);
+  assert.equal(r.calls.length, 1);
+  assert.equal(r.calls[0].options.headers.Authorization, 'Bearer test-private-token');
+  assert.ok(!r.calls[0].url.includes('test-private-token'));
+  assert.ok(!r.calls[0].options.body.includes('test-private-token'));
+  assert.ok(!JSON.stringify(r.logs).includes('test-private-token'));
+});
+
+test('webhook auth rejection fails closed without credential or payload logs', async () => {
+  const r = route({
+    CONTACT_WEBHOOK_URL: 'https://receiver.example.test/intake',
+    CONTACT_WEBHOOK_TOKEN: 'test-private-token',
+  }, async () => new Response('test-private-token', { status: 401 }));
+  assert.equal((await r.submit()).status, 503);
+  assert.equal(r.calls.length, 1);
+  assert.ok(!JSON.stringify(r.logs).includes('test-private-token'));
+});
+
+test('invalid webhook cannot undo accepted team email', async () => {
+  const r = route({ ...emailEnv, CONTACT_WEBHOOK_URL: 'http://receiver.example.test' },
+    async () => Response.json({ id: 'stored' }));
+  assert.equal((await r.submit()).status, 200);
+  assert.equal(r.calls.length, 2);
+  assert.ok(r.calls.every(c => c.url === 'https://api.resend.com/emails'));
 });

@@ -16,6 +16,7 @@ const services = [
   "Reliability, Operations & BCDR",
   "IMAC & Managed Technology Services",
   "Not sure yet",
+  "Data, Analytics & AI",
 ];
 
 const budgets = [
@@ -51,7 +52,7 @@ const inputClass =
 
 const labelClass = "block text-sm font-medium text-navy-800";
 
-export function ContactForm({ t }: { t: Messages["form"] }) {
+export function ContactForm({ t, initialService = "", serviceLabels = {} }: { t: Messages["form"]; initialService?: string; serviceLabels?: Record<string, string> }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string>("");
 
@@ -104,7 +105,6 @@ export function ContactForm({ t }: { t: Messages["form"] }) {
     <form
       onSubmit={handleSubmit}
       className="rounded-2xl border border-navy-100 bg-white p-6 shadow-sm sm:p-8"
-      noValidate
     >
       {/* Honeypot field (hidden from users, visible to bots). */}
       <div className="hidden" aria-hidden="true">
@@ -152,10 +152,10 @@ export function ContactForm({ t }: { t: Messages["form"] }) {
           <label htmlFor="service" className={labelClass}>
             {t.serviceNeeded}
           </label>
-          <select id="service" name="service" className={inputClass} defaultValue="">
+          <select id="service" name="service" className={inputClass} defaultValue={services.includes(initialService) ? initialService : ""}>
             <option value="" disabled>{t.select}</option>
             {services.map((s, i) => (
-              <option key={s} value={s}>{t.services[i] ?? s}</option>
+              <option key={s} value={s}>{serviceLabels[s] ?? t.services[i] ?? s}</option>
             ))}
           </select>
         </div>
@@ -198,7 +198,7 @@ export function ContactForm({ t }: { t: Messages["form"] }) {
       </div>
 
       {status === "error" && (
-        <p className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
+        <p role="alert" className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
           {error}
         </p>
       )}

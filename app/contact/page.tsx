@@ -1,3 +1,5 @@
+import { getService } from "@/lib/content/services";
+import { localizedServices } from "@/lib/content/i18n";
 import { getLocale as readActiveLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
@@ -15,7 +17,9 @@ export const metadata: Metadata = {
     "Tell us about your goals and systems. Book a consultation, request an assessment, or ask about managed services.",
 };
 
-export default async function ContactPage() {
+export default async function ContactPage({ searchParams }: { searchParams: Promise<{ service?: string | string[] }> }) {
+  const { service } = await searchParams;
+  const selected = typeof service === "string" ? getService(service)?.title ?? "" : "";
   const activeLocale = await readActiveLocale();
   const m = getMessages(activeLocale);
   const t = m.pages.contact;
@@ -27,7 +31,7 @@ export default async function ContactPage() {
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
-            <ContactForm t={m.form} />
+            <ContactForm t={m.form} initialService={selected} serviceLabels={Object.fromEntries(localizedServices(activeLocale).map(s => [getService(s.slug)?.title ?? s.title, s.title]))} />
           </div>
 
           <aside className="space-y-8">

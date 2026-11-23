@@ -1,7 +1,8 @@
 {
   "git": {
     "deploymentEnabled": {
-      "codex/contact-intake-safety-20261105": false
+      "codex/contact-intake-safety-20261105": false,
+      "fix/bnb-secure-intake-20261119": false
     }
   }
 }

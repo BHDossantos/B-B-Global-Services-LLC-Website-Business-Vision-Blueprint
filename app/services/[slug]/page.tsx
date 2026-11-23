@@ -74,7 +74,7 @@ export default async function ServicePillarPage({
         <Button href={siteConfig.bookingUrl} external>
           {m.cta.bookConsultation}
         </Button>
-        <Button href="/contact" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
+        <Button href={`/contact?service=${encodeURIComponent(service.slug)}`} variant="ghost" className="border-white/25 text-white hover:bg-white/10">
           {m.common.requestProposal}
         </Button>
       </PageHeader>
@@ -118,7 +118,7 @@ export default async function ServicePillarPage({
                 {m.cta.talkToTeam} <Icon name="arrow" className="h-4 w-4" />
               </Button>
               <Link
-                href="/contact"
+                href={`/contact?service=${encodeURIComponent(service.slug)}`}
                 className="mt-3 inline-flex w-full items-center justify-center text-sm font-semibold text-accent-600 hover:text-accent-700"
               >
                 {m.common.requestCustomQuote}

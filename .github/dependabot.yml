@@ -1,0 +1,29 @@
+# Weekly grouped dependency updates: one PR per ecosystem per week instead of
+# a pile of single-package PRs. Security updates still arrive on their own.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    ignore:
+      # eslint-config-next 15+ needs ESLint 9 and a flat config; this repo is on
+      # ESLint 8 with .eslintrc. Move both together as a deliberate change.
+      - dependency-name: eslint-config-next
+        update-types: ["version-update:semver-major"]
+      - dependency-name: eslint
+        update-types: ["version-update:semver-major"]
+    groups:
+      npm-minor-patch:
+        update-types: ["minor", "patch"]
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      github-actions-minor-patch:
+        update-types: ["minor", "patch"]

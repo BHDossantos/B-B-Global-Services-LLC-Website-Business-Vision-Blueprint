@@ -40,7 +40,7 @@ export async function CTABanner({
               <Button href={siteConfig.bookingUrl} external>
                 {finalButton} <Icon name="arrow" className="h-4 w-4" />
               </Button>
-              <Button href="/contact" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
+              <Button href="/assessment" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
                 {m.cta.requestAssessment}
               </Button>
             </div>

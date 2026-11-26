@@ -82,7 +82,7 @@ export function Comparison() {
                     {c}
                     {i === 1 && (
                       <span className="ml-2 rounded-full bg-accent-500 px-2 py-0.5 text-[10px] font-semibold text-white">
-                        YOU ARE HERE
+                        RECOMMENDED
                       </span>
                     )}
                   </th>

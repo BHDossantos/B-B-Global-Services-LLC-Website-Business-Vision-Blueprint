@@ -2,7 +2,7 @@
   "name": "bb-global-services-website",
   "version": "1.0.0",
   "private": true,
-  "description": "B&B Global Services LLC — Technology Delivery From Idea to Operations",
+  "description": "B&B Global Services LLC \u2014 Technology Delivery From Idea to Operations",
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack",
@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "qa": "node scripts/qa-crawl.mjs",
     "outreach": "node scripts/outreach/outreach.mjs",
-    "test": "node --test tests/*.test.cjs"
+    "test": "node --test tests/*.test.cjs",
+    "agent": "node scripts/business-agent.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

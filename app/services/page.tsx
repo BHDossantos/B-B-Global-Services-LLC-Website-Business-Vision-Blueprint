@@ -28,7 +28,7 @@ export default async function ServicesPage() {
         <Button href={siteConfig.bookingUrl} external>
           {m.cta.bookConsultation}
         </Button>
-        <Button href="/contact" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
+        <Button href="/assessment" variant="ghost" className="border-white/25 text-white hover:bg-white/10">
           {m.cta.requestAssessment}
         </Button>
       </PageHeader>

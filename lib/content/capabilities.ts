@@ -1,3 +1,5 @@
+import { services } from "./services";
+
 // Real technologies and platforms B&B works with — credible signal for
 // technical buyers. Grouped by discipline. (No fabricated client logos.)
 
@@ -35,7 +37,7 @@ export const techStack: { category: string; tools: string[] }[] = [
 // Capability-based proof points (not client metrics) — honest credibility.
 export const capabilityStats = [
   { value: "8", label: "Lifecycle phases, idea to operations" },
-  { value: "6", label: "Disciplines under one partner" },
+  { value: String(services.length), label: "Disciplines under one partner" },
   { value: "3", label: "Major clouds (AWS · Azure · GCP)" },
   { value: "24/7", label: "Follow-the-sun delivery model" },
 ];

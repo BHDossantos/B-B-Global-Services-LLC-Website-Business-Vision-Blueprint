@@ -136,7 +136,7 @@ export const assessmentTiers: AssessmentTier[] = [
     headline: "There are urgent gaps worth addressing now.",
     summary:
       "Several foundational areas — likely security, recovery, or delivery — leave the business exposed. The fastest path forward is a focused assessment to prioritize the highest-risk gaps and a 90-day plan to close them.",
-    recommendedOffer: "Technology Health Check",
+    recommendedOffer: "5-day Cloud Cost and Reliability Check (€750)",
   },
   {
     min: 10,
@@ -145,7 +145,7 @@ export const assessmentTiers: AssessmentTier[] = [
     headline: "Solid in places, with clear room to mature.",
     summary:
       "You have building blocks in place but inconsistent execution across delivery, cloud, security, or operations. A targeted roadmap will help you standardize, automate, and reduce risk where it matters most.",
-    recommendedOffer: "Technology Health Check",
+    recommendedOffer: "5-day Cloud Cost and Reliability Check (€750)",
   },
   {
     min: 17,

@@ -191,6 +191,27 @@ export const es: Widen<Messages> = {
       description:
         "Cada proyecto se dimensiona según tu entorno, tus objetivos y tu presupuesto. En lugar de tarifas genéricas iguales para todos, te damos una propuesta clara y personalizada tras una breve conversación. La mayoría de los clientes comienzan con una evaluación enfocada y luego avanzan hacia la implementación y los servicios gestionados continuos.",
       takeHealthCheck: "Realiza el Diagnóstico Gratuito",
+      check: {
+        eyebrow: "Empieza aquí",
+        title: "Revisión de 5 días de costes cloud y fiabilidad",
+        price: "€750",
+        priceNote: "Precio fijo, facturado antes de empezar",
+        body: "Revisamos tu factura cloud, la fiabilidad y el pipeline de entrega, y te entregamos las tres fugas principales ordenadas por impacto en euros, con un plan de precio fijo para corregirlas.",
+        deliverables: [
+          "Riesgos clasificados como altos o medios en coste, fiabilidad, seguridad y entrega",
+          "Una estimación en euros de cada fuga encontrada",
+          "Un plan de corrección de precio fijo que es tuyo, lo ejecute quien lo ejecute",
+          "Una llamada de 30 minutos con Bruno para presentar los resultados",
+        ],
+        credit: "Los €750 se descuentan íntegramente si continúas con el Sprint de Fiabilidad en Producción.",
+        cta: "Reserva una llamada de 20 minutos",
+        ladderTitle: "Cómo crece la colaboración",
+        ladder: [
+          { name: "Revisión de costes cloud y fiabilidad", detail: "€750 · 5 días" },
+          { name: "Sprint de Fiabilidad en Producción", detail: "€4.500 · 5 días, la mitad a la firma" },
+          { name: "Operaciones gestionadas", detail: "Mensual, presupuesto tras el sprint" },
+        ],
+      },
       startEyebrow: "Empieza Aquí",
       startTitle: "Tres Formas Sencillas de Comenzar",
       startBody:

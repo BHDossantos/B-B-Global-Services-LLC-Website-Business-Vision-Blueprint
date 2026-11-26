@@ -186,6 +186,27 @@ export const pt: Widen<Messages> = {
       description:
         "Cada engajamento tem escopo definido de acordo com o seu ambiente, seus objetivos e seu orçamento. Em vez de tabelas de preço padronizadas, entregamos uma proposta clara e personalizada após uma breve conversa. A maioria dos clientes começa com uma avaliação focada e depois expande para implementação e serviços gerenciados contínuos.",
       takeHealthCheck: "Faça o Diagnóstico Gratuito",
+      check: {
+        eyebrow: "Comece aqui",
+        title: "Avaliação de 5 dias de custos de nuvem e confiabilidade",
+        price: "€750",
+        priceNote: "Preço fixo, faturado antes de começarmos",
+        body: "Analisamos sua conta de nuvem, a confiabilidade e o pipeline de entrega, e entregamos os três principais vazamentos ordenados por impacto em euros, com um plano de preço fixo para corrigi-los.",
+        deliverables: [
+          "Riscos classificados como altos ou médios em custo, confiabilidade, segurança e entrega",
+          "Uma estimativa em euros para cada vazamento encontrado",
+          "Um plano de correção de preço fixo que é seu, seja quem for executá-lo",
+          "Uma reunião de 30 minutos com Bruno para apresentar os resultados",
+        ],
+        credit: "Os €750 são abatidos integralmente se você seguir para o Sprint de Confiabilidade em Produção.",
+        cta: "Agende uma conversa de 20 minutos",
+        ladderTitle: "Como o trabalho evolui",
+        ladder: [
+          { name: "Avaliação de custos de nuvem e confiabilidade", detail: "€750 · 5 dias" },
+          { name: "Sprint de Confiabilidade em Produção", detail: "€4.500 · 5 dias, metade na assinatura" },
+          { name: "Operações gerenciadas", detail: "Mensal, orçado após o sprint" },
+        ],
+      },
       startEyebrow: "Comece Por Aqui",
       startTitle: "Três Formas Fáceis de Começar",
       startBody:

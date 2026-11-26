@@ -18,6 +18,7 @@ most common rejection reason.
 | `index.html` | Quote request form: Name, Email, Phone (all required) + the carrier-verified consent disclosure directly above the submit button, with Privacy and Terms links below. |
 | `privacy.html` | Privacy policy, including the SMS/Text Messaging section carriers check for verbatim. |
 | `terms.html` | Terms & conditions, including Messaging Terms (message types, frequency, rates, STOP/HELP, carrier non-liability). |
+| `contractors.html` | Contractor quote form: trade, state, cover needed, crew size, revenue band, subcontractors, renewal date and "certificate of insurance needed by", with the same consent disclosure above the submit button. Posts to the same `api/quote.js`. |
 | `api/quote.js` | Serverless function: emails each submission to you via Resend and records the consent text + timestamp as proof of express written consent. |
 
 No build step and no dependencies. Vercel serves the HTML statically and runs

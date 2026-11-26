@@ -6,8 +6,24 @@
 //   RESEND_API_KEY   - Resend API key
 //   QUOTE_TO_EMAIL   - where leads land (never rendered on the site)
 //   QUOTE_FROM_EMAIL - e.g. "Thrust Insurance <b@dossantosinsurance.org>"
+// Optional:
+//   SEND_REQUESTER_CONFIRMATION - "1" to also email the person who asked a short
+//     "we got your request" note. Off by default: send yourself a test request
+//     and read the note before switching it on.
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+// Short free-text fields from the contractor form, capped so a bad actor
+// can't stuff the lead email.
+function field(v, max = 120) {
+  return String(v || "").trim().slice(0, max);
+}
+
+function isoDate(v) {
+  const s = field(v, 10);
+  return DATE_RE.test(s) ? s : "";
+}
 
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({
@@ -40,6 +56,20 @@ export default async function handler(req, res) {
     phone,
     quoteType: (data.quoteType || "").trim(),
     message: (data.message || "").trim(),
+    // Contractor form (contractors.html); empty for the general form.
+    business: field(data.business),
+    trade: field(data.trade),
+    state: field(data.state),
+    coverage: (Array.isArray(data.coverage) ? data.coverage : [data.coverage])
+      .map((c) => field(c, 40))
+      .filter(Boolean)
+      .slice(0, 6)
+      .join(", "),
+    employees: field(data.employees, 40),
+    revenue: field(data.revenue, 40),
+    subcontractors: field(data.subcontractors, 10),
+    renewalDate: isoDate(data.renewalDate),
+    coiNeededBy: isoDate(data.coiNeededBy),
     smsConsent: data.smsConsent === true,
     consentText: (data.consentText || "").trim(),
     submittedAt: new Date().toISOString(),
@@ -67,6 +97,15 @@ export default async function handler(req, res) {
     ["Email", lead.email],
     ["Phone", lead.phone],
     ["Quote type", lead.quoteType],
+    ["COI needed by", lead.coiNeededBy],
+    ["Business", lead.business],
+    ["Trade", lead.trade],
+    ["State", lead.state],
+    ["Cover needed", lead.coverage],
+    ["People on payroll", lead.employees],
+    ["Yearly revenue", lead.revenue],
+    ["Subcontractors", lead.subcontractors],
+    ["Current policy renews", lead.renewalDate],
     ["SMS/calls consent", lead.smsConsent ? `YES — agreed ${lead.submittedAt}` : "no"],
     ["IP", lead.ip],
   ]
@@ -96,7 +135,9 @@ export default async function handler(req, res) {
         from,
         to: to.split(",").map((e) => e.trim()),
         reply_to: lead.email,
-        subject: `New insurance quote request — ${lead.name}`,
+        subject: lead.coiNeededBy
+          ? `COI needed by ${lead.coiNeededBy} — ${lead.trade || "contractor"} quote request — ${lead.name}`
+          : `New insurance quote request — ${lead.name}`,
         html,
       }),
     });
@@ -104,6 +145,34 @@ export default async function handler(req, res) {
   } catch (err) {
     // Log the full lead so nothing is lost if delivery fails.
     console.error("Quote email failed:", err, lead);
+  }
+
+  if (process.env.SEND_REQUESTER_CONFIRMATION === "1") {
+    const first = escapeHtml(lead.name.split(/\s+/)[0] || lead.name);
+    const confirmation = `
+    <div style="font-family:Arial,Helvetica,sans-serif;max-width:600px;font-size:15px;color:#1f2330">
+      <p>Hi ${first},</p>
+      <p>Thanks for your quote request with Thrust Insurance. Bruno Dossantos, a licensed insurance agent, will call or text you to go over your options.</p>
+      ${lead.coiNeededBy ? `<p>You told us you need a certificate of insurance by ${escapeHtml(lead.coiNeededBy)}. We'll plan around that date. A certificate can only be issued once a policy is in force.</p>` : ""}
+      <p>If anything changes, just reply to this email.</p>
+      <p>Thrust Insurance</p>
+    </div>`;
+    try {
+      const r = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from,
+          to: [lead.email],
+          subject: "We got your insurance quote request",
+          html: confirmation,
+        }),
+      });
+      if (!r.ok) throw new Error(`Resend ${r.status}: ${await r.text()}`);
+    } catch (err) {
+      // The lead itself was already handled above; only the courtesy note failed.
+      console.error("Requester confirmation failed:", err);
+    }
   }
 
   return res.status(200).json({ ok: true });

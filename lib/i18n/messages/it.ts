@@ -186,6 +186,27 @@ export const it: Widen<Messages> = {
       description:
         "Ogni progetto è dimensionato sul tuo ambiente, sui tuoi obiettivi e sul tuo budget. Invece di prezzi standard uguali per tutti, ti forniamo una proposta chiara e personalizzata dopo una breve conversazione. La maggior parte dei clienti inizia con un assessment mirato, per poi estendere il lavoro all'implementazione e ai managed services continuativi.",
       takeHealthCheck: "Fai il check-up gratuito",
+      check: {
+        eyebrow: "Inizia da qui",
+        title: "Check di 5 giorni su costi cloud e affidabilità",
+        price: "€750",
+        priceNote: "Prezzo fisso, fatturato prima di iniziare",
+        body: "Analizziamo la tua spesa cloud, l'affidabilità e la pipeline di rilascio, poi ti consegniamo le tre perdite principali ordinate per impatto in euro, con un piano a prezzo fisso per risolverle.",
+        deliverables: [
+          "Rischi classificati alti o medi su costi, affidabilità, sicurezza e rilascio",
+          "Una stima in euro per ogni perdita trovata",
+          "Un piano di intervento a prezzo fisso che resta tuo, chiunque lo realizzi",
+          "Una call di 30 minuti con Bruno per discutere i risultati",
+        ],
+        credit: "I €750 vengono scalati per intero se prosegui con lo Sprint di affidabilità in produzione.",
+        cta: "Prenota una call di 20 minuti",
+        ladderTitle: "Come cresce la collaborazione",
+        ladder: [
+          { name: "Check costi cloud e affidabilità", detail: "€750 · 5 giorni" },
+          { name: "Sprint di affidabilità in produzione", detail: "€4.500 · 5 giorni, metà alla firma" },
+          { name: "Gestione operativa", detail: "Mensile, preventivo dopo lo sprint" },
+        ],
+      },
       startEyebrow: "Inizia da qui",
       startTitle: "Tre modi semplici per iniziare",
       startBody:

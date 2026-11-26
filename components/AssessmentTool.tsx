@@ -284,18 +284,29 @@ export function AssessmentTool() {
         </ul>
       </div>
 
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-8 rounded-xl bg-accent-50 p-5">
+        <p className="text-sm font-semibold uppercase tracking-wider text-accent-700">Recommended next step</p>
+        <p className="mt-2 text-base font-semibold text-navy-900">{tier.recommendedOffer}</p>
+        {tier.recommendedOffer.includes("€750") && (
+        <p className="mt-1 text-sm text-navy-600">
+          The fixed-fee 5-day check looks first at the weakest areas above and gives you a euro estimate for each
+          leak. Its €750 is credited in full if you go on to the €4,500 Production Reliability Sprint.
+        </p>
+        )}
+      </div>
+
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <Link
           href={siteConfig.bookingUrl}
           className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-white transition hover:bg-accent-600"
         >
-          Book a Consultation <Icon name="arrow" className="h-4 w-4" />
+          Book a 20-minute call <Icon name="arrow" className="h-4 w-4" />
         </Link>
         <Link
-          href="/contact"
+          href="/pricing"
           className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-navy-200 px-6 py-3 text-base font-semibold text-navy-800 transition hover:border-navy-400 hover:bg-navy-50"
         >
-          Request the {tier.recommendedOffer}
+          See what the check includes
         </Link>
       </div>
     </div>

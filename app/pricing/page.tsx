@@ -10,9 +10,9 @@ import { localizedServices, localizedSiteContent } from "@/lib/content/i18n";
 import { getMessages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Engagements & Pricing — Custom Quotes Built Around Your Goals",
+  title: "Engagements & Pricing — Start With a €750 Cloud Cost and Reliability Check",
   description:
-    "Every B&B Global Services engagement is scoped to your environment, goals, and budget. Talk to our team for a tailored proposal across assessments, projects, and managed services.",
+    "Start with a fixed-fee 5-day Cloud Cost and Reliability Check for €750, credited in full to the €4,500 Production Reliability Sprint. Larger projects and managed services are quoted to fit.",
 };
 
 // The flagship packaged ways to start, with the first featured.
@@ -40,8 +40,51 @@ export default async function PricingPage() {
         </Button>
       </PageHeader>
 
-      {/* Ways to start */}
+      {/* The fixed-price check: the one priced way in */}
       <Section>
+        <div className="mx-auto grid max-w-5xl gap-8 rounded-2xl border border-accent-400 bg-navy-950 p-8 text-white shadow-sm ring-1 ring-accent-400 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-accent-300">{t.check.eyebrow}</p>
+            <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">{t.check.title}</h2>
+            <p className="mt-4 flex items-baseline gap-3">
+              <span className="text-4xl font-bold text-white">{t.check.price}</span>
+              <span className="text-sm text-navy-200">{t.check.priceNote}</span>
+            </p>
+            <p className="mt-4 text-navy-100">{t.check.body}</p>
+            <ul className="mt-6 space-y-2.5">
+              {t.check.deliverables.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm">
+                  <Icon name="check" className="mt-0.5 h-4 w-4 flex-none text-accent-300" />
+                  <span className="text-navy-100">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm font-semibold text-accent-300">{t.check.credit}</p>
+            <Button href={siteConfig.bookingUrl} external className="mt-6">
+              {t.check.cta}
+            </Button>
+          </div>
+          <div className="rounded-xl bg-white/5 p-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-navy-200">{t.check.ladderTitle}</h3>
+            <ol className="mt-4 space-y-4">
+              {t.check.ladder.map((step, i) => (
+                <li key={step.name} className="flex gap-3">
+                  <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-accent-500 text-sm font-semibold text-white">
+                    {i + 1}
+                  </span>
+                  <span>
+                    <span className="block text-sm font-semibold text-white">{step.name}</span>
+                    <span className="block text-sm text-navy-200">{step.detail}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </Section>
+
+      {/* Ways to start */}
+      <Section muted>
         <SectionHeading
           align="center"
           eyebrow={t.startEyebrow}
@@ -98,7 +141,7 @@ export default async function PricingPage() {
       </Section>
 
       {/* How we price */}
-      <Section muted>
+      <Section>
         <SectionHeading
           eyebrow={t.howEyebrow}
           title={t.howTitle}
@@ -118,7 +161,7 @@ export default async function PricingPage() {
       </Section>
 
       {/* Services list (no prices) */}
-      <Section>
+      <Section muted>
         <SectionHeading
           eyebrow={t.deliverEyebrow}
           title={t.deliverTitle}

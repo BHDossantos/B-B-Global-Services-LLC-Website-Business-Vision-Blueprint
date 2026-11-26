@@ -182,7 +182,28 @@ export const en = {
       description:
         "Every engagement is scoped to your environment, goals, and budget. Rather than one-size-fits-all price tags, we give you a clear, custom proposal after a short conversation. Most clients start with a focused assessment, then expand into implementation and ongoing managed services.",
       takeHealthCheck: "Take the Free Health Check",
-      startEyebrow: "Start Here",
+      check: {
+        eyebrow: "Start here",
+        title: "5-day Cloud Cost and Reliability Check",
+        price: "€750",
+        priceNote: "Fixed fee, invoiced before we start",
+        body: "We review your cloud bill, reliability and delivery pipeline, then hand you the top three leaks ranked by euro impact, with a fixed-price plan to fix them.",
+        deliverables: [
+          "Risks ranked high or medium across cost, reliability, security and delivery",
+          "A euro estimate for each leak we find",
+          "A fixed-price fix plan you keep, whoever builds it",
+          "A 30-minute readout call with Bruno",
+        ],
+        credit: "The €750 is credited in full if you go on to the Production Reliability Sprint.",
+        cta: "Book a 20-minute call",
+        ladderTitle: "How engagements grow",
+        ladder: [
+          { name: "Cloud Cost and Reliability Check", detail: "€750 · 5 days" },
+          { name: "Production Reliability Sprint", detail: "€4,500 · 5 days, half on signature" },
+          { name: "Managed operations", detail: "Monthly, quoted after the sprint" },
+        ],
+      },
+      startEyebrow: "More Ways to Start",
       startTitle: "Three Easy Ways to Engage",
       startBody:
         "Low-risk entry points designed to deliver value fast and expand naturally. Each is scoped and quoted to fit your situation.",
